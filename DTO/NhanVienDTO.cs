@@ -8,6 +8,16 @@ namespace DTO
 {
     public class NhanVienDTO
     {
+        public NhanVienDTO()
+        {
+
+        }
+
+        public NhanVienDTO(string hoTen, string matKhau)
+        {
+            HoTen = MatKhau = string.Empty;
+        }
+
         private int maNV;
         private string hoTen;
         private string matKhau;

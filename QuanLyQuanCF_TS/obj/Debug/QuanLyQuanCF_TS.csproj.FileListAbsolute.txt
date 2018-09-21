@@ -1,0 +1,17 @@
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.csprojAssemblyReference.cache
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.FrmDangNhap.resources
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.Properties.Resources.resources
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.csproj.GenerateResource.cache
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.csproj.CoreCompileInputs.cache
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\QuanLyQuanCF_TS.exe.config
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\QuanLyQuanCF_TS.exe
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\QuanLyQuanCF_TS.pdb
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\BUS.dll
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\DTO.dll
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\DAO.dll
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\BUS.pdb
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\DTO.pdb
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\bin\Debug\DAO.pdb
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.csproj.CopyComplete
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.exe
+D:\Documents\LTWNC\QuanLyQuanCF_TS\QuanLyQuanCF_TS\obj\Debug\QuanLyQuanCF_TS.pdb
