@@ -103,6 +103,13 @@ create table CongThuc
 	constraint FK_CongThuc_Mon foreign key (mamon) references Mon(mamon)
 )
 
+create table LoaiHoaDonBan
+(
+	maloaihoadon int identity,
+	tenloaihoadon nvarchar(max),
+	constraint PK_LoaiHoaDonBan primary key (maloaihoadon)
+)
+
 create table HoaDonBan
 (
 	mahoadon int identity,
@@ -110,9 +117,11 @@ create table HoaDonBan
 	ngaylap datetime,
 	voucher varchar(7),
 	tongtien float,
+	loaihoadon int,
 	constraint PK_HoaDonBan primary key (mahoadon),
 	constraint FK_HoaDonBan_Voucher foreign key (voucher) references Voucher(mavoucher),
-	constraint FK_HoaDonBan_NhanVien foreign key (nhanvienlap) references NhanVien(manv)
+	constraint FK_HoaDonBan_NhanVien foreign key (nhanvienlap) references NhanVien(manv),
+	constraint FK_HoaDonBan_LoaiHoaDon foreign key (loaihoadon) references LoaiHoaDonBan(maloaihoadon)
 )
 
 create table HoaDonNhap
