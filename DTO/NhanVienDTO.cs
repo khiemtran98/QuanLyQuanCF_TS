@@ -22,7 +22,7 @@ namespace DTO
         private string hoTen;
         private string matKhau;
         private DateTime ngaySinh;
-        private int Phai;
+        private int phai;
         private string sDT;
         private DateTime ngayBatDau;
         private string diaChi;
@@ -33,7 +33,7 @@ namespace DTO
         public string HoTen { get => hoTen; set => hoTen = value; }
         public string MatKhau { get => matKhau; set => matKhau = value; }
         public DateTime NgaySinh { get => ngaySinh; set => ngaySinh = value; }
-        public int Phai1 { get => Phai; set => Phai = value; }
+        public int Phai { get => phai; set => phai = value; }
         public string SDT { get => sDT; set => sDT = value; }
         public DateTime NgayBatDau { get => ngayBatDau; set => ngayBatDau = value; }
         public string DiaChi { get => diaChi; set => diaChi = value; }

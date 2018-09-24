@@ -33,10 +33,35 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
+        }
+
+        private void dangNhap()
+        {
+            if (txtMatKhau.Text == string.Empty)
+            {
+                MessageBox.Show("Vui lòng nhập mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+
+            if (NhanVienBUS.DangNhap((int)cboNhanVien.SelectedValue, txtMatKhau.Text))
+            {
+                ((FrmMain)this.ParentForm).xuLyDangNhapThanhCong((int)cboNhanVien.SelectedValue);
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Sai mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
+        }
+
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
             this.FormBorderStyle = FormBorderStyle.None;
             this.MaximizeBox = this.MinimizeBox = false;
+            this.WindowState = FormWindowState.Maximized;
 
             cboNhanVien.DataSource = NhanVienBUS.layDanhSachNhanVien();
             cboNhanVien.DisplayMember = "HoTen";
@@ -55,29 +80,6 @@ namespace QuanLyQuanCF_TS
             if (e.KeyChar == (char)Keys.Enter)
             {
                 dangNhap();
-            }
-        }
-
-        private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _Instance = null;
-        }
-
-        private void dangNhap()
-        {
-            if (txtMatKhau.Text == string.Empty)
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-            
-            if (NhanVienBUS.DangNhap((int)cboNhanVien.SelectedValue, txtMatKhau.Text))
-            {
-                ((FrmMain)this.ParentForm).xuLyDangNhapThanhCong(cboNhanVien.SelectedValue.ToString());
-                this.Close();
-            }
-            else {
-                MessageBox.Show("Sai mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
     }
