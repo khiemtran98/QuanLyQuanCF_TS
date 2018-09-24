@@ -35,9 +35,9 @@ namespace QuanLyQuanCF_TS
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            this.Text = "Phần mềm quản lý quán cà phê - trà sữa";
-            this.WindowState = FormWindowState.Maximized;
-            
+            this.FormBorderStyle = FormBorderStyle.None;
+            this.MaximizeBox = this.MinimizeBox = false;
+
             cboNhanVien.DataSource = NhanVienBUS.layDanhSachNhanVien();
             cboNhanVien.DisplayMember = "HoTen";
             cboNhanVien.ValueMember = "MaNV";
@@ -47,14 +47,14 @@ namespace QuanLyQuanCF_TS
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            DangNhap();
+            dangNhap();
         }
 
         private void txtMatKhau_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                DangNhap();
+                dangNhap();
             }
         }
 
@@ -63,7 +63,7 @@ namespace QuanLyQuanCF_TS
             _Instance = null;
         }
 
-        private void DangNhap()
+        private void dangNhap()
         {
             if (txtMatKhau.Text == string.Empty)
             {
@@ -73,7 +73,8 @@ namespace QuanLyQuanCF_TS
             
             if (NhanVienBUS.DangNhap((int)cboNhanVien.SelectedValue, txtMatKhau.Text))
             {
-                MessageBox.Show("Đăng nhập thành công");
+                ((FrmMain)this.ParentForm).xuLyDangNhapThanhCong(cboNhanVien.SelectedValue.ToString());
+                this.Close();
             }
             else {
                 MessageBox.Show("Sai mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);

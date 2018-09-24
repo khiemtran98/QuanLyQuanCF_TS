@@ -14,7 +14,7 @@ namespace DAO
         {
             List<NhanVienDTO> result = new List<NhanVienDTO>();
 
-            string connectionString = "";
+            string connectionString = @"Data Source=DESKTOP-TQR1S60\SQLEXPRESS;Initial Catalog=QuanLyQuanCF_TS;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
 
             string query = "SELECT manv, hoten FROM NhanVien";
@@ -45,7 +45,7 @@ namespace DAO
         {
             bool result = false;
 
-            string connectionString = "";
+            string connectionString = @"Data Source=DESKTOP-TQR1S60\SQLEXPRESS;Initial Catalog=QuanLyQuanCF_TS;Integrated Security=True";
             SqlConnection connection = new SqlConnection(connectionString);
 
             SqlParameter parameter = new SqlParameter();
