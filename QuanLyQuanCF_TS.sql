@@ -11,13 +11,6 @@ create table Ca
 	constraint PK_Cashier primary key (maca)
 )
 
-create table Ban
-(
-	id int identity,
-	trangthai bit,
-	constraint PK_ban primary key (id)
-)
-
 create table NhanVien
 (
 	manv int identity,
@@ -125,12 +118,10 @@ create table HoaDonBan
 	voucher varchar(7),
 	tongtien float,
 	loaihoadon int,
-	ban int,
 	constraint PK_HoaDonBan primary key (mahoadon),
 	constraint FK_HoaDonBan_Voucher foreign key (voucher) references Voucher(mavoucher),
 	constraint FK_HoaDonBan_NhanVien foreign key (nhanvienlap) references NhanVien(manv),
-	constraint FK_HoaDonBan_LoaiHoaDon foreign key (loaihoadon) references LoaiHoaDonBan(maloaihoadon),
-	constraint FK_HoaDonBan_Ban foreign key (ban) references Ban(id)
+	constraint FK_HoaDonBan_LoaiHoaDon foreign key (loaihoadon) references LoaiHoaDonBan(maloaihoadon)
 )
 
 create table HoaDonNhap

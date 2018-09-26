@@ -101,7 +101,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Name = "FrmDangNhap";
-            this.Text = "Đăng nhập";
+            this.Text = "Form1";
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.ResumeLayout(false);

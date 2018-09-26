@@ -7,8 +7,6 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using DTO;
-using BUS;
 
 namespace QuanLyQuanCF_TS
 {
@@ -19,6 +17,14 @@ namespace QuanLyQuanCF_TS
             InitializeComponent();
         }
 
+        private void FrmMain_Load(object sender, EventArgs e)
+        {
+            this.Text = "Phần mềm quản lý quán cà phê - trà sữa";
+            this.WindowState = FormWindowState.Maximized;
+            this.IsMdiContainer = true;
+            moFormDangNhap();
+        }
+
         private void moFormDangNhap()
         {
             FrmDangNhap m_frmDangNhap = FrmDangNhap.Instance;
@@ -27,38 +33,9 @@ namespace QuanLyQuanCF_TS
             m_frmDangNhap.Show();
         }
 
-        public void xuLyDangNhapThanhCong(int maNV)
+        public void xuLyDangNhapThanhCong(string strMaNV)
         {
-            xuLyFormMain();
-            NhanVienDTO nv = NhanVienBUS.layThongTinNhanVien(maNV);
-            lblHoTen.Text = "Họ tên: " + nv.HoTen;
-            lblCa.Text = "Ca: " + nv.Ca;
-            if (!nv.LaAdmin)
-            {
-                lblCapBac.Text = "Cấp bậc: nhân viên";
-            }
-            else
-            {
-                lblCapBac.Text = "Cấp bậc: quản lý";
-            }
-        }
 
-        public void xuLyChuyenForm()
-        {
-            btnBanHang.Visible = btnDangXuat.Visible = tbcNhanVien.Visible = false;
-        }
-
-        public void xuLyFormMain()
-        {
-            btnBanHang.Visible = btnDangXuat.Visible = tbcNhanVien.Visible = true;
-        }
-
-        private void FrmMain_Load(object sender, EventArgs e)
-        {
-            this.WindowState = FormWindowState.Maximized;
-            this.IsMdiContainer = true;
-            xuLyChuyenForm();
-            moFormDangNhap();
         }
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
@@ -67,20 +44,6 @@ namespace QuanLyQuanCF_TS
             {
                 e.Cancel = true;
             }
-        }
-        
-        private void btnBanHang_Click(object sender, EventArgs e)
-        {
-            xuLyChuyenForm();
-            FrmBanHang frmBanHang = FrmBanHang.Instance;
-            frmBanHang.MdiParent = this;
-            frmBanHang.Show();
-        }
-
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-            xuLyChuyenForm();
-            moFormDangNhap();
         }
     }
 }
