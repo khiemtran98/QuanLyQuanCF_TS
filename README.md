@@ -1,8 +1,7 @@
 # Đồ án môn học lập trình Windows NC
 
-<<<<<<< HEAD
 > ## Update 1.6: Tối ưu chức năng bán hàng
-=======
+
 > ## Update 1.5: Thêm form bán hàng và cập nhật database
 >>>>>>> c64cc4cc14443495ed2cc3d109e0dd5e9daeb3e2
 
