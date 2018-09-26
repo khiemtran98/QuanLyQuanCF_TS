@@ -10,7 +10,7 @@ namespace DAO
 {
     public static class NhanVienDAO
     {
-        private static string connectionString = "";
+        private static string connectionString = @"Data Source=DESKTOP-TQR1S60\SQLEXPRESS;Initial Catalog=QuanLyQuanCF_TS;Integrated Security=True";
 
         public static List<NhanVienDTO> layDanhSachNhanVien()
         {
