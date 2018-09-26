@@ -2,9 +2,6 @@
 
 > ## Update 1.6: Tối ưu chức năng bán hàng
 
-> ## Update 1.5: Thêm form bán hàng và cập nhật database
->>>>>>> c64cc4cc14443495ed2cc3d109e0dd5e9daeb3e2
-
 ### # Các thay đổi
 
   1.	Số lượng món có thể nhập trực tiếp trong hoá đơn. Đơn giá và tổng tiền được cập nhật theo.
