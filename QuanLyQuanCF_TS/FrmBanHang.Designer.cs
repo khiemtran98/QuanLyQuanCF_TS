@@ -89,6 +89,7 @@
             this.dgvHoaDon.Size = new System.Drawing.Size(472, 366);
             this.dgvHoaDon.TabIndex = 3;
             this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
+            this.dgvHoaDon.RowsRemoved += new System.Windows.Forms.DataGridViewRowsRemovedEventHandler(this.dgvHoaDon_RowsRemoved);
             // 
             // txtTongTien
             // 

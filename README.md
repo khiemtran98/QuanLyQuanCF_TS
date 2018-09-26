@@ -1,10 +1,6 @@
 # Đồ án môn học lập trình Windows NC
 
-<<<<<<< HEAD
 > ## Update 1.6: Tối ưu chức năng bán hàng
-=======
-> ## Update 1.5: Thêm form bán hàng và cập nhật database
->>>>>>> c64cc4cc14443495ed2cc3d109e0dd5e9daeb3e2
 
 ### # Các thay đổi
 
@@ -12,7 +8,7 @@
 
   2.	Số lượng món trong hoá đơn tự động tăng khi thêm nhiều lần. Đơn giá và tổng tiền được cập nhật theo.
   
-  3.	Hoá đơn không còn thêm trùng nhiều món như trước.
+  3.	Thêm một món nhiều lần làm tăng số lượng món đó trong hoá đơn thay vì thêm trùng món như trước.
   
   3.	Xoá table 'Ban' trong database.
   

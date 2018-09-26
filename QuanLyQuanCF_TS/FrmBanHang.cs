@@ -118,7 +118,7 @@ namespace QuanLyQuanCF_TS
             txtTongTien.Text = tongTien.ToString("#,##0 VND");
         }
 
-        private void CapNhatHoaDon()
+        private void CapNhatDonGia()
         {
             DataGridViewRow row = dgvHoaDon.SelectedRows[0];
 
@@ -263,18 +263,18 @@ namespace QuanLyQuanCF_TS
 
         private void lsvCTHD_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar == (char)Keys.Space)
-            {
-                if (lsvCTHD.SelectedItems.Count == 1)
-                {
-                    MonDTO mon = (MonDTO)lsvCTHD.SelectedItems[0].Tag;
-                    ListViewItem lvi = lsvCTHD.SelectedItems[0];
-                    lsvCTHD.Items.Remove(lvi);
+            //if (e.KeyChar == (char)Keys.Space)
+            //{
+            //    if (lsvCTHD.SelectedItems.Count == 1)
+            //    {
+            //        MonDTO mon = (MonDTO)lsvCTHD.SelectedItems[0].Tag;
+            //        ListViewItem lvi = lsvCTHD.SelectedItems[0];
+            //        lsvCTHD.Items.Remove(lvi);
 
-                    //TruTienHoaDon(mon.GiaTien);
-                    TinhTienHoaDon();
-                }
-            }
+            //        //TruTienHoaDon(mon.GiaTien);
+            //        TinhTienHoaDon();
+            //    }
+            //}
         }
 
         private void dgvHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -291,7 +291,7 @@ namespace QuanLyQuanCF_TS
                 }
                 else
                 {
-                    CapNhatHoaDon();
+                    CapNhatDonGia();
                 }
             }
             catch
@@ -299,6 +299,11 @@ namespace QuanLyQuanCF_TS
                 MessageBox.Show("Số lượng không hợp lệ!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 row.Cells[1].Value = 1;
             }
+        }
+
+        private void dgvHoaDon_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
+        {
+            TinhTienHoaDon();
         }
     }
 }
