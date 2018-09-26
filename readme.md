@@ -1,22 +1,20 @@
 # Đồ án môn học lập trình Windows NC
 
-> ## Update 1.5: Thêm form đăng nhập và cập nhật database
+> ## Update 1.6: Tối ưu chức năng bán hàng
 
 ### # Các thay đổi
 
-  1.	Cho phép nhân viên đăng xuất khỏi phần mềm.
-  
-  2.	Nhân viên có thêm xem các thông tin cơ bản của mình trong phần mềm
+  1.	Số lượng món có thể nhập trực tiếp trong hoá đơn. Đơn giá và tổng tiền được cập nhật theo.
 
-  3.	Thêm chức năng bán hàng. Cho phép nhân viên chọn món để in hoá đơn và tính tiền.
-
-  4.	Bổ sung table 'Ban' trong database.
+  2.	Số lượng món trong hoá đơn tự động tăng khi thêm nhiều lần. Đơn giá và tổng tiền được cập nhật theo.
   
-  5.	Menu món được phân loại và có thể tải được hình (xem hướng dẫn ở dưới).
+  3.	Hoá đơn không còn thêm trùng nhiều món như trước.
+  
+  3.	Xoá table 'Ban' trong database.
   
 ### # Quan trọng
 
-Database được thêm bảng 'Ban' nhằm giúp quản lý các khách hàng đang ngồi bàn trong quán được thuận tiện. Hãy cập nhật lại database theo các trường hợp dưới đây.
+Database xoá bảng 'Ban' và một sô thuộc tính. Hãy cập nhật lại database theo các trường hợp dưới đây.
 
 - **Trường hợp 1: Chưa tạo database:**
 
@@ -27,18 +25,19 @@ Database được thêm bảng 'Ban' nhằm giúp quản lý các khách hàng �
   - Chạy đoạn code bên dưới trong SQL Server
 
 ```
-create table Ban
-(
-  id int identity,
-  trangthai bit,
-  constraint PK_ban primary key (id)
-)
- 
+use QuanLyQuanCF_TS
+go
+
+alter table Ca
+	drop column luong
+
 alter table HoaDonBan
-  add ban int
- 
+	drop constraint FK_HoaDonBan_Ban
+
 alter table HoaDonBan
-  add constraint FK_HoaDonBan_Ban foreign key (ban) references Ban(id)
+	drop column ban
+
+drop table Ban
 ```
 
 ### # Hướng dẫn cài đặt
@@ -57,11 +56,14 @@ alter table HoaDonBan
 
 - **Bán hàng**
 
-  - Thêm/xoá món bằng cách chọn món và nhấn phím Spacebar.
+  - Thêm món bằng cách chọn món trong menu và nhấn phím Spacebar.
+  
+  - Xoá món bằng cách chọn món trong hoá đơn và nhấn phím Del.
   
   - Quay lại màn hình chính bằng phím Esc.
 
 ---
+> ## Update 1.5: Thêm form đăng nhập và cập nhật database
 
 > ## Update 1.4: Sửa lỗi kết nối database
 	

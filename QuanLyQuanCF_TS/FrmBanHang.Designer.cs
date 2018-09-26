@@ -30,6 +30,7 @@
         {
             this.lsvMon = new System.Windows.Forms.ListView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
             this.lsvCTHD = new System.Windows.Forms.ListView();
@@ -37,6 +38,7 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.SuspendLayout();
             // 
             // lsvMon
@@ -65,6 +67,7 @@
             // 
             // splitContainer1.Panel2
             // 
+            this.splitContainer1.Panel2.Controls.Add(this.dgvHoaDon);
             this.splitContainer1.Panel2.Controls.Add(this.txtTongTien);
             this.splitContainer1.Panel2.Controls.Add(this.btnXacNhan);
             this.splitContainer1.Panel2.Controls.Add(this.lsvCTHD);
@@ -74,6 +77,18 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // dgvHoaDon
+            // 
+            this.dgvHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvHoaDon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvHoaDon.Location = new System.Drawing.Point(12, 12);
+            this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.Size = new System.Drawing.Size(472, 366);
+            this.dgvHoaDon.TabIndex = 3;
+            this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);
             // 
             // txtTongTien
             // 
@@ -126,6 +141,7 @@
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -137,5 +153,6 @@
         private System.Windows.Forms.TextBox txtTongTien;
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.ListView lsvCTHD;
+        private System.Windows.Forms.DataGridView dgvHoaDon;
     }
 }
