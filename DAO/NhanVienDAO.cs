@@ -10,6 +10,11 @@ namespace DAO
 {
     public static class NhanVienDAO
     {
+<<<<<<< HEAD
+=======
+        private static string connectionString = @"Data Source=DESKTOP-TQR1S60\SQLEXPRESS;Initial Catalog=QuanLyQuanCF_TS;Integrated Security=True";
+
+>>>>>>> parent of ee82156... sửa lỗi vặt
         public static List<NhanVienDTO> layDanhSachNhanVien()
         {
             List<NhanVienDTO> result = new List<NhanVienDTO>();
