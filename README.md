@@ -1,6 +1,6 @@
 # Đồ án môn học lập trình Windows NC
 
-> ## Update 1.5: Thêm form đăng nhập và cập nhật database
+> ## Update 1.5: Thêm form bán hàng và cập nhật database
 
 ### # Các thay đổi
 
