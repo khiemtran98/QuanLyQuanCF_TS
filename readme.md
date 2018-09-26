@@ -45,19 +45,21 @@ alter table HoaDonBan
 
   1.	Tạo database (*QuanLyQuanCF_TS.sql*).
 
-  2.	Thay đổi chuỗi kết nối database của từng class trong lớp DAO của máy đang chạy.
+  2.	Thêm chuỗi kết nối database của từng class trong lớp DAO của máy đang chạy.
 
   3.	Cập nhật dữ liệu các bảng 'NhanVien', 'LoaiMon', 'Mon', 'Ca' trong database để các chức năng của phần mềm hoạt động (tuy nhiên phần mềm vẫn có thể chạy được nếu không cập nhật đầy đủ các thuộc tính trong bảng).
 
   4.	Thêm hình ảnh vào folder 'hinh' trong bin\debug (tên hình phải trùng với mã món). **Lưu ý: dữ liệu hình trong database là tên hình ảnh + đuôi file (VD: 1.jpg).**
   
   5.	Build project.
-  
+
 ### # Hướng dẫn sử dụng
 
 - **Bán hàng**
 
-  - Thêm/xoá món bằng cách chọn món và nhấn Spacebar.
+  - Thêm/xoá món bằng cách chọn món và nhấn phím Spacebar.
+  
+  - Quay lại màn hình chính bằng phím Esc.
 
 ---
 

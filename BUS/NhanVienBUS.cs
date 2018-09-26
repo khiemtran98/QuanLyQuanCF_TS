@@ -19,5 +19,10 @@ namespace BUS
         {
             return NhanVienDAO.DangNhap(maNV, matKhau);
         }
+
+        public static NhanVienDTO layThongTinNhanVien(int maNV)
+        {
+            return NhanVienDAO.layThongTinNhanVien(maNV);
+        }
     }
 }
