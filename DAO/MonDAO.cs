@@ -10,7 +10,7 @@ namespace DAO
 {
     public static class MonDAO
     {
-        private static string connectionString = "";
+        private static string connectionString = @"Data Source=NHAILUUDAN\SQLEXPRESSSS;Initial Catalog=QuanLyQuanCF_TS;Integrated Security=True";
 
         public static List<MonDTO> layDanhSachMon()
         {
