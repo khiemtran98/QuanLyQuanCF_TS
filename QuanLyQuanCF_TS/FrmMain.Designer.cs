@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.btnBanHang = new System.Windows.Forms.Button();
+            this.btnQuanLyHoaDon = new System.Windows.Forms.Button();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.tbcNhanVien = new System.Windows.Forms.TabControl();
             this.tbpThongTin = new System.Windows.Forms.TabPage();
@@ -38,24 +38,25 @@
             this.tbpQuanLy = new System.Windows.Forms.TabPage();
             this.lblTongSoHoaDonTrongNgay = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.btnBanHang = new System.Windows.Forms.Button();
             this.tbcNhanVien.SuspendLayout();
             this.tbpThongTin.SuspendLayout();
             this.tbpQuanLy.SuspendLayout();
             this.SuspendLayout();
             // 
-            // btnBanHang
+            // btnQuanLyHoaDon
             // 
-            this.btnBanHang.BackColor = System.Drawing.Color.PaleGreen;
-            this.btnBanHang.Dock = System.Windows.Forms.DockStyle.Top;
-            this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.btnBanHang.Location = new System.Drawing.Point(0, 0);
-            this.btnBanHang.Name = "btnBanHang";
-            this.btnBanHang.Size = new System.Drawing.Size(800, 56);
-            this.btnBanHang.TabIndex = 0;
-            this.btnBanHang.Text = "Bán hàng";
-            this.btnBanHang.UseVisualStyleBackColor = false;
-            this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
+            this.btnQuanLyHoaDon.BackColor = System.Drawing.Color.DarkTurquoise;
+            this.btnQuanLyHoaDon.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnQuanLyHoaDon.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnQuanLyHoaDon.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.btnQuanLyHoaDon.Location = new System.Drawing.Point(0, 56);
+            this.btnQuanLyHoaDon.Name = "btnQuanLyHoaDon";
+            this.btnQuanLyHoaDon.Size = new System.Drawing.Size(800, 56);
+            this.btnQuanLyHoaDon.TabIndex = 0;
+            this.btnQuanLyHoaDon.Text = "Quản lý hoá đơn";
+            this.btnQuanLyHoaDon.UseVisualStyleBackColor = false;
+            this.btnQuanLyHoaDon.Click += new System.EventHandler(this.btnQuanLyHoaDon_Click);
             // 
             // btnDangXuat
             // 
@@ -63,7 +64,7 @@
             this.btnDangXuat.Dock = System.Windows.Forms.DockStyle.Top;
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnDangXuat.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
-            this.btnDangXuat.Location = new System.Drawing.Point(0, 56);
+            this.btnDangXuat.Location = new System.Drawing.Point(0, 112);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(800, 56);
             this.btnDangXuat.TabIndex = 1;
@@ -152,6 +153,20 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "Thời gian làm việc:";
             // 
+            // btnBanHang
+            // 
+            this.btnBanHang.BackColor = System.Drawing.Color.PaleGreen;
+            this.btnBanHang.Dock = System.Windows.Forms.DockStyle.Top;
+            this.btnBanHang.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
+            this.btnBanHang.Font = new System.Drawing.Font("Microsoft Sans Serif", 24.25F);
+            this.btnBanHang.Location = new System.Drawing.Point(0, 0);
+            this.btnBanHang.Name = "btnBanHang";
+            this.btnBanHang.Size = new System.Drawing.Size(800, 56);
+            this.btnBanHang.TabIndex = 3;
+            this.btnBanHang.Text = "Bán hàng";
+            this.btnBanHang.UseVisualStyleBackColor = false;
+            this.btnBanHang.Click += new System.EventHandler(this.btnBanHang_Click);
+            // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -159,6 +174,7 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tbcNhanVien);
             this.Controls.Add(this.btnDangXuat);
+            this.Controls.Add(this.btnQuanLyHoaDon);
             this.Controls.Add(this.btnBanHang);
             this.Name = "FrmMain";
             this.Text = "Phần mềm quản lý quán cà phê - trà sữa";
@@ -175,7 +191,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnBanHang;
+        private System.Windows.Forms.Button btnQuanLyHoaDon;
         private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.TabControl tbcNhanVien;
         private System.Windows.Forms.TabPage tbpThongTin;
@@ -185,5 +201,6 @@
         private System.Windows.Forms.Label lblCapBac;
         private System.Windows.Forms.Label lblTongSoHoaDonTrongNgay;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button btnBanHang;
     }
 }
