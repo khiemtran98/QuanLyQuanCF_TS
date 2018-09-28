@@ -7,7 +7,6 @@ create table Ca
 	maca int identity,
 	thoigianbatdau time,
 	thoigianketthuc time,
-	luong float,
 	constraint PK_Cashier primary key (maca)
 )
 
