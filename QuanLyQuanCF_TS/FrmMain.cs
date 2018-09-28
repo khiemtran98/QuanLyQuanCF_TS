@@ -45,12 +45,12 @@ namespace QuanLyQuanCF_TS
 
         public void xuLyChuyenForm()
         {
-            btnBanHang.Visible = btnQuanLyHoaDon.Visible = btnDangXuat.Visible = tbcNhanVien.Visible = false;
+            btnBanHang.Visible = btnDangXuat.Visible = tbcNhanVien.Visible = false;
         }
 
         public void xuLyFormMain()
         {
-            btnBanHang.Visible = btnQuanLyHoaDon.Visible = btnDangXuat.Visible = tbcNhanVien.Visible = true;
+            btnBanHang.Visible = btnDangXuat.Visible = tbcNhanVien.Visible = true;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -75,14 +75,6 @@ namespace QuanLyQuanCF_TS
             FrmBanHang frmBanHang = FrmBanHang.Instance;
             frmBanHang.MdiParent = this;
             frmBanHang.Show();
-        }
-
-        private void btnQuanLyHoaDon_Click(object sender, EventArgs e)
-        {
-            xuLyChuyenForm();
-            FrmQuanLyHoaDon frmQuanLyHoaDon = FrmQuanLyHoaDon.Instance;
-            frmQuanLyHoaDon.MdiParent = this;
-            frmQuanLyHoaDon.Show();
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
