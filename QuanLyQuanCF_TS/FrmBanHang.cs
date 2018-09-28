@@ -1,14 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BUS;
 using DTO;
-using BUS;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace QuanLyQuanCF_TS
 {
@@ -44,12 +39,16 @@ namespace QuanLyQuanCF_TS
         {
             lsvMon.Columns.Add("Tên món", 500);
             lsvMon.Columns.Add("Giá tiền", 200, HorizontalAlignment.Right);
-            lsvMon.Groups.Add(new ListViewGroup("grpCaPhe", "Cà phê"));
-            lsvMon.Groups.Add(new ListViewGroup("grpTraSua", "Trà sữa"));
+            
             lsvMon.Font = new Font("Arial", 13F);
             lsvMon.GridLines = true;
             lsvMon.FullRowSelect = lsvCTHD.FullRowSelect = true;
             lsvMon.MultiSelect = lsvCTHD.MultiSelect = false;
+            
+            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
+            {
+                lsvMon.Groups.Add(new ListViewGroup(loaiMon.MaLoaiMon.ToString(), loaiMon.TenLoaiMon));
+            }
 
             DataGridViewTextBoxColumn dgvtbcTenMon = new DataGridViewTextBoxColumn();
             dgvtbcTenMon.Name = "colTenMon";
@@ -89,7 +88,7 @@ namespace QuanLyQuanCF_TS
             //lsvCTHD.Columns.Add("Giá tiền", 100, HorizontalAlignment.Right);
         }
 
-        private void lapHoaDon()
+        private void LapHoaDon()
         {
             MessageBox.Show("Chức năng này đang được xây dựng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -166,13 +165,13 @@ namespace QuanLyQuanCF_TS
 
                 }
                 lvi.ImageIndex = i;
-                if (mon.LoaiMon == 1)
+                try
                 {
-                    lvi.Group = lsvMon.Groups["grpCaPhe"];
+                    lvi.Group = lsvMon.Groups[mon.LoaiMon.ToString()];
                 }
-                else
+                catch
                 {
-                    lvi.Group = lsvMon.Groups["grpTraSua"];
+
                 };
                 lvi.Tag = mon;
                 lsvMon.Items.Add(lvi);
@@ -197,14 +196,14 @@ namespace QuanLyQuanCF_TS
                 }
                 else
                 {
-                    lapHoaDon();
+                    LapHoaDon();
                 }
             }
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            lapHoaDon();
+            LapHoaDon();
         }
 
         private void lsvMon_KeyPress(object sender, KeyPressEventArgs e)
