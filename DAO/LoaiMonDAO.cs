@@ -10,7 +10,7 @@ namespace DAO
 {
     public static class LoaiMonDAO
     {
-        private static string connectionString = "";
+        private static string connectionString = @"";
 
         public static List<LoaiMonDTO> LayDanhSachLoaiMon()
         {
@@ -31,7 +31,14 @@ namespace DAO
                     {
                         loaiMon.MaLoaiMon = reader.GetInt32(0);
                     }
-                    loaiMon.TenLoaiMon = reader.GetString(1);
+                    try
+                    {
+                        loaiMon.TenLoaiMon = reader.GetString(1);
+                    }
+                    catch
+                    {
+
+                    }
 
                     result.Add(loaiMon);
                 }

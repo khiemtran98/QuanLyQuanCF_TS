@@ -9,13 +9,3 @@ D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csprojAssemblyReference.cac
 D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csproj.CopyComplete
 D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.dll
 D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.pdb
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\bin\Debug\BUS.dll
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\bin\Debug\BUS.pdb
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\bin\Debug\DAO.dll
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\bin\Debug\DTO.dll
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\bin\Debug\DAO.pdb
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\bin\Debug\DTO.pdb
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csprojResolveAssemblyReference.cache
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.dll
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.pdb
