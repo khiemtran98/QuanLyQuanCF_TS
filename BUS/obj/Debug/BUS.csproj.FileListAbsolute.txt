@@ -9,14 +9,3 @@ D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csprojAssemblyReference.cac
 D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csproj.CopyComplete
 D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.dll
 D:\Documents\LTWNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\bin\Debug\BUS.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\bin\Debug\BUS.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\bin\Debug\DAO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\bin\Debug\DTO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\bin\Debug\DAO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\bin\Debug\DTO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csprojAssemblyReference.cache
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csproj.CoreCompileInputs.cache
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.csproj.CopyComplete
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\BUS\obj\Debug\BUS.pdb

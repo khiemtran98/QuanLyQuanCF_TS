@@ -7,12 +7,3 @@ D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\bin\Debug\DTO.pdb
 D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csproj.CopyComplete
 D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.dll
 D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\bin\Debug\DAO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\bin\Debug\DAO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\bin\Debug\DTO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\bin\Debug\DTO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csproj.CopyComplete
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.pdb

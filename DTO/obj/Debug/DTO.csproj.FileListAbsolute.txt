@@ -4,9 +4,3 @@ D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.csprojAssemblyReference.cac
 D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.dll
 D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\DTO\bin\Debug\DTO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\DTO\bin\Debug\DTO.pdb
-Z:\Github\WinNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
-Z:\Github\WinNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
-Z:\Github\WinNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.dll
-Z:\Github\WinNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.pdb
