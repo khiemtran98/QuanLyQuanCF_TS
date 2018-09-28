@@ -44,17 +44,8 @@ namespace QuanLyQuanCF_TS
         {
             lsvMon.Columns.Add("Tên món", 500);
             lsvMon.Columns.Add("Giá tiền", 200, HorizontalAlignment.Right);
-<<<<<<< HEAD
             lsvMon.Groups.Add(new ListViewGroup("grpCaPhe", "Cà phê"));
             lsvMon.Groups.Add(new ListViewGroup("grpTraSua", "Trà sữa"));
-=======
-<<<<<<< HEAD
-            //lsvMon.Groups.Add(new ListViewGroup("grpCaPhe", "Cà phê"));
-            //lsvMon.Groups.Add(new ListViewGroup("grpTraSua", "Trà sữa"));
-=======
->>>>>>> 7b3ad7aa04b08820e5034dcf382af45c26a7f5b6
-            
->>>>>>> 2e64ff5be6e1ad45738e1df5c1ae2ca4c8f8723e
             lsvMon.Font = new Font("Arial", 13F);
             lsvMon.GridLines = true;
             lsvMon.FullRowSelect = lsvCTHD.FullRowSelect = true;
