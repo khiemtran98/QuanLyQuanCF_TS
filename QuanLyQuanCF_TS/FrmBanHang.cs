@@ -44,12 +44,15 @@ namespace QuanLyQuanCF_TS
         {
             lsvMon.Columns.Add("Tên món", 500);
             lsvMon.Columns.Add("Giá tiền", 200, HorizontalAlignment.Right);
-            lsvMon.Groups.Add(new ListViewGroup("grpCaPhe", "Cà phê"));
-            lsvMon.Groups.Add(new ListViewGroup("grpTraSua", "Trà sữa"));
             lsvMon.Font = new Font("Arial", 13F);
             lsvMon.GridLines = true;
             lsvMon.FullRowSelect = lsvCTHD.FullRowSelect = true;
             lsvMon.MultiSelect = lsvCTHD.MultiSelect = false;
+
+            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
+            {
+                lsvMon.Groups.Add(new ListViewGroup(loaiMon.MaLoaiMon.ToString(), loaiMon.TenLoaiMon));
+            }
 
             DataGridViewTextBoxColumn dgvtbcTenMon = new DataGridViewTextBoxColumn();
             dgvtbcTenMon.Name = "colTenMon";
@@ -166,14 +169,7 @@ namespace QuanLyQuanCF_TS
 
                 }
                 lvi.ImageIndex = i;
-                if (mon.LoaiMon == 1)
-                {
-                    lvi.Group = lsvMon.Groups["grpCaPhe"];
-                }
-                else
-                {
-                    lvi.Group = lsvMon.Groups["grpTraSua"];
-                };
+                lvi.Group = lsvMon.Groups[mon.LoaiMon.ToString()];
                 lvi.Tag = mon;
                 lsvMon.Items.Add(lvi);
             }

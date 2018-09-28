@@ -8,35 +8,39 @@ using DTO;
 
 namespace DAO
 {
-    public static class MonDAO
+    public static class LoaiMonDAO
     {
         private static string connectionString = @"";
 
-        public static List<MonDTO> layDanhSachMon()
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon()
         {
             SqlConnection connection = new SqlConnection(connectionString);
-            string query = "SELECT mamon, tenmon, loaimon, hinh, giatien FROM Mon";
+            string query = "SELECT maloaimon, tenloaimon FROM LoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
 
-            List<MonDTO> result = new List<MonDTO>();
+            List<LoaiMonDTO> result = new List<LoaiMonDTO>();
             if (reader.HasRows)
             {
                 while (reader.Read())
                 {
-                    MonDTO mon = new MonDTO();
+                    LoaiMonDTO loaiMon = new LoaiMonDTO();
                     if (!reader.IsDBNull(0))
                     {
-                        mon.MaMon = reader.GetInt32(0);
+                        loaiMon.MaLoaiMon = reader.GetInt32(0);
                     }
-                    mon.TenMon = reader.GetString(1);
-                    mon.LoaiMon = reader.GetInt32(2);
-                    mon.Hinh = reader.GetString(3);
-                    mon.GiaTien = reader.GetDouble(4);
+                    try
+                    {
+                        loaiMon.TenLoaiMon = reader.GetString(1);
+                    }
+                    catch
+                    {
 
-                    result.Add(mon);
+                    }
+
+                    result.Add(loaiMon);
                 }
             }
 

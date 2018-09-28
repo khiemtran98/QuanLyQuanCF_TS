@@ -10,7 +10,7 @@ namespace DAO
 {
     public static class NhanVienDAO
     {
-        private static string connectionString = "";
+        private static string connectionString = @"";
 
         public static List<NhanVienDTO> layDanhSachNhanVien()
         {
