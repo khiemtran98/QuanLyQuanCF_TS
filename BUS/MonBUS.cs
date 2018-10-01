@@ -10,9 +10,9 @@ namespace BUS
 {
     public static class MonBUS
     {
-        public static List<MonDTO> layDanhSachMon()
+        public static List<MonDTO> layDanhSachMon(string timkiem = "")
         {
-            return MonDAO.layDanhSachMon();
+            return MonDAO.layDanhSachMon(timkiem);
         }
     }
 }

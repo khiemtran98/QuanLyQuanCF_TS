@@ -7,7 +7,7 @@ create table Ca
 	maca int identity,
 	thoigianbatdau time,
 	thoigianketthuc time,
-	constraint PK_Cashier primary key (maca)
+	constraint PK_Ca primary key (maca)
 )
 
 create table NhanVien
@@ -102,13 +102,6 @@ create table CongThuc
 	constraint FK_CongThuc_Mon foreign key (mamon) references Mon(mamon)
 )
 
-create table LoaiHoaDonBan
-(
-	maloaihoadon int identity,
-	tenloaihoadon nvarchar(max),
-	constraint PK_LoaiHoaDonBan primary key (maloaihoadon)
-)
-
 create table HoaDonBan
 (
 	mahoadon int identity,
@@ -116,11 +109,9 @@ create table HoaDonBan
 	ngaylap datetime,
 	voucher varchar(7),
 	tongtien float,
-	loaihoadon int,
 	constraint PK_HoaDonBan primary key (mahoadon),
 	constraint FK_HoaDonBan_Voucher foreign key (voucher) references Voucher(mavoucher),
-	constraint FK_HoaDonBan_NhanVien foreign key (nhanvienlap) references NhanVien(manv),
-	constraint FK_HoaDonBan_LoaiHoaDon foreign key (loaihoadon) references LoaiHoaDonBan(maloaihoadon)
+	constraint FK_HoaDonBan_NhanVien foreign key (nhanvienlap) references NhanVien(manv)
 )
 
 create table HoaDonNhap
@@ -156,23 +147,4 @@ create table CTHDNhap
 	constraint PK_CTHDNhap primary key (mahd, manguyenlieu),
 	constraint FK_CTHDNhap_HoaDonNhap foreign key (mahd) references HoaDonNhap(mahoadon),
 	constraint FK_CTHDNhap_NguyenLieu foreign key (manguyenlieu) references NguyenLieu(manguyenlieu),
-)
-
-create table ChamCong
-(
-	machamcong int identity,
-	ngaybatdau datetime,
-	ngayketthuc datetime,
-	constraint PK_ChamCong primary key (machamcong)
-)
-
-create table CTChamCong
-(
-	manv int,
-	ngaylam date,
-	machamcong int,
-	tinhcong bit,
-	constraint PK_cTChamCong primary key (manv, ngaylam),
-	constraint FK_CTChamCong_NhanVien foreign key (manv) references NhanVien(manv),
-	constraint FK_CTChamCong_ChamCong foreign key (machamcong) references Chamcong(machamcong)
 )

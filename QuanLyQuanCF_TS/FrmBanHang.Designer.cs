@@ -30,6 +30,8 @@
         {
             this.lsvMon = new System.Windows.Forms.ListView();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.lblTimKiem = new System.Windows.Forms.Label();
+            this.txtTimKiem = new System.Windows.Forms.TextBox();
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
             this.txtTongTien = new System.Windows.Forms.TextBox();
             this.btnXacNhan = new System.Windows.Forms.Button();
@@ -46,15 +48,16 @@
             this.lsvMon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.lsvMon.Location = new System.Drawing.Point(11, 11);
+            this.lsvMon.Location = new System.Drawing.Point(11, 45);
             this.lsvMon.Name = "lsvMon";
-            this.lsvMon.Size = new System.Drawing.Size(277, 421);
+            this.lsvMon.Size = new System.Drawing.Size(277, 387);
             this.lsvMon.TabIndex = 0;
             this.lsvMon.UseCompatibleStateImageBehavior = false;
             this.lsvMon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lsvMon_KeyPress);
             // 
             // splitContainer1
             // 
+            this.splitContainer1.Cursor = System.Windows.Forms.Cursors.Default;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
@@ -62,6 +65,8 @@
             // 
             // splitContainer1.Panel1
             // 
+            this.splitContainer1.Panel1.Controls.Add(this.lblTimKiem);
+            this.splitContainer1.Panel1.Controls.Add(this.txtTimKiem);
             this.splitContainer1.Panel1.Controls.Add(this.lsvMon);
             this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
             // 
@@ -77,6 +82,27 @@
             this.splitContainer1.Size = new System.Drawing.Size(800, 450);
             this.splitContainer1.SplitterDistance = 300;
             this.splitContainer1.TabIndex = 1;
+            // 
+            // lblTimKiem
+            // 
+            this.lblTimKiem.AutoSize = true;
+            this.lblTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.lblTimKiem.Location = new System.Drawing.Point(8, 15);
+            this.lblTimKiem.Name = "lblTimKiem";
+            this.lblTimKiem.Size = new System.Drawing.Size(69, 18);
+            this.lblTimKiem.TabIndex = 2;
+            this.lblTimKiem.Text = "Tìm kiếm";
+            // 
+            // txtTimKiem
+            // 
+            this.txtTimKiem.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTimKiem.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F);
+            this.txtTimKiem.Location = new System.Drawing.Point(83, 12);
+            this.txtTimKiem.Name = "txtTimKiem";
+            this.txtTimKiem.Size = new System.Drawing.Size(205, 24);
+            this.txtTimKiem.TabIndex = 1;
+            this.txtTimKiem.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiem_KeyPress);
             // 
             // dgvHoaDon
             // 
@@ -138,6 +164,7 @@
             this.Load += new System.EventHandler(this.FrmBanHang_Load);
             this.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.FrmBanHang_KeyPress);
             this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel1.PerformLayout();
             this.splitContainer1.Panel2.ResumeLayout(false);
             this.splitContainer1.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
@@ -155,5 +182,7 @@
         private System.Windows.Forms.Button btnXacNhan;
         private System.Windows.Forms.ListView lsvCTHD;
         private System.Windows.Forms.DataGridView dgvHoaDon;
+        private System.Windows.Forms.Label lblTimKiem;
+        private System.Windows.Forms.TextBox txtTimKiem;
     }
 }

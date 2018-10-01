@@ -12,11 +12,20 @@ namespace DAO
     {
         private static string connectionString = @"";
 
-        public static List<MonDTO> layDanhSachMon()
+        public static List<MonDTO> layDanhSachMon(string timKiem = "")
         {
             SqlConnection connection = new SqlConnection(connectionString);
-            string query = "SELECT mamon, tenmon, loaimon, hinh, giatien FROM Mon";
+            string query;
+            if (timKiem == string.Empty)
+            {
+                query = "SELECT mamon, tenmon, loaimon, hinh, giatien FROM Mon";
+            }
+            else
+            {
+                query = "SELECT mamon, tenmon, loaimon, hinh, giatien FROM Mon WHERE tenmon LIKE N'%'+@timkiem+'%'";
+            }
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@timkiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();

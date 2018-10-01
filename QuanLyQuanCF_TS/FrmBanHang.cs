@@ -92,7 +92,7 @@ namespace QuanLyQuanCF_TS
             //lsvCTHD.Columns.Add("Giá tiền", 100, HorizontalAlignment.Right);
         }
 
-        private void lapHoaDon()
+        private void LapHoaDon()
         {
             MessageBox.Show("Chức năng này đang được xây dựng", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
@@ -187,20 +187,23 @@ namespace QuanLyQuanCF_TS
             }
             if (e.KeyChar == (char)Keys.Enter)
             {
-                if (dgvHoaDon.Rows.Count == 0)
+                if (!txtTimKiem.Focused)
                 {
-                    MessageBox.Show("Bạn chưa thêm món", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                }
-                else
-                {
-                    lapHoaDon();
+                    if (dgvHoaDon.Rows.Count == 0)
+                    {
+                        MessageBox.Show("Bạn chưa thêm món", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    }
+                    else
+                    {
+                        LapHoaDon();
+                    }
                 }
             }
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)
         {
-            lapHoaDon();
+            LapHoaDon();
         }
 
         private void lsvMon_KeyPress(object sender, KeyPressEventArgs e)
@@ -300,6 +303,34 @@ namespace QuanLyQuanCF_TS
         private void dgvHoaDon_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
             TinhTienHoaDon();
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                lsvMon.Items.Clear();
+                lsvMon.SmallImageList.Images.Clear();
+                List<MonDTO> dsMon = MonBUS.layDanhSachMon(txtTimKiem.Text);
+                for (int i = 0; i < dsMon.Count; i++)
+                {
+                    MonDTO mon = dsMon[i];
+                    ListViewItem lvi = new ListViewItem(mon.TenMon);
+                    lvi.SubItems.Add(mon.GiaTien.ToString("#,##0 VND"));
+                    try
+                    {
+                        lsvMon.SmallImageList.Images.Add(Image.FromFile("hinh\\" + mon.Hinh));
+                    }
+                    catch
+                    {
+
+                    }
+                    lvi.ImageIndex = i;
+                    lvi.Group = lsvMon.Groups[mon.LoaiMon.ToString()];
+                    lvi.Tag = mon;
+                    lsvMon.Items.Add(lvi);
+                }
+            }
         }
     }
 }
