@@ -1,6 +1,0 @@
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\bin\Debug\DTO.dll
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\bin\Debug\DTO.pdb
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.dll
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DTO\obj\Debug\DTO.pdb
