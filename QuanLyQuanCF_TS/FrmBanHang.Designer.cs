@@ -29,14 +29,15 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.panelMenu = new MetroFramework.Controls.MetroPanel();
             this.lsvMon = new System.Windows.Forms.ListView();
             this.colMenuTenMon = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.colMenuGiaTien = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
+            this.imlMon = new System.Windows.Forms.ImageList(this.components);
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.btnQuayLai = new System.Windows.Forms.Button();
             this.txtTimKiem = new MetroFramework.Controls.MetroTextBox();
@@ -50,7 +51,6 @@
             this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelLayout = new MetroFramework.Controls.MetroPanel();
             this.panelLoaiMon = new MetroFramework.Controls.MetroPanel();
-            this.imlMon = new System.Windows.Forms.ImageList(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -119,6 +119,7 @@
             this.lsvMon.TileSize = new System.Drawing.Size(270, 100);
             this.lsvMon.UseCompatibleStateImageBehavior = false;
             this.lsvMon.View = System.Windows.Forms.View.Tile;
+            this.lsvMon.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.lsvMon_KeyPress);
             // 
             // colMenuTenMon
             // 
@@ -127,6 +128,12 @@
             // colMenuGiaTien
             // 
             this.colMenuGiaTien.Text = "Giá tiền";
+            // 
+            // imlMon
+            // 
+            this.imlMon.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
+            this.imlMon.ImageSize = new System.Drawing.Size(64, 64);
+            this.imlMon.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // metroLabel1
             // 
@@ -266,14 +273,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvHoaDon.BackgroundColor = System.Drawing.SystemColors.ButtonHighlight;
             this.dgvHoaDon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvHoaDon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgvHoaDon.ColumnHeadersHeight = 50;
             this.dgvHoaDon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.colTenMon,
@@ -282,8 +289,8 @@
             this.dgvHoaDon.Location = new System.Drawing.Point(3, 8);
             this.dgvHoaDon.Name = "dgvHoaDon";
             this.dgvHoaDon.RowHeadersVisible = false;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Arial", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.dgvHoaDon.RowTemplate.Height = 50;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoaDon.Size = new System.Drawing.Size(410, 212);
@@ -300,8 +307,8 @@
             // 
             // colDonGia
             // 
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colDonGia.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colDonGia.DefaultCellStyle = dataGridViewCellStyle2;
             this.colDonGia.HeaderText = "Đơn giá";
             this.colDonGia.Name = "colDonGia";
             this.colDonGia.ReadOnly = true;
@@ -338,12 +345,6 @@
             this.panelLoaiMon.VerticalScrollbarBarColor = true;
             this.panelLoaiMon.VerticalScrollbarHighlightOnWheel = false;
             this.panelLoaiMon.VerticalScrollbarSize = 10;
-            // 
-            // imlMon
-            // 
-            this.imlMon.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
-            this.imlMon.ImageSize = new System.Drawing.Size(64, 64);
-            this.imlMon.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // FrmBanHang
             // 
