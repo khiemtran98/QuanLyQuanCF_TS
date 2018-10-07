@@ -17,10 +17,12 @@ Database cũ bị loại bỏ hoàn toàn. Tạo database mới bằng file *Qua
   2. Cài đặt các gói NuGet: [MetroModernUI](https://www.nuget.org/packages/MetroModernUI/), [MaterialSkin](https://www.nuget.org/packages/MaterialSkin/) bằng cách nhấn chuột phải vào project **QuanLyQuanCF_TS** chọn **Manage NuGet Package...**, tìm các gói NuGet và cài đặt.
 
   3. Thêm chuỗi kết nối database trong class *DataProvider*.
-
-  4. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
   
-  5. Build project.
+  4. Thêm lại folder hình từ project cũ trong bin/debug/.
+
+  5. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
+  
+  6. Build project.
 
 ### # Hướng dẫn sử dụng
 
