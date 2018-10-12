@@ -15,9 +15,14 @@ namespace BUS
             return MonDAO.LayDanhSachMon(timkiem);
         }
 
-        public static List<MonDTO> LayDanhSachMonTheoLoai(string tenLoaiMon)
+        public static List<MonDTO> LayDanhSachMonTheoLoai(int maLoaiMon)
         {
-            return MonDAO.LayDanhSachMonTheoLoai(tenLoaiMon);
+            return MonDAO.LayDanhSachMonTheoLoai(maLoaiMon);
+        }
+
+        public static int LaySoLuongMonTheoLoai(int maLoaiMon)
+        {
+            return MonDAO.LaySoLuongMonTheoLoai(maLoaiMon);
         }
     }
 }

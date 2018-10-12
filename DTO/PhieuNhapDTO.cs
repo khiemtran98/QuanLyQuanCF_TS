@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class HoaDonNhapDTO
+    public class PhieuNhapDTO
     {
-        private int maHoaDonNhap;
+        private int maPhieuNhap;
         private int nhaCungCap;
         private DateTime ngayLap;
         private double tongTien;
         private bool trangThai;
 
-        public int MaHoaDonNhap { get => maHoaDonNhap; set => maHoaDonNhap = value; }
+        public int MaPhieuNhap { get => maPhieuNhap; set => maPhieuNhap = value; }
         public int NhaCungCap { get => nhaCungCap; set => nhaCungCap = value; }
         public DateTime NgayLap { get => ngayLap; set => ngayLap = value; }
         public double TongTien { get => tongTien; set => tongTien = value; }

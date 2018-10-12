@@ -1,14 +1,14 @@
 # Đồ án môn học lập trình Windows NC
 
-> ## Update 2.0: Thay đổi prototype
+> ## Update 2.1: Thay đổi database
 
 ### # Các thay đổi
 
-Thay đổi toàn bộ.
+Thay đổi database.
   
 ### # Quan trọng
 
-Database cũ bị loại bỏ hoàn toàn. Tạo database mới bằng file *QuanLyQuanCF_TS.sql* (đã bao gồm dữ liệu).
+Database cũ bị loại bỏ hoàn toàn **MỘT LẦN NỮA**. Tạo database mới bằng file *QuanLyQuanCF_TS.sql* (đã bao gồm dữ liệu).
 
 ### # Hướng dẫn cài đặt
 
@@ -18,7 +18,7 @@ Database cũ bị loại bỏ hoàn toàn. Tạo database mới bằng file *Qua
 
   3. Thêm chuỗi kết nối database trong class *DataProvider*.
   
-  4. Thêm lại folder hình từ project cũ trong bin/debug/.
+  4. Di chuyển 2 folder *img*, *icon* vào trong bin/debug/.
 
   5. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
   
@@ -31,8 +31,14 @@ Database cũ bị loại bỏ hoàn toàn. Tạo database mới bằng file *Qua
   - Thêm món từ menu bằng phím Spacebar.
   
   - Xoá món khỏi hoá đơn bằng phím Del.
+  
+  - Thay đổi số lượng món trực tiếp trong ô số lượng.
+  
+  - Nhập tiền mặt và nhấn Enter để xuất ra tiền thối.
 
 ---
+
+> ## Update 2.0: Thay đổi protorype
 
 > ## Update 1.7: Thêm thanh tìm kiếm trong form bán hàng
 

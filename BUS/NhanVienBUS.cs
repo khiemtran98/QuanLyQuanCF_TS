@@ -10,9 +10,19 @@ namespace BUS
 {
     public static class NhanVienBUS
     {
-        public static List<NhanVienDTO> layDanhSachNhanVien()
+        public static void LuuTaiKhoanDangNhap(int maNhanVien)
         {
-            return NhanVienDAO.layDanhSachNhanVien();
+            NhanVienDAO.LuuTaiKhoanDangNhap(maNhanVien);
+        }
+
+        public static int LayTaiKhoanDangNhap()
+        {
+            return NhanVienDAO.LayTaiKhoanDangNhap();
+        }
+
+        public static List<NhanVienDTO> LayDanhSachNhanVien()
+        {
+            return NhanVienDAO.LayDanhSachNhanVien();
         }
 
         public static bool KiemTraDangNhap(int maNV, string matKhau)
@@ -20,7 +30,7 @@ namespace BUS
             return NhanVienDAO.KiemTraDangNhap(maNV, matKhau);
         }
 
-        public static NhanVienDTO layThongTinNhanVien(int maNV)
+        public static NhanVienDTO LayThongTinNhanVien(int maNV)
         {
             return NhanVienDAO.LayThongTinNhanVien(maNV);
         }

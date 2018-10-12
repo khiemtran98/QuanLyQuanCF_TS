@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class CTHDNhapDTO
+    public class ChiTietPhieuNhapDTO
     {
-        private int maHoaDonNhap;
+        private int maPhieuNhap;
         private int maNguyenLieu;
         private int khoiLuong;
         private double donGia;
 
-        public int MaHoaDonNhap { get => maHoaDonNhap; set => maHoaDonNhap = value; }
+        public int MaPhieuNhap { get => maPhieuNhap; set => maPhieuNhap = value; }
         public int MaNguyenLieu { get => maNguyenLieu; set => maNguyenLieu = value; }
         public int KhoiLuong { get => khoiLuong; set => khoiLuong = value; }
         public double DonGia { get => donGia; set => donGia = value; }

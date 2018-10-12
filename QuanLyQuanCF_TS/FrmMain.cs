@@ -19,10 +19,6 @@ namespace QuanLyQuanCF_TS
             InitializeComponent();
         }
 
-        int maNhanVien = -1;
-
-        public int MaNhanVien { get => maNhanVien; set => maNhanVien = value; }
-
         private void MoFormDangNhap()
         {
             this.WindowState = FormWindowState.Normal;
@@ -36,10 +32,10 @@ namespace QuanLyQuanCF_TS
         {
             this.WindowState = FormWindowState.Maximized;
             XuLyFormMain();
-            NhanVienDTO nv = NhanVienBUS.layThongTinNhanVien(maNhanVien);
-            lblHoTen.Text = nv.HoTen;
-            MaNhanVien = nv.MaNhanVien;
-            if (!nv.LaAdmin)
+            NhanVienBUS.LuuTaiKhoanDangNhap(maNhanVien);
+            NhanVienDTO nhanVien = NhanVienBUS.LayThongTinNhanVien(maNhanVien);
+            lblHoTen.Text = nhanVien.HoTen;
+            if (!nhanVien.LaAdmin)
             {
                 lblCapBac.Text = "Nhân viên";
             }
@@ -88,8 +84,8 @@ namespace QuanLyQuanCF_TS
 
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
-            MaNhanVien = -1;
             XuLyChuyenForm();
+            NhanVienBUS.LuuTaiKhoanDangNhap(-1);
             MoFormDangNhap();
         }
     }

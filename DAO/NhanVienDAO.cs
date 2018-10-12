@@ -10,7 +10,17 @@ namespace DAO
 {
     public static class NhanVienDAO
     {
-        public static List<NhanVienDTO> layDanhSachNhanVien()
+        public static void LuuTaiKhoanDangNhap(int maNhanVien)
+        {
+            DataProvider.TaiKhoanDangNhap = maNhanVien;
+        }
+
+        public static int LayTaiKhoanDangNhap()
+        {
+            return DataProvider.TaiKhoanDangNhap;
+        }
+
+        public static List<NhanVienDTO> LayDanhSachNhanVien()
         {
             SqlConnection connection = DataProvider.GetConnection();
             string query = "SELECT ma_nhan_vien, ho_ten FROM NhanVien";

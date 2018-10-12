@@ -247,7 +247,10 @@
             this.Controls.Add(this.mPanel);
             this.Controls.Add(this.panelTaiKhoan);
             this.IsMdiContainer = true;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmMain";
+            this.Resizable = false;
             this.Text = "Phần mềm quản lý quán cà phê - trà sữa";
             this.TransparencyKey = System.Drawing.Color.Empty;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);

@@ -39,7 +39,8 @@ namespace QuanLyQuanCF_TS
             foreach (LoaiMonDTO loaiMon in dsLoaiMon)
             {
                 MaterialSkin.Controls.MaterialFlatButton btn = new MaterialSkin.Controls.MaterialFlatButton();
-                btn.Text = loaiMon.TenLoaiMon;
+                btn.Text = loaiMon.TenLoaiMon + " (" + MonBUS.LaySoLuongMonTheoLoai(loaiMon.MaLoaiMon) + ")";
+                btn.Name = loaiMon.MaLoaiMon.ToString();
                 btn.AutoSize = false;
                 btn.Size = new Size(140, 60);
                 btn.Dock = DockStyle.Left;
@@ -63,6 +64,11 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        public DataGridViewRowCollection LayThongTinHoaDon()
+        {
+            return dgvHoaDon.Rows;
+        }
+
         private void LapHoaDon()
         {
             panelHoaDon.Visible = panelLoaiMon.Visible = panelMenu.Visible = panelThanhToan.Visible = false;
@@ -70,16 +76,23 @@ namespace QuanLyQuanCF_TS
             ucXemLaiHoaDon uc = ucXemLaiHoaDon.Instance;
             uc.Dock = DockStyle.Fill;
             panelLayout.Controls.Add(uc);
+
+            int soLuongMon = 0;
+            foreach (DataGridViewRow row in dgvHoaDon.Rows)
+            {
+                soLuongMon += Convert.ToInt32(row.Cells[1].Value);
+            }
+            uc.LoadThongTinHoaDon(soLuongMon, TinhThanhTien());
         }
 
-        private void TinhThanhTien()
+        public double TinhThanhTien()
         {
             double tongTien = 0;
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
             {
-                tongTien += Convert.ToDouble(row.Cells[1].Value);
+                tongTien += Convert.ToDouble(row.Cells[1].Value) * Convert.ToDouble(row.Cells[2].Value);
             }
-            lblThanhTien.Text = tongTien.ToString("#,##0đ");
+            return tongTien;
         }
 
         public void QuayLaiManHinhChonMon()
@@ -122,7 +135,7 @@ namespace QuanLyQuanCF_TS
         {
             lsvMon.Items.Clear();
             lsvMon.LargeImageList.Images.Clear();
-            List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai(((Button)sender).Text);
+            List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai((Convert.ToInt32(((Button)sender).Name)));
             for (int i = 0; i < dsMon.Count; i++)
             {
                 MonDTO mon = dsMon[i];
@@ -152,10 +165,29 @@ namespace QuanLyQuanCF_TS
                     DataGridViewRow rowMon = new DataGridViewRow();
                     rowMon.Height = 50;
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
+                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###") });
 
+                    if (dgvHoaDon.Rows.Count == 0)
+                    {
+                        dgvHoaDon.Rows.Add(rowMon);
+                        TinhThanhTien();
+                        return;
+                    }
+
+                    foreach (DataGridViewRow rowHD in dgvHoaDon.Rows)
+                    {
+                        if (rowHD.Cells[0].Value == rowMon.Cells[0].Value)
+                        {
+                            int soLuong = Convert.ToInt32(rowHD.Cells[1].Value);
+                            rowHD.Cells[1].Value = soLuong + 1;
+                            TinhThanhTien();
+                            return;
+                        }
+                    }
+
                     dgvHoaDon.Rows.Add(rowMon);
-                    TinhThanhTien();
+                    lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
                 }
             }
         }
@@ -176,7 +208,7 @@ namespace QuanLyQuanCF_TS
                     }
                     else
                     {
-                        TinhThanhTien();
+                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
                     }
                 }
                 catch
@@ -189,7 +221,7 @@ namespace QuanLyQuanCF_TS
 
         private void dgvHoaDon_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
         {
-            TinhThanhTien();
+            lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
         }
 
         private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)

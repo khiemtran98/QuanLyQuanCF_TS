@@ -20,10 +20,10 @@ namespace DAO
             }
             else
             {
-                query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien FROM Mon WHERE ten_mon LIKE N'%'+@timkiem+'%' and trang_thai=1";
+                query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien FROM Mon WHERE ten_mon LIKE N'%'+@TimKiem+'%' and trang_thai=1";
             }
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@timkiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
+            command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -47,12 +47,26 @@ namespace DAO
             return result;
         }
 
-        public static List<MonDTO> LayDanhSachMonTheoLoai(string tenLoaiMon)
+        public static int LaySoLuongMonTheoLoai(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien FROM Mon WHERE loai_mon=(SELECT ma_loai_mon FROM LoaiMon WHERE ten_loai_mon LIKE @tenloaimon) and trang_thai=1";
+            string query = "SELECT COUNT(ma_mon) FROM Mon WHERE loai_mon=@MaLoaiMon AND trang_thai=1";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@tenloaimon", System.Data.SqlDbType.NVarChar, 255).Value = tenLoaiMon;
+            command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
+
+            connection.Open();
+            int result = Convert.ToInt32(command.ExecuteScalar());
+
+            connection.Close();
+            return result;
+        }
+
+        public static List<MonDTO> LayDanhSachMonTheoLoai(int maLoaiMon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien FROM Mon WHERE loai_mon=@MaLoaiMon AND trang_thai=1";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();

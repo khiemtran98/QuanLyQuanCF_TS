@@ -14,5 +14,9 @@ namespace DAO
             string connectionString = @"";
             return new SqlConnection(connectionString);
         }
+
+        private static int taiKhoanDangNhap = -1;
+
+        public static int TaiKhoanDangNhap { get => taiKhoanDangNhap; set => taiKhoanDangNhap = value; }
     }
 }

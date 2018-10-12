@@ -54,7 +54,7 @@ namespace QuanLyQuanCF_TS
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            cmbNhanVien.DataSource = NhanVienBUS.layDanhSachNhanVien();
+            cmbNhanVien.DataSource = NhanVienBUS.LayDanhSachNhanVien();
             cmbNhanVien.DisplayMember = "HoTen";
             cmbNhanVien.ValueMember = "MaNhanVien";
         }

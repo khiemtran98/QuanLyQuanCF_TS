@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class CTHDBanDTO
+    public class ChiTietMonDTO
     {
-        private int maHoaDonBan;
-        private int maMon;
+        private int maCTHD;
+        private int maTopping;
         private int soLuong;
         private double donGia;
 
-        public int MaHD { get => maHoaDonBan; set => maHoaDonBan = value; }
-        public int MaMon { get => maMon; set => maMon = value; }
+        public int MaCTHD { get => maCTHD; set => maCTHD = value; }
+        public int MaTopping { get => maTopping; set => maTopping = value; }
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public double DonGia { get => donGia; set => donGia = value; }
     }
