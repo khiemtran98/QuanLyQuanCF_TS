@@ -1,14 +1,22 @@
-# Đồ án môn học lập trình Windows NC
+# Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.1: Thay đổi database
+> ## Update 2.2: Hoàn thiện chức năng bán hàng
 
 ### # Các thay đổi
 
-Thay đổi database.
+  **1. Chức năng bán hàng**
+  - Thêm menu topping.
+  - Có thể lưu lại hoá đơn.
+  - Sửa lỗi tìm kiếm món trong menu.
+  - Sửa một loạt các lỗi nhỏ.
+  
+  **2. Database**
+  - Sửa lỗi các trigger.
+  - Sửa một lỗi trong bảng ChiTietHoaDon
   
 ### # Quan trọng
 
-Database cũ bị loại bỏ hoàn toàn **MỘT LẦN NỮA**. Tạo database mới bằng file *QuanLyQuanCF_TS.sql* (đã bao gồm dữ liệu).
+Database đã sửa lỗi. Khuyến nghị tạo lại database mới bằng file *QuanLyQuanCF_TS.sql* (đã bao gồm dữ liệu).
 
 ### # Hướng dẫn cài đặt
 
@@ -26,17 +34,21 @@ Database cũ bị loại bỏ hoàn toàn **MỘT LẦN NỮA**. Tạo database 
 
 ### # Hướng dẫn sử dụng
 
-- **Bán hàng**
+- **Chức năng Bán hàng**
 
-  - Thêm món từ menu bằng phím Spacebar.
+  - Thêm món từ menu bằng cách nhấn trực tiếp vào món đó thay vì dùng phím Spacebar như trước.
   
-  - Xoá món khỏi hoá đơn bằng phím Del.
+  - Sau khi thêm món có thể chọn topping tương ứng.
   
-  - Thay đổi số lượng món trực tiếp trong ô số lượng.
+  - Xoá món hoặc topping khỏi hoá đơn bằng phím Del.
   
-  - Nhập tiền mặt và nhấn Enter để xuất ra tiền thối.
+  - Thay đổi số lượng món hoặc topping trực tiếp trong ô số lượng.
+  
+  - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> ## Update 2.1: Thay đổi database
 
 > ## Update 2.0: Thay đổi protorype
 

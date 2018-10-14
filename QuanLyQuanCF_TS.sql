@@ -92,7 +92,7 @@ create table PhieuNhap
 
 create table ChiTietHoaDon
 (
-	ma_cthd int,
+	ma_cthd int identity,
 	hoa_don int not null,
 	mon int not null,
 	so_luong int not null,
@@ -106,7 +106,7 @@ create table ChiTietMon
 (
 	ma_cthd int,
 	ma_topping int,
-	so_luong int not null,
+	so_luong int,
 	don_gia float not null,
 	constraint PK_ChiTietMon primary key (ma_cthd, ma_topping),
 	constraint FK_ChiTietMon_ChiTietHoaDon foreign key (ma_cthd) references ChiTietHoaDon(ma_cthd),
@@ -225,87 +225,167 @@ CREATE TRIGGER TRIG_NhanVien_delete
 ON dbo.NhanVien
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_nhan_vien)
-    FROM NhanVien;
-    DBCC CHECKIDENT (NhanVien, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_nhan_vien)
+		FROM NhanVien ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_nhan_vien)
+			FROM NhanVien;
+			DBCC CHECKIDENT (NhanVien, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (NhanVien, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_LoaiMon_delete
 ON dbo.LoaiMon
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_loai_mon)
-    FROM LoaiMon;
-    DBCC CHECKIDENT (LoaiMon, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_loai_mon)
+		FROM LoaiMon ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_loai_mon)
+			FROM LoaiMon;
+			DBCC CHECKIDENT (LoaiMon, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (LoaiMon, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_Mon_delete
 ON dbo.Mon
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_mon)
-    FROM Mon;
-    DBCC CHECKIDENT (Mon, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_mon)
+		FROM Mon ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_mon)
+			FROM Mon;
+			DBCC CHECKIDENT (Mon, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (Mon, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_LoaiTopping_delete
 ON dbo.LoaiTopping
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_loai_topping)
-    FROM LoaiTopping;
-    DBCC CHECKIDENT (LoaiMon, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_loai_topping)
+		FROM LoaiTopping ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_loai_topping)
+			FROM LoaiTopping;
+			DBCC CHECKIDENT (LoaiTopping, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (LoaiTopping, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_Topping_delete
 ON dbo.Topping
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_topping)
-    FROM Topping;
-    DBCC CHECKIDENT (Mon, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_topping)
+		FROM Topping ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_topping)
+			FROM Topping;
+			DBCC CHECKIDENT (Topping, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (Topping, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_NhaCungCap_delete
 ON dbo.NhaCungCap
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_nha_cung_cap)
-    FROM NhaCungCap;
-    DBCC CHECKIDENT (NhaCungCap, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_nha_cung_cap)
+		FROM NhaCungCap ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_nha_cung_cap)
+			FROM NhaCungCap;
+			DBCC CHECKIDENT (NhaCungCap, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (NhaCungCap, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_NguyenLieu_delete
 ON dbo.NguyenLieu
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_nguyen_lieu)
-    FROM NguyenLieu;
-    DBCC CHECKIDENT (NguyenLieu, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_nguyen_lieu)
+		FROM NguyenLieu ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_nguyen_lieu)
+			FROM NguyenLieu;
+			DBCC CHECKIDENT (NguyenLieu, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (NguyenLieu, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_HoaDon_delete
 ON dbo.HoaDon
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_hoa_don)
-    FROM HoaDon;
-    DBCC CHECKIDENT (HoaDon, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_hoa_don)
+		FROM HoaDon ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID =  MAX(ma_hoa_don)
+			FROM HoaDon;
+			DBCC CHECKIDENT (HoaDon, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (HoaDon, RESEED, 0);
+
+GO
+CREATE TRIGGER TRIG_ChiTietHoaDon_delete
+ON dbo.ChiTietHoaDon
+FOR DELETE
+AS
+	IF (
+		SELECT MAX(ma_cthd)
+		FROM ChiTietHoaDon ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID =  MAX(ma_cthd)
+			FROM ChiTietHoaDon;
+			DBCC CHECKIDENT (ChiTietHoaDon, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (ChiTietHoaDon, RESEED, 0);
 
 GO
 CREATE TRIGGER TRIG_PhieuNhap_delete
 ON dbo.PhieuNhap
 FOR DELETE
 AS
-    DECLARE @maxID int;
-    SELECT @maxID = MAX(ma_phieu_nhap)
-    FROM PhieuNhap;
-    DBCC CHECKIDENT (PhieuNhap, RESEED, @maxID);
+	IF (
+		SELECT MAX(ma_phieu_nhap)
+		FROM PhieuNhap ) = NULL
+		BEGIN
+			DECLARE @maxID int;
+			SELECT @maxID = MAX(ma_phieu_nhap)
+			FROM PhieuNhap;
+			DBCC CHECKIDENT (PhieuNhap, RESEED, @maxID);
+		END
+	ELSE
+		DBCC CHECKIDENT (PhieuNhap, RESEED, 0);

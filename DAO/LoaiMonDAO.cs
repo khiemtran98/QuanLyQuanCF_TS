@@ -13,7 +13,7 @@ namespace DAO
         public static List<LoaiMonDTO> LayDanhSachLoaiMon()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_loai_mon, ten_loai_mon FROM LoaiMon";
+            string query = "SELECT ma_loai_mon, ten_loai_mon FROM LoaiMon WHERE trang_thai=1";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();

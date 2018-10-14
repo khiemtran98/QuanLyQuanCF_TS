@@ -140,5 +140,8 @@
   <ItemGroup>
     <None Include="bin\Debug\icon\button-background.jpg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\reload.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
