@@ -130,11 +130,11 @@ create table ChiTietPhieuNhap
 INSERT [dbo].[NhanVien] (ho_ten, mat_khau, ngay_bat_dau, la_admin) VALUES (N'[TEST-Admin]', '123', '1/1/2018', 1)
 INSERT [dbo].[NhanVien] (ho_ten, mat_khau, ngay_bat_dau, la_admin) VALUES (N'[TEST-Cashier]', '123', '1/1/2018', 0)
 
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai]) VALUES (N'Trà sữa', 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai]) VALUES (N'Cà phê', 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai]) VALUES (N'Freeze', 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai]) VALUES (N'Thức ăn', 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai]) VALUES (N'Xiên que', 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai], [nuoc_uong]) VALUES (N'Trà sữa', 1, 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai], [nuoc_uong]) VALUES (N'Cà phê', 1, 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai], [nuoc_uong]) VALUES (N'Freeze', 1, 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai], [nuoc_uong]) VALUES (N'Thức ăn', 1, 0)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [trang_thai], [nuoc_uong]) VALUES (N'Xiên que', 1, 0)
 
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa trân châu', 1, N'1.jpg', 37000, 1)
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa hokkaido', 1, N'2.jpg', 32000, 1)
