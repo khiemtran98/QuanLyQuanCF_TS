@@ -66,7 +66,7 @@ UPDATE LoaiMon SET nuoc_uong=1 WHERE ma_loai_mon=1 OR  ma_loai_mon=2 OR  ma_loai
 
 > #### Update 2.1: Thay đổi database
 
-> #### Update 2.0: Thay đổi protorype
+> #### Update 2.0: Thay đổi prototype
 
 > #### Update 1.7: Thêm thanh tìm kiếm trong form bán hàng
 
