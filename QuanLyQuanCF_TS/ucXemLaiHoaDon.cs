@@ -47,6 +47,7 @@ namespace QuanLyQuanCF_TS
                 r.Cells[0].Value = row.Cells["colTenMon"].Value;
                 r.Cells[1].Value = row.Cells["colSoLuong"].Value;
                 r.Cells[2].Value = row.Cells["colDonGia"].Value;
+                r.Cells[3].Value = row.Cells["colGhiChu"].Value;
                 dgvHoaDon.Rows.Add(r);
             }
             dgvHoaDon.ClearSelection();
@@ -108,6 +109,14 @@ namespace QuanLyQuanCF_TS
                     cthd.MaMon = ((MonDTO)row.Tag).MaMon;
                     cthd.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
                     cthd.DonGia = Convert.ToDouble(row.Cells["colDonGia"].Value);
+                    if (row.Cells["colGhiChu"].Value != null)
+                    {
+                        cthd.GhiChu = row.Cells["colGhiChu"].Value.ToString();
+                    }
+                    else
+                    {
+                        cthd.GhiChu = string.Empty;
+                    }
                     lsCTHD.Add(cthd);
                     idCTHDMark++;
                 }
@@ -118,6 +127,14 @@ namespace QuanLyQuanCF_TS
                     ctm.MaTopping = ((ToppingDTO)row.Tag).MaTopping;
                     ctm.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
                     ctm.DonGia = Convert.ToDouble(row.Cells["colDonGia"].Value);
+                    if (row.Cells["colGhiChu"].Value != null)
+                    {
+                        ctm.GhiChu = row.Cells["colGhiChu"].Value.ToString();
+                    }
+                    else
+                    {
+                        ctm.GhiChu = string.Empty;
+                    }
                     lsCTM.Add(ctm);
                 }
             }

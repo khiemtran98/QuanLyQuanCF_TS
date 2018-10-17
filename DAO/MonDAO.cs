@@ -62,5 +62,19 @@ namespace DAO
             connection.Close();
             return result;
         }
+
+        public static bool KiemTraMonLaNuocUong(int maLoaiMon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT nuoc_uong FROM LoaiMon WHERE ma_loai_mon=@MaLoaiMon";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
+
+            connection.Open();
+            bool result = Convert.ToBoolean(command.ExecuteScalar());
+
+            connection.Close();
+            return result;
+        }
     }
 }

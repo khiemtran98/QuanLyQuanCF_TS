@@ -1,22 +1,36 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.2: Hoàn thiện chức năng bán hàng
+> ## Update 2.3: Thêm ghi chú bán hàng
 
 ### # Các thay đổi
 
+  **Sửa lỗi:** Sửa một lỗi khiến chương trình crash khi mở đóng form bán hàng.
+
   **1. Chức năng bán hàng**
-  - Thêm menu topping.
-  - Có thể lưu lại hoá đơn.
-  - Sửa lỗi tìm kiếm món trong menu.
-  - Sửa một loạt các lỗi nhỏ.
+  - Thêm ghi chú cho từng món.
   
   **2. Database**
-  - Sửa lỗi các trigger.
-  - Sửa một lỗi trong bảng ChiTietHoaDon
+  - Thêm thuộc tính
   
 ### # Quan trọng
 
-Database đã sửa lỗi. Khuyến nghị tạo lại database mới bằng file *QuanLyQuanCF_TS.sql* (đã bao gồm dữ liệu).
+Cập nhật database theo đoạn code sau:
+
+```
+USE QuanLyQuanCF_TS
+GO
+
+ALTER TABLE ChiTietHoaDon
+	ADD ghi_chu NVARCHAR(MAX)
+	
+ALTER TABLE ChiTietMon
+	ADD ghi_chu NVARCHAR(MAX)
+	
+ALTER TABLE LoaiMon
+	ADD nuoc_uong BIT NOT NULL DEFAULT 0
+	
+UPDATE LoaiMon SET nuoc_uong=1 WHERE ma_loai_mon=1 OR  ma_loai_mon=2 OR  ma_loai_mon=3
+```
 
 ### # Hướng dẫn cài đặt
 
@@ -48,22 +62,24 @@ Database đã sửa lỗi. Khuyến nghị tạo lại database mới bằng fil
 
 ---
 
-> ## Update 2.1: Thay đổi database
+> #### Update 2.2: Hoàn thiện chức năng bán hàng
 
-> ## Update 2.0: Thay đổi protorype
+> #### Update 2.1: Thay đổi database
 
-> ## Update 1.7: Thêm thanh tìm kiếm trong form bán hàng
+> #### Update 2.0: Thay đổi protorype
 
-> ## Update 1.6: Tối ưu chức năng bán hàng
+> #### Update 1.7: Thêm thanh tìm kiếm trong form bán hàng
 
-> ## Update 1.5: Thêm form đăng nhập và cập nhật database
+> #### Update 1.6: Tối ưu chức năng bán hàng
 
-> ## Update 1.4: Sửa lỗi kết nối database
+> #### Update 1.5: Thêm form đăng nhập và cập nhật database
+
+> #### Update 1.4: Sửa lỗi kết nối database
 	
-> ## Update 1.3: Thêm MDI
+> #### Update 1.3: Thêm MDI
 	
-> ## Update 1.2: Thêm form đăng nhập
+> #### Update 1.2: Thêm form đăng nhập
 
-> ## Update 1.1: Thêm mô hình 3 lớp
+> #### Update 1.1: Thêm mô hình 3 lớp
 
-> ## Update 1.0: Tạo prototype
+> #### Update 1.0: Tạo prototype

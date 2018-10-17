@@ -15,7 +15,7 @@ namespace DAO
             SqlConnection connection = DataProvider.GetConnection();
             string query = "SELECT ma_loai_topping, ten_loai_topping, loai_mon FROM LoaiTopping WHERE loai_mon=@MaLoaiMon AND trang_thai=1";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 255).Value = maLoaiMon;
+            command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();

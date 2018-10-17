@@ -139,6 +139,8 @@ namespace QuanLyQuanCF_TS
         {
             if (DialogResult.Yes == MessageBox.Show("Bạn có muốn quay lại màn hình chính?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
             {
+                // Xoá bộ nhớ ucXemLaiHoaDon
+                panelLayout.Controls.Clear();
                 ((FrmMain)this.ParentForm).XuLyFormMain();
                 this.Close();
             }
@@ -251,6 +253,11 @@ namespace QuanLyQuanCF_TS
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###") });
 
+                    if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
+                    {
+                        rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = "Đá: 100%\n Đường: 100%" });
+                    }
+
                     // Thêm món vào hoá đơn nếu hoá đơn chưa có món nào
                     if (dgvHoaDon.Rows.Count == 0)
                     {
@@ -295,6 +302,7 @@ namespace QuanLyQuanCF_TS
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.TenTopping });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.GiaTien.ToString("#,###") });
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = string.Empty });
 
                     // Lấy thứ tự topping cuối cùng của món đang chọn trong hoá đon
                     int toppingRangeIndex = LayThuTuToppingCuoiCungCuaMon();

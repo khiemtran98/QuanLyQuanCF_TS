@@ -26,12 +26,13 @@ namespace DAO
         public static bool LuuChiTietHoaDon(ChiTietHoaDonDTO chiTietHoaDon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "INSERT INTO ChiTietHoaDon (hoa_don, mon, so_luong, don_gia) VALUES (@MaHoaDon, @MaMon, @SoLuong, @DonGia)";
+            string query = "INSERT INTO ChiTietHoaDon (hoa_don, mon, so_luong, don_gia, ghi_chu) VALUES (@MaHoaDon, @MaMon, @SoLuong, @DonGia, @GhiChu)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@MaHoaDon", System.Data.SqlDbType.Int, 0).Value = chiTietHoaDon.MaHoaDon;
-            command.Parameters.Add("@MaMon", System.Data.SqlDbType.Int, 255).Value = chiTietHoaDon.MaMon;
-            command.Parameters.Add("@SoLuong", System.Data.SqlDbType.Int, 255).Value = chiTietHoaDon.SoLuong;
-            command.Parameters.Add("@DonGia", System.Data.SqlDbType.Float, 255).Value = chiTietHoaDon.DonGia;
+            command.Parameters.Add("@MaMon", System.Data.SqlDbType.Int, 0).Value = chiTietHoaDon.MaMon;
+            command.Parameters.Add("@SoLuong", System.Data.SqlDbType.Int, 0).Value = chiTietHoaDon.SoLuong;
+            command.Parameters.Add("@DonGia", System.Data.SqlDbType.Float, 0).Value = chiTietHoaDon.DonGia;
+            command.Parameters.Add("@GhiChu", System.Data.SqlDbType.NVarChar, 255).Value = chiTietHoaDon.GhiChu;
 
             connection.Open();
 

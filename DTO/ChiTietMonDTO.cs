@@ -12,10 +12,12 @@ namespace DTO
         private int maTopping;
         private int soLuong;
         private double donGia;
+        private string ghiChu;
 
         public int MaCTHD { get => maCTHD; set => maCTHD = value; }
         public int MaTopping { get => maTopping; set => maTopping = value; }
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public double DonGia { get => donGia; set => donGia = value; }
+        public string GhiChu { get => ghiChu; set => ghiChu = value; }
     }
 }

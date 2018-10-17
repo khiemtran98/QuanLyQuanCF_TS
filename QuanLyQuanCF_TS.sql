@@ -17,6 +17,7 @@ create table LoaiMon
 	ma_loai_mon int identity,
 	ten_loai_mon nvarchar(max) not null,
 	trang_thai bit not null,
+	nuoc_uong bit not null,
 	constraint PK_LoaiMon primary key (ma_loai_mon)
 )
 
@@ -97,6 +98,7 @@ create table ChiTietHoaDon
 	mon int not null,
 	so_luong int not null,
 	don_gia float not null,
+	ghi_chu nvarchar(max),
 	constraint PK_ChiTietHoaDon primary key (ma_cthd),
 	constraint FK_ChiTietHoaDon_HoaDon foreign key (hoa_don) references HoaDon(ma_hoa_don),
 	constraint FK_ChiTietHoaDon_Mon foreign key (mon) references Mon(ma_mon)
@@ -108,6 +110,7 @@ create table ChiTietMon
 	ma_topping int,
 	so_luong int,
 	don_gia float not null,
+	ghi_chu nvarchar(max),
 	constraint PK_ChiTietMon primary key (ma_cthd, ma_topping),
 	constraint FK_ChiTietMon_ChiTietHoaDon foreign key (ma_cthd) references ChiTietHoaDon(ma_cthd),
 	constraint FK_ChiTietMon_Topping foreign key (ma_topping) references Topping(ma_topping)

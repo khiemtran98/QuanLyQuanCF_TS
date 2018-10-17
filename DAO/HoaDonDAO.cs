@@ -29,9 +29,9 @@ namespace DAO
             string query = "INSERT INTO HoaDon (nhan_vien_lap, ngay_lap, tong_tien, trang_thai) VALUES (@NhanVienLap, @NgayLap, @TongTien, @TrangThai)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@NhanVienLap", System.Data.SqlDbType.Int, 0).Value = hoaDon.NhanVienLap;
-            command.Parameters.Add("@NgayLap", System.Data.SqlDbType.DateTime, 255).Value = hoaDon.NgayLap;
-            command.Parameters.Add("@TongTien", System.Data.SqlDbType.Float, 255).Value = hoaDon.TongTien;
-            command.Parameters.Add("@TrangThai", System.Data.SqlDbType.Bit, 255).Value = hoaDon.TrangThai;
+            command.Parameters.Add("@NgayLap", System.Data.SqlDbType.DateTime, 0).Value = hoaDon.NgayLap;
+            command.Parameters.Add("@TongTien", System.Data.SqlDbType.Float, 0).Value = hoaDon.TongTien;
+            command.Parameters.Add("@TrangThai", System.Data.SqlDbType.Bit, 0).Value = hoaDon.TrangThai;
 
             connection.Open();
 
