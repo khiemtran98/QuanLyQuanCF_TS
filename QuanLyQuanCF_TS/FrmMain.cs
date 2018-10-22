@@ -22,6 +22,7 @@ namespace QuanLyQuanCF_TS
         private void MoFormDangNhap()
         {
             this.WindowState = FormWindowState.Normal;
+            this.Movable = true;
             FrmDangNhap m_frmDangNhap = FrmDangNhap.Instance;
             m_frmDangNhap.MdiParent = this;
             m_frmDangNhap.Dock = DockStyle.Fill;
@@ -56,6 +57,7 @@ namespace QuanLyQuanCF_TS
         {
             mPanel.Visible = true;
             this.DisplayHeader = true;
+            this.Movable = false;
             panelTaiKhoan.Visible = true;
         }
 
@@ -73,6 +75,48 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            XuLyChuyenForm();
+            NhanVienBUS.LuuTaiKhoanDangNhap(-1);
+            MoFormDangNhap();
+        }
+
+        private void mtQuanLyTaiKhoan_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mQuanLyMon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mThongKeHoaDon_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mThongKeNhapHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mQuanLyKho_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mThongKeDoanhThu_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void mNhapHang_Click(object sender, EventArgs e)
+        {
+
+        }
+
         private void mBanHang_Click(object sender, EventArgs e)
         {
             XuLyChuyenForm();
@@ -80,13 +124,6 @@ namespace QuanLyQuanCF_TS
             m_frmBanHang.MdiParent = this;
             m_frmBanHang.Dock = DockStyle.Fill;
             m_frmBanHang.Show();
-        }
-
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-            XuLyChuyenForm();
-            NhanVienBUS.LuuTaiKhoanDangNhap(-1);
-            MoFormDangNhap();
         }
     }
 }

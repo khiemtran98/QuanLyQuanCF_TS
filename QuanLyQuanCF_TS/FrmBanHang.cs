@@ -33,6 +33,18 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void ThemLuaChonTatCa()
+        {
+            MaterialSkin.Controls.MaterialFlatButton btnTatCa = new MaterialSkin.Controls.MaterialFlatButton();
+            btnTatCa.Text = "Tất cả" + " (" + MonBUS.LaySoLuongMonTheoLoai(0) + ")"; ;
+            btnTatCa.Name = "0";
+            btnTatCa.AutoSize = false;
+            btnTatCa.Size = new Size(140, 60);
+            btnTatCa.Dock = DockStyle.Left;
+            btnTatCa.Click += new EventHandler(ChonLoai);
+            panelLoai.Controls.Add(btnTatCa);
+        }
+
         private void LayDanhSachLoaiMon()
         {
             List<LoaiMonDTO> dsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
@@ -49,6 +61,7 @@ namespace QuanLyQuanCF_TS
                 panelLoai.Controls.Add(btn);
                 btn.BringToFront();
             }
+            ThemLuaChonTatCa();
         }
 
         private void LayDanhSachMon(List<MonDTO> dsMon)
@@ -59,6 +72,7 @@ namespace QuanLyQuanCF_TS
                 ListViewItem lvi = new ListViewItem(mon.TenMon);
                 lvi.SubItems.Add(mon.GiaTien.ToString("#,##0 VND"));
                 lsvMenu.LargeImageList.Images.Add(Image.FromFile("img\\" + mon.Hinh));
+                lvi.Group = lsvMenu.Groups[mon.LoaiMon.ToString()];
                 lvi.ImageIndex = i;
                 lvi.Tag = mon;
                 lsvMenu.Items.Add(lvi);
@@ -129,10 +143,14 @@ namespace QuanLyQuanCF_TS
             return tongTien;
         }
 
-        public void QuayLaiManHinhChonMon()
+        public void QuayLaiManHinhChonMon(bool luuThanhCong = false)
         {
             panelHoaDon.Visible = panelLoai.Visible = panelMenu.Visible = panelThanhToan.Visible = true;
             splitContainer1.Visible = true;
+            if (luuThanhCong) // Clear bảng hoá đơn nếu đã thanh toán
+            {
+                dgvHoaDon.Rows.Clear();
+            }
         }
 
         private void QuayLaiManHinhChinh()
@@ -165,6 +183,15 @@ namespace QuanLyQuanCF_TS
         private void FrmBanHang_Load(object sender, EventArgs e)
         {
             LayDanhSachLoaiMon();
+            TaoGroup();
+        }
+
+        private void TaoGroup()
+        {
+            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
+            {
+                lsvMenu.Groups.Add(loaiMon.MaLoaiMon.ToString(), loaiMon.TenLoaiMon);
+            }
         }
 
         private int loaiDangChon = -1;
@@ -177,28 +204,12 @@ namespace QuanLyQuanCF_TS
             if (radMenuMon.Checked)
             {
                 List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai((Convert.ToInt32(((Button)sender).Name)));
-                for (int i = 0; i < dsMon.Count; i++)
-                {
-                    MonDTO mon = dsMon[i];
-                    ListViewItem lvi = new ListViewItem(mon.TenMon);
-                    lvi.SubItems.Add(mon.GiaTien.ToString("#,##0 VND"));
-                    lsvMenu.LargeImageList.Images.Add(Image.FromFile("img\\" + mon.Hinh));
-                    lvi.ImageIndex = i;
-                    lvi.Tag = mon;
-                    lsvMenu.Items.Add(lvi);
-                }
+                LayDanhSachMon(dsMon);
             }
             else
             {
                 List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachToppingTheoLoai((Convert.ToInt32(((Button)sender).Name)));
-                for (int i = 0; i < dsTopping.Count; i++)
-                {
-                    ToppingDTO topping = dsTopping[i];
-                    ListViewItem lvi = new ListViewItem(topping.TenTopping);
-                    lvi.SubItems.Add(topping.GiaTien.ToString("#,##0 VND"));
-                    lvi.Tag = topping;
-                    lsvMenu.Items.Add(lvi);
-                }
+                LayDanhSachTopping(dsTopping);
             }
 
         }
@@ -265,6 +276,7 @@ namespace QuanLyQuanCF_TS
                         TinhThanhTien();
                         lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
                         btnThanhToan.Enabled = true;
+                        btnThanhToan.BackColor = Color.LimeGreen;
                         return;
                     }
 
@@ -418,6 +430,7 @@ namespace QuanLyQuanCF_TS
             lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
             if (dgvHoaDon.Rows.Count == 0)
             {
+                btnThanhToan.BackColor = Color.Gray;
                 btnThanhToan.Enabled = false;
                 radMenuMon.Checked = true;
                 radMenuTopping.Enabled = false;
@@ -435,31 +448,14 @@ namespace QuanLyQuanCF_TS
                 if (radMenuMon.Checked)
                 {
                     List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai(loaiDangChon, txtTimKiem.Text);
-                    for (int i = 0; i < dsMon.Count; i++)
-                    {
-                        MonDTO mon = dsMon[i];
-                        ListViewItem lvi = new ListViewItem(mon.TenMon);
-                        lvi.SubItems.Add(mon.GiaTien.ToString("#,##0 VND"));
-                        lsvMenu.LargeImageList.Images.Add(Image.FromFile("img\\" + mon.Hinh));
-                        lvi.ImageIndex = i;
-                        lvi.Group = lsvMenu.Groups[mon.LoaiMon.ToString()];
-                        lvi.Tag = mon;
-                        lsvMenu.Items.Add(lvi);
-                    }
+                    LayDanhSachMon(dsMon);
                 }
 
                 // Tìm kiếm topping
                 else
                 {
                     List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachToppingTheoLoai(loaiDangChon, txtTimKiem.Text);
-                    for (int i = 0; i < dsTopping.Count; i++)
-                    {
-                        ToppingDTO topping = dsTopping[i];
-                        ListViewItem lvi = new ListViewItem(topping.TenTopping);
-                        lvi.SubItems.Add(topping.GiaTien.ToString("#,##0 VND"));
-                        lvi.Tag = topping;
-                        lsvMenu.Items.Add(lvi);
-                    }
+                    LayDanhSachTopping(dsTopping);
                 }
             }
         }

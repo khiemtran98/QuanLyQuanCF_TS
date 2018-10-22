@@ -86,6 +86,7 @@ namespace QuanLyQuanCF_TS
                 txtTienThua.Text = tienThua.ToString("#,##0đ");
                 txtTienMat.Enabled = false;
                 btnXuatHoaDon.Enabled = true;
+                btnXuatHoaDon.BackColor = Color.LimeGreen;
             }
         }
 
@@ -142,7 +143,7 @@ namespace QuanLyQuanCF_TS
             if (HoaDonBUS.LuuHoaDon(hoaDon, lsCTHD, lsCTM))
             {
                 MessageBox.Show("Tạo hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                ((FrmBanHang)this.FindForm()).QuayLaiManHinhChonMon();
+                ((FrmBanHang)this.FindForm()).QuayLaiManHinhChonMon(true);
                 ReseHoaDon();
             }
             else
@@ -158,6 +159,7 @@ namespace QuanLyQuanCF_TS
 
         private void ReseHoaDon()
         {
+            btnXuatHoaDon.BackColor = Color.Gray;
             btnXuatHoaDon.Enabled = false;
             txtTienMat.Enabled = true;
             txtTienMat.Text = txtTienThua.Text = string.Empty;

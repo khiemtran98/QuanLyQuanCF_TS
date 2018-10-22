@@ -1,36 +1,30 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.3: Thêm ghi chú bán hàng
+> ## Update 2.4: Cập nhật Metro UI
 
 ### # Các thay đổi
 
-  **Sửa lỗi:** Sửa một lỗi khiến chương trình crash khi mở đóng form bán hàng.
-
-  **1. Chức năng bán hàng**
-  - Thêm ghi chú cho từng món.
+  **Cập nhật UI:**
   
-  **2. Database**
-  - Thêm thuộc tính
+  **1. Màn hình chính**:
   
-### # Quan trọng
-
-Cập nhật database theo đoạn code sau:
-
-```
-USE QuanLyQuanCF_TS
-GO
-
-ALTER TABLE ChiTietHoaDon
-	ADD ghi_chu NVARCHAR(MAX)
-	
-ALTER TABLE ChiTietMon
-	ADD ghi_chu NVARCHAR(MAX)
-	
-ALTER TABLE LoaiMon
-	ADD nuoc_uong BIT NOT NULL DEFAULT 0
-	
-UPDATE LoaiMon SET nuoc_uong=1 WHERE ma_loai_mon=1 OR  ma_loai_mon=2 OR  ma_loai_mon=3
-```
+  - Cập nhật giao diện Metro hoàn chỉnh.
+  
+  - Thêm một loạt icon giao diện
+  
+  **2. Màn hình bán hàng**:
+  
+  - Tối ưu UI responsive, thay đổi tỉ lệ splitter, item.
+  
+  - Thêm lựa chọn hiện tất cả món trong Menu món.
+  
+  - Thêm lại group theo loại món.
+  
+  **Sửa lỗi:**
+  
+  1. Sửa một lỗi khiến dữ liệu món order không clear hết sau khi xuất hoá đơn thành công.
+  
+  2. Thay đổi mã nguồn và tái sử dụng một số phương thức.
 
 ### # Hướng dẫn cài đặt
 
@@ -62,11 +56,13 @@ UPDATE LoaiMon SET nuoc_uong=1 WHERE ma_loai_mon=1 OR  ma_loai_mon=2 OR  ma_loai
 
 ---
 
+> #### Update 2.3: Thêm ghi chú bán hàng
+
 > #### Update 2.2: Hoàn thiện chức năng bán hàng
 
 > #### Update 2.1: Thay đổi database
 
-> #### Update 2.0: Thay đổi protorype
+> #### Update 2.0: Thay đổi prototype
 
 > #### Update 1.7: Thêm thanh tìm kiếm trong form bán hàng
 

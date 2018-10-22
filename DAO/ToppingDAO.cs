@@ -14,18 +14,32 @@ namespace DAO
         {
             SqlConnection connection = DataProvider.GetConnection();
 
-            string query;
-            if (timKiem == string.Empty)
+            string query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE trang_thai=1";
+            SqlCommand command = new SqlCommand();
+            if (maLoaiTopping != 0)
             {
-                query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE loai_topping=@MaLoaiTopping AND trang_thai=1";
+                query += " AND loai_topping=@MaLoaiTopping";
+                command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
             }
-            else
+            if (timKiem != string.Empty)
             {
-                query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE loai_topping=@MaLoaiTopping AND ten_topping LIKE N'%'+@TimKiem+'%' AND trang_thai=1";
+                query += " AND ten_topping LIKE N'%'+@TimKiem+'%'";
+                command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
             }
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
-            command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
+            command.CommandText = query;
+            command.Connection = connection;
+            //string query;
+            //if (timKiem == string.Empty)
+            //{
+            //    query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE loai_topping=@MaLoaiTopping AND trang_thai=1";
+            //}
+            //else
+            //{
+            //    query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE loai_topping=@MaLoaiTopping AND ten_topping LIKE N'%'+@TimKiem+'%' AND trang_thai=1";
+            //}
+            //SqlCommand command = new SqlCommand(query, connection);
+            //command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
+            //command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -51,9 +65,15 @@ namespace DAO
         public static int LaySoLuongToppingTheoLoai(int maLoaiTopping)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT COUNT(ma_topping) FROM Topping WHERE loai_topping=@MaLoaiTopping AND trang_thai=1";
-            SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
+            string query = "SELECT COUNT(ma_topping) FROM Topping WHERE trang_thai=1";
+            SqlCommand command = new SqlCommand();
+            if (maLoaiTopping != 0)
+            {
+                query += " AND loai_topping=@MaLoaiTopping";
+                command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
+            }
+            command.CommandText = query;
+            command.Connection = connection;
 
             connection.Open();
             int result = Convert.ToInt32(command.ExecuteScalar());

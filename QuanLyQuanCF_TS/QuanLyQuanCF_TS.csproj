@@ -141,7 +141,37 @@
     <None Include="bin\Debug\icon\button-background.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="Resources\reload.png" />
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\box.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\coffee-to-go.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\product.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\purchase-order.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\sales-performance.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\sell.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\transaction-list.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\user-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\warehouse.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\coins.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
