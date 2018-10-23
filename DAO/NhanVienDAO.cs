@@ -23,7 +23,7 @@ namespace DAO
         public static List<NhanVienDTO> LayDanhSachNhanVien()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_nhan_vien, ho_ten FROM NhanVien";
+            string query = "SELECT ma_nhan_vien, ho_ten, ngay_bat_dau, la_admin FROM NhanVien";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
@@ -39,6 +39,8 @@ namespace DAO
                     {
                         nhanvien.MaNhanVien = reader.GetInt32(0);
                         nhanvien.HoTen = reader.GetString(1);
+                        nhanvien.NgayBatDau = reader.GetDateTime(2);
+                        nhanvien.LaAdmin = reader.GetBoolean(3);
                         result.Add(nhanvien);
                     }
                 }
@@ -103,6 +105,72 @@ namespace DAO
 
             connection.Close();
             return result;
+        }
+
+        public static bool ThemNhanVien(NhanVienDTO nhanVien)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "INSERT INTO NhanVien (ho_ten, mat_khau, ngay_bat_dau, la_admin) VALUES (@hoTen, @matKhau, @ngayBatDau, @laAdmin)";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@hoTen", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.HoTen;
+            command.Parameters.Add("@matKhau", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.MatKhau;
+            command.Parameters.Add("@ngayBatDau", System.Data.SqlDbType.DateTime, 0).Value = nhanVien.NgayBatDau;
+            command.Parameters.Add("@laAdmin", System.Data.SqlDbType.Bit, 0).Value = nhanVien.LaAdmin;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool XoaNhanVien(int maNhanVien)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "DELETE FROM NhanVien WHERE ma_nhan_vien=@maNhanVien";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maNhanVien", System.Data.SqlDbType.Int, 0).Value = maNhanVien;
+            
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool SuaThongTinNhanVien(NhanVienDTO nhanVien)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE NhanVien SET ho_ten=@hoTen, mat_khau=@matKhau, la_admin=@laAdmin WHERE ma_nhan_vien=@maNhanVien";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maNhanVien", System.Data.SqlDbType.Int, 0).Value = nhanVien.MaNhanVien;
+            command.Parameters.Add("@hoTen", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.HoTen;
+            command.Parameters.Add("@matKhau", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.MatKhau;
+            command.Parameters.Add("@laAdmin", System.Data.SqlDbType.Bit, 0).Value = nhanVien.LaAdmin;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

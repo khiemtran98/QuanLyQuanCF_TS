@@ -1,6 +1,6 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.4: Cập nhật Metro UI
+> ## Update 2.4.1: Tạo prototype chức năng quản lý tài khoản
 
 ### # Các thay đổi
 
@@ -55,6 +55,8 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.4: Cập nhật Metro UI
 
 > #### Update 2.3: Thêm ghi chú bán hàng
 

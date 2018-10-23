@@ -84,7 +84,11 @@ namespace QuanLyQuanCF_TS
 
         private void mtQuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
-
+            XuLyChuyenForm();
+            FrmQuanLyTaiKhoan m_FrmQuanLyTaiKhoan = FrmQuanLyTaiKhoan.Instance;
+            m_FrmQuanLyTaiKhoan.MdiParent = this;
+            m_FrmQuanLyTaiKhoan.Dock = DockStyle.Fill;
+            m_FrmQuanLyTaiKhoan.Show();
         }
 
         private void mQuanLyMon_Click(object sender, EventArgs e)
