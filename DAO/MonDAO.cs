@@ -10,7 +10,7 @@ namespace DAO
 {
     public static class MonDAO
     {
-        public static List<MonDTO> LayDanhSachMonTheoLoai(int maLoaiMon, string timKiem = "")
+        public static List<MonDTO> LayDanhSachMonTheoLoai(int maLoaiMon, string timKiem)
         {
             SqlConnection connection = DataProvider.GetConnection();
 
@@ -18,28 +18,16 @@ namespace DAO
             SqlCommand command = new SqlCommand();
             if (maLoaiMon != 0)
             {
-                query += " AND loai_mon=@MaLoaiMon";
-                command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
+                query += " AND loai_mon=@maLoaiMon";
+                command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
             }
             if (timKiem != string.Empty)
             {
-                query += " AND ten_mon LIKE N'%'+@TimKiem+'%'";
-                command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
+                query += " AND ten_mon LIKE N'%'+@timKiem+'%'";
+                command.Parameters.Add("@timKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
             }
             command.CommandText = query;
             command.Connection = connection;
-            //string query;
-            //if (timKiem == string.Empty)
-            //{
-            //    query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien FROM Mon WHERE loai_mon=@MaLoaiMon AND trang_thai=1";
-            //}
-            //else
-            //{
-            //    query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien FROM Mon WHERE loai_mon=@MaLoaiMon AND ten_mon LIKE N'%'+@TimKiem+'%' and trang_thai=1";
-            //}
-            //SqlCommand command = new SqlCommand(query, connection);
-            //command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
-            //command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -70,8 +58,8 @@ namespace DAO
             SqlCommand command = new SqlCommand();
             if (maLoaiMon != 0)
             {
-                query += " AND loai_mon=@MaLoaiMon";
-                command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
+                query += " AND loai_mon=@maLoaiMon";
+                command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
             }
             command.CommandText = query;
             command.Connection = connection;
@@ -86,9 +74,9 @@ namespace DAO
         public static bool KiemTraMonLaNuocUong(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT nuoc_uong FROM LoaiMon WHERE ma_loai_mon=@MaLoaiMon";
+            string query = "SELECT la_do_uong FROM LoaiMon WHERE ma_loai_mon=@maLoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@MaLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
+            command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
 
             connection.Open();
             bool result = Convert.ToBoolean(command.ExecuteScalar());

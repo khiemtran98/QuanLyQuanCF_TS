@@ -81,7 +81,7 @@
             this.mPanel.HorizontalScrollbarSize = 10;
             this.mPanel.Location = new System.Drawing.Point(20, 60);
             this.mPanel.Name = "mPanel";
-            this.mPanel.Size = new System.Drawing.Size(760, 318);
+            this.mPanel.Size = new System.Drawing.Size(1319, 531);
             this.mPanel.TabIndex = 0;
             this.mPanel.VerticalScrollbarBarColor = true;
             this.mPanel.VerticalScrollbarHighlightOnWheel = false;
@@ -98,7 +98,7 @@
             this.metroPanel3.HorizontalScrollbarSize = 10;
             this.metroPanel3.Location = new System.Drawing.Point(0, 340);
             this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(760, 170);
+            this.metroPanel3.Size = new System.Drawing.Size(1319, 170);
             this.metroPanel3.TabIndex = 18;
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
@@ -201,7 +201,7 @@
             this.metroPanel2.HorizontalScrollbarSize = 10;
             this.metroPanel2.Location = new System.Drawing.Point(0, 170);
             this.metroPanel2.Name = "metroPanel2";
-            this.metroPanel2.Size = new System.Drawing.Size(760, 170);
+            this.metroPanel2.Size = new System.Drawing.Size(1319, 170);
             this.metroPanel2.TabIndex = 17;
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
@@ -306,7 +306,7 @@
             this.metroPanel1.HorizontalScrollbarSize = 10;
             this.metroPanel1.Location = new System.Drawing.Point(0, 0);
             this.metroPanel1.Name = "metroPanel1";
-            this.metroPanel1.Size = new System.Drawing.Size(760, 170);
+            this.metroPanel1.Size = new System.Drawing.Size(1319, 170);
             this.metroPanel1.TabIndex = 16;
             this.metroPanel1.VerticalScrollbarBarColor = true;
             this.metroPanel1.VerticalScrollbarHighlightOnWheel = false;
@@ -410,7 +410,7 @@
             this.mQuanLyMon.Size = new System.Drawing.Size(298, 147);
             this.mQuanLyMon.Style = MetroFramework.MetroColorStyle.Silver;
             this.mQuanLyMon.TabIndex = 9;
-            this.mQuanLyMon.Text = "Quản lý món";
+            this.mQuanLyMon.Text = "Quản lý món và topping";
             this.mQuanLyMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mQuanLyMon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coffee_to_go;
             this.mQuanLyMon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -475,9 +475,9 @@
             this.lblCapBac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCapBac.BackColor = System.Drawing.Color.White;
             this.lblCapBac.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblCapBac.Location = new System.Drawing.Point(12, 29);
+            this.lblCapBac.Location = new System.Drawing.Point(889, 29);
             this.lblCapBac.Name = "lblCapBac";
-            this.lblCapBac.Size = new System.Drawing.Size(700, 23);
+            this.lblCapBac.Size = new System.Drawing.Size(382, 23);
             this.lblCapBac.TabIndex = 18;
             this.lblCapBac.Text = "Cấp bậc";
             this.lblCapBac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -487,9 +487,9 @@
             this.lblHoTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHoTen.BackColor = System.Drawing.Color.White;
             this.lblHoTen.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblHoTen.Location = new System.Drawing.Point(12, 8);
+            this.lblHoTen.Location = new System.Drawing.Point(889, 8);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(700, 25);
+            this.lblHoTen.Size = new System.Drawing.Size(382, 25);
             this.lblHoTen.TabIndex = 17;
             this.lblHoTen.Text = "Họ tên";
             this.lblHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -500,9 +500,9 @@
             this.panelTaiKhoan.Controls.Add(this.lblHoTen);
             this.panelTaiKhoan.Controls.Add(this.lblCapBac);
             this.panelTaiKhoan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTaiKhoan.Location = new System.Drawing.Point(20, 378);
+            this.panelTaiKhoan.Location = new System.Drawing.Point(20, 591);
             this.panelTaiKhoan.Name = "panelTaiKhoan";
-            this.panelTaiKhoan.Size = new System.Drawing.Size(760, 60);
+            this.panelTaiKhoan.Size = new System.Drawing.Size(1319, 60);
             this.panelTaiKhoan.TabIndex = 20;
             // 
             // btnDangXuat
@@ -512,7 +512,7 @@
             this.btnDangXuat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
             this.btnDangXuat.FlatAppearance.BorderSize = 0;
             this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Location = new System.Drawing.Point(718, 8);
+            this.btnDangXuat.Location = new System.Drawing.Point(1277, 8);
             this.btnDangXuat.Name = "btnDangXuat";
             this.btnDangXuat.Size = new System.Drawing.Size(30, 44);
             this.btnDangXuat.TabIndex = 19;
@@ -523,7 +523,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 458);
+            this.ClientSize = new System.Drawing.Size(1359, 671);
             this.Controls.Add(this.mPanel);
             this.Controls.Add(this.panelTaiKhoan);
             this.IsMdiContainer = true;

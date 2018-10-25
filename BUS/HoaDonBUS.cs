@@ -16,24 +16,24 @@ namespace BUS
             return HoaDonDAO.LayMaHoaDonMoiNhat();
         }
 
-        public static bool LuuHoaDon(HoaDonDTO hoaDon, List<ChiTietHoaDonDTO> lsCTHD, List<ChiTietMonDTO> lsCTM)
+        public static bool LuuHoaDon(HoaDonDTO hoaDon, List<CTHoaDonDTO> lsCTHD, List<CTHoaDon_ToppingDTO> lsCTHD_Topping)
         {
             if (!HoaDonDAO.LuuHoaDon(hoaDon))
             {
                 return false;
             }
 
-            foreach (ChiTietHoaDonDTO cthd in lsCTHD)
+            foreach (CTHoaDonDTO cthd in lsCTHD)
             {
-                if (!ChiTietHoaDonDAO.LuuChiTietHoaDon(cthd))
+                if (!CTHoaDon.LuuCTHoaDon(cthd))
                 {
                     return false;
                 }
             }
 
-            foreach (ChiTietMonDTO ctm in lsCTM)
+            foreach (CTHoaDon_ToppingDTO cthd_topping in lsCTHD_Topping)
             {
-                if (!ChiTietMonDAO.LuuChiTietMon(ctm))
+                if (!CTHoaDon_Topping.LuuCTHoaDon_Topping(cthd_topping))
                 {
                     return false;
                 }

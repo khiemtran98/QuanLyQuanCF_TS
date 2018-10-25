@@ -41,14 +41,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ChiTietHoaDonDAO.cs" />
-    <Compile Include="ChiTietMonDAO.cs" />
+    <Compile Include="CTHoaDon.cs" />
+    <Compile Include="CTHoaDon_Topping.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HoaDonDAO.cs" />
     <Compile Include="LoaiMonDAO.cs" />
+    <Compile Include="LoaiTaiKhoanDAO.cs" />
     <Compile Include="LoaiToppingDAO.cs" />
     <Compile Include="MonDAO.cs" />
-    <Compile Include="NhanVienDAO.cs" />
+    <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToppingDAO.cs" />
   </ItemGroup>

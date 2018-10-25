@@ -10,11 +10,6 @@ namespace BUS
 {
     public class ToppingBUS
     {
-        //public static List<ToppingDTO> LayDanhSachMonTheoLoai(int maLoaiMon)
-        //{
-        //    return ToppingDAO.LayDanhSachToppingTheoLoai(maLoaiMon);
-        //}
-
         public static List<ToppingDTO> LayDanhSachToppingTheoLoai(int maLoaiTopping, string timkiem = "")
         {
             return ToppingDAO.LayDanhSachToppingTheoLoai(maLoaiTopping, timkiem);

@@ -33,9 +33,9 @@
             this.lblThongTin2 = new MetroFramework.Controls.MetroLabel();
             this.btnDangNhap = new MetroFramework.Controls.MetroButton();
             this.txtMatKhau = new MetroFramework.Controls.MetroTextBox();
-            this.cmbNhanVien = new MetroFramework.Controls.MetroComboBox();
+            this.cmbTaiKhoan = new MetroFramework.Controls.MetroComboBox();
             this.lblMatKhau = new MetroFramework.Controls.MetroLabel();
-            this.lblTenDangNhap = new MetroFramework.Controls.MetroLabel();
+            this.lblTaiKhoan = new MetroFramework.Controls.MetroLabel();
             this.mDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,9 +45,9 @@
             this.mDangNhap.Controls.Add(this.lblThongTin2);
             this.mDangNhap.Controls.Add(this.btnDangNhap);
             this.mDangNhap.Controls.Add(this.txtMatKhau);
-            this.mDangNhap.Controls.Add(this.cmbNhanVien);
+            this.mDangNhap.Controls.Add(this.cmbTaiKhoan);
             this.mDangNhap.Controls.Add(this.lblMatKhau);
-            this.mDangNhap.Controls.Add(this.lblTenDangNhap);
+            this.mDangNhap.Controls.Add(this.lblTaiKhoan);
             this.mDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mDangNhap.HorizontalScrollbarBarColor = true;
             this.mDangNhap.HorizontalScrollbarHighlightOnWheel = false;
@@ -128,16 +128,16 @@
             this.txtMatKhau.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
             // 
-            // cmbNhanVien
+            // cmbTaiKhoan
             // 
-            this.cmbNhanVien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cmbNhanVien.FormattingEnabled = true;
-            this.cmbNhanVien.ItemHeight = 23;
-            this.cmbNhanVien.Location = new System.Drawing.Point(266, 105);
-            this.cmbNhanVien.Name = "cmbNhanVien";
-            this.cmbNhanVien.Size = new System.Drawing.Size(301, 29);
-            this.cmbNhanVien.TabIndex = 4;
-            this.cmbNhanVien.UseSelectable = true;
+            this.cmbTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cmbTaiKhoan.FormattingEnabled = true;
+            this.cmbTaiKhoan.ItemHeight = 23;
+            this.cmbTaiKhoan.Location = new System.Drawing.Point(266, 105);
+            this.cmbTaiKhoan.Name = "cmbTaiKhoan";
+            this.cmbTaiKhoan.Size = new System.Drawing.Size(301, 29);
+            this.cmbTaiKhoan.TabIndex = 4;
+            this.cmbTaiKhoan.UseSelectable = true;
             // 
             // lblMatKhau
             // 
@@ -149,15 +149,15 @@
             this.lblMatKhau.TabIndex = 3;
             this.lblMatKhau.Text = "Mật khẩu";
             // 
-            // lblTenDangNhap
+            // lblTaiKhoan
             // 
-            this.lblTenDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblTenDangNhap.AutoSize = true;
-            this.lblTenDangNhap.Location = new System.Drawing.Point(184, 111);
-            this.lblTenDangNhap.Name = "lblTenDangNhap";
-            this.lblTenDangNhap.Size = new System.Drawing.Size(67, 19);
-            this.lblTenDangNhap.TabIndex = 2;
-            this.lblTenDangNhap.Text = "Nhân viên";
+            this.lblTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTaiKhoan.AutoSize = true;
+            this.lblTaiKhoan.Location = new System.Drawing.Point(184, 111);
+            this.lblTaiKhoan.Name = "lblTaiKhoan";
+            this.lblTaiKhoan.Size = new System.Drawing.Size(63, 19);
+            this.lblTaiKhoan.TabIndex = 2;
+            this.lblTaiKhoan.Text = "Tài khoản";
             // 
             // FrmDangNhap
             // 
@@ -184,10 +184,10 @@
         #endregion
 
         private MetroFramework.Controls.MetroPanel mDangNhap;
-        private MetroFramework.Controls.MetroLabel lblTenDangNhap;
+        private MetroFramework.Controls.MetroLabel lblTaiKhoan;
         private MetroFramework.Controls.MetroButton btnDangNhap;
         private MetroFramework.Controls.MetroTextBox txtMatKhau;
-        private MetroFramework.Controls.MetroComboBox cmbNhanVien;
+        private MetroFramework.Controls.MetroComboBox cmbTaiKhoan;
         private MetroFramework.Controls.MetroLabel lblMatKhau;
         private MetroFramework.Controls.MetroLabel lblThongTin1;
         private MetroFramework.Controls.MetroLabel lblThongTin2;

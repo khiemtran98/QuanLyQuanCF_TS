@@ -31,9 +31,9 @@ namespace QuanLyQuanCF_TS
 
         private void ucXemLaiHoaDon_Load(object sender, EventArgs e)
         {
-            int taiKhoan = NhanVienBUS.LayTaiKhoanDangNhap();
-            NhanVienDTO nhanVien = NhanVienBUS.LayThongTinNhanVien(taiKhoan);
-            lblTenNhanVien.Text = nhanVien.HoTen;
+            int maTaiKhoan = TaiKhoanBUS.LayTaiKhoanDangNhap();
+            TaiKhoanDTO taiKhoan = TaiKhoanBUS.LayThongTinTaiKhoan(maTaiKhoan);
+            lblTenTaiKhoan.Text = taiKhoan.HoTen;
             lblNgayLap.Text = DateTime.Now + "";
         }
 
@@ -93,19 +93,19 @@ namespace QuanLyQuanCF_TS
         private void btnXuatHoaDon_Click(object sender, EventArgs e)
         {
             HoaDonDTO hoaDon = new HoaDonDTO();
-            hoaDon.NhanVienLap = NhanVienBUS.LayTaiKhoanDangNhap();
+            hoaDon.NhanVienLap = TaiKhoanBUS.LayTaiKhoanDangNhap();
             hoaDon.NgayLap = DateTime.Now;
             hoaDon.TongTien = ((FrmBanHang)this.FindForm()).TinhThanhTien();
             hoaDon.TrangThai = true;
 
-            List<ChiTietHoaDonDTO> lsCTHD = new List<ChiTietHoaDonDTO>();
-            List<ChiTietMonDTO> lsCTM = new List<ChiTietMonDTO>();
+            List<CTHoaDonDTO> lsCTHD = new List<CTHoaDonDTO>();
+            List<CTHoaDon_ToppingDTO> lsCTHD_Topping = new List<CTHoaDon_ToppingDTO>();
             int idCTHDMark = 0; // Đánh dấu topping thuộc CTHĐ nào
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
             {
                 if (row.Tag.GetType() == typeof(MonDTO))
                 {
-                    ChiTietHoaDonDTO cthd = new ChiTietHoaDonDTO();
+                    CTHoaDonDTO cthd = new CTHoaDonDTO();
                     cthd.MaHoaDon = HoaDonBUS.LayMaHoaDonMoiNhat() + 1;
                     cthd.MaMon = ((MonDTO)row.Tag).MaMon;
                     cthd.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
@@ -123,24 +123,24 @@ namespace QuanLyQuanCF_TS
                 }
                 else
                 {
-                    ChiTietMonDTO ctm = new ChiTietMonDTO();
-                    ctm.MaCTHD = ChiTietHoaDonBUS.LayMaChiTietHoaDonMoiNhat() + idCTHDMark;
-                    ctm.MaTopping = ((ToppingDTO)row.Tag).MaTopping;
-                    ctm.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
-                    ctm.DonGia = Convert.ToDouble(row.Cells["colDonGia"].Value);
+                    CTHoaDon_ToppingDTO cthd_topping = new CTHoaDon_ToppingDTO();
+                    cthd_topping.MaCTHD = CTHoaDonBUS.LayMaCTHoaDonMoiNhat() + idCTHDMark;
+                    cthd_topping.MaTopping = ((ToppingDTO)row.Tag).MaTopping;
+                    cthd_topping.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
+                    cthd_topping.DonGia = Convert.ToDouble(row.Cells["colDonGia"].Value);
                     if (row.Cells["colGhiChu"].Value != null)
                     {
-                        ctm.GhiChu = row.Cells["colGhiChu"].Value.ToString();
+                        cthd_topping.GhiChu = row.Cells["colGhiChu"].Value.ToString();
                     }
                     else
                     {
-                        ctm.GhiChu = string.Empty;
+                        cthd_topping.GhiChu = string.Empty;
                     }
-                    lsCTM.Add(ctm);
+                    lsCTHD_Topping.Add(cthd_topping);
                 }
             }
 
-            if (HoaDonBUS.LuuHoaDon(hoaDon, lsCTHD, lsCTM))
+            if (HoaDonBUS.LuuHoaDon(hoaDon, lsCTHD, lsCTHD_Topping))
             {
                 MessageBox.Show("Tạo hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ((FrmBanHang)this.FindForm()).QuayLaiManHinhChonMon(true);

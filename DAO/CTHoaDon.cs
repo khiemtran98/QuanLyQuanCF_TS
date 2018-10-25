@@ -8,30 +8,31 @@ using DTO;
 
 namespace DAO
 {
-    public static class HoaDonDAO
+    public static class CTHoaDon
     {
-        public static int LayMaHoaDonMoiNhat()
+        public static int LayMaCTHoaDonMoiNhat()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT MAX(ma_hoa_don) FROM HoaDon";
+            string query = "SELECT MAX(ma_cthd) FROM CTHoaDon";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
             var result = command.ExecuteScalar();
             connection.Close();
-            
+
             return result is DBNull ? 0 : Convert.ToInt32(result);
         }
 
-        public static bool LuuHoaDon(HoaDonDTO hoaDon)
+        public static bool LuuCTHoaDon(CTHoaDonDTO CTHoaDon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "INSERT INTO HoaDon (nhan_vien_lap, ngay_lap, tong_tien, trang_thai) VALUES (@nhanVienLap, @ngayLap, @tongTien, @trangThai)";
+            string query = "INSERT INTO CTHoaDon (hoa_don, mon, so_luong, don_gia, ghi_chu) VALUES (@maHoaDon, @maMon, @soLuong, @donGia, @ghiChu)";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@nhanVienLap", System.Data.SqlDbType.Int, 0).Value = hoaDon.NhanVienLap;
-            command.Parameters.Add("@ngayLap", System.Data.SqlDbType.DateTime, 0).Value = hoaDon.NgayLap;
-            command.Parameters.Add("@tongTien", System.Data.SqlDbType.Float, 0).Value = hoaDon.TongTien;
-            command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = hoaDon.TrangThai;
+            command.Parameters.Add("@maHoaDon", System.Data.SqlDbType.Int, 0).Value = CTHoaDon.MaHoaDon;
+            command.Parameters.Add("@maMon", System.Data.SqlDbType.Int, 0).Value = CTHoaDon.MaMon;
+            command.Parameters.Add("@soLuong", System.Data.SqlDbType.Int, 0).Value = CTHoaDon.SoLuong;
+            command.Parameters.Add("@donGia", System.Data.SqlDbType.Float, 0).Value = CTHoaDon.DonGia;
+            command.Parameters.Add("@ghiChu", System.Data.SqlDbType.NVarChar, 255).Value = CTHoaDon.GhiChu;
 
             connection.Open();
 

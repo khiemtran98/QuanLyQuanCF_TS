@@ -77,6 +77,12 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmQuanLyMon-Topping.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyMon-Topping.Designer.cs">
+      <DependentUpon>FrmQuanLyMon-Topping.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmQuanLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,12 +99,16 @@
     </Compile>
     <EmbeddedResource Include="FrmBanHang.resx">
       <DependentUpon>FrmBanHang.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyMon-Topping.resx">
+      <DependentUpon>FrmQuanLyMon-Topping.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyTaiKhoan.resx">
       <DependentUpon>FrmQuanLyTaiKhoan.cs</DependentUpon>
@@ -181,6 +191,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\icon\coins.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\add.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

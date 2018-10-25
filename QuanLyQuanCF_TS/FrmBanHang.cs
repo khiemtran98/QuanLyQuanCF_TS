@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
+﻿using BUS;
 using DTO;
-using BUS;
+using MaterialSkin.Controls;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Windows.Forms;
 
 namespace QuanLyQuanCF_TS
 {
@@ -33,16 +29,17 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void ThemLuaChonTatCa()
+        private void FrmBanHang_Load(object sender, EventArgs e)
         {
-            MaterialSkin.Controls.MaterialFlatButton btnTatCa = new MaterialSkin.Controls.MaterialFlatButton();
-            btnTatCa.Text = "Tất cả" + " (" + MonBUS.LaySoLuongMonTheoLoai(0) + ")"; ;
-            btnTatCa.Name = "0";
-            btnTatCa.AutoSize = false;
-            btnTatCa.Size = new Size(140, 60);
-            btnTatCa.Dock = DockStyle.Left;
-            btnTatCa.Click += new EventHandler(ChonLoai);
-            panelLoai.Controls.Add(btnTatCa);
+            LayDanhSachLoaiMon();
+            TaiDuLieu();
+        }
+
+        private int loaiDangChon = -1;
+
+        public DataGridViewRowCollection LayThongTinHoaDon()
+        {
+            return dgvHoaDon.Rows;
         }
 
         private void LayDanhSachLoaiMon()
@@ -50,7 +47,7 @@ namespace QuanLyQuanCF_TS
             List<LoaiMonDTO> dsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
             foreach (LoaiMonDTO loaiMon in dsLoaiMon)
             {
-                MaterialSkin.Controls.MaterialFlatButton btn = new MaterialSkin.Controls.MaterialFlatButton();
+                MaterialFlatButton btn = new MaterialFlatButton();
                 btn.Text = loaiMon.TenLoaiMon + " (" + MonBUS.LaySoLuongMonTheoLoai(loaiMon.MaLoaiMon) + ")";
                 btn.Name = loaiMon.MaLoaiMon.ToString();
                 btn.AutoSize = false;
@@ -61,30 +58,132 @@ namespace QuanLyQuanCF_TS
                 panelLoai.Controls.Add(btn);
                 btn.BringToFront();
             }
-            ThemLuaChonTatCa();
+
+            MaterialFlatButton btnTatCa = new MaterialFlatButton();
+            btnTatCa.Text = "Tất cả" + " (" + MonBUS.LaySoLuongMonTheoLoai(0) + ")"; ;
+            btnTatCa.Name = "0";
+            btnTatCa.AutoSize = false;
+            btnTatCa.Size = new Size(140, 60);
+            btnTatCa.Dock = DockStyle.Left;
+            btnTatCa.Tag = new LoaiMonDTO();
+            btnTatCa.Click += new EventHandler(ChonLoai);
+            panelLoai.Controls.Add(btnTatCa);
         }
 
-        private void LayDanhSachMon(List<MonDTO> dsMon)
+        private void TaiDuLieu()
+        {
+            for (int i = 0; i < panelLoai.Controls.Count; i++)
+            {
+                Control ctrl = panelLoai.Controls[i];
+                if (ctrl.GetType() == typeof(MaterialFlatButton))
+                {
+                    if (ctrl.Tag.GetType() == typeof(LoaiMonDTO))
+                    {
+                        ImageList iml = new ImageList();
+                        iml.ColorDepth = ColorDepth.Depth32Bit;
+                        iml.ImageSize = new Size(64, 64);
+
+                        ListView lsv = new ListView();
+                        lsv.Tag = ctrl.Tag;
+                        lsv.LargeImageList = iml;
+                        lsv.Name = ctrl.Name;
+                        lsv.ShowGroups = true;
+                        lsv.TileSize = new Size(230, 100);
+                        lsv.GridLines = true;
+                        lsv.FullRowSelect = true;
+                        lsv.View = View.Tile;
+                        lsv.Dock = DockStyle.Fill;
+                        lsv.Font = new Font("Segoe UI", 14.25F);
+                        TaoGroupMon(lsv);
+                        lsv.Columns.Add("Tên món");
+                        lsv.Columns.Add("Đơn giá");
+
+                        lsv.Click += new EventHandler(ThemMon);
+
+                        List<MonDTO> lsMon = MonBUS.LayDanhSachMonTheoLoai(Convert.ToInt32(lsv.Name));
+                        LayDanhSachMon(lsv, lsMon);
+                        panelMenu.Controls.Add(lsv);
+                    }
+                }
+            }
+
+            List<LoaiToppingDTO> lsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiTopping();
+            foreach (LoaiToppingDTO loaiTopping in lsLoaiTopping)
+            {
+                ImageList iml = new ImageList();
+                iml.ColorDepth = ColorDepth.Depth32Bit;
+                iml.ImageSize = new Size(80, 80);
+
+                ListView lsv = new ListView();
+                lsv.Tag = loaiTopping;
+                lsv.LargeImageList = iml;
+                lsv.Name = loaiTopping.MaLoaiTopping + "";
+                lsv.ShowGroups = true;
+                lsv.TileSize = new Size(230, 100);
+                lsv.GridLines = true;
+                lsv.FullRowSelect = true;
+                lsv.View = View.Tile;
+                lsv.Dock = DockStyle.Fill;
+                lsv.Font = new Font("Segoe UI", 14.25F);
+                TaoGroupTopping(lsv);
+                lsv.Columns.Add("Tên món");
+                lsv.Columns.Add("Đơn giá");
+
+                lsv.Click += new EventHandler(ThemMon);
+
+                List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachToppingTheoLoai(loaiTopping.MaLoaiTopping);
+                LayDanhSachTopping(lsv, lsTopping);
+                panelMenu.Controls.Add(lsv);
+            }
+        }
+
+        private void ChonLoai(object sender, EventArgs e)
+        {
+            loaiDangChon = Convert.ToInt32(((MaterialFlatButton)sender).Name);
+            foreach (Control ctrl in panelMenu.Controls)
+            {
+                if (ctrl.GetType() == typeof(ListView))
+                {
+                    if (ctrl.Tag.GetType() == ((MaterialFlatButton)sender).Tag.GetType())
+                    {
+                        if (ctrl.Name == ((MaterialFlatButton)sender).Name)
+                        {
+                            ctrl.Visible = true;
+                        }
+                        else
+                        {
+                            ctrl.Visible = false;
+                        }
+                    }
+                    else
+                    {
+                        ctrl.Visible = false;
+                    }
+                }
+            }
+        }
+
+        private void LayDanhSachMon(ListView lsv, List<MonDTO> dsMon)
         {
             for (int i = 0; i < dsMon.Count; i++)
             {
                 MonDTO mon = dsMon[i];
                 ListViewItem lvi = new ListViewItem(mon.TenMon);
                 lvi.SubItems.Add(mon.GiaTien.ToString("#,##0 VND"));
-                lsvMenu.LargeImageList.Images.Add(Image.FromFile("img\\" + mon.Hinh));
-                lvi.Group = lsvMenu.Groups[mon.LoaiMon.ToString()];
+                lsv.LargeImageList.Images.Add(Image.FromFile("img\\" + mon.Hinh));
+                lvi.Group = lsv.Groups[mon.LoaiMon + ""];
                 lvi.ImageIndex = i;
                 lvi.Tag = mon;
-                lsvMenu.Items.Add(lvi);
+                lsv.Items.Add(lvi);
             }
         }
 
         private void LayDanhSachLoaiTopping(int maLoaiMon)
         {
-            List<LoaiToppingDTO> dsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiTopping(maLoaiMon);
+            List<LoaiToppingDTO> dsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiToppingTheoMon(maLoaiMon);
             foreach (LoaiToppingDTO loaiTopping in dsLoaiTopping)
             {
-                MaterialSkin.Controls.MaterialFlatButton btn = new MaterialSkin.Controls.MaterialFlatButton();
+                MaterialFlatButton btn = new MaterialFlatButton();
                 btn.Text = loaiTopping.TenLoaiTopping + " (" + ToppingBUS.LaySoLuongToppingTheoLoai(loaiTopping.MaLoaiTopping) + ")";
                 btn.Name = loaiTopping.MaLoaiTopping.ToString();
                 btn.AutoSize = false;
@@ -97,126 +196,161 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void LayDanhSachTopping(List<ToppingDTO> dsTopping)
+        private void LayDanhSachTopping(ListView lsv, List<ToppingDTO> dsTopping)
         {
             for (int i = 0; i < dsTopping.Count; i++)
             {
                 ToppingDTO topping = dsTopping[i];
                 ListViewItem lvi = new ListViewItem(topping.TenTopping);
                 lvi.SubItems.Add(topping.GiaTien.ToString("#,##0 VND"));
+                lvi.Group = lsv.Groups[topping.LoaiTopping + ""];
                 lvi.Tag = topping;
-                lsvMenu.Items.Add(lvi);
+                lsv.Items.Add(lvi);
             }
         }
 
-        public DataGridViewRowCollection LayThongTinHoaDon()
+        private ListView LayMenuMon()
         {
-            return dgvHoaDon.Rows;
-        }
-
-        private void LapHoaDon()
-        {
-            panelHoaDon.Visible = panelLoai.Visible = panelMenu.Visible = panelThanhToan.Visible = false;
-            splitContainer1.Visible = false;
-            ucXemLaiHoaDon uc = ucXemLaiHoaDon.Instance;
-            uc.Dock = DockStyle.Fill;
-            panelLayout.Controls.Add(uc);
-
-            int soLuongMon = 0;
-            foreach (DataGridViewRow row in dgvHoaDon.Rows)
+            foreach (Control ctrl in panelMenu.Controls)
             {
-                if (row.Tag.GetType() == typeof(MonDTO))
+                if (ctrl.GetType() == typeof(ListView))
                 {
-                    soLuongMon += Convert.ToInt32(row.Cells["colSoLuong"].Value);
+                    if (ctrl.Visible)
+                        return (ListView)ctrl;
                 }
             }
-            uc.LoadThongTinHoaDon(soLuongMon, TinhThanhTien());
+            return null;
         }
 
-        public double TinhThanhTien()
+        private void ThemMon(object sender, EventArgs e)
         {
-            double tongTien = 0;
-            foreach (DataGridViewRow row in dgvHoaDon.Rows)
-            {
-                tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(row.Cells["colDonGia"].Value);
-            }
-            return tongTien;
-        }
-
-        public void QuayLaiManHinhChonMon(bool luuThanhCong = false)
-        {
-            panelHoaDon.Visible = panelLoai.Visible = panelMenu.Visible = panelThanhToan.Visible = true;
-            splitContainer1.Visible = true;
-            if (luuThanhCong) // Clear bảng hoá đơn nếu đã thanh toán
-            {
-                dgvHoaDon.Rows.Clear();
-            }
-        }
-
-        private void QuayLaiManHinhChinh()
-        {
-            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn quay lại màn hình chính?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            {
-                // Xoá bộ nhớ ucXemLaiHoaDon
-                panelLayout.Controls.Clear();
-                ((FrmMain)this.ParentForm).XuLyFormMain();
-                this.Close();
-            }
-        }
-
-        private void txtTimKiem_Enter(object sender, EventArgs e)
-        {
-            if (txtTimKiem.Text == "Tìm kiếm tên món")
-            {
-                txtTimKiem.Text = string.Empty;
-            }
-        }
-
-        private void txtTimKiem_Leave(object sender, EventArgs e)
-        {
-            if (txtTimKiem.Text == string.Empty)
-            {
-                txtTimKiem.Text = "Tìm kiếm tên món";
-            }
-        }
-
-        private void FrmBanHang_Load(object sender, EventArgs e)
-        {
-            LayDanhSachLoaiMon();
-            TaoGroup();
-        }
-
-        private void TaoGroup()
-        {
-            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
-            {
-                lsvMenu.Groups.Add(loaiMon.MaLoaiMon.ToString(), loaiMon.TenLoaiMon);
-            }
-        }
-
-        private int loaiDangChon = -1;
-
-        private void ChonLoai(object sender, EventArgs e)
-        {
-            loaiDangChon = (Convert.ToInt32(((Button)sender).Name));
-            lsvMenu.Items.Clear();
-            lsvMenu.LargeImageList.Images.Clear();
+            ListView lsv = LayMenuMon();
             if (radMenuMon.Checked)
             {
-                List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai((Convert.ToInt32(((Button)sender).Name)));
-                LayDanhSachMon(dsMon);
+                if (lsv.SelectedItems.Count == 1)
+                {
+                    MonDTO mon = (MonDTO)lsv.SelectedItems[0].Tag;
+
+                    DataGridViewRow rowMon = new DataGridViewRow();
+                    rowMon.DefaultCellStyle.BackColor = Color.AliceBlue;
+                    rowMon.Height = 50;
+                    rowMon.Tag = mon;
+                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
+                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
+                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###") });
+
+                    if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
+                    {
+                        rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = "Đá: 100%\n Đường: 100%" });
+                    }
+
+                    // Thêm món vào hoá đơn nếu hoá đơn chưa có món nào
+                    if (dgvHoaDon.Rows.Count == 0)
+                    {
+                        dgvHoaDon.Rows.Add(rowMon);
+                        TinhThanhTien();
+                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                        btnThanhToan.Enabled = true;
+                        btnThanhToan.BackColor = Color.LimeGreen;
+                        return;
+                    }
+
+                    // Duyệt qua toàn bộ danh sách hoá đơn
+                    foreach (DataGridViewRow rowHD in dgvHoaDon.Rows)
+                    {
+                        if (rowHD.Tag.GetType() == typeof(MonDTO))
+                        {
+                            // Tăng số lương món trong hoá đơn nếu hoá đơn đã có món đó
+                            if (((MonDTO)rowHD.Tag).MaMon == mon.MaMon)
+                            {
+                                int soLuong = Convert.ToInt32(rowHD.Cells["colSoLuong"].Value);
+                                rowHD.Cells["colSoLuong"].Value = soLuong + 1;
+                                TinhThanhTien();
+                                return;
+                            }
+                        }
+                    }
+
+                    // Thêm món vào hoá đơn nếu hoá đơn chưa có món đó
+                    dgvHoaDon.Rows.Add(rowMon);
+                    lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                }
             }
             else
             {
-                List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachToppingTheoLoai((Convert.ToInt32(((Button)sender).Name)));
-                LayDanhSachTopping(dsTopping);
-            }
+                if (lsv.SelectedItems.Count == 1)
+                {
+                    ToppingDTO topping = (ToppingDTO)lsv.SelectedItems[0].Tag;
 
+                    DataGridViewRow rowTopping = new DataGridViewRow();
+                    rowTopping.DefaultCellStyle.BackColor = Color.Beige;
+                    rowTopping.Height = 25;
+                    rowTopping.Tag = topping;
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.TenTopping });
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.GiaTien.ToString("#,###") });
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = string.Empty });
+
+                    // Lấy thứ tự topping cuối cùng của món đang chọn trong hoá đon
+                    int toppingRangeIndex = LayThuTuToppingCuoiCungCuaMon();
+
+                    // Duyệt qua toàn bộ các topping của món đang chọn
+                    for (int i = dgvHoaDon.SelectedRows[0].Index + 1; i <= toppingRangeIndex; i++)
+                    {
+                        if (dgvHoaDon.Rows[i].Tag.GetType() == typeof(ToppingDTO))
+                        {
+                            // Tăng số lượng topping
+                            if (((ToppingDTO)dgvHoaDon.Rows[i].Tag).MaTopping == topping.MaTopping)
+                            {
+                                // Chỉ tăng khi tổng số topping ít hơn số lượng món
+                                if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
+                                {
+                                    int soLuong = Convert.ToInt32(dgvHoaDon.Rows[i].Cells["colSoLuong"].Value);
+                                    dgvHoaDon.Rows[i].Cells["colSoLuong"].Value = soLuong + 1;
+                                    TinhThanhTien();
+                                    return;
+                                }
+                            }
+                        }
+                    }
+
+                    // Thêm topping vào món nếu chưa có
+                    // Chỉ thêm khi tổng số topping ít hơn số lượng món
+                    if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
+                    {
+                        dgvHoaDon.Rows.Insert(dgvHoaDon.SelectedRows[0].Index + 1, rowTopping);
+                        TinhThanhTien();
+                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                    }
+                }
+            }
         }
 
-        private void FrmBanHang_FormClosed(object sender, FormClosedEventArgs e)
+        private void TaoGroupMon(ListView lsv)
         {
-            _Instance = null;
+            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
+            {
+                lsv.Groups.Add(loaiMon.MaLoaiMon + "", loaiMon.TenLoaiMon);
+            }
+        }
+
+        private void TaoGroupTopping(ListView lsv)
+        {
+            foreach (LoaiToppingDTO loaiTopping in LoaiToppingBUS.LayDanhSachLoaiTopping())
+            {
+                lsv.Groups.Add(loaiTopping.MaLoaiTopping + "", loaiTopping.TenLoaiTopping);
+            }
+        }
+
+        private void XoaMenu()
+        {
+            foreach (Control ctrl in panelMenu.Controls)
+            {
+                if (ctrl.GetType() == typeof(ListView))
+                {
+                    ctrl.Visible = false;
+                }
+            }
         }
 
         private int LayThuTuToppingCuoiCungCuaMon()
@@ -391,7 +525,7 @@ namespace QuanLyQuanCF_TS
                 if (lsvMenu.Items.Count > 0)
                 {
                     bool toppingCheck = false;
-                    foreach (MaterialSkin.Controls.MaterialFlatButton btn in panelLoai.Controls)
+                    foreach (MaterialFlatButton btn in panelLoai.Controls)
                     {
                         if (((LoaiToppingDTO)btn.Tag).MaLoaiTopping == ((ToppingDTO)lsvMenu.Items[0].Tag).LoaiTopping)
                         {
@@ -402,8 +536,8 @@ namespace QuanLyQuanCF_TS
                     if (!toppingCheck)
                     {
                         loaiDangChon = -1;
-                        lsvMenu.Items.Clear();
-                        lsvMenu.LargeImageList.Images.Clear();
+                        //lsvMenu.Items.Clear();
+                        //lsvMenu.LargeImageList.Images.Clear();
                     }
                 }
 
@@ -437,25 +571,42 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void txtTimKiem_Enter(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == "Tìm kiếm tên món")
+            {
+                txtTimKiem.Text = string.Empty;
+            }
+        }
+
+        private void txtTimKiem_Leave(object sender, EventArgs e)
+        {
+            if (txtTimKiem.Text == string.Empty)
+            {
+                txtTimKiem.Text = "Tìm kiếm tên món";
+            }
+        }
+
         private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                lsvMenu.Items.Clear();
-                lsvMenu.LargeImageList.Images.Clear();
+                ListView lsv = LayMenuMon();
+                lsv.Items.Clear();
+                lsv.LargeImageList.Images.Clear();
 
                 // Tìm kiếm món
                 if (radMenuMon.Checked)
                 {
                     List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai(loaiDangChon, txtTimKiem.Text);
-                    LayDanhSachMon(dsMon);
+                    LayDanhSachMon(lsv, dsMon);
                 }
 
                 // Tìm kiếm topping
                 else
                 {
                     List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachToppingTheoLoai(loaiDangChon, txtTimKiem.Text);
-                    LayDanhSachTopping(dsTopping);
+                    LayDanhSachTopping(lsv, dsTopping);
                 }
             }
         }
@@ -465,8 +616,7 @@ namespace QuanLyQuanCF_TS
             if (radMenuMon.Checked)
             {
                 loaiDangChon = -1;
-                lsvMenu.Items.Clear();
-                lsvMenu.LargeImageList.Images.Clear();
+                XoaMenu();
                 panelLoai.Controls.Clear();
                 LayDanhSachLoaiMon();
             }
@@ -477,26 +627,16 @@ namespace QuanLyQuanCF_TS
             if (radMenuTopping.Checked)
             {
                 loaiDangChon = -1;
-                lsvMenu.Items.Clear();
-                lsvMenu.LargeImageList.Images.Clear();
                 panelLoai.Controls.Clear();
+                XoaMenu();
 
                 // Nếu hoá đơn đang chọn món thì menu mới hiện topping tương ứng
                 if (dgvHoaDon.SelectedRows[0].Tag.GetType() == typeof(MonDTO))
                 {
+                    //LayDanhSachLoaiTopping(((MonDTO)dgvHoaDon.SelectedRows[0].Tag).LoaiMon);
                     LayDanhSachLoaiTopping(((MonDTO)dgvHoaDon.SelectedRows[0].Tag).LoaiMon);
                 }
             }
-        }
-
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            LapHoaDon();
-        }
-
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            QuayLaiManHinhChinh();
         }
 
         private void dgvHoaDon_KeyDown(object sender, KeyEventArgs e)
@@ -532,6 +672,68 @@ namespace QuanLyQuanCF_TS
                     }
                 }
             }
+        }
+
+        private void LapHoaDon()
+        {
+            panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = false;
+            splitContainer1.Visible = false;
+            ucXemLaiHoaDon uc = ucXemLaiHoaDon.Instance;
+            uc.Dock = DockStyle.Fill;
+            panelLayout.Controls.Add(uc);
+
+            int soLuongMon = 0;
+            foreach (DataGridViewRow row in dgvHoaDon.Rows)
+            {
+                if (row.Tag.GetType() == typeof(MonDTO))
+                {
+                    soLuongMon += Convert.ToInt32(row.Cells["colSoLuong"].Value);
+                }
+            }
+            uc.LoadThongTinHoaDon(soLuongMon, TinhThanhTien());
+        }
+
+        private void btnThanhToan_Click(object sender, EventArgs e)
+        {
+            LapHoaDon();
+        }
+
+        public double TinhThanhTien()
+        {
+            double tongTien = 0;
+            foreach (DataGridViewRow row in dgvHoaDon.Rows)
+            {
+                tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(row.Cells["colDonGia"].Value);
+            }
+            return tongTien;
+        }
+
+        public void QuayLaiManHinhChonMon(bool luuThanhCong = false)
+        {
+            panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = true;
+            splitContainer1.Visible = true;
+            if (luuThanhCong) // Clear bảng hoá đơn nếu đã thanh toán
+            {
+                dgvHoaDon.Rows.Clear();
+            }
+        }
+
+        private void QuayLaiManHinhChinh()
+        {
+            // Xoá bộ nhớ ucXemLaiHoaDon
+            panelLayout.Controls.Clear();
+            ((FrmMain)this.ParentForm).XuLyFormMain();
+            this.Close();
+        }
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            QuayLaiManHinhChinh();
+        }
+
+        private void FrmBanHang_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
         }
     }
 }

@@ -1,30 +1,22 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.4.1: Tạo prototype chức năng quản lý tài khoản
+> ## Update 2.5: Thêm chức năng Quản lý tài khoản & Quản lý món
 
 ### # Các thay đổi
 
-  **Cập nhật UI:**
+  **DATABASE:** Cập nhật các bảng, thuộc tính và trigger.
   
-  **1. Màn hình chính**:
+  **CHỨC NĂNG:** Thêm các chức năng Quản lý tài khoản, Quản lý món (beta).
+
+  **GIAO DIỆN:** Chỉnh sửa tỉ lệ các compoment trong tất cả các form.
   
-  - Cập nhật giao diện Metro hoàn chỉnh.
+  **HIỆU SUẤT:** Cải thiện tốc độ phản hồi form bán hàng, không còn phải chờ tải đữ liệu.
   
-  - Thêm một loạt icon giao diện
+  **SỬA LỖI:** Sửa lỗi các trigger trong database ảnh hưởng đến các chức năng thêm xoá sửa.
   
-  **2. Màn hình bán hàng**:
-  
-  - Tối ưu UI responsive, thay đổi tỉ lệ splitter, item.
-  
-  - Thêm lựa chọn hiện tất cả món trong Menu món.
-  
-  - Thêm lại group theo loại món.
-  
-  **Sửa lỗi:**
-  
-  1. Sửa một lỗi khiến dữ liệu món order không clear hết sau khi xuất hoá đơn thành công.
-  
-  2. Thay đổi mã nguồn và tái sử dụng một số phương thức.
+### # Quan trọng
+
+  Tạo lại database để sửa lỗi.
 
 ### # Hướng dẫn cài đặt
 
@@ -42,6 +34,16 @@
 
 ### # Hướng dẫn sử dụng
 
+- **Chức năng Quản lý tài khoản**
+
+  - Có thể thêm xoá sửa (tạm thời chưa thể sử dụng hình).
+  
+- **Chức năng Quản lý món**
+
+  - Tạm thời chỉ có thể quản lý loại món.
+
+  - Có thể thêm và sửa (tạm thời chưa thể xoá).
+
 - **Chức năng Bán hàng**
 
   - Thêm món từ menu bằng cách nhấn trực tiếp vào món đó thay vì dùng phím Spacebar như trước.
@@ -55,6 +57,8 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.4.1: Tạo prototype chức năng quản lý tài khoản
 
 > #### Update 2.4: Cập nhật Metro UI
 

@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace DTO
 {
-    public class ChiTietMonDTO
+    public class CTHoaDon_ToppingDTO
     {
         private int maCTHD;
         private int maTopping;

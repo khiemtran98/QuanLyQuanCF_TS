@@ -23,27 +23,21 @@ namespace QuanLyQuanCF_TS
         {
             this.WindowState = FormWindowState.Normal;
             this.Movable = true;
+            this.Size = new Size(800, 458);
             FrmDangNhap m_frmDangNhap = FrmDangNhap.Instance;
             m_frmDangNhap.MdiParent = this;
             m_frmDangNhap.Dock = DockStyle.Fill;
             m_frmDangNhap.Show();
         }
 
-        public void XuLyDangNhapThanhCong(int maNhanVien)
+        public void XuLyDangNhapThanhCong(int maTaiKhoan)
         {
             this.WindowState = FormWindowState.Maximized;
             XuLyFormMain();
-            NhanVienBUS.LuuTaiKhoanDangNhap(maNhanVien);
-            NhanVienDTO nhanVien = NhanVienBUS.LayThongTinNhanVien(maNhanVien);
-            lblHoTen.Text = nhanVien.HoTen;
-            if (!nhanVien.LaAdmin)
-            {
-                lblCapBac.Text = "Nhân viên";
-            }
-            else
-            {
-                lblCapBac.Text = "Quản lý";
-            }
+            TaiKhoanBUS.LuuTaiKhoanDangNhap(maTaiKhoan);
+            TaiKhoanDTO taiKhoan = TaiKhoanBUS.LayThongTinTaiKhoan(maTaiKhoan);
+            lblHoTen.Text = taiKhoan.HoTen;
+            lblCapBac.Text = TaiKhoanBUS.LayTenLoaiTaiKhoan(taiKhoan.LoaiTaiKhoan);
         }
 
         public void XuLyChuyenForm()
@@ -78,12 +72,13 @@ namespace QuanLyQuanCF_TS
         private void btnDangXuat_Click(object sender, EventArgs e)
         {
             XuLyChuyenForm();
-            NhanVienBUS.LuuTaiKhoanDangNhap(-1);
+            TaiKhoanBUS.LuuTaiKhoanDangNhap(-1);
             MoFormDangNhap();
         }
 
         private void mtQuanLyTaiKhoan_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
             FrmQuanLyTaiKhoan m_FrmQuanLyTaiKhoan = FrmQuanLyTaiKhoan.Instance;
             m_FrmQuanLyTaiKhoan.MdiParent = this;
@@ -93,36 +88,42 @@ namespace QuanLyQuanCF_TS
 
         private void mQuanLyMon_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
+            XuLyChuyenForm();
+            FrmQuanLyMon_Topping m_FrmQuanLyMonVaTopping = FrmQuanLyMon_Topping.Instance;
+            m_FrmQuanLyMonVaTopping.MdiParent = this;
+            m_FrmQuanLyMonVaTopping.Dock = DockStyle.Fill;
+            m_FrmQuanLyMonVaTopping.Show();
         }
 
         private void mThongKeHoaDon_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void mThongKeNhapHang_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void mQuanLyKho_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void mThongKeDoanhThu_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void mNhapHang_Click(object sender, EventArgs e)
         {
-
+            Cursor.Current = Cursors.WaitCursor;
         }
 
         private void mBanHang_Click(object sender, EventArgs e)
         {
+            Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
             FrmBanHang m_frmBanHang = FrmBanHang.Instance;
             m_frmBanHang.MdiParent = this;

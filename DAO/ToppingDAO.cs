@@ -28,18 +28,6 @@ namespace DAO
             }
             command.CommandText = query;
             command.Connection = connection;
-            //string query;
-            //if (timKiem == string.Empty)
-            //{
-            //    query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE loai_topping=@MaLoaiTopping AND trang_thai=1";
-            //}
-            //else
-            //{
-            //    query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien FROM Topping WHERE loai_topping=@MaLoaiTopping AND ten_topping LIKE N'%'+@TimKiem+'%' AND trang_thai=1";
-            //}
-            //SqlCommand command = new SqlCommand(query, connection);
-            //command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
-            //command.Parameters.Add("@TimKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();

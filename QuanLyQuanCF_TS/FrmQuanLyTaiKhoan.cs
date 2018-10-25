@@ -35,56 +35,75 @@ namespace QuanLyQuanCF_TS
 
         private void FrmQuanLyTaiKhoan_Load(object sender, EventArgs e)
         {
-            dgvQuanLyTaiKhoan.AutoGenerateColumns = false;
+            dgvTaiKhoan.AutoGenerateColumns = false;
 
-            LoadDanhSachNhanVien();
+            LoadDanhSachTaiKhoan();
+            LoadLoaiTaiKhoan();
         }
 
-        private void LoadDanhSachNhanVien()
+        private void LoadDanhSachTaiKhoan(string timKiem = "")
         {
-            List<NhanVienDTO> lstNV = NhanVienBUS.LayDanhSachNhanVien();
-            dgvQuanLyTaiKhoan.DataSource = lstNV;
+            List<TaiKhoanDTO> lsTaiKhoan = TaiKhoanBUS.LayDanhSachTaiKhoan(timKiem);
+            dgvTaiKhoan.DataSource = lsTaiKhoan;
+        }
+
+        private void LoadLoaiTaiKhoan()
+        {
+            List<LoaiTaiKhoanDTO> lsLoaiTaiKhoan = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan();
+            cmbLoaiTaiKhoan.DataSource = lsLoaiTaiKhoan;
+            cmbLoaiTaiKhoan.DisplayMember = "TenLoaiTaiKhoan";
+            cmbLoaiTaiKhoan.ValueMember = "MaLoaiTaiKhoan";
         }
 
         private void dgvQuanLyTaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvQuanLyTaiKhoan.SelectedRows.Count > 0)
+            if (dgvTaiKhoan.SelectedRows.Count > 0)
             {
-                txtMaNhanVien.Text = dgvQuanLyTaiKhoan.SelectedRows[0].Cells["colMaNhanVien"].Value.ToString();
-                txtHoTen.Text = dgvQuanLyTaiKhoan.SelectedRows[0].Cells["colHoTen"].Value.ToString();
-                dtpNgayBatDau.Value = Convert.ToDateTime(dgvQuanLyTaiKhoan.SelectedRows[0].Cells["colNgayBatDau"].Value);
-                chkLaAdmin.Checked = Convert.ToBoolean(dgvQuanLyTaiKhoan.SelectedRows[0].Cells["colLaAdmin"].Value);
+                txtMaTaiKhoan.Text = dgvTaiKhoan.SelectedRows[0].Cells["colMaTaiKhoan"].Value.ToString();
+                txtHoTen.Text = dgvTaiKhoan.SelectedRows[0].Cells["colHoTen"].Value.ToString();
+                dtpNgayBatDau.Value = Convert.ToDateTime(dgvTaiKhoan.SelectedRows[0].Cells["colNgayBatDau"].Value);
+                cmbLoaiTaiKhoan.SelectedValue = Convert.ToInt32(dgvTaiKhoan.SelectedRows[0].Cells["colLoaiTaiKhoan"].Value);
+                try
+                {
+                    picHinh.ImageLocation = "" + dgvTaiKhoan.SelectedRows[0].Cells["colHinh"].Value.ToString();
+                }
+                catch
+                {
+                    
+                }
+                chkTrangThai.Checked = Convert.ToBoolean(dgvTaiKhoan.SelectedRows[0].Cells["colTrangThai"].Value);
             }
         }
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            NhanVienDTO nhanVien = new NhanVienDTO();
-            nhanVien.HoTen = txtHoTen.Text;
-            nhanVien.MatKhau = txtMatKhau.Text;
-            nhanVien.NgayBatDau = DateTime.Now;
-            nhanVien.LaAdmin = chkLaAdmin.Checked;
+            TaiKhoanDTO taiKhoan = new TaiKhoanDTO();
+            taiKhoan.HoTen = txtHoTen.Text;
+            taiKhoan.MatKhau = txtMatKhau.Text;
+            taiKhoan.NgayBatDau = DateTime.Now;
+            taiKhoan.LoaiTaiKhoan = Convert.ToInt32(cmbLoaiTaiKhoan.SelectedValue);
+            taiKhoan.TrangThai = chkTrangThai.Checked;
 
-            if (NhanVienBUS.ThemNhanVien(nhanVien))
+            if (TaiKhoanBUS.ThemTaiKhoan(taiKhoan))
             {
                 MessageBox.Show("Thêm thành công!","Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoi();
-                LoadDanhSachNhanVien();
+                LoadDanhSachTaiKhoan();
             }
             else
             {
                 MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                nhanVien = null;
+                taiKhoan = null;
             }
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
         {
-            if(NhanVienBUS.XoaNhanVien(Convert.ToInt32(txtMaNhanVien.Text)))
+            if(TaiKhoanBUS.XoaTaiKhoan(Convert.ToInt32(txtMaTaiKhoan.Text)))
             {
                 MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoi();
-                LoadDanhSachNhanVien();
+                LoadDanhSachTaiKhoan();
             }
             else
             {
@@ -92,33 +111,34 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnCapNhat_Click(object sender, EventArgs e)
+        private void btnSua_Click(object sender, EventArgs e)
         {
-            NhanVienDTO nhanVien = new NhanVienDTO();
-            nhanVien.MaNhanVien = Convert.ToInt32(txtMaNhanVien.Text);
-            nhanVien.HoTen = txtHoTen.Text;
-            nhanVien.MatKhau = txtMatKhau.Text;
-            nhanVien.NgayBatDau = DateTime.Now;
-            nhanVien.LaAdmin = chkLaAdmin.Checked;
+            TaiKhoanDTO taiKhoan = new TaiKhoanDTO();
+            taiKhoan.MaTaiKhoan = Convert.ToInt32(txtMaTaiKhoan.Text);
+            taiKhoan.HoTen = txtHoTen.Text;
+            taiKhoan.MatKhau = txtMatKhau.Text;
+            taiKhoan.NgayBatDau = DateTime.Now;
+            taiKhoan.LoaiTaiKhoan = Convert.ToInt32(cmbLoaiTaiKhoan.SelectedValue);
+            taiKhoan.TrangThai = chkTrangThai.Checked;
 
-            if (NhanVienBUS.SuaThongTinNhanVien(nhanVien))
+            if (TaiKhoanBUS.SuaTaiKhoan(taiKhoan))
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoi();
-                LoadDanhSachNhanVien();
+                LoadDanhSachTaiKhoan();
             }
             else
             {
                 MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                nhanVien = null;
+                taiKhoan = null;
             }
         }
 
         private void LamMoi()
         {
-            txtMaNhanVien.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
+            txtMaTaiKhoan.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
             dtpNgayBatDau.Value = DateTime.Now;
-            chkLaAdmin.Checked = false;
+            chkTrangThai.Checked = false;
         }
 
         private void btnLamMoi_Click(object sender, EventArgs e)
@@ -126,13 +146,28 @@ namespace QuanLyQuanCF_TS
             LamMoi();
         }
 
+        private void TimKiem()
+        {
+            LoadDanhSachTaiKhoan(txtTimKiem.Text);
+        }
+
+        private void btnTimKiem_Click(object sender, EventArgs e)
+        {
+            TimKiem();
+        }
+
+        private void txtTimKiem_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar == (char)Keys.Enter)
+            {
+                TimKiem();
+            }
+        }
+
         private void btnQuayLai_Click(object sender, EventArgs e)
         {
-            if (DialogResult.Yes == MessageBox.Show("Bạn có muốn quay lại màn hình chính?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            {
-                ((FrmMain)this.ParentForm).XuLyFormMain();
-                this.Close();
-            }
+            ((FrmMain)this.ParentForm).XuLyFormMain();
+            this.Close();
         }
 
         private void FrmQuanLyTaiKhoan_FormClosed(object sender, FormClosedEventArgs e)

@@ -41,9 +41,9 @@ namespace QuanLyQuanCF_TS
                 return;
             }
 
-            if (NhanVienBUS.KiemTraDangNhap((int)cmbNhanVien.SelectedValue, txtMatKhau.Text))
+            if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, txtMatKhau.Text))
             {
-                ((FrmMain)this.ParentForm).XuLyDangNhapThanhCong((int)cmbNhanVien.SelectedValue);
+                ((FrmMain)this.ParentForm).XuLyDangNhapThanhCong((int)cmbTaiKhoan.SelectedValue);
                 this.Close();
             }
             else
@@ -54,9 +54,9 @@ namespace QuanLyQuanCF_TS
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            cmbNhanVien.DataSource = NhanVienBUS.LayDanhSachNhanVien();
-            cmbNhanVien.DisplayMember = "HoTen";
-            cmbNhanVien.ValueMember = "MaNhanVien";
+            cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan();
+            cmbTaiKhoan.DisplayMember = "HoTen";
+            cmbTaiKhoan.ValueMember = "MaTaiKhoan";
         }
 
         private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)

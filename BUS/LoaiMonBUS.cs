@@ -10,9 +10,29 @@ namespace BUS
 {
     public static class LoaiMonBUS
     {
-        public static List<LoaiMonDTO> LayDanhSachLoaiMon()
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem = "")
         {
-            return LoaiMonDAO.LayDanhSachLoaiMon();
+            return LoaiMonDAO.LayDanhSachLoaiMon(timKiem);
+        }
+
+        public static List<LoaiMonDTO> LayDanhSachTatCaLoaiMon(string timKiem = "")
+        {
+            return LoaiMonDAO.LayDanhSachTatCaLoaiMon(timKiem);
+        }
+
+        public static bool ThemLoaiMon(LoaiMonDTO loaiMon)
+        {
+            return LoaiMonDAO.ThemLoaiMon(loaiMon);
+        }
+
+        public static bool XoaLoaiMon(int maLoaiMon)
+        {
+            return LoaiMonDAO.XoaLoaiMon(maLoaiMon);
+        }
+
+        public static bool SuaLoaiMon(LoaiMonDTO loaiMon)
+        {
+            return LoaiMonDAO.SuaLoaiMon(loaiMon);
         }
     }
 }

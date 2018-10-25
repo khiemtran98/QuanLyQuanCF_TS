@@ -7,11 +7,11 @@ using DAO;
 
 namespace BUS
 {
-    public static class ChiTietHoaDonBUS
+    public static class CTHoaDonBUS
     {
-        public static int LayMaChiTietHoaDonMoiNhat()
+        public static int LayMaCTHoaDonMoiNhat()
         {
-            return ChiTietHoaDonDAO.LayMaChiTietHoaDonMoiNhat();
+            return CTHoaDon.LayMaCTHoaDonMoiNhat();
         }
     }
 }

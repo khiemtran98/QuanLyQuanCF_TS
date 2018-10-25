@@ -10,9 +10,14 @@ namespace BUS
 {
     public class LoaiToppingBUS
     {
-        public static List<LoaiToppingDTO> LayDanhSachLoaiTopping(int maLoaiMon)
+        public static List<LoaiToppingDTO> LayDanhSachLoaiTopping()
         {
-            return LoaiToppingDAO.LayDanhSachLoaiTopping(maLoaiMon);
+            return LoaiToppingDAO.LayDanhSachLoaiTopping();
+        }
+
+        public static List<LoaiToppingDTO> LayDanhSachLoaiToppingTheoMon(int maLoaiMon = 0)
+        {
+            return LoaiToppingDAO.LayDanhSachLoaiToppingTheoMon(maLoaiMon);
         }
     }
 }
