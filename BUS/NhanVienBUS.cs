@@ -10,19 +10,44 @@ namespace BUS
 {
     public static class NhanVienBUS
     {
-        public static List<NhanVienDTO> layDanhSachNhanVien()
+        public static void LuuTaiKhoanDangNhap(int maNhanVien)
         {
-            return NhanVienDAO.layDanhSachNhanVien();
+            NhanVienDAO.LuuTaiKhoanDangNhap(maNhanVien);
         }
 
-        public static bool DangNhap(int maNV, string matKhau)
+        public static int LayTaiKhoanDangNhap()
         {
-            return NhanVienDAO.DangNhap(maNV, matKhau);
+            return NhanVienDAO.LayTaiKhoanDangNhap();
         }
 
-        public static NhanVienDTO layThongTinNhanVien(int maNV)
+        public static List<NhanVienDTO> LayDanhSachNhanVien(string timKiem = "")
         {
-            return NhanVienDAO.layThongTinNhanVien(maNV);
+            return NhanVienDAO.LayDanhSachNhanVien(timKiem);
+        }
+
+        public static bool KiemTraDangNhap(int maNV, string matKhau)
+        {
+            return NhanVienDAO.KiemTraDangNhap(maNV, matKhau);
+        }
+
+        public static NhanVienDTO LayThongTinNhanVien(int maNV)
+        {
+            return NhanVienDAO.LayThongTinNhanVien(maNV);
+        }
+
+        public static bool ThemNhanVien(NhanVienDTO nhanVien)
+        {
+            return NhanVienDAO.ThemNhanVien(nhanVien);
+        }
+
+        public static bool XoaNhanVien(int maNhanVien)
+        {
+            return NhanVienDAO.XoaNhanVien(maNhanVien);
+        }
+
+        public static bool SuaThongTinNhanVien(NhanVienDTO nhanVien)
+        {
+            return NhanVienDAO.SuaThongTinNhanVien(nhanVien);
         }
     }
 }

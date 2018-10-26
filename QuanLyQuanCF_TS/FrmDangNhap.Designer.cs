@@ -28,94 +28,168 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cboNhanVien = new System.Windows.Forms.ComboBox();
-            this.txtMatKhau = new System.Windows.Forms.TextBox();
-            this.btnDangNhap = new System.Windows.Forms.Button();
+            this.mDangNhap = new MetroFramework.Controls.MetroPanel();
+            this.lblThongTin1 = new MetroFramework.Controls.MetroLabel();
+            this.lblThongTin2 = new MetroFramework.Controls.MetroLabel();
+            this.btnDangNhap = new MetroFramework.Controls.MetroButton();
+            this.txtMatKhau = new MetroFramework.Controls.MetroTextBox();
+            this.cmbTaiKhoan = new MetroFramework.Controls.MetroComboBox();
+            this.lblMatKhau = new MetroFramework.Controls.MetroLabel();
+            this.lblTaiKhoan = new MetroFramework.Controls.MetroLabel();
+            this.mDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
-            // label1
+            // mDangNhap
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label1.Location = new System.Drawing.Point(231, 203);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(91, 22);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Nhân viên";
+            this.mDangNhap.Controls.Add(this.lblThongTin1);
+            this.mDangNhap.Controls.Add(this.lblThongTin2);
+            this.mDangNhap.Controls.Add(this.btnDangNhap);
+            this.mDangNhap.Controls.Add(this.txtMatKhau);
+            this.mDangNhap.Controls.Add(this.cmbTaiKhoan);
+            this.mDangNhap.Controls.Add(this.lblMatKhau);
+            this.mDangNhap.Controls.Add(this.lblTaiKhoan);
+            this.mDangNhap.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.mDangNhap.HorizontalScrollbarBarColor = true;
+            this.mDangNhap.HorizontalScrollbarHighlightOnWheel = false;
+            this.mDangNhap.HorizontalScrollbarSize = 10;
+            this.mDangNhap.Location = new System.Drawing.Point(20, 60);
+            this.mDangNhap.Name = "mDangNhap";
+            this.mDangNhap.Size = new System.Drawing.Size(760, 370);
+            this.mDangNhap.TabIndex = 0;
+            this.mDangNhap.VerticalScrollbarBarColor = true;
+            this.mDangNhap.VerticalScrollbarHighlightOnWheel = false;
+            this.mDangNhap.VerticalScrollbarSize = 10;
             // 
-            // label2
+            // lblThongTin1
             // 
-            this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.label2.Location = new System.Drawing.Point(239, 246);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(83, 22);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Mật khẩu";
+            this.lblThongTin1.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblThongTin1.Location = new System.Drawing.Point(0, 324);
+            this.lblThongTin1.Name = "lblThongTin1";
+            this.lblThongTin1.Size = new System.Drawing.Size(760, 23);
+            this.lblThongTin1.TabIndex = 9;
+            this.lblThongTin1.Text = "Đồ án môn học Lập Trình Windows Nâng Cao";
+            this.lblThongTin1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // cboNhanVien
+            // lblThongTin2
             // 
-            this.cboNhanVien.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.cboNhanVien.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboNhanVien.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.cboNhanVien.FormattingEnabled = true;
-            this.cboNhanVien.Location = new System.Drawing.Point(328, 200);
-            this.cboNhanVien.Name = "cboNhanVien";
-            this.cboNhanVien.Size = new System.Drawing.Size(267, 28);
-            this.cboNhanVien.TabIndex = 2;
-            // 
-            // txtMatKhau
-            // 
-            this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtMatKhau.Font = new System.Drawing.Font("Microsoft Sans Serif", 13F);
-            this.txtMatKhau.Location = new System.Drawing.Point(328, 243);
-            this.txtMatKhau.Name = "txtMatKhau";
-            this.txtMatKhau.Size = new System.Drawing.Size(267, 27);
-            this.txtMatKhau.TabIndex = 3;
-            this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
+            this.lblThongTin2.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.lblThongTin2.Location = new System.Drawing.Point(0, 347);
+            this.lblThongTin2.Name = "lblThongTin2";
+            this.lblThongTin2.Size = new System.Drawing.Size(760, 23);
+            this.lblThongTin2.TabIndex = 8;
+            this.lblThongTin2.Text = "Lớp CĐTH 16 PMB - Nhóm 15";
+            this.lblThongTin2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // btnDangNhap
             // 
             this.btnDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnDangNhap.Font = new System.Drawing.Font("Microsoft Sans Serif", 11F);
-            this.btnDangNhap.Location = new System.Drawing.Point(477, 285);
+            this.btnDangNhap.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnDangNhap.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.btnDangNhap.Location = new System.Drawing.Point(462, 174);
             this.btnDangNhap.Name = "btnDangNhap";
-            this.btnDangNhap.Size = new System.Drawing.Size(118, 36);
-            this.btnDangNhap.TabIndex = 4;
+            this.btnDangNhap.Size = new System.Drawing.Size(105, 31);
+            this.btnDangNhap.TabIndex = 6;
             this.btnDangNhap.Text = "Đăng nhập";
-            this.btnDangNhap.UseVisualStyleBackColor = true;
+            this.btnDangNhap.UseSelectable = true;
             this.btnDangNhap.Click += new System.EventHandler(this.btnDangNhap_Click);
+            // 
+            // txtMatKhau
+            // 
+            this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            // 
+            // 
+            // 
+            this.txtMatKhau.CustomButton.Image = null;
+            this.txtMatKhau.CustomButton.Location = new System.Drawing.Point(279, 1);
+            this.txtMatKhau.CustomButton.Name = "";
+            this.txtMatKhau.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtMatKhau.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtMatKhau.CustomButton.TabIndex = 1;
+            this.txtMatKhau.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtMatKhau.CustomButton.UseSelectable = true;
+            this.txtMatKhau.CustomButton.Visible = false;
+            this.txtMatKhau.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txtMatKhau.Lines = new string[0];
+            this.txtMatKhau.Location = new System.Drawing.Point(266, 145);
+            this.txtMatKhau.MaxLength = 32767;
+            this.txtMatKhau.Name = "txtMatKhau";
+            this.txtMatKhau.PasswordChar = '●';
+            this.txtMatKhau.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtMatKhau.SelectedText = "";
+            this.txtMatKhau.SelectionLength = 0;
+            this.txtMatKhau.SelectionStart = 0;
+            this.txtMatKhau.ShortcutsEnabled = true;
+            this.txtMatKhau.Size = new System.Drawing.Size(301, 23);
+            this.txtMatKhau.TabIndex = 5;
+            this.txtMatKhau.UseSelectable = true;
+            this.txtMatKhau.UseSystemPasswordChar = true;
+            this.txtMatKhau.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtMatKhau.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtMatKhau.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMatKhau_KeyPress);
+            // 
+            // cmbTaiKhoan
+            // 
+            this.cmbTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.cmbTaiKhoan.FormattingEnabled = true;
+            this.cmbTaiKhoan.ItemHeight = 23;
+            this.cmbTaiKhoan.Location = new System.Drawing.Point(266, 105);
+            this.cmbTaiKhoan.Name = "cmbTaiKhoan";
+            this.cmbTaiKhoan.Size = new System.Drawing.Size(301, 29);
+            this.cmbTaiKhoan.TabIndex = 4;
+            this.cmbTaiKhoan.UseSelectable = true;
+            // 
+            // lblMatKhau
+            // 
+            this.lblMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblMatKhau.AutoSize = true;
+            this.lblMatKhau.Location = new System.Drawing.Point(184, 145);
+            this.lblMatKhau.Name = "lblMatKhau";
+            this.lblMatKhau.Size = new System.Drawing.Size(63, 19);
+            this.lblMatKhau.TabIndex = 3;
+            this.lblMatKhau.Text = "Mật khẩu";
+            // 
+            // lblTaiKhoan
+            // 
+            this.lblTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTaiKhoan.AutoSize = true;
+            this.lblTaiKhoan.Location = new System.Drawing.Point(184, 111);
+            this.lblTaiKhoan.Name = "lblTaiKhoan";
+            this.lblTaiKhoan.Size = new System.Drawing.Size(63, 19);
+            this.lblTaiKhoan.TabIndex = 2;
+            this.lblTaiKhoan.Text = "Tài khoản";
             // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.btnDangNhap);
-            this.Controls.Add(this.txtMatKhau);
-            this.Controls.Add(this.cboNhanVien);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.ControlBox = false;
+            this.Controls.Add(this.mDangNhap);
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "FrmDangNhap";
+            this.Resizable = false;
+            this.ShowIcon = false;
             this.Text = "Đăng nhập";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
+            this.mDangNhap.ResumeLayout(false);
+            this.mDangNhap.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.ComboBox cboNhanVien;
-        private System.Windows.Forms.TextBox txtMatKhau;
-        private System.Windows.Forms.Button btnDangNhap;
+        private MetroFramework.Controls.MetroPanel mDangNhap;
+        private MetroFramework.Controls.MetroLabel lblTaiKhoan;
+        private MetroFramework.Controls.MetroButton btnDangNhap;
+        private MetroFramework.Controls.MetroTextBox txtMatKhau;
+        private MetroFramework.Controls.MetroComboBox cmbTaiKhoan;
+        private MetroFramework.Controls.MetroLabel lblMatKhau;
+        private MetroFramework.Controls.MetroLabel lblThongTin1;
+        private MetroFramework.Controls.MetroLabel lblThongTin2;
     }
 }
-

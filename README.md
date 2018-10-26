@@ -1,74 +1,87 @@
-# Đồ án môn học lập trình Windows NC
+# Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 1.6: Tối ưu chức năng bán hàng
+> ## Update 2.5: Thêm chức năng Quản lý tài khoản & Quản lý món
 
 ### # Các thay đổi
 
-  1.	Số lượng món có thể nhập trực tiếp trong hoá đơn. Đơn giá và tổng tiền được cập nhật theo.
+  **DATABASE:** Cập nhật các bảng, thuộc tính và trigger.
+  
+  **CHỨC NĂNG:** Thêm các chức năng Quản lý tài khoản, Quản lý món (beta).
 
-  2.	Số lượng món trong hoá đơn tự động tăng khi thêm nhiều lần. Đơn giá và tổng tiền được cập nhật theo.
+  **GIAO DIỆN:** Chỉnh sửa tỉ lệ các compoment trong tất cả các form.
   
-  3.	Thêm một món nhiều lần làm tăng số lượng món đó trong hoá đơn thay vì thêm trùng món như trước.
+  **HIỆU SUẤT:** Cải thiện tốc độ phản hồi form bán hàng, không còn phải chờ tải đữ liệu.
   
-  3.	Xoá table 'Ban' trong database.
+  **SỬA LỖI:** Sửa lỗi các trigger trong database ảnh hưởng đến các chức năng thêm xoá sửa.
   
 ### # Quan trọng
 
-Database xoá bảng 'Ban' và một sô thuộc tính. Hãy cập nhật lại database theo các trường hợp dưới đây.
-
-- **Trường hợp 1: Chưa tạo database:**
-
-  - Chạy file *QuanLyQuanCF_TS.sql*
-
-- **Trường hợp 2: Đã tạo database (cũ):**
-
-  - Chạy đoạn code bên dưới trong SQL Server
-
-```
-use QuanLyQuanCF_TS
-go
-
-alter table Ca
-	drop column luong
-
-alter table HoaDonBan
-	drop constraint FK_HoaDonBan_Ban
-
-alter table HoaDonBan
-	drop column ban
-
-drop table Ban
-```
+  Tạo lại database để sửa lỗi.
 
 ### # Hướng dẫn cài đặt
 
-  1.	Tạo database (*QuanLyQuanCF_TS.sql*).
-
-  2.	Thêm chuỗi kết nối database của từng class trong lớp DAO của máy đang chạy.
-
-  3.	Cập nhật dữ liệu các bảng 'NhanVien', 'LoaiMon', 'Mon', 'Ca' trong database để các chức năng của phần mềm hoạt động (tuy nhiên phần mềm vẫn có thể chạy được nếu không cập nhật đầy đủ các thuộc tính trong bảng).
-
-  4.	Thêm hình ảnh vào folder 'hinh' trong bin\debug (tên hình phải trùng với mã món). **Lưu ý: dữ liệu hình trong database là tên hình ảnh + đuôi file (VD: 1.jpg).**
+  1. Tạo database (*QuanLyQuanCF_TS.sql*).
   
-  5.	Build project.
+  2. Cài đặt các gói NuGet: [MetroModernUI](https://www.nuget.org/packages/MetroModernUI/), [MaterialSkin](https://www.nuget.org/packages/MaterialSkin/) bằng cách nhấn chuột phải vào project **QuanLyQuanCF_TS** chọn **Manage NuGet Package...**, tìm các gói NuGet và cài đặt.
+
+  3. Thêm chuỗi kết nối database trong class *DataProvider*.
+  
+  4. Di chuyển 2 folder *img*, *icon* vào trong bin/debug/.
+
+  5. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
+  
+  6. Build project.
 
 ### # Hướng dẫn sử dụng
 
-- **Bán hàng**
+- **Chức năng Quản lý tài khoản**
 
-  - Thêm món bằng cách chọn món trong menu và nhấn phím Spacebar.
+  - Có thể thêm xoá sửa (tạm thời chưa thể sử dụng hình).
   
-  - Xoá món bằng cách chọn món trong hoá đơn và nhấn phím Del.
+- **Chức năng Quản lý món**
+
+  - Tạm thời chỉ có thể quản lý loại món.
+
+  - Có thể thêm và sửa (tạm thời chưa thể xoá).
+
+- **Chức năng Bán hàng**
+
+  - Thêm món từ menu bằng cách nhấn trực tiếp vào món đó thay vì dùng phím Spacebar như trước.
   
-  - Quay lại màn hình chính bằng phím Esc.
+  - Sau khi thêm món có thể chọn topping tương ứng.
+  
+  - Xoá món hoặc topping khỏi hoá đơn bằng phím Del.
+  
+  - Thay đổi số lượng món hoặc topping trực tiếp trong ô số lượng.
+  
+  - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
-> ## Update 1.5: Thêm form đăng nhập và cập nhật database
 
-> ## Update 1.4: Sửa lỗi kết nối database
-	
-> ## Update 1.3: Thêm MDI
-	
-> ## Update 1.2: Thêm form đăng nhập
+> #### Update 2.4.1: Tạo prototype chức năng quản lý tài khoản
 
-> ## Update 1.1: Thêm mô hình 3 lớp
+> #### Update 2.4: Cập nhật Metro UI
+
+> #### Update 2.3: Thêm ghi chú bán hàng
+
+> #### Update 2.2: Hoàn thiện chức năng bán hàng
+
+> #### Update 2.1: Thay đổi database
+
+> #### Update 2.0: Thay đổi prototype
+
+> #### Update 1.7: Thêm thanh tìm kiếm trong form bán hàng
+
+> #### Update 1.6: Tối ưu chức năng bán hàng
+
+> #### Update 1.5: Thêm form đăng nhập và cập nhật database
+
+> #### Update 1.4: Sửa lỗi kết nối database
+	
+> #### Update 1.3: Thêm MDI
+	
+> #### Update 1.2: Thêm form đăng nhập
+
+> #### Update 1.1: Thêm mô hình 3 lớp
+
+> #### Update 1.0: Tạo prototype

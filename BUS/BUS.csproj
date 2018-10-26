@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{69142405-3A42-485D-A1BB-E429C56E2927}</ProjectGuid>
+    <ProjectGuid>{BDFD5D05-3918-4209-9093-FD38A421DE76}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BUS</RootNamespace>
     <AssemblyName>BUS</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,18 +41,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CTHoaDonBUS.cs" />
+    <Compile Include="CTLoaiMon_LoaiToppingBUS.cs" />
+    <Compile Include="HoaDonBUS.cs" />
     <Compile Include="LoaiMonBUS.cs" />
+    <Compile Include="LoaiTaiKhoanBUS.cs" />
+    <Compile Include="LoaiToppingBUS.cs" />
     <Compile Include="MonBUS.cs" />
-    <Compile Include="NhanVienBUS.cs" />
+    <Compile Include="TaiKhoanBUS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToppingBUS.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DAO\DAO.csproj">
-      <Project>{1983ff21-216e-4e63-90d4-b9e3785e518d}</Project>
+      <Project>{c3a4563f-815d-4d76-a55e-97da7aec3c4f}</Project>
       <Name>DAO</Name>
     </ProjectReference>
     <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{56432ff6-0ac2-44bf-9657-2e0a6e562fe5}</Project>
+      <Project>{f6d87eae-5c50-415c-8dbd-136d45a31025}</Project>
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>

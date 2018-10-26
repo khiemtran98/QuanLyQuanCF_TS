@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1983FF21-216E-4E63-90D4-B9E3785E518D}</ProjectGuid>
+    <ProjectGuid>{C3A4563F-815D-4D76-A55E-97DA7AEC3C4F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DAO</RootNamespace>
     <AssemblyName>DAO</AssemblyName>
-    <TargetFrameworkVersion>v4.6.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
   </PropertyGroup>
@@ -41,14 +41,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CTHoaDon.cs" />
+    <Compile Include="CTHoaDon_ToppingDAO.cs" />
+    <Compile Include="CTLoaiMon_LoaiToppingDAO.cs" />
+    <Compile Include="DataProvider.cs" />
+    <Compile Include="HoaDonDAO.cs" />
     <Compile Include="LoaiMonDAO.cs" />
+    <Compile Include="LoaiTaiKhoanDAO.cs" />
+    <Compile Include="LoaiToppingDAO.cs" />
     <Compile Include="MonDAO.cs" />
-    <Compile Include="NhanVienDAO.cs" />
+    <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ToppingDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">
-      <Project>{56432ff6-0ac2-44bf-9657-2e0a6e562fe5}</Project>
+      <Project>{f6d87eae-5c50-415c-8dbd-136d45a31025}</Project>
       <Name>DTO</Name>
     </ProjectReference>
   </ItemGroup>

@@ -12,14 +12,14 @@ using BUS;
 
 namespace QuanLyQuanCF_TS
 {
-    public partial class FrmDangNhap : Form
+    public partial class FrmDangNhap : MetroFramework.Forms.MetroForm
     {
-        private static FrmDangNhap _Instance = null;
-
         public FrmDangNhap()
         {
             InitializeComponent();
         }
+
+        private static FrmDangNhap _Instance = null;
 
         public static FrmDangNhap Instance
         {
@@ -33,12 +33,7 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _Instance = null;
-        }
-
-        private void dangNhap()
+        private void KiemTraDangNhap()
         {
             if (txtMatKhau.Text == string.Empty)
             {
@@ -46,9 +41,9 @@ namespace QuanLyQuanCF_TS
                 return;
             }
 
-            if (NhanVienBUS.DangNhap((int)cboNhanVien.SelectedValue, txtMatKhau.Text))
+            if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, txtMatKhau.Text))
             {
-                ((FrmMain)this.ParentForm).xuLyDangNhapThanhCong((int)cboNhanVien.SelectedValue);
+                ((FrmMain)this.ParentForm).XuLyDangNhapThanhCong((int)cmbTaiKhoan.SelectedValue);
                 this.Close();
             }
             else
@@ -59,27 +54,26 @@ namespace QuanLyQuanCF_TS
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            this.FormBorderStyle = FormBorderStyle.None;
-            this.MaximizeBox = this.MinimizeBox = false;
-            this.WindowState = FormWindowState.Maximized;
+            cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan();
+            cmbTaiKhoan.DisplayMember = "HoTen";
+            cmbTaiKhoan.ValueMember = "MaTaiKhoan";
+        }
 
-            cboNhanVien.DataSource = NhanVienBUS.layDanhSachNhanVien();
-            cboNhanVien.DisplayMember = "HoTen";
-            cboNhanVien.ValueMember = "MaNV";
-
-            txtMatKhau.UseSystemPasswordChar = true;
+        private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
         }
 
         private void btnDangNhap_Click(object sender, EventArgs e)
         {
-            dangNhap();
+            KiemTraDangNhap();
         }
 
         private void txtMatKhau_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
             {
-                dangNhap();
+                KiemTraDangNhap();
             }
         }
     }

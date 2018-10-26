@@ -1,9 +1,9 @@
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\bin\Debug\DAO.dll
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\bin\Debug\DAO.pdb
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\bin\Debug\DTO.dll
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\bin\Debug\DTO.pdb
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.csproj.CopyComplete
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.dll
-D:\Documents\LTWNC\QuanLyQuanCF_TS\DAO\obj\Debug\DAO.pdb
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\bin\Debug\DAO.dll
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\bin\Debug\DAO.pdb
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\bin\Debug\DTO.dll
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\bin\Debug\DTO.pdb
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\obj\Debug\DAO.csproj.CoreCompileInputs.cache
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\obj\Debug\DAO.dll
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\obj\Debug\DAO.pdb
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\obj\Debug\DAO.csprojAssemblyReference.cache
+D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DAO\obj\Debug\DAO.csproj.CopyComplete

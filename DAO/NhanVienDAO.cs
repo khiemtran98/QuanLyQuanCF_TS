@@ -10,13 +10,29 @@ namespace DAO
 {
     public static class NhanVienDAO
     {
-        private static string connectionString = @"";
-
-        public static List<NhanVienDTO> layDanhSachNhanVien()
+        public static void LuuTaiKhoanDangNhap(int maNhanVien)
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-            string query = "SELECT manv, hoten FROM NhanVien";
-            SqlCommand command = new SqlCommand(query, connection);
+            DataProvider.TaiKhoanDangNhap = maNhanVien;
+        }
+
+        public static int LayTaiKhoanDangNhap()
+        {
+            return DataProvider.TaiKhoanDangNhap;
+        }
+
+        public static List<NhanVienDTO> LayDanhSachNhanVien(string timKiem)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_nhan_vien, ho_ten, ngay_bat_dau, la_admin FROM NhanVien";
+            SqlCommand command = new SqlCommand();
+            if(timKiem != "")
+            {
+                query += " WHERE ho_ten LIKE N'%'+@timKiem+'%'";
+                command.Parameters.Add("@timKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
+            }
+
+            command.CommandText = query;
+            command.Connection = connection;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -29,18 +45,12 @@ namespace DAO
                     NhanVienDTO nhanvien = new NhanVienDTO();
                     if (!reader.IsDBNull(0))
                     {
-                        nhanvien.MaNV = reader.GetInt32(0);
-                    }
-                    try
-                    {
+                        nhanvien.MaNhanVien = reader.GetInt32(0);
                         nhanvien.HoTen = reader.GetString(1);
+                        nhanvien.NgayBatDau = reader.GetDateTime(2);
+                        nhanvien.LaAdmin = reader.GetBoolean(3);
+                        result.Add(nhanvien);
                     }
-                    catch
-                    {
-                        nhanvien.HoTen = "unknown";
-                    }
-
-                    result.Add(nhanvien);
                 }
             }
 
@@ -48,14 +58,14 @@ namespace DAO
             return result;
         }
 
-        public static bool DangNhap(int maNV, string matKhau)
+        public static bool KiemTraDangNhap(int maNV, string matKhau)
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-            string query = "SELECT matkhau FROM NhanVien WHERE manv=@MaNV";
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT mat_khau FROM NhanVien WHERE ma_nhan_vien=@MaNhanVien";
             SqlCommand command = new SqlCommand(query, connection);
 
             SqlParameter parameter = new SqlParameter();
-            parameter = new SqlParameter("@MaNV", maNV);
+            parameter = new SqlParameter("@MaNhanVien", maNV);
             command.Parameters.Add(parameter);
 
             connection.Open();
@@ -77,14 +87,14 @@ namespace DAO
             return result;
         }
 
-        public static NhanVienDTO layThongTinNhanVien(int maNV)
+        public static NhanVienDTO LayThongTinNhanVien(int maNV,string timKiem = "")
         {
-            SqlConnection connection = new SqlConnection(connectionString);
-            string query = "SELECT hoten, ngaysinh, phai, sdt, ngaybatdau, diachi, ca, laAdmin FROM NhanVien WHERE manv=@MaNV";
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ho_ten, ngay_bat_dau, la_admin FROM NhanVien WHERE ma_nhan_vien=@MaNhanVien";
             SqlCommand command = new SqlCommand(query, connection);
 
             SqlParameter parameter = new SqlParameter();
-            parameter = new SqlParameter("@MaNV", maNV);
+            parameter = new SqlParameter("@MaNhanVien", maNV);
             command.Parameters.Add(parameter);
 
             connection.Open();
@@ -95,75 +105,80 @@ namespace DAO
             {
                 while (reader.Read())
                 {
-                    try
-                    {
-                        result.HoTen = reader.GetString(0);
-                    }
-                    catch
-                    {
-                        result.HoTen = "unknown";
-                    }
-                    try
-                    {
-                        result.NgaySinh = reader.GetDateTime(1);
-                    }
-                    catch
-                    {
-                        result.NgaySinh = DateTime.Now;
-                    }
-                    try
-                    {
-                        result.Phai = reader.GetInt32(2);
-                    }
-                    catch
-                    {
-                        result.Phai = 0;
-                    }
-                    try
-                    {
-                        result.SDT = reader.GetString(3);
-                    }
-                    catch
-                    {
-                        result.SDT = "unknown";
-                    }
-                    try
-                    {
-                        result.NgayBatDau = reader.GetDateTime(4);
-                    }
-                    catch
-                    {
-                        result.NgayBatDau = DateTime.Now;
-                    }
-                    try
-                    {
-                        result.DiaChi = reader.GetString(5);
-                    }
-                    catch
-                    {
-                        result.DiaChi = "unknown";
-                    }
-                    try
-                    {
-                        result.Ca = reader.GetInt32(6);
-                    }
-                    catch
-                    {
-                        result.Ca = 0;
-                    }
-                    try
-                    {
-                        result.LaAdmin = reader.GetBoolean(7);
-                    }
-                    catch
-                    {
-                        result.LaAdmin = false;
-                    }
+                    result.HoTen = reader.GetString(0);
+                    result.NgayBatDau = reader.GetDateTime(1);
+                    result.LaAdmin = reader.GetBoolean(2);
                 }
             }
 
             connection.Close();
             return result;
+        }
+
+        public static bool ThemNhanVien(NhanVienDTO nhanVien)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "INSERT INTO NhanVien (ho_ten, mat_khau, ngay_bat_dau, la_admin) VALUES (@hoTen, @matKhau, @ngayBatDau, @laAdmin)";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@hoTen", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.HoTen;
+            command.Parameters.Add("@matKhau", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.MatKhau;
+            command.Parameters.Add("@ngayBatDau", System.Data.SqlDbType.DateTime, 0).Value = nhanVien.NgayBatDau;
+            command.Parameters.Add("@laAdmin", System.Data.SqlDbType.Bit, 0).Value = nhanVien.LaAdmin;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool XoaNhanVien(int maNhanVien)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "DELETE FROM NhanVien WHERE ma_nhan_vien=@maNhanVien";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maNhanVien", System.Data.SqlDbType.Int, 0).Value = maNhanVien;
+            
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool SuaThongTinNhanVien(NhanVienDTO nhanVien)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE NhanVien SET ho_ten=@hoTen, mat_khau=@matKhau, la_admin=@laAdmin WHERE ma_nhan_vien=@maNhanVien";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maNhanVien", System.Data.SqlDbType.Int, 0).Value = nhanVien.MaNhanVien;
+            command.Parameters.Add("@hoTen", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.HoTen;
+            command.Parameters.Add("@matKhau", System.Data.SqlDbType.NVarChar, 255).Value = nhanVien.MatKhau;
+            command.Parameters.Add("@laAdmin", System.Data.SqlDbType.Bit, 0).Value = nhanVien.LaAdmin;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
