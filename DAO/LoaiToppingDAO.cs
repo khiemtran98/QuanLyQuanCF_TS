@@ -39,7 +39,7 @@ namespace DAO
         public static List<LoaiToppingDTO> LayDanhSachLoaiToppingTheoLoaiMon(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT DISTINCT LoaiTopping.ma_loai_topping, LoaiTopping.ten_loai_topping FROM CTLoaiMon_LoaiTopping,LoaiTopping WHERE CTLoaiMon_LoaiTopping.ma_loai_mon=LoaiTopping.ma_loai_topping AND CTLoaiMon_LoaiTopping.ma_loai_mon=@maLoaiMon";
+            string query = "SELECT DISTINCT LoaiTopping.ma_loai_topping, LoaiTopping.ten_loai_topping FROM CTLoaiMon_LoaiTopping,LoaiTopping WHERE CTLoaiMon_LoaiTopping.ma_loai_topping=LoaiTopping.ma_loai_topping AND CTLoaiMon_LoaiTopping.ma_loai_mon=@maLoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int,0).Value = maLoaiMon;
 

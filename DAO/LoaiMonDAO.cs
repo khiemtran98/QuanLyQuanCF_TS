@@ -45,6 +45,19 @@ namespace DAO
             return result;
         }
 
+        public static int LayMaLoaiMonMoiNhat()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT MAX(ma_loai_mon) FROM LoaiMon";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            int result = Convert.ToInt32(command.ExecuteScalar());
+
+            connection.Close();
+            return result;
+        }
+
         public static List<LoaiMonDTO> LayDanhSachTatCaLoaiMon(string timKiem)
         {
             SqlConnection connection = DataProvider.GetConnection();

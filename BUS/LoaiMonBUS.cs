@@ -34,5 +34,10 @@ namespace BUS
         {
             return LoaiMonDAO.SuaLoaiMon(loaiMon);
         }
+
+        public static int LayMaLoaiMonMoiNhat()
+        {
+            return LoaiMonDAO.LayMaLoaiMonMoiNhat();
+        }
     }
 }

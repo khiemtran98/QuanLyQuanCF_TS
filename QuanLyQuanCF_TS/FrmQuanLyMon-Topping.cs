@@ -80,9 +80,28 @@ namespace QuanLyQuanCF_TS
             loaiMon.LaDoUong = chkThucUong.Checked;
             if (LoaiMonBUS.ThemLoaiMon(loaiMon))
             {
-                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LamMoiLoaiMon();
-                LoadDanhSachLoaiMon();
+                List<CTLoaiMon_LoaiToppingDTO> lstLoaiMon_LoaiTopping = new List<CTLoaiMon_LoaiToppingDTO>();
+                foreach (Control ctrl in groupBox1.Controls)
+                {
+                    if (ctrl.GetType() == typeof(MaterialCheckBox))
+                    {       
+                        if(((MaterialCheckBox)ctrl).Checked == true)
+                        {
+                            CTLoaiMon_LoaiToppingDTO loaiMon_LoaiTopping = new CTLoaiMon_LoaiToppingDTO();
+                            LoaiToppingDTO loaiTopping = (LoaiToppingDTO)ctrl.Tag;
+                            loaiMon_LoaiTopping.MaLoaiMon = LoaiMonBUS.LayMaLoaiMonMoiNhat();
+                            loaiMon_LoaiTopping.MaLoaiTopping = loaiTopping.MaLoaiTopping;
+                            lstLoaiMon_LoaiTopping.Add(loaiMon_LoaiTopping);
+                        }
+                    }
+                }
+
+                if (CTLoaiMon_LoaiToppingBUS.ThemLoaiMon_LoaiTopping(lstLoaiMon_LoaiTopping))
+                {
+                    MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LamMoiLoaiMon();
+                    LoadDanhSachLoaiMon();
+                }
             }
             else
             {
@@ -147,7 +166,7 @@ namespace QuanLyQuanCF_TS
                 chkDangSuDung.Checked = Convert.ToBoolean(dgvLoaiMon.SelectedRows[0].Cells["colDangSuDung"].Value);
 
                 List<LoaiToppingDTO> lstLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiToppingTheoLoaiMon(Convert.ToInt32(txtMaLoaiMon.Text));
-                
+
                 //Cua may do Khiem
                 foreach (Control ctrl in groupBox1.Controls)
                 {
@@ -160,17 +179,13 @@ namespace QuanLyQuanCF_TS
                 //Cua may do Khiem
                 foreach (Control ctrl in groupBox1.Controls)
                 {
-                    foreach (LoaiToppingDTO loaiTopping in lstLoaiTopping)
+                    if (ctrl.GetType() == typeof(MaterialCheckBox))
                     {
-                        if (ctrl.GetType() == typeof(MaterialCheckBox))
+                        foreach (LoaiToppingDTO loaiTopping in lstLoaiTopping)
                         {
                             if (ctrl.Name == loaiTopping.MaLoaiTopping.ToString())
                             {
                                 ((MaterialCheckBox)ctrl).Checked = true;
-                            }
-                            else
-                            {
-                                
                             }
                         }
 
@@ -189,6 +204,7 @@ namespace QuanLyQuanCF_TS
                 checkBox.Name = loaiTopping.MaLoaiTopping.ToString();
                 checkBox.Text = loaiTopping.TenLoaiTopping;
                 checkBox.Dock = DockStyle.Top;
+                checkBox.Tag = loaiTopping;
                 groupBox1.Controls.Add(checkBox);
                 checkBox.BringToFront();
             }
