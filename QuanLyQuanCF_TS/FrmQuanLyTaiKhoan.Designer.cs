@@ -85,16 +85,16 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.dgvTaiKhoan = new System.Windows.Forms.DataGridView();
-            this.colMaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
-            this.colQLTK_TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
             this.txtTimKiemTaiKhoan = new MetroFramework.Controls.MetroTextBox();
             this.btnTimKiemTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
+            this.colMaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiTaiKhoan = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
+            this.colQLTK_TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.metroPanel3.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.tbcQuanLyTaiKhoan.SuspendLayout();
@@ -1022,60 +1022,6 @@
             this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             this.dgvTaiKhoan.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTaiKhoan_CellFormatting);
             // 
-            // colMaTaiKhoan
-            // 
-            this.colMaTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
-            this.colMaTaiKhoan.HeaderText = "Mã tài khoản";
-            this.colMaTaiKhoan.Name = "colMaTaiKhoan";
-            this.colMaTaiKhoan.ReadOnly = true;
-            this.colMaTaiKhoan.Width = 123;
-            // 
-            // colHoTen
-            // 
-            this.colHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHoTen.DataPropertyName = "HoTen";
-            this.colHoTen.HeaderText = "Họ tên";
-            this.colHoTen.Name = "colHoTen";
-            this.colHoTen.ReadOnly = true;
-            // 
-            // colNgayBatDau
-            // 
-            this.colNgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colNgayBatDau.DataPropertyName = "NgayBatDau";
-            this.colNgayBatDau.HeaderText = "Ngày bắt đầu";
-            this.colNgayBatDau.Name = "colNgayBatDau";
-            this.colNgayBatDau.ReadOnly = true;
-            this.colNgayBatDau.Width = 101;
-            // 
-            // colLoaiTaiKhoan
-            // 
-            this.colLoaiTaiKhoan.DataPropertyName = "LoaiTaiKhoan";
-            this.colLoaiTaiKhoan.HeaderText = "Loại tài khoản";
-            this.colLoaiTaiKhoan.Name = "colLoaiTaiKhoan";
-            this.colLoaiTaiKhoan.ReadOnly = true;
-            this.colLoaiTaiKhoan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colLoaiTaiKhoan.Width = 139;
-            // 
-            // colHinh
-            // 
-            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colHinh.DataPropertyName = "Hinh";
-            this.colHinh.HeaderText = "Hình";
-            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colHinh.Name = "colHinh";
-            this.colHinh.ReadOnly = true;
-            this.colHinh.Width = 52;
-            // 
-            // colQLTK_TrangThai
-            // 
-            this.colQLTK_TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colQLTK_TrangThai.DataPropertyName = "TrangThai";
-            this.colQLTK_TrangThai.HeaderText = "Trạng thái";
-            this.colQLTK_TrangThai.Name = "colQLTK_TrangThai";
-            this.colQLTK_TrangThai.ReadOnly = true;
-            this.colQLTK_TrangThai.Width = 84;
-            // 
             // metroPanel6
             // 
             this.metroPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1149,6 +1095,62 @@
             this.openFileDialog1.FileName = "openFileDialog1";
             this.openFileDialog1.Filter = resources.GetString("openFileDialog1.Filter");
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
+            // 
+            // colMaTaiKhoan
+            // 
+            this.colMaTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
+            this.colMaTaiKhoan.HeaderText = "Mã tài khoản";
+            this.colMaTaiKhoan.Name = "colMaTaiKhoan";
+            this.colMaTaiKhoan.ReadOnly = true;
+            this.colMaTaiKhoan.Width = 123;
+            // 
+            // colHoTen
+            // 
+            this.colHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHoTen.DataPropertyName = "HoTen";
+            this.colHoTen.HeaderText = "Họ tên";
+            this.colHoTen.Name = "colHoTen";
+            this.colHoTen.ReadOnly = true;
+            // 
+            // colNgayBatDau
+            // 
+            this.colNgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colNgayBatDau.DataPropertyName = "NgayBatDau";
+            this.colNgayBatDau.HeaderText = "Ngày bắt đầu";
+            this.colNgayBatDau.Name = "colNgayBatDau";
+            this.colNgayBatDau.ReadOnly = true;
+            this.colNgayBatDau.Width = 101;
+            // 
+            // colLoaiTaiKhoan
+            // 
+            this.colLoaiTaiKhoan.DataPropertyName = "LoaiTaiKhoan";
+            this.colLoaiTaiKhoan.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colLoaiTaiKhoan.HeaderText = "Loại tài khoản";
+            this.colLoaiTaiKhoan.Name = "colLoaiTaiKhoan";
+            this.colLoaiTaiKhoan.ReadOnly = true;
+            this.colLoaiTaiKhoan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLoaiTaiKhoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colLoaiTaiKhoan.Width = 139;
+            // 
+            // colHinh
+            // 
+            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colHinh.DataPropertyName = "Hinh";
+            this.colHinh.HeaderText = "Hình";
+            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colHinh.Name = "colHinh";
+            this.colHinh.ReadOnly = true;
+            this.colHinh.Width = 52;
+            // 
+            // colQLTK_TrangThai
+            // 
+            this.colQLTK_TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colQLTK_TrangThai.DataPropertyName = "TrangThai";
+            this.colQLTK_TrangThai.HeaderText = "Trạng thái";
+            this.colQLTK_TrangThai.Name = "colQLTK_TrangThai";
+            this.colQLTK_TrangThai.ReadOnly = true;
+            this.colQLTK_TrangThai.Width = 84;
             // 
             // FrmQuanLyTaiKhoan
             // 
@@ -1258,7 +1260,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colMaTaiKhoan;
         private System.Windows.Forms.DataGridViewTextBoxColumn colHoTen;
         private System.Windows.Forms.DataGridViewTextBoxColumn colNgayBatDau;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colLoaiTaiKhoan;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colLoaiTaiKhoan;
         private System.Windows.Forms.DataGridViewImageColumn colHinh;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colQLTK_TrangThai;
     }

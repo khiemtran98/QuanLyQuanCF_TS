@@ -193,6 +193,13 @@ namespace QuanLyQuanCF_TS
         {
             List<TaiKhoanDTO> lsTaiKhoan = TaiKhoanBUS.LayDanhSachTaiKhoan(timKiem);
             dgvTaiKhoan.DataSource = lsTaiKhoan;
+            
+            foreach (DataGridViewRow row in dgvTaiKhoan.Rows)
+            {
+                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan("", true);
+                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DisplayMember = "TenLoaiTaiKhoan";
+                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).ValueMember = "MaLoaiTaiKhoan";
+            }
         }
 
         private void QLTK_LoadLoaiTaiKhoan()
