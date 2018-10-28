@@ -38,6 +38,7 @@ namespace QuanLyQuanCF_TS
             TaiKhoanDTO taiKhoan = TaiKhoanBUS.LayThongTinTaiKhoan(maTaiKhoan);
             lblHoTen.Text = taiKhoan.HoTen;
             lblCapBac.Text = TaiKhoanBUS.LayTenLoaiTaiKhoan(taiKhoan.LoaiTaiKhoan);
+            picHinh.ImageLocation = "img\\accounts\\" + taiKhoan.Hinh;
         }
 
         public void XuLyChuyenForm()

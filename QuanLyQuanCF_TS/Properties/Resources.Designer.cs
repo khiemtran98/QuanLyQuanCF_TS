@@ -63,16 +63,6 @@ namespace QuanLyQuanCF_TS.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap add {
-            get {
-                object obj = ResourceManager.GetObject("add", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
         internal static System.Drawing.Bitmap back {
             get {
                 object obj = ResourceManager.GetObject("back", resourceCulture);
@@ -96,6 +86,16 @@ namespace QuanLyQuanCF_TS.Properties {
         internal static System.Drawing.Bitmap coins {
             get {
                 object obj = ResourceManager.GetObject("coins", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap default_account {
+            get {
+                object obj = ResourceManager.GetObject("default-account", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

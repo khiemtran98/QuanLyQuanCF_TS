@@ -5,7 +5,6 @@ using System.Text;
 using System.Threading.Tasks;
 using DTO;
 using DAO;
-using System.Data;
 
 namespace BUS
 {
@@ -33,7 +32,7 @@ namespace BUS
 
             foreach (CTHoaDon_ToppingDTO cthd_topping in lsCTHD_Topping)
             {
-                if (!CTHoaDon_Topping.LuuCTHoaDon_Topping(cthd_topping))
+                if (!CTHoaDon_ToppingDAO.LuuCTHoaDon_Topping(cthd_topping))
                 {
                     return false;
                 }

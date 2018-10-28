@@ -42,7 +42,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CTHoaDon.cs" />
-    <Compile Include="CTHoaDon_Topping.cs" />
+    <Compile Include="CTHoaDon_ToppingDAO.cs" />
+    <Compile Include="CTLoaiMon_LoaiToppingDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HoaDonDAO.cs" />
     <Compile Include="LoaiMonDAO.cs" />

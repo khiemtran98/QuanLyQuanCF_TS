@@ -55,6 +55,7 @@
             this.lblHoTen = new MetroFramework.Controls.MetroLabel();
             this.panelTaiKhoan = new System.Windows.Forms.Panel();
             this.btnDangXuat = new System.Windows.Forms.Button();
+            this.picHinh = new System.Windows.Forms.PictureBox();
             this.mPanel.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.metroPanel14.SuspendLayout();
@@ -68,6 +69,7 @@
             this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.panelTaiKhoan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHinh)).BeginInit();
             this.SuspendLayout();
             // 
             // mPanel
@@ -410,7 +412,7 @@
             this.mQuanLyMon.Size = new System.Drawing.Size(298, 147);
             this.mQuanLyMon.Style = MetroFramework.MetroColorStyle.Silver;
             this.mQuanLyMon.TabIndex = 9;
-            this.mQuanLyMon.Text = "Quản lý món và topping";
+            this.mQuanLyMon.Text = "Quản lý món";
             this.mQuanLyMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mQuanLyMon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coffee_to_go;
             this.mQuanLyMon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -477,7 +479,7 @@
             this.lblCapBac.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblCapBac.Location = new System.Drawing.Point(889, 29);
             this.lblCapBac.Name = "lblCapBac";
-            this.lblCapBac.Size = new System.Drawing.Size(382, 23);
+            this.lblCapBac.Size = new System.Drawing.Size(326, 23);
             this.lblCapBac.TabIndex = 18;
             this.lblCapBac.Text = "Cấp bậc";
             this.lblCapBac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -489,13 +491,14 @@
             this.lblHoTen.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblHoTen.Location = new System.Drawing.Point(889, 8);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(382, 25);
+            this.lblHoTen.Size = new System.Drawing.Size(326, 25);
             this.lblHoTen.TabIndex = 17;
             this.lblHoTen.Text = "Họ tên";
             this.lblHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelTaiKhoan
             // 
+            this.panelTaiKhoan.Controls.Add(this.picHinh);
             this.panelTaiKhoan.Controls.Add(this.btnDangXuat);
             this.panelTaiKhoan.Controls.Add(this.lblHoTen);
             this.panelTaiKhoan.Controls.Add(this.lblCapBac);
@@ -518,6 +521,17 @@
             this.btnDangXuat.TabIndex = 19;
             this.btnDangXuat.UseVisualStyleBackColor = true;
             this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            // 
+            // picHinh
+            // 
+            this.picHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHinh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picHinh.Location = new System.Drawing.Point(1221, 6);
+            this.picHinh.Name = "picHinh";
+            this.picHinh.Size = new System.Drawing.Size(50, 50);
+            this.picHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHinh.TabIndex = 20;
+            this.picHinh.TabStop = false;
             // 
             // FrmMain
             // 
@@ -549,6 +563,7 @@
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             this.panelTaiKhoan.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHinh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -582,6 +597,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel11;
         private MetroFramework.Controls.MetroPanel metroPanel10;
         private MetroFramework.Controls.MetroPanel metroPanel9;
+        private System.Windows.Forms.PictureBox picHinh;
     }
 }
 

@@ -8,6 +8,11 @@ namespace DTO
 {
     public class MonDTO
     {
+        public MonDTO()
+        {
+            hinh = "default-product.png";
+        }
+
         private int maMon;
         private string tenMon;
         private int loaiMon;

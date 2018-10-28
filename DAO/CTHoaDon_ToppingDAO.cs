@@ -8,7 +8,7 @@ using DTO;
 
 namespace DAO
 {
-    public static class CTHoaDon_Topping
+    public static class CTHoaDon_ToppingDAO
     {
         public static bool LuuCTHoaDon_Topping(CTHoaDon_ToppingDTO CTHoaDon_Topping)
         {
@@ -27,7 +27,7 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
+            if (reader > 0)
             {
                 return true;
             }

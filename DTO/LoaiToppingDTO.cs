@@ -10,12 +10,10 @@ namespace DTO
     {
         private int maLoaiTopping;
         private string tenLoaiTopping;
-        private int loaiMon;
         private bool trangThai;
 
         public int MaLoaiTopping { get => maLoaiTopping; set => maLoaiTopping = value; }
         public string TenLoaiTopping { get => tenLoaiTopping; set => tenLoaiTopping = value; }
-        public int LoaiMon { get => loaiMon; set => loaiMon = value; }
         public bool TrangThai { get => trangThai; set => trangThai = value; }
     }
 }

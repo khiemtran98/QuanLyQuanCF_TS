@@ -20,9 +20,14 @@ namespace BUS
             return TaiKhoanDAO.LayTaiKhoanDangNhap();
         }
 
-        public static List<TaiKhoanDTO> LayDanhSachTaiKhoan(string timKiem = "")
+        public static int LayMaTaiKhoanMoiNhat()
         {
-            return TaiKhoanDAO.LayDanhSachTaiKhoan(timKiem);
+            return TaiKhoanDAO.LayMaTaiKhoanMoiNhat();
+        }
+
+        public static List<TaiKhoanDTO> LayDanhSachTaiKhoan(string timKiem = "", bool trangThai = false)
+        {
+            return TaiKhoanDAO.LayDanhSachTaiKhoan(timKiem, trangThai);
         }
 
         public static bool KiemTraDangNhap(int maTaiKhoan, string matKhau)
@@ -53,6 +58,11 @@ namespace BUS
         public static bool SuaTaiKhoan(TaiKhoanDTO taiKhoan)
         {
             return TaiKhoanDAO.SuaTaiKhoan(taiKhoan);
+        }
+
+        public static bool XoaTaiKhoanTheoLoai(int maLoaiTaiKhoan)
+        {
+            return TaiKhoanDAO.XoaTaiKhoanTheoLoai(maLoaiTaiKhoan);
         }
     }
 }

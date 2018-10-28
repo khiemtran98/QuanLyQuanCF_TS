@@ -1,10 +1,10 @@
-﻿using BUS;
-using DTO;
-using MaterialSkin.Controls;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Windows.Forms;
+using MaterialSkin.Controls;
+using BUS;
+using DTO;
 
 namespace QuanLyQuanCF_TS
 {
@@ -35,7 +35,7 @@ namespace QuanLyQuanCF_TS
             TaiDuLieu();
         }
 
-        private int loaiDangChon = -1;
+        private int loaiDangChon = 0;
 
         public DataGridViewRowCollection LayThongTinHoaDon()
         {
@@ -44,7 +44,7 @@ namespace QuanLyQuanCF_TS
 
         private void LayDanhSachLoaiMon()
         {
-            List<LoaiMonDTO> dsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
+            List<LoaiMonDTO> dsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon("", true);
             foreach (LoaiMonDTO loaiMon in dsLoaiMon)
             {
                 MaterialFlatButton btn = new MaterialFlatButton();
@@ -100,7 +100,7 @@ namespace QuanLyQuanCF_TS
 
                         lsv.Click += new EventHandler(ThemMon);
 
-                        List<MonDTO> lsMon = MonBUS.LayDanhSachMonTheoLoai(Convert.ToInt32(lsv.Name));
+                        List<MonDTO> lsMon = MonBUS.LayDanhSachMon(Convert.ToInt32(lsv.Name), "", true);
                         LayDanhSachMon(lsv, lsMon);
                         panelMenu.Controls.Add(lsv);
                     }
@@ -129,12 +129,15 @@ namespace QuanLyQuanCF_TS
                 lsv.Columns.Add("Tên món");
                 lsv.Columns.Add("Đơn giá");
 
-                lsv.Click += new EventHandler(ThemMon);
+                lsv.Click += new EventHandler(ThemTopping);
 
-                List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachToppingTheoLoai(loaiTopping.MaLoaiTopping);
+                List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachTopping(loaiTopping.MaLoaiTopping, "", true);
                 LayDanhSachTopping(lsv, lsTopping);
                 panelMenu.Controls.Add(lsv);
             }
+
+            panelMenu.Controls["0"].Visible = true;
+            panelMenu.Controls["0"].BringToFront();
         }
 
         private void ChonLoai(object sender, EventArgs e)
@@ -169,8 +172,8 @@ namespace QuanLyQuanCF_TS
             {
                 MonDTO mon = dsMon[i];
                 ListViewItem lvi = new ListViewItem(mon.TenMon);
-                lvi.SubItems.Add(mon.GiaTien.ToString("#,##0 VND"));
-                lsv.LargeImageList.Images.Add(Image.FromFile("img\\" + mon.Hinh));
+                lvi.SubItems.Add(mon.GiaTien.ToString("#,##0đ"));
+                lsv.LargeImageList.Images.Add(Image.FromFile("img\\products\\" + mon.Hinh));
                 lvi.Group = lsv.Groups[mon.LoaiMon + ""];
                 lvi.ImageIndex = i;
                 lvi.Tag = mon;
@@ -180,7 +183,7 @@ namespace QuanLyQuanCF_TS
 
         private void LayDanhSachLoaiTopping(int maLoaiMon)
         {
-            List<LoaiToppingDTO> dsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiToppingTheoMon(maLoaiMon);
+            List<LoaiToppingDTO> dsLoaiTopping = LoaiToppingBUS.LayDanhSachCTLoaiMon_LoaiTopping(maLoaiMon);
             foreach (LoaiToppingDTO loaiTopping in dsLoaiTopping)
             {
                 MaterialFlatButton btn = new MaterialFlatButton();
@@ -202,7 +205,7 @@ namespace QuanLyQuanCF_TS
             {
                 ToppingDTO topping = dsTopping[i];
                 ListViewItem lvi = new ListViewItem(topping.TenTopping);
-                lvi.SubItems.Add(topping.GiaTien.ToString("#,##0 VND"));
+                lvi.SubItems.Add(topping.GiaTien.ToString("#,##0đ"));
                 lvi.Group = lsv.Groups[topping.LoaiTopping + ""];
                 lvi.Tag = topping;
                 lsv.Items.Add(lvi);
@@ -237,7 +240,7 @@ namespace QuanLyQuanCF_TS
                     rowMon.Tag = mon;
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
-                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###") });
+                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###đ") });
 
                     if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
                     {
@@ -276,7 +279,12 @@ namespace QuanLyQuanCF_TS
                     lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
                 }
             }
-            else
+        }
+
+        private void ThemTopping(object sender, EventArgs e)
+        {
+            ListView lsv = LayMenuMon();
+            if (radMenuTopping.Checked)
             {
                 if (lsv.SelectedItems.Count == 1)
                 {
@@ -288,7 +296,7 @@ namespace QuanLyQuanCF_TS
                     rowTopping.Tag = topping;
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.TenTopping });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
-                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.GiaTien.ToString("#,###") });
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.GiaTien.ToString("#,##0đ") });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = string.Empty });
 
                     // Lấy thứ tự topping cuối cùng của món đang chọn trong hoá đon
@@ -328,7 +336,7 @@ namespace QuanLyQuanCF_TS
 
         private void TaoGroupMon(ListView lsv)
         {
-            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
+            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon("", true))
             {
                 lsv.Groups.Add(loaiMon.MaLoaiMon + "", loaiMon.TenLoaiMon);
             }
@@ -382,109 +390,6 @@ namespace QuanLyQuanCF_TS
             return result;
         }
 
-        private void lsvMon_Click(object sender, EventArgs e)
-        {
-            if (radMenuMon.Checked)
-            {
-                if (lsvMenu.SelectedItems.Count == 1)
-                {
-                    MonDTO mon = (MonDTO)lsvMenu.SelectedItems[0].Tag;
-
-                    DataGridViewRow rowMon = new DataGridViewRow();
-                    rowMon.DefaultCellStyle.BackColor = Color.AliceBlue;
-                    rowMon.Height = 50;
-                    rowMon.Tag = mon;
-                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
-                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
-                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###") });
-
-                    if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
-                    {
-                        rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = "Đá: 100%\n Đường: 100%" });
-                    }
-
-                    // Thêm món vào hoá đơn nếu hoá đơn chưa có món nào
-                    if (dgvHoaDon.Rows.Count == 0)
-                    {
-                        dgvHoaDon.Rows.Add(rowMon);
-                        TinhThanhTien();
-                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
-                        btnThanhToan.Enabled = true;
-                        btnThanhToan.BackColor = Color.LimeGreen;
-                        return;
-                    }
-
-                    // Duyệt qua toàn bộ danh sách hoá đơn
-                    foreach (DataGridViewRow rowHD in dgvHoaDon.Rows)
-                    {
-                        if (rowHD.Tag.GetType() == typeof(MonDTO))
-                        {
-                            // Tăng số lương món trong hoá đơn nếu hoá đơn đã có món đó
-                            if (((MonDTO)rowHD.Tag).MaMon == mon.MaMon)
-                            {
-                                int soLuong = Convert.ToInt32(rowHD.Cells["colSoLuong"].Value);
-                                rowHD.Cells["colSoLuong"].Value = soLuong + 1;
-                                TinhThanhTien();
-                                return;
-                            }
-                        }
-                    }
-
-                    // Thêm món vào hoá đơn nếu hoá đơn chưa có món đó
-                    dgvHoaDon.Rows.Add(rowMon);
-                    lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
-                }
-            }
-            else
-            {
-                if (lsvMenu.SelectedItems.Count == 1)
-                {
-                    ToppingDTO topping = (ToppingDTO)lsvMenu.SelectedItems[0].Tag;
-
-                    DataGridViewRow rowTopping = new DataGridViewRow();
-                    rowTopping.DefaultCellStyle.BackColor = Color.Beige;
-                    rowTopping.Height = 25;
-                    rowTopping.Tag = topping;
-                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.TenTopping });
-                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
-                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.GiaTien.ToString("#,###") });
-                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = string.Empty });
-
-                    // Lấy thứ tự topping cuối cùng của món đang chọn trong hoá đon
-                    int toppingRangeIndex = LayThuTuToppingCuoiCungCuaMon();
-
-                    // Duyệt qua toàn bộ các topping của món đang chọn
-                    for (int i = dgvHoaDon.SelectedRows[0].Index + 1; i <= toppingRangeIndex; i++)
-                    {
-                        if (dgvHoaDon.Rows[i].Tag.GetType() == typeof(ToppingDTO))
-                        {
-                            // Tăng số lượng topping
-                            if (((ToppingDTO)dgvHoaDon.Rows[i].Tag).MaTopping == topping.MaTopping)
-                            {
-                                // Chỉ tăng khi tổng số topping ít hơn số lượng món
-                                if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
-                                {
-                                    int soLuong = Convert.ToInt32(dgvHoaDon.Rows[i].Cells["colSoLuong"].Value);
-                                    dgvHoaDon.Rows[i].Cells["colSoLuong"].Value = soLuong + 1;
-                                    TinhThanhTien();
-                                    return;
-                                }
-                            }
-                        }
-                    }
-
-                    // Thêm topping vào món nếu chưa có
-                    // Chỉ thêm khi tổng số topping ít hơn số lượng món
-                    if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
-                    {
-                        dgvHoaDon.Rows.Insert(dgvHoaDon.SelectedRows[0].Index + 1, rowTopping);
-                        TinhThanhTien();
-                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
-                    }
-                }
-            }
-        }
-
         private void dgvHoaDon_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvHoaDon.SelectedRows.Count == 1)
@@ -515,19 +420,28 @@ namespace QuanLyQuanCF_TS
         {
             if (e.RowIndex == -1)
                 return;
+
+            ListView lsv = LayMenuMon();
+
             // Nếu hoá đơn đang chọn món thì menu hiện topping tương ứng
             if (dgvHoaDon.SelectedRows[0].Tag.GetType() == typeof(MonDTO) && radMenuTopping.Checked)
             {
                 panelLoai.Controls.Clear();
                 LayDanhSachLoaiTopping(((MonDTO)dgvHoaDon.SelectedRows[0].Tag).LoaiMon);
 
+                if (lsv == null)
+                {
+                    HienLuaChonDauTien();
+                    return;
+                }
+
                 // Kiểm tra màn hình topping hiện đúng với món đang chọn
-                if (lsvMenu.Items.Count > 0)
+                if (lsv.Items.Count > 0)
                 {
                     bool toppingCheck = false;
                     foreach (MaterialFlatButton btn in panelLoai.Controls)
                     {
-                        if (((LoaiToppingDTO)btn.Tag).MaLoaiTopping == ((ToppingDTO)lsvMenu.Items[0].Tag).LoaiTopping)
+                        if (((LoaiToppingDTO)btn.Tag).MaLoaiTopping == ((ToppingDTO)lsv.Items[0].Tag).LoaiTopping)
                         {
                             toppingCheck = true;
                             break;
@@ -535,22 +449,23 @@ namespace QuanLyQuanCF_TS
                     }
                     if (!toppingCheck)
                     {
-                        loaiDangChon = -1;
-                        //lsvMenu.Items.Clear();
-                        //lsvMenu.LargeImageList.Images.Clear();
+                        loaiDangChon = 0;
+                        lsv.Visible = false;
                     }
                 }
-
                 return;
             }
 
             // Nếu hoá đơn đang chọn topping thì menu không hiện gì hết
             if (dgvHoaDon.SelectedRows[0].Tag.GetType() == typeof(ToppingDTO) && radMenuTopping.Checked)
             {
-                loaiDangChon = -1;
+                loaiDangChon = 0;
                 panelLoai.Controls.Clear();
-                lsvMenu.Items.Clear();
-                lsvMenu.LargeImageList.Images.Clear();
+
+                if (lsv != null)
+                {
+                    lsv.Visible = false;
+                }
             }
         }
 
@@ -592,20 +507,24 @@ namespace QuanLyQuanCF_TS
             if (e.KeyChar == (char)Keys.Enter)
             {
                 ListView lsv = LayMenuMon();
+                if (lsv == null)
+                {
+                    return;
+                }
                 lsv.Items.Clear();
                 lsv.LargeImageList.Images.Clear();
 
                 // Tìm kiếm món
                 if (radMenuMon.Checked)
                 {
-                    List<MonDTO> dsMon = MonBUS.LayDanhSachMonTheoLoai(loaiDangChon, txtTimKiem.Text);
+                    List<MonDTO> dsMon = MonBUS.LayDanhSachMon(loaiDangChon, txtTimKiem.Text, true);
                     LayDanhSachMon(lsv, dsMon);
                 }
 
                 // Tìm kiếm topping
                 else
                 {
-                    List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachToppingTheoLoai(loaiDangChon, txtTimKiem.Text);
+                    List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachTopping(loaiDangChon, txtTimKiem.Text, true);
                     LayDanhSachTopping(lsv, dsTopping);
                 }
             }
@@ -615,10 +534,11 @@ namespace QuanLyQuanCF_TS
         {
             if (radMenuMon.Checked)
             {
-                loaiDangChon = -1;
-                XoaMenu();
+                loaiDangChon = 0;
                 panelLoai.Controls.Clear();
+                XoaMenu();
                 LayDanhSachLoaiMon();
+                HienLuaChonDauTien();
             }
         }
 
@@ -626,15 +546,27 @@ namespace QuanLyQuanCF_TS
         {
             if (radMenuTopping.Checked)
             {
-                loaiDangChon = -1;
+                loaiDangChon = 0;
                 panelLoai.Controls.Clear();
                 XoaMenu();
 
                 // Nếu hoá đơn đang chọn món thì menu mới hiện topping tương ứng
                 if (dgvHoaDon.SelectedRows[0].Tag.GetType() == typeof(MonDTO))
                 {
-                    //LayDanhSachLoaiTopping(((MonDTO)dgvHoaDon.SelectedRows[0].Tag).LoaiMon);
                     LayDanhSachLoaiTopping(((MonDTO)dgvHoaDon.SelectedRows[0].Tag).LoaiMon);
+                }
+
+                HienLuaChonDauTien();
+            }
+        }
+
+        private void HienLuaChonDauTien()
+        {
+            foreach (Control ctrl in panelLoai.Controls)
+            {
+                if (ctrl.GetType() == typeof(MaterialFlatButton))
+                {
+                    ((MaterialFlatButton)ctrl).PerformClick();
                 }
             }
         }
@@ -703,7 +635,15 @@ namespace QuanLyQuanCF_TS
             double tongTien = 0;
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
             {
-                tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(row.Cells["colDonGia"].Value);
+                if (row.Tag.GetType() == typeof(MonDTO))
+                {
+                    tongTien += ((MonDTO)row.Tag).GiaTien;
+                }
+                else
+                {
+                    tongTien += ((ToppingDTO)row.Tag).GiaTien;
+                }
+                //tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(row.Cells["colDonGia"].Value);
             }
             return tongTien;
         }

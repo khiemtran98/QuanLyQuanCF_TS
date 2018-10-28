@@ -43,6 +43,7 @@
   <ItemGroup>
     <Compile Include="CTHoaDonDTO.cs" />
     <Compile Include="CTHoaDon_ToppingDTO.cs" />
+    <Compile Include="CTLoaiMon_LoaiToppingDTO.cs" />
     <Compile Include="CTPhieuNhapDTO.cs" />
     <Compile Include="HoaDonDTO.cs" />
     <Compile Include="LoaiTaiKhoanDTO.cs" />

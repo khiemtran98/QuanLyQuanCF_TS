@@ -10,14 +10,36 @@ namespace BUS
 {
     public class LoaiToppingBUS
     {
-        public static List<LoaiToppingDTO> LayDanhSachLoaiTopping()
+        public static List<LoaiToppingDTO> LayDanhSachLoaiTopping(string timKiem = "", bool trangThai = false)
         {
-            return LoaiToppingDAO.LayDanhSachLoaiTopping();
+            return LoaiToppingDAO.LayDanhSachLoaiTopping(timKiem, trangThai);
         }
 
-        public static List<LoaiToppingDTO> LayDanhSachLoaiToppingTheoMon(int maLoaiMon = 0)
+        public static List<LoaiToppingDTO> LayDanhSachCTLoaiMon_LoaiTopping(int maLoaiMon)
         {
-            return LoaiToppingDAO.LayDanhSachLoaiToppingTheoMon(maLoaiMon);
+            return LoaiToppingDAO.LayDanhSachCTLoaiMon_LoaiTopping(maLoaiMon);
+        }
+
+        public static bool ThemLoaiTopping(LoaiToppingDTO loaiTopping)
+        {
+            return LoaiToppingDAO.ThemLoaiTopping(loaiTopping);
+        }
+
+        public static bool XoaLoaiTopping(int maLoaiTopping)
+        {
+            if (CTLoaiMon_LoaiToppingBUS.XoaLoaiMon_LoaiToppingTheoLoaiTopping(maLoaiTopping))
+            {
+                if (ToppingBUS.XoaToppingTheoLoai(maLoaiTopping))
+                {
+                    return LoaiToppingDAO.XoaLoaiTopping(maLoaiTopping);
+                }
+            }
+            return false;
+        }
+
+        public static bool SuaLoaiTopping(LoaiToppingDTO loaiTopping)
+        {
+            return LoaiToppingDAO.SuaLoaiTopping(loaiTopping);
         }
     }
 }

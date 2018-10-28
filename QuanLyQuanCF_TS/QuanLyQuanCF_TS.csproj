@@ -195,5 +195,8 @@
   <ItemGroup>
     <None Include="bin\Debug\icon\add.png" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\img\accounts\default-account.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

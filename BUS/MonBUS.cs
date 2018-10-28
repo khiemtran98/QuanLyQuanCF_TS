@@ -10,9 +10,9 @@ namespace BUS
 {
     public static class MonBUS
     {
-        public static List<MonDTO> LayDanhSachMonTheoLoai(int maLoaiMon, string timkiem = "")
+        public static List<MonDTO> LayDanhSachMon(int maLoaiMon = 0, string timkiem = "", bool trangThai = false)
         {
-            return MonDAO.LayDanhSachMonTheoLoai(maLoaiMon, timkiem);
+            return MonDAO.LayDanhSachMon(maLoaiMon, timkiem, trangThai);
         }
 
         public static int LaySoLuongMonTheoLoai(int maLoaiMon)
@@ -23,6 +23,11 @@ namespace BUS
         public static bool KiemTraMonLaNuocUong(int maLoaiMon)
         {
             return MonDAO.KiemTraMonLaNuocUong(maLoaiMon);
+        }
+
+        public static bool XoaTatCaMonTheoLoai(int maLoaiMon)
+        {
+            return MonDAO.XoaTatCaMonTheoLoai(maLoaiMon);
         }
     }
 }

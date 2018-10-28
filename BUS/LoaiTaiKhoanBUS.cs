@@ -10,9 +10,28 @@ namespace BUS
 {
     public static class LoaiTaiKhoanBUS
     {
-        public static List<LoaiTaiKhoanDTO> LayDanhSachLoaiTaiKhoan(string timKiem = "")
+        public static List<LoaiTaiKhoanDTO> LayDanhSachLoaiTaiKhoan(string timKiem = "", bool trangThai = false)
         {
-            return LoaiTaiKhoanDAO.LayDanhSachLoaiTaiKhoan(timKiem);
+            return LoaiTaiKhoanDAO.LayDanhSachLoaiTaiKhoan(timKiem, trangThai);
+        }
+
+        public static bool ThemLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan)
+        {
+            return LoaiTaiKhoanDAO.ThemLoaiTaiKhoan(loaiTaiKhoan);
+        }
+
+        public static bool XoaLoaiTaiKhoan(int maLoaiTaiKhoan)
+        {
+            if (TaiKhoanBUS.XoaTaiKhoanTheoLoai(maLoaiTaiKhoan))
+            {
+                return LoaiTaiKhoanDAO.XoaLoaiTaiKhoan(maLoaiTaiKhoan);
+            }
+            return false;
+        }
+
+        public static bool SuaLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan)
+        {
+            return LoaiTaiKhoanDAO.SuaLoaiTaiKhoan(loaiTaiKhoan);
         }
     }
 }
