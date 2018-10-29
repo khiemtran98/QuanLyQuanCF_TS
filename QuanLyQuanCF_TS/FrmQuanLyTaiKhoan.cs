@@ -196,7 +196,7 @@ namespace QuanLyQuanCF_TS
             
             foreach (DataGridViewRow row in dgvTaiKhoan.Rows)
             {
-                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan("", true);
+                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan("", false);
                 ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DisplayMember = "TenLoaiTaiKhoan";
                 ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).ValueMember = "MaLoaiTaiKhoan";
             }
