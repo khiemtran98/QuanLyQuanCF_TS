@@ -6,7 +6,7 @@
 
   **2.6.1:** Sửa lỗi Quản lý tài khoản & Bán hàng. Tạo các bản mẫu chức năng xem trước.
   
-  *2.6:** Sửa lỗi Quản lý tài khoản & Bán hàng.
+  **2.6:** Sửa lỗi Quản lý tài khoản & Bán hàng.
 
   **DATABASE:** Thêm bảng, thêm thuộc tính, sửa lỗi trigger.
   
