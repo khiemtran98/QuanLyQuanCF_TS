@@ -65,6 +65,12 @@
     <Compile Include="FrmBanHang.Designer.cs">
       <DependentUpon>FrmBanHang.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmCaiDat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmCaiDat.Designer.cs">
+      <DependentUpon>FrmCaiDat.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmDangNhap.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -77,17 +83,47 @@
     <Compile Include="FrmMain.Designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLyMon-Topping.cs">
+    <Compile Include="FrmNhapHang.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLyMon-Topping.Designer.cs">
-      <DependentUpon>FrmQuanLyMon-Topping.cs</DependentUpon>
+    <Compile Include="FrmNhapHang.Designer.cs">
+      <DependentUpon>FrmNhapHang.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyKho.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyKho.Designer.cs">
+      <DependentUpon>FrmQuanLyKho.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmQuanLyMon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmQuanLyMon.Designer.cs">
+      <DependentUpon>FrmQuanLyMon.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmQuanLyTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="FrmQuanLyTaiKhoan.Designer.cs">
       <DependentUpon>FrmQuanLyTaiKhoan.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThongKeDoanhThu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThongKeDoanhThu.Designer.cs">
+      <DependentUpon>FrmThongKeDoanhThu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThongKeHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThongKeHoaDon.Designer.cs">
+      <DependentUpon>FrmThongKeHoaDon.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FrmThongKeNhapHang.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmThongKeNhapHang.Designer.cs">
+      <DependentUpon>FrmThongKeNhapHang.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -101,17 +137,35 @@
       <DependentUpon>FrmBanHang.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="FrmCaiDat.resx">
+      <DependentUpon>FrmCaiDat.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FrmDangNhap.resx">
       <DependentUpon>FrmDangNhap.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLyMon-Topping.resx">
-      <DependentUpon>FrmQuanLyMon-Topping.cs</DependentUpon>
+    <EmbeddedResource Include="FrmNhapHang.resx">
+      <DependentUpon>FrmNhapHang.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyKho.resx">
+      <DependentUpon>FrmQuanLyKho.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmQuanLyMon.resx">
+      <DependentUpon>FrmQuanLyMon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmQuanLyTaiKhoan.resx">
       <DependentUpon>FrmQuanLyTaiKhoan.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThongKeDoanhThu.resx">
+      <DependentUpon>FrmThongKeDoanhThu.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThongKeHoaDon.resx">
+      <DependentUpon>FrmThongKeHoaDon.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmThongKeNhapHang.resx">
+      <DependentUpon>FrmThongKeNhapHang.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -197,6 +251,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="bin\Debug\img\accounts\default-account.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="bin\Debug\icon\settings.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -1,8 +1,12 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.6: Hoàn thiện chức năng Quản lý tài khoản & Quản lý món
+> ## Update 2.6.1: Thêm bản mẫu chức năng
 
 ### # Các thay đổi
+
+  ## 2.6.1: Sửa lỗi Quản lý tài khoản & Bán hàng. Tạo các bản mẫu chức năng xem trước.
+  
+  ## 2.6: Sửa lỗi Quản lý tài khoản & Bán hàng.
 
   **DATABASE:** Thêm bảng, thêm thuộc tính, sửa lỗi trigger.
   
@@ -13,10 +17,6 @@
   **RÀNG BUỘC DỮ LIỆU:** Các chức năng hiện có (QL Tài khoản, QL Món, Bán hàng) được ràng buộc dữ liệu, cập nhật theo thời gian thực.
   
   **SỬA LỖI:** Sửa một lỗi trigger khiến các bảng trong database không thể xoá dòng dữ liệu cuối cùng.
-  
-### # Quan trọng
-
-  Tạo lại database để sửa lỗi.
 
 ### # Hướng dẫn cài đặt
 
@@ -55,6 +55,8 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.6: Hoàn thiện chức năng Quản lý tài khoản & Quản lý món
 
 > #### Update 2.5: Thêm chức năng Quản lý tài khoản & Quản lý món
 

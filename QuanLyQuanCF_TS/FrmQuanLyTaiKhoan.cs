@@ -193,21 +193,21 @@ namespace QuanLyQuanCF_TS
         {
             List<TaiKhoanDTO> lsTaiKhoan = TaiKhoanBUS.LayDanhSachTaiKhoan(timKiem);
             dgvTaiKhoan.DataSource = lsTaiKhoan;
-            
-            foreach (DataGridViewRow row in dgvTaiKhoan.Rows)
-            {
-                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan("", false);
-                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).DisplayMember = "TenLoaiTaiKhoan";
-                ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[row.Index].Cells["colLoaiTaiKhoan"]).ValueMember = "MaLoaiTaiKhoan";
-            }
         }
 
         private void QLTK_LoadLoaiTaiKhoan()
         {
-            List<LoaiTaiKhoanDTO> lsLoaiTaiKhoan = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan("", true);
+            List<LoaiTaiKhoanDTO> lsLoaiTaiKhoan = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan();
             cmbLoaiTaiKhoan.DataSource = lsLoaiTaiKhoan;
             cmbLoaiTaiKhoan.DisplayMember = "TenLoaiTaiKhoan";
             cmbLoaiTaiKhoan.ValueMember = "MaLoaiTaiKhoan";
+        }
+
+        private void dgvTaiKhoan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan();
+            ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).DisplayMember = "TenLoaiTaiKhoan";
+            ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).ValueMember = "MaLoaiTaiKhoan";
         }
 
         private void picHinh_Click(object sender, EventArgs e)

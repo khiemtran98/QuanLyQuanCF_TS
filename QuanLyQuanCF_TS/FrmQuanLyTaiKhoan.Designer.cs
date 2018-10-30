@@ -41,6 +41,16 @@
             this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
+            this.gpbChucNang = new System.Windows.Forms.GroupBox();
+            this.chkBanHang = new MetroFramework.Controls.MetroCheckBox();
+            this.chkNhapHang = new MetroFramework.Controls.MetroCheckBox();
+            this.chkThongKeDoanhThu = new MetroFramework.Controls.MetroCheckBox();
+            this.chkThongKeNhapHang = new MetroFramework.Controls.MetroCheckBox();
+            this.chkThongKeHoaDon = new MetroFramework.Controls.MetroCheckBox();
+            this.chkQuanLyKho = new MetroFramework.Controls.MetroCheckBox();
+            this.chkQuanLyMon = new MetroFramework.Controls.MetroCheckBox();
+            this.chkQuanLyTaiKhoan = new MetroFramework.Controls.MetroCheckBox();
+            this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.btnLamMoiLoaiTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.btnSuaLoaiTaiKhoan = new MetroFramework.Controls.MetroButton();
@@ -85,16 +95,16 @@
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.dgvTaiKhoan = new System.Windows.Forms.DataGridView();
-            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
-            this.txtTimKiemTaiKhoan = new MetroFramework.Controls.MetroTextBox();
-            this.btnTimKiemTaiKhoan = new MetroFramework.Controls.MetroButton();
-            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.colMaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colLoaiTaiKhoan = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
             this.colQLTK_TrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.txtTimKiemTaiKhoan = new MetroFramework.Controls.MetroTextBox();
+            this.btnTimKiemTaiKhoan = new MetroFramework.Controls.MetroButton();
+            this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.metroPanel3.SuspendLayout();
             this.metroPanel1.SuspendLayout();
             this.tbcQuanLyTaiKhoan.SuspendLayout();
@@ -105,6 +115,7 @@
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
             this.metroPanel7.SuspendLayout();
+            this.gpbChucNang.SuspendLayout();
             this.metroPanel10.SuspendLayout();
             this.metroPanel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiTaiKhoan)).BeginInit();
@@ -234,6 +245,8 @@
             // 
             // metroPanel7
             // 
+            this.metroPanel7.Controls.Add(this.gpbChucNang);
+            this.metroPanel7.Controls.Add(this.metroLabel7);
             this.metroPanel7.Controls.Add(this.metroPanel10);
             this.metroPanel7.Controls.Add(this.chkQLLTK_TrangThai);
             this.metroPanel7.Controls.Add(this.txtTenLoaiTaiKhoan);
@@ -253,6 +266,117 @@
             this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel7.VerticalScrollbarSize = 10;
             // 
+            // gpbChucNang
+            // 
+            this.gpbChucNang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.gpbChucNang.AutoSize = true;
+            this.gpbChucNang.BackColor = System.Drawing.Color.White;
+            this.gpbChucNang.Controls.Add(this.chkBanHang);
+            this.gpbChucNang.Controls.Add(this.chkNhapHang);
+            this.gpbChucNang.Controls.Add(this.chkThongKeDoanhThu);
+            this.gpbChucNang.Controls.Add(this.chkThongKeNhapHang);
+            this.gpbChucNang.Controls.Add(this.chkThongKeHoaDon);
+            this.gpbChucNang.Controls.Add(this.chkQuanLyKho);
+            this.gpbChucNang.Controls.Add(this.chkQuanLyMon);
+            this.gpbChucNang.Controls.Add(this.chkQuanLyTaiKhoan);
+            this.gpbChucNang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.gpbChucNang.Location = new System.Drawing.Point(162, 137);
+            this.gpbChucNang.Name = "gpbChucNang";
+            this.gpbChucNang.Size = new System.Drawing.Size(321, 165);
+            this.gpbChucNang.TabIndex = 23;
+            this.gpbChucNang.TabStop = false;
+            // 
+            // chkBanHang
+            // 
+            this.chkBanHang.AutoSize = true;
+            this.chkBanHang.Location = new System.Drawing.Point(6, 121);
+            this.chkBanHang.Name = "chkBanHang";
+            this.chkBanHang.Size = new System.Drawing.Size(73, 15);
+            this.chkBanHang.TabIndex = 7;
+            this.chkBanHang.Text = "Bán hàng";
+            this.chkBanHang.UseSelectable = true;
+            // 
+            // chkNhapHang
+            // 
+            this.chkNhapHang.AutoSize = true;
+            this.chkNhapHang.Location = new System.Drawing.Point(6, 100);
+            this.chkNhapHang.Name = "chkNhapHang";
+            this.chkNhapHang.Size = new System.Drawing.Size(82, 15);
+            this.chkNhapHang.TabIndex = 6;
+            this.chkNhapHang.Text = "Nhập hàng";
+            this.chkNhapHang.UseSelectable = true;
+            // 
+            // chkThongKeDoanhThu
+            // 
+            this.chkThongKeDoanhThu.AutoSize = true;
+            this.chkThongKeDoanhThu.Location = new System.Drawing.Point(138, 64);
+            this.chkThongKeDoanhThu.Name = "chkThongKeDoanhThu";
+            this.chkThongKeDoanhThu.Size = new System.Drawing.Size(131, 15);
+            this.chkThongKeDoanhThu.TabIndex = 5;
+            this.chkThongKeDoanhThu.Text = "Thống kê doanh thu";
+            this.chkThongKeDoanhThu.UseSelectable = true;
+            // 
+            // chkThongKeNhapHang
+            // 
+            this.chkThongKeNhapHang.AutoSize = true;
+            this.chkThongKeNhapHang.Location = new System.Drawing.Point(138, 43);
+            this.chkThongKeNhapHang.Name = "chkThongKeNhapHang";
+            this.chkThongKeNhapHang.Size = new System.Drawing.Size(133, 15);
+            this.chkThongKeNhapHang.TabIndex = 4;
+            this.chkThongKeNhapHang.Text = "Thống kê nhập hàng";
+            this.chkThongKeNhapHang.UseSelectable = true;
+            // 
+            // chkThongKeHoaDon
+            // 
+            this.chkThongKeHoaDon.AutoSize = true;
+            this.chkThongKeHoaDon.Location = new System.Drawing.Point(138, 22);
+            this.chkThongKeHoaDon.Name = "chkThongKeHoaDon";
+            this.chkThongKeHoaDon.Size = new System.Drawing.Size(120, 15);
+            this.chkThongKeHoaDon.TabIndex = 3;
+            this.chkThongKeHoaDon.Text = "Thống kê hoá đơn";
+            this.chkThongKeHoaDon.UseSelectable = true;
+            // 
+            // chkQuanLyKho
+            // 
+            this.chkQuanLyKho.AutoSize = true;
+            this.chkQuanLyKho.Location = new System.Drawing.Point(6, 67);
+            this.chkQuanLyKho.Name = "chkQuanLyKho";
+            this.chkQuanLyKho.Size = new System.Drawing.Size(87, 15);
+            this.chkQuanLyKho.TabIndex = 2;
+            this.chkQuanLyKho.Text = "Quản lý kho";
+            this.chkQuanLyKho.UseSelectable = true;
+            // 
+            // chkQuanLyMon
+            // 
+            this.chkQuanLyMon.AutoSize = true;
+            this.chkQuanLyMon.Location = new System.Drawing.Point(6, 44);
+            this.chkQuanLyMon.Name = "chkQuanLyMon";
+            this.chkQuanLyMon.Size = new System.Drawing.Size(92, 15);
+            this.chkQuanLyMon.TabIndex = 1;
+            this.chkQuanLyMon.Text = "Quản lý món";
+            this.chkQuanLyMon.UseSelectable = true;
+            // 
+            // chkQuanLyTaiKhoan
+            // 
+            this.chkQuanLyTaiKhoan.AutoSize = true;
+            this.chkQuanLyTaiKhoan.Location = new System.Drawing.Point(6, 23);
+            this.chkQuanLyTaiKhoan.Name = "chkQuanLyTaiKhoan";
+            this.chkQuanLyTaiKhoan.Size = new System.Drawing.Size(116, 15);
+            this.chkQuanLyTaiKhoan.TabIndex = 0;
+            this.chkQuanLyTaiKhoan.Text = "Quản lý tài khoản";
+            this.chkQuanLyTaiKhoan.UseSelectable = true;
+            // 
+            // metroLabel7
+            // 
+            this.metroLabel7.AutoSize = true;
+            this.metroLabel7.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel7.Location = new System.Drawing.Point(13, 160);
+            this.metroLabel7.Name = "metroLabel7";
+            this.metroLabel7.Size = new System.Drawing.Size(95, 25);
+            this.metroLabel7.TabIndex = 22;
+            this.metroLabel7.Text = "Chức năng";
+            // 
             // metroPanel10
             // 
             this.metroPanel10.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -264,7 +388,7 @@
             this.metroPanel10.HorizontalScrollbarBarColor = true;
             this.metroPanel10.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel10.HorizontalScrollbarSize = 10;
-            this.metroPanel10.Location = new System.Drawing.Point(0, 170);
+            this.metroPanel10.Location = new System.Drawing.Point(0, 366);
             this.metroPanel10.Name = "metroPanel10";
             this.metroPanel10.Size = new System.Drawing.Size(500, 66);
             this.metroPanel10.TabIndex = 3;
@@ -340,7 +464,7 @@
             // chkQLLTK_TrangThai
             // 
             this.chkQLLTK_TrangThai.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
-            this.chkQLLTK_TrangThai.Location = new System.Drawing.Point(162, 131);
+            this.chkQLLTK_TrangThai.Location = new System.Drawing.Point(162, 326);
             this.chkQLLTK_TrangThai.Name = "chkQLLTK_TrangThai";
             this.chkQLLTK_TrangThai.Size = new System.Drawing.Size(18, 19);
             this.chkQLLTK_TrangThai.TabIndex = 13;
@@ -415,7 +539,7 @@
             // 
             this.metroLabel9.AutoSize = true;
             this.metroLabel9.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel9.Location = new System.Drawing.Point(13, 125);
+            this.metroLabel9.Location = new System.Drawing.Point(13, 320);
             this.metroLabel9.Name = "metroLabel9";
             this.metroLabel9.Size = new System.Drawing.Size(93, 25);
             this.metroLabel9.TabIndex = 6;
@@ -1021,6 +1145,63 @@
             this.dgvTaiKhoan.TabIndex = 2;
             this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
             this.dgvTaiKhoan.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTaiKhoan_CellFormatting);
+            this.dgvTaiKhoan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTaiKhoan_RowsAdded);
+            // 
+            // colMaTaiKhoan
+            // 
+            this.colMaTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
+            this.colMaTaiKhoan.HeaderText = "Mã tài khoản";
+            this.colMaTaiKhoan.Name = "colMaTaiKhoan";
+            this.colMaTaiKhoan.ReadOnly = true;
+            this.colMaTaiKhoan.Width = 123;
+            // 
+            // colHoTen
+            // 
+            this.colHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHoTen.DataPropertyName = "HoTen";
+            this.colHoTen.HeaderText = "Họ tên";
+            this.colHoTen.Name = "colHoTen";
+            this.colHoTen.ReadOnly = true;
+            // 
+            // colNgayBatDau
+            // 
+            this.colNgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colNgayBatDau.DataPropertyName = "NgayBatDau";
+            this.colNgayBatDau.HeaderText = "Ngày bắt đầu";
+            this.colNgayBatDau.Name = "colNgayBatDau";
+            this.colNgayBatDau.ReadOnly = true;
+            this.colNgayBatDau.Width = 101;
+            // 
+            // colLoaiTaiKhoan
+            // 
+            this.colLoaiTaiKhoan.DataPropertyName = "LoaiTaiKhoan";
+            this.colLoaiTaiKhoan.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colLoaiTaiKhoan.HeaderText = "Loại tài khoản";
+            this.colLoaiTaiKhoan.Name = "colLoaiTaiKhoan";
+            this.colLoaiTaiKhoan.ReadOnly = true;
+            this.colLoaiTaiKhoan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLoaiTaiKhoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colLoaiTaiKhoan.Width = 139;
+            // 
+            // colHinh
+            // 
+            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colHinh.DataPropertyName = "Hinh";
+            this.colHinh.HeaderText = "Hình";
+            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colHinh.Name = "colHinh";
+            this.colHinh.ReadOnly = true;
+            this.colHinh.Width = 52;
+            // 
+            // colQLTK_TrangThai
+            // 
+            this.colQLTK_TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colQLTK_TrangThai.DataPropertyName = "TrangThai";
+            this.colQLTK_TrangThai.HeaderText = "Trạng thái";
+            this.colQLTK_TrangThai.Name = "colQLTK_TrangThai";
+            this.colQLTK_TrangThai.ReadOnly = true;
+            this.colQLTK_TrangThai.Width = 84;
             // 
             // metroPanel6
             // 
@@ -1096,62 +1277,6 @@
             this.openFileDialog1.Filter = resources.GetString("openFileDialog1.Filter");
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // colMaTaiKhoan
-            // 
-            this.colMaTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
-            this.colMaTaiKhoan.HeaderText = "Mã tài khoản";
-            this.colMaTaiKhoan.Name = "colMaTaiKhoan";
-            this.colMaTaiKhoan.ReadOnly = true;
-            this.colMaTaiKhoan.Width = 123;
-            // 
-            // colHoTen
-            // 
-            this.colHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHoTen.DataPropertyName = "HoTen";
-            this.colHoTen.HeaderText = "Họ tên";
-            this.colHoTen.Name = "colHoTen";
-            this.colHoTen.ReadOnly = true;
-            // 
-            // colNgayBatDau
-            // 
-            this.colNgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colNgayBatDau.DataPropertyName = "NgayBatDau";
-            this.colNgayBatDau.HeaderText = "Ngày bắt đầu";
-            this.colNgayBatDau.Name = "colNgayBatDau";
-            this.colNgayBatDau.ReadOnly = true;
-            this.colNgayBatDau.Width = 101;
-            // 
-            // colLoaiTaiKhoan
-            // 
-            this.colLoaiTaiKhoan.DataPropertyName = "LoaiTaiKhoan";
-            this.colLoaiTaiKhoan.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.colLoaiTaiKhoan.HeaderText = "Loại tài khoản";
-            this.colLoaiTaiKhoan.Name = "colLoaiTaiKhoan";
-            this.colLoaiTaiKhoan.ReadOnly = true;
-            this.colLoaiTaiKhoan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colLoaiTaiKhoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colLoaiTaiKhoan.Width = 139;
-            // 
-            // colHinh
-            // 
-            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colHinh.DataPropertyName = "Hinh";
-            this.colHinh.HeaderText = "Hình";
-            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colHinh.Name = "colHinh";
-            this.colHinh.ReadOnly = true;
-            this.colHinh.Width = 52;
-            // 
-            // colQLTK_TrangThai
-            // 
-            this.colQLTK_TrangThai.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colQLTK_TrangThai.DataPropertyName = "TrangThai";
-            this.colQLTK_TrangThai.HeaderText = "Trạng thái";
-            this.colQLTK_TrangThai.Name = "colQLTK_TrangThai";
-            this.colQLTK_TrangThai.ReadOnly = true;
-            this.colQLTK_TrangThai.Width = 84;
-            // 
             // FrmQuanLyTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1178,6 +1303,8 @@
             this.splitContainer1.ResumeLayout(false);
             this.metroPanel7.ResumeLayout(false);
             this.metroPanel7.PerformLayout();
+            this.gpbChucNang.ResumeLayout(false);
+            this.gpbChucNang.PerformLayout();
             this.metroPanel10.ResumeLayout(false);
             this.metroPanel11.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiTaiKhoan)).EndInit();
@@ -1263,5 +1390,15 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn colLoaiTaiKhoan;
         private System.Windows.Forms.DataGridViewImageColumn colHinh;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colQLTK_TrangThai;
+        private MetroFramework.Controls.MetroLabel metroLabel7;
+        private System.Windows.Forms.GroupBox gpbChucNang;
+        private MetroFramework.Controls.MetroCheckBox chkBanHang;
+        private MetroFramework.Controls.MetroCheckBox chkNhapHang;
+        private MetroFramework.Controls.MetroCheckBox chkThongKeDoanhThu;
+        private MetroFramework.Controls.MetroCheckBox chkThongKeNhapHang;
+        private MetroFramework.Controls.MetroCheckBox chkThongKeHoaDon;
+        private MetroFramework.Controls.MetroCheckBox chkQuanLyKho;
+        private MetroFramework.Controls.MetroCheckBox chkQuanLyMon;
+        private MetroFramework.Controls.MetroCheckBox chkQuanLyTaiKhoan;
     }
 }
