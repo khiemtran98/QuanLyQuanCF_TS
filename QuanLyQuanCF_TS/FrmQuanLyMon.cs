@@ -46,8 +46,14 @@ namespace QuanLyQuanCF_TS
 
             QLLT_LoadDachSachLoaiTopping();
 
+            //Quan ly Mon
             QLM_LoadDanhSachMon();
             QLM_LoadLoaiMon();
+
+            //Quan ly Topping
+            QLTP_LoadDanhSachTopping();
+            QLTP_LoadDachSachLoaiTopping();
+
 
             LamMoiLoaiMon();
             LamMoiLoaiTopping();
@@ -591,11 +597,181 @@ namespace QuanLyQuanCF_TS
             TimKiemMon();
         }
 
-        private void btnTimKiemCuaTopping_Click(object sender, EventArgs e)
-        {
 
+        //Quan ly Topping
+
+        private void QLTP_LoadDanhSachTopping(string timKiem = "")
+        {
+            List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachTopping(0,timKiem);
+            dgvTopping.DataSource = lsTopping;
         }
 
-        // FrmQuanLyMon_Load
+        private void QLTP_LoadDachSachLoaiTopping()
+        {
+            List<LoaiToppingDTO> lsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiTopping();
+            cmbLoaiTopping.DataSource = lsLoaiTopping;
+            cmbLoaiTopping.DisplayMember = "TenLoaiTopping";
+            cmbLoaiTopping.ValueMember = "MaLoaiTopping";
+        }
+
+        private void dgvTopping_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colLoaiTopping"]).DataSource = LoaiToppingBUS.LayDanhSachLoaiTopping();
+            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colLoaiTopping"]).DisplayMember = "TenLoaiTopping";
+            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colLoaiTopping"]).ValueMember = "MaLoaiTopping";
+        }
+
+        private void dgvTopping_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        {
+            //if (dgvTopping.Columns[e.ColumnIndex].Name == "colHinh")
+            //{
+            //    e.Value = new Bitmap("img\\products\\" + e.Value.ToString());
+            //}
+        }
+
+        private void dgvTopping_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvTopping.SelectedRows.Count > 0)
+            {
+                LamMoiTopping(false);
+                txtMaTopping.Text = dgvTopping.SelectedRows[0].Cells["colMaTopping"].Value.ToString();
+                txtTenTopping.Text = dgvTopping.SelectedRows[0].Cells["colTenTopping"].Value.ToString();
+                cmbLoaiTopping.SelectedValue = Convert.ToInt32(dgvTopping.SelectedRows[0].Cells["colLoaiTopping"].Value);
+                //picHinh.Image = (Bitmap)dgvMon.SelectedRows[0].Cells["colHinh"].FormattedValue;
+                txtGiaTienTopping.Text = dgvTopping.SelectedRows[0].Cells["colGiaTienTopping"].Value.ToString();
+                chkQLTP_TrangThai.Checked = Convert.ToBoolean(dgvTopping.SelectedRows[0].Cells["colQLTPTrangThaiTopping"].Value);
+            }
+        }
+
+        private void LamMoiTopping(bool state = true)
+        {
+            txtMaTopping.Text = txtTenTopping.Text = txtGiaTienTopping.Text = string.Empty;
+            cmbLoaiTopping.SelectedIndex = 0;
+            chkQLTP_TrangThai.Checked = false;
+            picHinh.Image = Properties.Resources.default_product;
+            btnThemTopping.Enabled = state;
+            btnXoaTopping.Enabled = !state;
+            btnSuaTopping.Enabled = !state;
+            openFileDialog1.FileName = "";
+        }
+
+        private void btnThemTopping_Click(object sender, EventArgs e)
+        {
+            ToppingDTO topping = new ToppingDTO();
+            topping.TenTopping = txtTenLoaiTopping.Text;
+            topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
+            //if (openFileDialog1.FileName != "")
+            //{
+            //    string tenFile = DateTime.Now.ToFileTime() + "_" + (ToppingBUS.LayMaToppingMoiNhat() + 1).ToString();
+            //    string extension = Path.GetExtension(openFileDialog1.SafeFileName);
+            //    topping.Hinh = tenFile + extension;
+            //    File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension, true);
+            //}
+            topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            topping.TrangThai = chkQLTP_TrangThai.Checked;
+
+            if (ToppingBUS.ThemTopping(topping))
+            {
+                MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LamMoiTopping();
+                QLTP_LoadDanhSachTopping();
+            }
+            else
+            {
+                MessageBox.Show("Thêm thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                topping = null;
+            }
+        }
+
+        private void btnXoaTopping_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Bạn có chắc chắn muốn xoá món này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            {
+                if (ToppingBUS.XoaTopping(Convert.ToInt32(txtMaTopping.Text)))
+                {
+                    MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    LamMoiTopping();
+                    QLTP_LoadDanhSachTopping();
+                }
+                else
+                {
+                    MessageBox.Show("Xoá thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
+        private void btnSuaTopping_Click(object sender, EventArgs e)
+        {
+            ToppingDTO topping = new ToppingDTO();
+            topping.MaTopping = Convert.ToInt32(txtMaTopping.Text);
+            topping.TenTopping = txtTenTopping.Text;
+            topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
+            //if (openFileDialog1.FileName != "")
+            //{
+            //    string tenFile = DateTime.Now.ToFileTime() + "_" + topping.MaTopping;
+            //    string extension = Path.GetExtension(openFileDialog1.SafeFileName);
+            //    topping.Hinh = tenFile + extension;
+            //    File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension);
+            //}
+            //else
+            //{
+            //    if (picHinhTopping.Image != Properties.Resources.user_account)
+            //    {
+            //        topping.Hinh = dgvMon.CurrentRow.Cells["???"].Value.ToString();
+            //    }
+            //}
+            topping.GiaTien = Convert.ToInt32(txtGiaTienTopping.Text);
+            topping.TrangThai = chkQLTP_TrangThai.Checked;
+
+            if (ToppingBUS.SuaTopping(topping))
+            {
+                MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LamMoiTopping();
+                QLTP_LoadDanhSachTopping();
+            }
+            else
+            {
+                MessageBox.Show("Sửa thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                topping = null;
+            }
+        }
+
+        private void btnLamMoiTopping_Click(object sender, EventArgs e)
+        {
+            LamMoiTopping();
+        }
+
+        private void txtTimKiemTopping_Enter(object sender, EventArgs e)
+        {
+            if (txtTimKiemTopping.Text == "Tìm kiếm tên topping")
+            {
+                txtTimKiemTopping.Text = string.Empty;
+            }
+        }
+
+        private void txtTimKiemTopping_Leave(object sender, EventArgs e)
+        {
+            if (txtTimKiemTopping.Text == string.Empty)
+            {
+                txtTimKiemTopping.Text = "Tìm kiếm tên topping";
+            }
+        }
+
+        private void txtTimKiemTopping_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if(e.KeyChar == (char)Keys.Enter)
+            {
+                TimKiemTopping();
+            }
+        }
+        private void btnTimKiemCuaTopping_Click(object sender, EventArgs e)
+        {
+            TimKiemTopping();
+        }
+
+        private void TimKiemTopping()
+        {
+            QLTP_LoadDanhSachTopping(txtTimKiemTopping.Text);
+        }
     }
 }
