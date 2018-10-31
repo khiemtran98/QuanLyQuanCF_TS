@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using DTO;
-using System.Data.SqlClient;
+
 namespace DAO
 {
     public static class CTLoaiMon_LoaiToppingDAO
@@ -23,20 +24,19 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
+            if (reader > 0)
             {
                 return true;
             }
             return false;
         }
 
-        public static bool XoaLoaiMon_LoaiTopping(CTLoaiMon_LoaiToppingDTO loaiMon_LoaiTopping)
+        public static bool XoaLoaiMon_LoaiToppingTheoLoaiMon(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM CTLoaiMon_LoaiTopping WHERE ma_loai_mon=@maLoaiMon AND ma_loai_topping=@maLoaiTopping";
+            string query = "DELETE FROM CTLoaiMon_LoaiTopping WHERE ma_loai_mon=@maLoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = loaiMon_LoaiTopping.MaLoaiMon;
-            command.Parameters.Add("@maLoaiTopping", System.Data.SqlDbType.Int, 0).Value = loaiMon_LoaiTopping.MaLoaiTopping;
+            command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
 
             connection.Open();
 
@@ -44,33 +44,23 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
-            {
-                return true;
-            }
-            return false;
+            return true;
         }
 
-        //==>> Danh cho m Khiem
-        //public static bool XoaLoaiMon_LoaiTopping(CTLoaiMon_LoaiToppingDTO loaiMon_LoaiTopping)
-        //{
-        //    SqlConnection connection = DataProvider.GetConnection();
-        //    string query = "DELETE FROM CTLoaiMon_LoaiTopping WHERE ma_loai_mon=@maLoaiMon AND ma_loai_topping=@maLoaiTopping";
-        //    SqlCommand command = new SqlCommand(query, connection);
-        //    command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = loaiMon_LoaiTopping.MaLoaiMon;
-        //    command.Parameters.Add("@maLoaiTopping", System.Data.SqlDbType.Int, 0).Value = loaiMon_LoaiTopping.MaLoaiTopping;
+        public static bool XoaLoaiMon_LoaiToppingTheoLoaiTopping(int maLoaiTopping)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "DELETE FROM CTLoaiMon_LoaiTopping WHERE ma_loai_topping=@maLoaiTopping";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
 
-        //    connection.Open();
+            connection.Open();
 
-        //    int reader = command.ExecuteNonQuery();
+            int reader = command.ExecuteNonQuery();
 
-        //    connection.Close();
+            connection.Close();
 
-        //    if (reader == 1)
-        //    {
-        //        return true;
-        //    }
-        //    return false;
-        //}
+            return true;
+        }
     }
 }

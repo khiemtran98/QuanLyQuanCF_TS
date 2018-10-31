@@ -36,11 +36,13 @@
             this.cmbTaiKhoan = new MetroFramework.Controls.MetroComboBox();
             this.lblMatKhau = new MetroFramework.Controls.MetroLabel();
             this.lblTaiKhoan = new MetroFramework.Controls.MetroLabel();
+            this.lblPhienBan = new MetroFramework.Controls.MetroLabel();
             this.mDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
             // mDangNhap
             // 
+            this.mDangNhap.Controls.Add(this.lblPhienBan);
             this.mDangNhap.Controls.Add(this.lblThongTin1);
             this.mDangNhap.Controls.Add(this.lblThongTin2);
             this.mDangNhap.Controls.Add(this.btnDangNhap);
@@ -159,6 +161,16 @@
             this.lblTaiKhoan.TabIndex = 2;
             this.lblTaiKhoan.Text = "Tài khoản";
             // 
+            // lblPhienBan
+            // 
+            this.lblPhienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPhienBan.AutoSize = true;
+            this.lblPhienBan.Location = new System.Drawing.Point(717, 351);
+            this.lblPhienBan.Name = "lblPhienBan";
+            this.lblPhienBan.Size = new System.Drawing.Size(40, 19);
+            this.lblPhienBan.TabIndex = 10;
+            this.lblPhienBan.Text = "v2.6.1";
+            // 
             // FrmDangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -191,5 +203,6 @@
         private MetroFramework.Controls.MetroLabel lblMatKhau;
         private MetroFramework.Controls.MetroLabel lblThongTin1;
         private MetroFramework.Controls.MetroLabel lblThongTin2;
+        private MetroFramework.Controls.MetroLabel lblPhienBan;
     }
 }

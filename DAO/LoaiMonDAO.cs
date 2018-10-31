@@ -10,41 +10,6 @@ namespace DAO
 {
     public static class LoaiMonDAO
     {
-        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem)
-        {
-            SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_loai_mon, ten_loai_mon, la_do_uong, trang_thai FROM LoaiMon WHERE trang_thai=1";
-            SqlCommand command = new SqlCommand();
-            if (timKiem != "")
-            {
-                query += " AND ten_loai_mon LIKE N'%'+@timKiem+'%'";
-                command.Parameters.Add("@timKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
-            }
-
-            command.CommandText = query;
-            command.Connection = connection;
-
-            connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
-            
-            List<LoaiMonDTO> result = new List<LoaiMonDTO>();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    LoaiMonDTO loaiMon = new LoaiMonDTO();
-                    loaiMon.MaLoaiMon = reader.GetInt32(0);
-                    loaiMon.TenLoaiMon = reader.GetString(1);
-                    loaiMon.LaDoUong = reader.GetBoolean(2);
-                    loaiMon.TrangThai = reader.GetBoolean(3);
-                    result.Add(loaiMon);
-                }
-            }
-
-            connection.Close();
-            return result;
-        }
-
         public static int LayMaLoaiMonMoiNhat()
         {
             SqlConnection connection = DataProvider.GetConnection();
@@ -58,15 +23,19 @@ namespace DAO
             return result;
         }
 
-        public static List<LoaiMonDTO> LayDanhSachTatCaLoaiMon(string timKiem)
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem, bool trangThai)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_loai_mon, ten_loai_mon, la_do_uong, trang_thai FROM LoaiMon";
+            string query = "SELECT ma_loai_mon, ten_loai_mon, la_do_uong, trang_thai FROM LoaiMon WHERE 1=1";
             SqlCommand command = new SqlCommand();
             if (timKiem != "")
             {
-                query += " WHERE ten_loai_mon LIKE N'%'+@timKiem+'%'";
+                query += " AND ten_loai_mon LIKE N'%'+@timKiem+'%'";
                 command.Parameters.Add("@timKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
+            }
+            if (trangThai)
+            {
+                query += " AND trang_thai=1";
             }
 
             command.CommandText = query;
@@ -74,7 +43,7 @@ namespace DAO
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
-
+            
             List<LoaiMonDTO> result = new List<LoaiMonDTO>();
             if (reader.HasRows)
             {
@@ -109,7 +78,7 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
+            if (reader > 0)
             {
                 return true;
             }
@@ -130,7 +99,7 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
+            if (reader > 0)
             {
                 return true;
             }
@@ -153,7 +122,7 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
+            if (reader > 0)
             {
                 return true;
             }

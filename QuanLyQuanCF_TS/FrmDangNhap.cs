@@ -35,12 +35,6 @@ namespace QuanLyQuanCF_TS
 
         private void KiemTraDangNhap()
         {
-            if (txtMatKhau.Text == string.Empty)
-            {
-                MessageBox.Show("Vui lòng nhập mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
-            }
-
             if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, txtMatKhau.Text))
             {
                 ((FrmMain)this.ParentForm).XuLyDangNhapThanhCong((int)cmbTaiKhoan.SelectedValue);
@@ -48,13 +42,13 @@ namespace QuanLyQuanCF_TS
             }
             else
             {
-                MessageBox.Show("Sai mật khẩu", "Lỗi đăng nhập", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Sai mật khẩu", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
         }
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan();
+            cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan("", true);
             cmbTaiKhoan.DisplayMember = "HoTen";
             cmbTaiKhoan.ValueMember = "MaTaiKhoan";
         }

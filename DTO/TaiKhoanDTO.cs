@@ -10,7 +10,7 @@ namespace DTO
     {
         public TaiKhoanDTO()
         {
-            hinh = "";
+            hinh = "default-account.png";
         }
 
         private int maTaiKhoan;

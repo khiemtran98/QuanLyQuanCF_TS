@@ -10,34 +10,53 @@ namespace BUS
 {
     public static class LoaiMonBUS
     {
-        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem = "")
+        public static int LayMaLoaiMonMoiNhat()
         {
-            return LoaiMonDAO.LayDanhSachLoaiMon(timKiem);
+            return LoaiMonDAO.LayMaLoaiMonMoiNhat();
         }
 
-        public static List<LoaiMonDTO> LayDanhSachTatCaLoaiMon(string timKiem = "")
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem = "", bool trangThai = false)
         {
-            return LoaiMonDAO.LayDanhSachTatCaLoaiMon(timKiem);
+            return LoaiMonDAO.LayDanhSachLoaiMon(timKiem, trangThai);
         }
 
-        public static bool ThemLoaiMon(LoaiMonDTO loaiMon)
+        public static bool ThemLoaiMon(LoaiMonDTO loaiMon, List<CTLoaiMon_LoaiToppingDTO> lsLoaiMon_LoaiTopping)
         {
-            return LoaiMonDAO.ThemLoaiMon(loaiMon);
+            if (LoaiMonDAO.ThemLoaiMon(loaiMon))
+            {
+                if (CTLoaiMon_LoaiToppingBUS.ThemLoaiMon_LoaiTopping(lsLoaiMon_LoaiTopping))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public static bool XoaLoaiMon(int maLoaiMon)
         {
-            return LoaiMonDAO.XoaLoaiMon(maLoaiMon);
+            if (MonBUS.XoaTatCaMonTheoLoai(maLoaiMon))
+            {
+                if (CTLoaiMon_LoaiToppingBUS.XoaLoaiMon_LoaiToppingTheoLoaiMon(maLoaiMon))
+                {
+                    if (LoaiMonDAO.XoaLoaiMon(maLoaiMon))
+                    {
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
-        public static bool SuaLoaiMon(LoaiMonDTO loaiMon)
+        public static bool SuaLoaiMon(LoaiMonDTO loaiMon, List<CTLoaiMon_LoaiToppingDTO> lsLoaiMon_LoaiTopping)
         {
-            return LoaiMonDAO.SuaLoaiMon(loaiMon);
-        }
-
-        public static int LayMaLoaiMonMoiNhat()
-        {
-            return LoaiMonDAO.LayMaLoaiMonMoiNhat();
+            if (CTLoaiMon_LoaiToppingBUS.SuaLoaiMon_LoaiTopping(loaiMon.MaLoaiMon, lsLoaiMon_LoaiTopping))
+            {
+                if (LoaiMonDAO.SuaLoaiMon(loaiMon))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 }

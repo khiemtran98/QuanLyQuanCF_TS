@@ -47,7 +47,8 @@ namespace QuanLyQuanCF_TS
                 r.Cells[0].Value = row.Cells["colTenMon"].Value;
                 r.Cells[1].Value = row.Cells["colSoLuong"].Value;
                 r.Cells[2].Value = row.Cells["colDonGia"].Value;
-                r.Cells[3].Value = row.Cells["colGhiChu"].Value;
+                r.Cells[3].Value = row.Cells["colSize"].Value;
+                r.Cells[4].Value = row.Cells["colGhiChu"].Value;
                 dgvHoaDon.Rows.Add(r);
             }
             dgvHoaDon.ClearSelection();
@@ -109,7 +110,7 @@ namespace QuanLyQuanCF_TS
                     cthd.MaHoaDon = HoaDonBUS.LayMaHoaDonMoiNhat() + 1;
                     cthd.MaMon = ((MonDTO)row.Tag).MaMon;
                     cthd.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
-                    cthd.DonGia = Convert.ToDouble(row.Cells["colDonGia"].Value);
+                    cthd.DonGia = Convert.ToDouble(((MonDTO)row.Tag).GiaTien);
                     if (row.Cells["colGhiChu"].Value != null)
                     {
                         cthd.GhiChu = row.Cells["colGhiChu"].Value.ToString();
@@ -127,7 +128,7 @@ namespace QuanLyQuanCF_TS
                     cthd_topping.MaCTHD = CTHoaDonBUS.LayMaCTHoaDonMoiNhat() + idCTHDMark;
                     cthd_topping.MaTopping = ((ToppingDTO)row.Tag).MaTopping;
                     cthd_topping.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
-                    cthd_topping.DonGia = Convert.ToDouble(row.Cells["colDonGia"].Value);
+                    cthd_topping.DonGia = Convert.ToDouble(((ToppingDTO)row.Tag).GiaTien);
                     if (row.Cells["colGhiChu"].Value != null)
                     {
                         cthd_topping.GhiChu = row.Cells["colGhiChu"].Value.ToString();

@@ -39,7 +39,7 @@ namespace DAO
 
             connection.Close();
 
-            if (reader == 1)
+            if (reader > 0)
             {
                 return true;
             }

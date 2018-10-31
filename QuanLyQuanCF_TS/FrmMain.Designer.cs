@@ -30,6 +30,8 @@
         {
             this.mPanel = new MetroFramework.Controls.MetroPanel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel15 = new MetroFramework.Controls.MetroPanel();
+            this.mCaiDat = new MetroFramework.Controls.MetroTile();
             this.metroPanel14 = new MetroFramework.Controls.MetroPanel();
             this.mBanHang = new MetroFramework.Controls.MetroTile();
             this.metroPanel13 = new MetroFramework.Controls.MetroPanel();
@@ -54,9 +56,11 @@
             this.lblCapBac = new MetroFramework.Controls.MetroLabel();
             this.lblHoTen = new MetroFramework.Controls.MetroLabel();
             this.panelTaiKhoan = new System.Windows.Forms.Panel();
+            this.picHinh = new System.Windows.Forms.PictureBox();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.mPanel.SuspendLayout();
             this.metroPanel3.SuspendLayout();
+            this.metroPanel15.SuspendLayout();
             this.metroPanel14.SuspendLayout();
             this.metroPanel13.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -68,6 +72,7 @@
             this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.panelTaiKhoan.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.picHinh)).BeginInit();
             this.SuspendLayout();
             // 
             // mPanel
@@ -89,6 +94,7 @@
             // 
             // metroPanel3
             // 
+            this.metroPanel3.Controls.Add(this.metroPanel15);
             this.metroPanel3.Controls.Add(this.metroPanel14);
             this.metroPanel3.Controls.Add(this.metroPanel13);
             this.metroPanel3.Controls.Add(this.metroPanel12);
@@ -103,6 +109,42 @@
             this.metroPanel3.VerticalScrollbarBarColor = true;
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel15
+            // 
+            this.metroPanel15.Controls.Add(this.mCaiDat);
+            this.metroPanel15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.metroPanel15.HorizontalScrollbarBarColor = true;
+            this.metroPanel15.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel15.HorizontalScrollbarSize = 10;
+            this.metroPanel15.Location = new System.Drawing.Point(659, 0);
+            this.metroPanel15.Name = "metroPanel15";
+            this.metroPanel15.Size = new System.Drawing.Size(310, 170);
+            this.metroPanel15.TabIndex = 19;
+            this.metroPanel15.VerticalScrollbarBarColor = true;
+            this.metroPanel15.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel15.VerticalScrollbarSize = 10;
+            // 
+            // mCaiDat
+            // 
+            this.mCaiDat.ActiveControl = null;
+            this.mCaiDat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mCaiDat.Location = new System.Drawing.Point(6, 6);
+            this.mCaiDat.Name = "mCaiDat";
+            this.mCaiDat.Size = new System.Drawing.Size(298, 161);
+            this.mCaiDat.Style = MetroFramework.MetroColorStyle.Purple;
+            this.mCaiDat.TabIndex = 15;
+            this.mCaiDat.Text = "Cài đặt";
+            this.mCaiDat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mCaiDat.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.settings;
+            this.mCaiDat.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mCaiDat.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mCaiDat.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mCaiDat.UseSelectable = true;
+            this.mCaiDat.UseTileImage = true;
+            this.mCaiDat.Click += new System.EventHandler(this.mCaiDat_Click);
             // 
             // metroPanel14
             // 
@@ -410,7 +452,7 @@
             this.mQuanLyMon.Size = new System.Drawing.Size(298, 147);
             this.mQuanLyMon.Style = MetroFramework.MetroColorStyle.Silver;
             this.mQuanLyMon.TabIndex = 9;
-            this.mQuanLyMon.Text = "Quản lý món và topping";
+            this.mQuanLyMon.Text = "Quản lý món";
             this.mQuanLyMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mQuanLyMon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coffee_to_go;
             this.mQuanLyMon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -477,7 +519,7 @@
             this.lblCapBac.FontSize = MetroFramework.MetroLabelSize.Small;
             this.lblCapBac.Location = new System.Drawing.Point(889, 29);
             this.lblCapBac.Name = "lblCapBac";
-            this.lblCapBac.Size = new System.Drawing.Size(382, 23);
+            this.lblCapBac.Size = new System.Drawing.Size(326, 23);
             this.lblCapBac.TabIndex = 18;
             this.lblCapBac.Text = "Cấp bậc";
             this.lblCapBac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -489,13 +531,14 @@
             this.lblHoTen.FontSize = MetroFramework.MetroLabelSize.Tall;
             this.lblHoTen.Location = new System.Drawing.Point(889, 8);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(382, 25);
+            this.lblHoTen.Size = new System.Drawing.Size(326, 25);
             this.lblHoTen.TabIndex = 17;
             this.lblHoTen.Text = "Họ tên";
             this.lblHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelTaiKhoan
             // 
+            this.panelTaiKhoan.Controls.Add(this.picHinh);
             this.panelTaiKhoan.Controls.Add(this.btnDangXuat);
             this.panelTaiKhoan.Controls.Add(this.lblHoTen);
             this.panelTaiKhoan.Controls.Add(this.lblCapBac);
@@ -504,6 +547,17 @@
             this.panelTaiKhoan.Name = "panelTaiKhoan";
             this.panelTaiKhoan.Size = new System.Drawing.Size(1319, 60);
             this.panelTaiKhoan.TabIndex = 20;
+            // 
+            // picHinh
+            // 
+            this.picHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHinh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.picHinh.Location = new System.Drawing.Point(1221, 6);
+            this.picHinh.Name = "picHinh";
+            this.picHinh.Size = new System.Drawing.Size(50, 50);
+            this.picHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.picHinh.TabIndex = 20;
+            this.picHinh.TabStop = false;
             // 
             // btnDangXuat
             // 
@@ -538,6 +592,7 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.mPanel.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
+            this.metroPanel15.ResumeLayout(false);
             this.metroPanel14.ResumeLayout(false);
             this.metroPanel13.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
@@ -549,6 +604,7 @@
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             this.panelTaiKhoan.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.picHinh)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -582,6 +638,9 @@
         private MetroFramework.Controls.MetroPanel metroPanel11;
         private MetroFramework.Controls.MetroPanel metroPanel10;
         private MetroFramework.Controls.MetroPanel metroPanel9;
+        private System.Windows.Forms.PictureBox picHinh;
+        private MetroFramework.Controls.MetroPanel metroPanel15;
+        private MetroFramework.Controls.MetroTile mCaiDat;
     }
 }
 

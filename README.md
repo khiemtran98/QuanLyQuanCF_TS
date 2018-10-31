@@ -1,22 +1,22 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.5: Thêm chức năng Quản lý tài khoản & Quản lý món
+> ## Update 2.6.1: Thêm bản mẫu chức năng
 
 ### # Các thay đổi
 
-  **DATABASE:** Cập nhật các bảng, thuộc tính và trigger.
+  **2.6.1:** Sửa lỗi Quản lý tài khoản & Bán hàng. Tạo các bản mẫu chức năng xem trước.
   
-  **CHỨC NĂNG:** Thêm các chức năng Quản lý tài khoản, Quản lý món (beta).
+  **2.6:** Sửa lỗi Quản lý tài khoản & Bán hàng.
 
-  **GIAO DIỆN:** Chỉnh sửa tỉ lệ các compoment trong tất cả các form.
+  **DATABASE:** Thêm bảng, thêm thuộc tính, sửa lỗi trigger.
   
-  **HIỆU SUẤT:** Cải thiện tốc độ phản hồi form bán hàng, không còn phải chờ tải đữ liệu.
+  **CHỨC NĂNG:** Hoàn thiện Quản lý tài khoản & Quản lý món: tải ảnh, thay đổi trạng thái, thêm xoá sửa...
   
-  **SỬA LỖI:** Sửa lỗi các trigger trong database ảnh hưởng đến các chức năng thêm xoá sửa.
+  **HIỆU SUẤT:** Tiếp tục cải thiện tốc độ form bán hàng: bỏ các thao tác thừa, tự dộng hiện màn hình option đầu tiên.
   
-### # Quan trọng
-
-  Tạo lại database để sửa lỗi.
+  **RÀNG BUỘC DỮ LIỆU:** Các chức năng hiện có (QL Tài khoản, QL Món, Bán hàng) được ràng buộc dữ liệu, cập nhật theo thời gian thực.
+  
+  **SỬA LỖI:** Sửa một lỗi trigger khiến các bảng trong database không thể xoá dòng dữ liệu cuối cùng.
 
 ### # Hướng dẫn cài đặt
 
@@ -36,13 +36,11 @@
 
 - **Chức năng Quản lý tài khoản**
 
-  - Có thể thêm xoá sửa (tạm thời chưa thể sử dụng hình).
+  - Thay đổi trạng thái hoặc xoá để tài khoản không còn xuất hiện trong form đăng nhập và các bên liên quan.
   
 - **Chức năng Quản lý món**
 
-  - Tạm thời chỉ có thể quản lý loại món.
-
-  - Có thể thêm và sửa (tạm thời chưa thể xoá).
+  - Thay đổi trạng thái hoặc xoá để món không còn xuất hiện trong form bán hàng và các bên liên quan.
 
 - **Chức năng Bán hàng**
 
@@ -57,6 +55,10 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.6: Hoàn thiện chức năng Quản lý tài khoản & Quản lý món
+
+> #### Update 2.5: Thêm chức năng Quản lý tài khoản & Quản lý món
 
 > #### Update 2.4.1: Tạo prototype chức năng quản lý tài khoản
 
