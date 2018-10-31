@@ -40,5 +40,10 @@ namespace BUS
 
             return true;
         }
+
+        public static List<HoaDonDTO> LayDanhSachHoaDon()
+        {
+            return HoaDonDAO.LayDanhSachHoaDon();
+        }
     }
 }

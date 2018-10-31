@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
 namespace DTO
 {
     public class CTHoaDon_ToppingDTO
@@ -19,5 +20,7 @@ namespace DTO
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public double DonGia { get => donGia; set => donGia = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }
+
+      
     }
 }

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DTO;
+using BUS;
 
 namespace QuanLyQuanCF_TS
 {
@@ -40,6 +42,39 @@ namespace QuanLyQuanCF_TS
         private void FrmThongKeHoaDon_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;
+        }
+
+        private void FrmThongKeHoaDon_Load(object sender, EventArgs e)
+        {
+            dgvHoaDon.AutoGenerateColumns = false;
+            dgvCTHD.AutoGenerateColumns = false;
+            dgvTopping.AutoGenerateColumns = false;
+
+            LoadDanhSachHD();
+        }
+
+        private void LoadDanhSachHD()
+        {
+            List<HoaDonDTO> lsHoaDon = HoaDonBUS.LayDanhSachHoaDon();
+            dgvHoaDon.DataSource = lsHoaDon;
+        }
+
+        private void LoadCTHD(int maHoaDon)
+        {
+            List<CTHoaDonDTO> lsHoaDon = CTHoaDonBUS.LayDanhSachCTHD(maHoaDon);
+            dgvCTHD.DataSource = lsHoaDon;
+        }
+
+        private void LoadCTTopping(int maHoaDon)
+        {
+            List<CTHoaDon_ToppingDTO> lsTopping = CTLoaiMon_LoaiToppingBUS.LayDanhSachTopping(maHoaDon);
+            dgvTopping.DataSource = lsTopping;
+        }
+
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            LoadCTHD(Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colMaHoaDon"].Value));
+            LoadCTTopping(Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colMaHoaDon"].Value));
         }
     }
 }

@@ -45,5 +45,36 @@ namespace DAO
             }
             return false;
         }
+
+        public static List<HoaDonDTO> LayDanhSachHoaDon()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, trang_thai FROM HoaDon";
+            SqlCommand command = new SqlCommand();
+        
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<HoaDonDTO> result = new List<HoaDonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    HoaDonDTO hd = new HoaDonDTO();
+                    hd.MaHoaDon = reader.GetInt32(0);
+                    hd.NhanVienLap = reader.GetInt32(1);
+                    hd.NgayLap = reader.GetDateTime(2);
+                    hd.TongTien = reader.GetDouble(3);
+                    hd.TrangThai = reader.GetBoolean(4);
+                    result.Add(hd);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
     }
 }
