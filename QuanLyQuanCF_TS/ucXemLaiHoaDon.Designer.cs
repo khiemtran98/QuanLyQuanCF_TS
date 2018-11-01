@@ -388,6 +388,7 @@
             this.colTenMon.HeaderText = "Tên món";
             this.colTenMon.Name = "colTenMon";
             this.colTenMon.ReadOnly = true;
+            this.colTenMon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // colSoLuong
             // 
@@ -397,7 +398,8 @@
             this.colSoLuong.HeaderText = "Số lượng";
             this.colSoLuong.Name = "colSoLuong";
             this.colSoLuong.ReadOnly = true;
-            this.colSoLuong.Width = 117;
+            this.colSoLuong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colSoLuong.Width = 98;
             // 
             // colDonGia
             // 
@@ -406,6 +408,7 @@
             this.colDonGia.HeaderText = "Đơn giá";
             this.colDonGia.Name = "colDonGia";
             this.colDonGia.ReadOnly = true;
+            this.colDonGia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             this.colDonGia.Width = 150;
             // 
             // colSize
@@ -427,6 +430,7 @@
             this.colGhiChu.HeaderText = "Ghi chú";
             this.colGhiChu.Name = "colGhiChu";
             this.colGhiChu.ReadOnly = true;
+            this.colGhiChu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // ucXemLaiHoaDon
             // 

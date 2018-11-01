@@ -33,5 +33,36 @@ namespace DAO
             }
             return false;
         }
+
+        public static List<CTHoaDon_ToppingDTO> LayDanhSachCTHD_Topping(int maHoaDon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_cthd, ma_topping, so_luong, don_gia, ghi_chu FROM CTHoaDon_Topping WHERE 1=1";
+            SqlCommand command = new SqlCommand();
+
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<CTHoaDon_ToppingDTO> result = new List<CTHoaDon_ToppingDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    CTHoaDon_ToppingDTO topping = new CTHoaDon_ToppingDTO();
+                    topping.MaCTHD = reader.GetInt32(0);
+                    topping.MaTopping = reader.GetInt32(1);
+                    topping.SoLuong = reader.GetInt32(2);
+                    topping.DonGia = reader.GetDouble(3);
+                    topping.GhiChu = reader.GetString(4);
+                    result.Add(topping);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
     }
 }

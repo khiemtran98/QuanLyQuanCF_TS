@@ -638,13 +638,12 @@ namespace QuanLyQuanCF_TS
             {
                 if (row.Tag.GetType() == typeof(MonDTO))
                 {
-                    tongTien += ((MonDTO)row.Tag).GiaTien;
+                    tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * ((MonDTO)row.Tag).GiaTien;
                 }
                 else
                 {
-                    tongTien += ((ToppingDTO)row.Tag).GiaTien;
+                    tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * ((ToppingDTO)row.Tag).GiaTien;
                 }
-                //tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(row.Cells["colDonGia"].Value);
             }
             return tongTien;
         }

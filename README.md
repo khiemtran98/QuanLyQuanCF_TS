@@ -1,38 +1,46 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.6.1: Thêm bản mẫu chức năng
+> ## Update 2.6.2: Tạo bản mẫu thống kê hoá đơn
 
-### # Các thay đổi
+### # CÁC THAY ĐỔI
 
-  **2.6.1:** Sửa lỗi Quản lý tài khoản & Bán hàng. Tạo các bản mẫu chức năng xem trước.
+  **Sửa lỗi:**
   
-  **2.6:** Sửa lỗi Quản lý tài khoản & Bán hàng.
+  - Tính sai tổng tiền hoá đơn.
+  
+  - Chức năng sửa tài khoản và món làm mất hình hiện tại.
+  
+  - Danh sách tài khoản và món không tải được hình và tên loại ở một số dòng.
+  
+### # QUAN TRỌNG
 
-  **DATABASE:** Thêm bảng, thêm thuộc tính, sửa lỗi trigger.
-  
-  **CHỨC NĂNG:** Hoàn thiện Quản lý tài khoản & Quản lý món: tải ảnh, thay đổi trạng thái, thêm xoá sửa...
-  
-  **HIỆU SUẤT:** Tiếp tục cải thiện tốc độ form bán hàng: bỏ các thao tác thừa, tự dộng hiện màn hình option đầu tiên.
-  
-  **RÀNG BUỘC DỮ LIỆU:** Các chức năng hiện có (QL Tài khoản, QL Món, Bán hàng) được ràng buộc dữ liệu, cập nhật theo thời gian thực.
-  
-  **SỬA LỖI:** Sửa một lỗi trigger khiến các bảng trong database không thể xoá dòng dữ liệu cuối cùng.
+**1. Dựng bản thử nghiệm:**
 
-### # Hướng dẫn cài đặt
+- Món bán theo nhiều size với giá khác nhau.
+
+- Hạn chế chức năng cho từng loại tài khoản.
+
+**2. Project:** Bổ sung 2 package hỗ trợ biểu đồ: [ZedGraph](https://www.nuget.org/packages/ZedGraph/), [LiveCharts](https://www.nuget.org/packages/LiveCharts.WinForms/).
+
+**3. Database:** Chỉ sử dụng database *QuanLyQuanCF_TS_TEST.sql* để dựng chức năng mới. Còn lại vẫn sử dụng database *QuanLyQuanCF_TS.sql*.
+
+*Xem hướng dẫn cài đặt để không bị lỗi khi mở project.*
+
+### # HƯỚNG DẪN CÀI ĐẶT
 
   1. Tạo database (*QuanLyQuanCF_TS.sql*).
   
-  2. Cài đặt các gói NuGet: [MetroModernUI](https://www.nuget.org/packages/MetroModernUI/), [MaterialSkin](https://www.nuget.org/packages/MaterialSkin/) bằng cách nhấn chuột phải vào project **QuanLyQuanCF_TS** chọn **Manage NuGet Package...**, tìm các gói NuGet và cài đặt.
+  2. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
+  
+  2. Di chuyển tất cả thư mục trong **assets** ra ngoài thư mục project.
+  
+  3. Mở project.
 
   3. Thêm chuỗi kết nối database trong class *DataProvider*.
   
-  4. Di chuyển 2 folder *img*, *icon* vào trong bin/debug/.
+  5. Build project.
 
-  5. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
-  
-  6. Build project.
-
-### # Hướng dẫn sử dụng
+### # HƯỚNG DẪN SỬ DỤNG
 
 - **Chức năng Quản lý tài khoản**
 

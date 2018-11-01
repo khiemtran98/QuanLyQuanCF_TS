@@ -303,6 +303,13 @@ namespace QuanLyQuanCF_TS
                 taiKhoan.Hinh = tenFile + extension;
                 File.Copy(openFileDialog1.FileName, "img\\accounts\\" + tenFile + extension);
             }
+            else
+            {
+                if (picHinh.Image != Properties.Resources.user_account)
+                {
+                    taiKhoan.Hinh = dgvTaiKhoan.CurrentRow.Cells["colHinh"].Value.ToString();
+                }
+            }
             taiKhoan.TrangThai = chkQLTK_TrangThai.Checked;
 
             if (TaiKhoanBUS.SuaTaiKhoan(taiKhoan))
@@ -317,7 +324,7 @@ namespace QuanLyQuanCF_TS
                 taiKhoan = null;
             }
         }
-
+        
         private void LamMoiTaiKhoan(bool state = true)
         {
             txtMaTaiKhoan.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
@@ -352,7 +359,7 @@ namespace QuanLyQuanCF_TS
         private void TimKiemTaiKhoan()
         {
             QLTK_LoadDanhSachTaiKhoan(txtTimKiemTaiKhoan.Text);
-        }
+        }   
 
         private void txtTimKiemTaiKhoan_Enter(object sender, EventArgs e)
         {

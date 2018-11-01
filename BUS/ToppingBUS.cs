@@ -24,5 +24,25 @@ namespace BUS
         {
             return ToppingDAO.XoaToppingTheoLoai(maLoaiTopping);
         }
+
+        public static bool SuaTopping(ToppingDTO topping)
+        {
+            return ToppingDAO.SuaTopping(topping);
+        }
+
+        public static bool XoaTopping(int maTopping)
+        {
+            return ToppingDAO.XoaTopping(maTopping);
+        }
+
+        public static bool ThemTopping(ToppingDTO topping)
+        {
+            return ToppingDAO.ThemTopping(topping);
+        }
+
+        public static int LayMaToppingMoiNhat()
+        {
+            return ToppingDAO.LayMaToppingMoiNhat();
+        }
     }
 }

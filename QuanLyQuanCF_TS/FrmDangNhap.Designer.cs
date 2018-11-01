@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.mDangNhap = new MetroFramework.Controls.MetroPanel();
+            this.lblPhienBan = new MetroFramework.Controls.MetroLabel();
             this.lblThongTin1 = new MetroFramework.Controls.MetroLabel();
             this.lblThongTin2 = new MetroFramework.Controls.MetroLabel();
             this.btnDangNhap = new MetroFramework.Controls.MetroButton();
@@ -36,7 +37,6 @@
             this.cmbTaiKhoan = new MetroFramework.Controls.MetroComboBox();
             this.lblMatKhau = new MetroFramework.Controls.MetroLabel();
             this.lblTaiKhoan = new MetroFramework.Controls.MetroLabel();
-            this.lblPhienBan = new MetroFramework.Controls.MetroLabel();
             this.mDangNhap.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,6 +61,16 @@
             this.mDangNhap.VerticalScrollbarBarColor = true;
             this.mDangNhap.VerticalScrollbarHighlightOnWheel = false;
             this.mDangNhap.VerticalScrollbarSize = 10;
+            // 
+            // lblPhienBan
+            // 
+            this.lblPhienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblPhienBan.AutoSize = true;
+            this.lblPhienBan.Location = new System.Drawing.Point(717, 351);
+            this.lblPhienBan.Name = "lblPhienBan";
+            this.lblPhienBan.Size = new System.Drawing.Size(42, 19);
+            this.lblPhienBan.TabIndex = 10;
+            this.lblPhienBan.Text = "v2.6.2";
             // 
             // lblThongTin1
             // 
@@ -160,16 +170,6 @@
             this.lblTaiKhoan.Size = new System.Drawing.Size(63, 19);
             this.lblTaiKhoan.TabIndex = 2;
             this.lblTaiKhoan.Text = "Tài khoản";
-            // 
-            // lblPhienBan
-            // 
-            this.lblPhienBan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.lblPhienBan.AutoSize = true;
-            this.lblPhienBan.Location = new System.Drawing.Point(717, 351);
-            this.lblPhienBan.Name = "lblPhienBan";
-            this.lblPhienBan.Size = new System.Drawing.Size(40, 19);
-            this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.6.1";
             // 
             // FrmDangNhap
             // 

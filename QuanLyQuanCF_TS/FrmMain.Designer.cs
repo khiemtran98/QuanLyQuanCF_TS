@@ -30,36 +30,37 @@
         {
             this.mPanel = new MetroFramework.Controls.MetroPanel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel15 = new MetroFramework.Controls.MetroPanel();
+            this.mCaiDat = new MetroFramework.Controls.MetroTile();
             this.metroPanel14 = new MetroFramework.Controls.MetroPanel();
+            this.mBanHang = new MetroFramework.Controls.MetroTile();
             this.metroPanel13 = new MetroFramework.Controls.MetroPanel();
+            this.mNhapHang = new MetroFramework.Controls.MetroTile();
             this.metroPanel12 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
+            this.mThongKeDoanhThu = new MetroFramework.Controls.MetroTile();
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
+            this.mQuanLyKho = new MetroFramework.Controls.MetroTile();
             this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
+            this.mThongKeNhapHang = new MetroFramework.Controls.MetroTile();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
+            this.mThongKeHoaDon = new MetroFramework.Controls.MetroTile();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.mQuanLyMon = new MetroFramework.Controls.MetroTile();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.mtQuanLyTaiKhoan = new MetroFramework.Controls.MetroTile();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.lblCapBac = new MetroFramework.Controls.MetroLabel();
             this.lblHoTen = new MetroFramework.Controls.MetroLabel();
             this.panelTaiKhoan = new System.Windows.Forms.Panel();
-            this.metroPanel15 = new MetroFramework.Controls.MetroPanel();
-            this.mCaiDat = new MetroFramework.Controls.MetroTile();
-            this.mBanHang = new MetroFramework.Controls.MetroTile();
-            this.mNhapHang = new MetroFramework.Controls.MetroTile();
-            this.mThongKeDoanhThu = new MetroFramework.Controls.MetroTile();
-            this.mQuanLyKho = new MetroFramework.Controls.MetroTile();
-            this.mThongKeNhapHang = new MetroFramework.Controls.MetroTile();
-            this.mThongKeHoaDon = new MetroFramework.Controls.MetroTile();
-            this.mQuanLyMon = new MetroFramework.Controls.MetroTile();
-            this.mtQuanLyTaiKhoan = new MetroFramework.Controls.MetroTile();
             this.picHinh = new System.Windows.Forms.PictureBox();
             this.btnDangXuat = new System.Windows.Forms.Button();
             this.mPanel.SuspendLayout();
             this.metroPanel3.SuspendLayout();
+            this.metroPanel15.SuspendLayout();
             this.metroPanel14.SuspendLayout();
             this.metroPanel13.SuspendLayout();
             this.metroPanel2.SuspendLayout();
@@ -71,7 +72,6 @@
             this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.panelTaiKhoan.SuspendLayout();
-            this.metroPanel15.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).BeginInit();
             this.SuspendLayout();
             // 
@@ -110,6 +110,42 @@
             this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel3.VerticalScrollbarSize = 10;
             // 
+            // metroPanel15
+            // 
+            this.metroPanel15.Controls.Add(this.mCaiDat);
+            this.metroPanel15.Dock = System.Windows.Forms.DockStyle.Left;
+            this.metroPanel15.HorizontalScrollbarBarColor = true;
+            this.metroPanel15.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel15.HorizontalScrollbarSize = 10;
+            this.metroPanel15.Location = new System.Drawing.Point(659, 0);
+            this.metroPanel15.Name = "metroPanel15";
+            this.metroPanel15.Size = new System.Drawing.Size(310, 170);
+            this.metroPanel15.TabIndex = 19;
+            this.metroPanel15.VerticalScrollbarBarColor = true;
+            this.metroPanel15.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel15.VerticalScrollbarSize = 10;
+            // 
+            // mCaiDat
+            // 
+            this.mCaiDat.ActiveControl = null;
+            this.mCaiDat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mCaiDat.Location = new System.Drawing.Point(6, 6);
+            this.mCaiDat.Name = "mCaiDat";
+            this.mCaiDat.Size = new System.Drawing.Size(298, 161);
+            this.mCaiDat.Style = MetroFramework.MetroColorStyle.Purple;
+            this.mCaiDat.TabIndex = 15;
+            this.mCaiDat.Text = "Cài đặt";
+            this.mCaiDat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mCaiDat.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.settings;
+            this.mCaiDat.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mCaiDat.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mCaiDat.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mCaiDat.UseSelectable = true;
+            this.mCaiDat.UseTileImage = true;
+            this.mCaiDat.Click += new System.EventHandler(this.mCaiDat_Click);
+            // 
             // metroPanel14
             // 
             this.metroPanel14.Controls.Add(this.mBanHang);
@@ -125,6 +161,27 @@
             this.metroPanel14.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel14.VerticalScrollbarSize = 10;
             // 
+            // mBanHang
+            // 
+            this.mBanHang.ActiveControl = null;
+            this.mBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mBanHang.Location = new System.Drawing.Point(6, 6);
+            this.mBanHang.Name = "mBanHang";
+            this.mBanHang.Size = new System.Drawing.Size(298, 161);
+            this.mBanHang.Style = MetroFramework.MetroColorStyle.Teal;
+            this.mBanHang.TabIndex = 15;
+            this.mBanHang.Text = "Bán hàng";
+            this.mBanHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mBanHang.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.sell;
+            this.mBanHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mBanHang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mBanHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mBanHang.UseSelectable = true;
+            this.mBanHang.UseTileImage = true;
+            this.mBanHang.Click += new System.EventHandler(this.mBanHang_Click);
+            // 
             // metroPanel13
             // 
             this.metroPanel13.Controls.Add(this.mNhapHang);
@@ -139,6 +196,27 @@
             this.metroPanel13.VerticalScrollbarBarColor = true;
             this.metroPanel13.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel13.VerticalScrollbarSize = 10;
+            // 
+            // mNhapHang
+            // 
+            this.mNhapHang.ActiveControl = null;
+            this.mNhapHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mNhapHang.Location = new System.Drawing.Point(6, 6);
+            this.mNhapHang.Name = "mNhapHang";
+            this.mNhapHang.Size = new System.Drawing.Size(298, 161);
+            this.mNhapHang.Style = MetroFramework.MetroColorStyle.Teal;
+            this.mNhapHang.TabIndex = 14;
+            this.mNhapHang.Text = "Nhập hàng";
+            this.mNhapHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mNhapHang.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.product;
+            this.mNhapHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mNhapHang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mNhapHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mNhapHang.UseSelectable = true;
+            this.mNhapHang.UseTileImage = true;
+            this.mNhapHang.Click += new System.EventHandler(this.mNhapHang_Click);
             // 
             // metroPanel12
             // 
@@ -186,6 +264,27 @@
             this.metroPanel11.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel11.VerticalScrollbarSize = 10;
             // 
+            // mThongKeDoanhThu
+            // 
+            this.mThongKeDoanhThu.ActiveControl = null;
+            this.mThongKeDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mThongKeDoanhThu.Location = new System.Drawing.Point(6, 6);
+            this.mThongKeDoanhThu.Name = "mThongKeDoanhThu";
+            this.mThongKeDoanhThu.Size = new System.Drawing.Size(611, 158);
+            this.mThongKeDoanhThu.Style = MetroFramework.MetroColorStyle.Lime;
+            this.mThongKeDoanhThu.TabIndex = 11;
+            this.mThongKeDoanhThu.Text = "Thống kê doanh thu";
+            this.mThongKeDoanhThu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mThongKeDoanhThu.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coins;
+            this.mThongKeDoanhThu.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mThongKeDoanhThu.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mThongKeDoanhThu.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mThongKeDoanhThu.UseSelectable = true;
+            this.mThongKeDoanhThu.UseTileImage = true;
+            this.mThongKeDoanhThu.Click += new System.EventHandler(this.mThongKeDoanhThu_Click);
+            // 
             // metroPanel10
             // 
             this.metroPanel10.Controls.Add(this.mQuanLyKho);
@@ -200,6 +299,27 @@
             this.metroPanel10.VerticalScrollbarBarColor = true;
             this.metroPanel10.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel10.VerticalScrollbarSize = 10;
+            // 
+            // mQuanLyKho
+            // 
+            this.mQuanLyKho.ActiveControl = null;
+            this.mQuanLyKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mQuanLyKho.Location = new System.Drawing.Point(6, 6);
+            this.mQuanLyKho.Name = "mQuanLyKho";
+            this.mQuanLyKho.Size = new System.Drawing.Size(608, 158);
+            this.mQuanLyKho.Style = MetroFramework.MetroColorStyle.Silver;
+            this.mQuanLyKho.TabIndex = 10;
+            this.mQuanLyKho.Text = "Quản lý kho";
+            this.mQuanLyKho.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mQuanLyKho.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.warehouse;
+            this.mQuanLyKho.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mQuanLyKho.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mQuanLyKho.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mQuanLyKho.UseSelectable = true;
+            this.mQuanLyKho.UseTileImage = true;
+            this.mQuanLyKho.Click += new System.EventHandler(this.mQuanLyKho_Click);
             // 
             // metroPanel9
             // 
@@ -249,6 +369,27 @@
             this.metroPanel8.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel8.VerticalScrollbarSize = 10;
             // 
+            // mThongKeNhapHang
+            // 
+            this.mThongKeNhapHang.ActiveControl = null;
+            this.mThongKeNhapHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mThongKeNhapHang.Location = new System.Drawing.Point(6, 17);
+            this.mThongKeNhapHang.Name = "mThongKeNhapHang";
+            this.mThongKeNhapHang.Size = new System.Drawing.Size(301, 147);
+            this.mThongKeNhapHang.Style = MetroFramework.MetroColorStyle.Lime;
+            this.mThongKeNhapHang.TabIndex = 13;
+            this.mThongKeNhapHang.Text = "Thống kê nhập hàng";
+            this.mThongKeNhapHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mThongKeNhapHang.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.transaction_list;
+            this.mThongKeNhapHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mThongKeNhapHang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mThongKeNhapHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mThongKeNhapHang.UseSelectable = true;
+            this.mThongKeNhapHang.UseTileImage = true;
+            this.mThongKeNhapHang.Click += new System.EventHandler(this.mThongKeNhapHang_Click);
+            // 
             // metroPanel7
             // 
             this.metroPanel7.Controls.Add(this.mThongKeHoaDon);
@@ -263,6 +404,27 @@
             this.metroPanel7.VerticalScrollbarBarColor = true;
             this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel7.VerticalScrollbarSize = 10;
+            // 
+            // mThongKeHoaDon
+            // 
+            this.mThongKeHoaDon.ActiveControl = null;
+            this.mThongKeHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mThongKeHoaDon.Location = new System.Drawing.Point(6, 17);
+            this.mThongKeHoaDon.Name = "mThongKeHoaDon";
+            this.mThongKeHoaDon.Size = new System.Drawing.Size(298, 147);
+            this.mThongKeHoaDon.Style = MetroFramework.MetroColorStyle.Lime;
+            this.mThongKeHoaDon.TabIndex = 12;
+            this.mThongKeHoaDon.Text = "Thống kê hoá đơn";
+            this.mThongKeHoaDon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mThongKeHoaDon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.purchase_order;
+            this.mThongKeHoaDon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mThongKeHoaDon.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mThongKeHoaDon.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mThongKeHoaDon.UseSelectable = true;
+            this.mThongKeHoaDon.UseTileImage = true;
+            this.mThongKeHoaDon.Click += new System.EventHandler(this.mThongKeHoaDon_Click);
             // 
             // metroPanel6
             // 
@@ -279,6 +441,27 @@
             this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel6.VerticalScrollbarSize = 10;
             // 
+            // mQuanLyMon
+            // 
+            this.mQuanLyMon.ActiveControl = null;
+            this.mQuanLyMon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mQuanLyMon.Location = new System.Drawing.Point(6, 17);
+            this.mQuanLyMon.Name = "mQuanLyMon";
+            this.mQuanLyMon.Size = new System.Drawing.Size(298, 147);
+            this.mQuanLyMon.Style = MetroFramework.MetroColorStyle.Silver;
+            this.mQuanLyMon.TabIndex = 9;
+            this.mQuanLyMon.Text = "Quản lý món";
+            this.mQuanLyMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mQuanLyMon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coffee_to_go;
+            this.mQuanLyMon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mQuanLyMon.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mQuanLyMon.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mQuanLyMon.UseSelectable = true;
+            this.mQuanLyMon.UseTileImage = true;
+            this.mQuanLyMon.Click += new System.EventHandler(this.mQuanLyMon_Click);
+            // 
             // metroPanel5
             // 
             this.metroPanel5.Controls.Add(this.mtQuanLyTaiKhoan);
@@ -293,6 +476,27 @@
             this.metroPanel5.VerticalScrollbarBarColor = true;
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // mtQuanLyTaiKhoan
+            // 
+            this.mtQuanLyTaiKhoan.ActiveControl = null;
+            this.mtQuanLyTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.mtQuanLyTaiKhoan.Location = new System.Drawing.Point(6, 17);
+            this.mtQuanLyTaiKhoan.Name = "mtQuanLyTaiKhoan";
+            this.mtQuanLyTaiKhoan.Size = new System.Drawing.Size(298, 147);
+            this.mtQuanLyTaiKhoan.Style = MetroFramework.MetroColorStyle.Silver;
+            this.mtQuanLyTaiKhoan.TabIndex = 8;
+            this.mtQuanLyTaiKhoan.Text = "Quản lý tài khoản";
+            this.mtQuanLyTaiKhoan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.mtQuanLyTaiKhoan.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.user_account;
+            this.mtQuanLyTaiKhoan.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.mtQuanLyTaiKhoan.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
+            this.mtQuanLyTaiKhoan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
+            this.mtQuanLyTaiKhoan.UseSelectable = true;
+            this.mtQuanLyTaiKhoan.UseTileImage = true;
+            this.mtQuanLyTaiKhoan.Click += new System.EventHandler(this.mtQuanLyTaiKhoan_Click);
             // 
             // metroPanel4
             // 
@@ -344,210 +548,6 @@
             this.panelTaiKhoan.Size = new System.Drawing.Size(1319, 60);
             this.panelTaiKhoan.TabIndex = 20;
             // 
-            // metroPanel15
-            // 
-            this.metroPanel15.Controls.Add(this.mCaiDat);
-            this.metroPanel15.Dock = System.Windows.Forms.DockStyle.Left;
-            this.metroPanel15.HorizontalScrollbarBarColor = true;
-            this.metroPanel15.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel15.HorizontalScrollbarSize = 10;
-            this.metroPanel15.Location = new System.Drawing.Point(659, 0);
-            this.metroPanel15.Name = "metroPanel15";
-            this.metroPanel15.Size = new System.Drawing.Size(310, 170);
-            this.metroPanel15.TabIndex = 19;
-            this.metroPanel15.VerticalScrollbarBarColor = true;
-            this.metroPanel15.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel15.VerticalScrollbarSize = 10;
-            // 
-            // mCaiDat
-            // 
-            this.mCaiDat.ActiveControl = null;
-            this.mCaiDat.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mCaiDat.Location = new System.Drawing.Point(6, 6);
-            this.mCaiDat.Name = "mCaiDat";
-            this.mCaiDat.Size = new System.Drawing.Size(298, 161);
-            this.mCaiDat.Style = MetroFramework.MetroColorStyle.Purple;
-            this.mCaiDat.TabIndex = 15;
-            this.mCaiDat.Text = "Cài đặt";
-            this.mCaiDat.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mCaiDat.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.settings;
-            this.mCaiDat.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mCaiDat.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mCaiDat.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mCaiDat.UseSelectable = true;
-            this.mCaiDat.UseTileImage = true;
-            this.mCaiDat.Click += new System.EventHandler(this.mCaiDat_Click);
-            // 
-            // mBanHang
-            // 
-            this.mBanHang.ActiveControl = null;
-            this.mBanHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mBanHang.Location = new System.Drawing.Point(6, 6);
-            this.mBanHang.Name = "mBanHang";
-            this.mBanHang.Size = new System.Drawing.Size(298, 161);
-            this.mBanHang.Style = MetroFramework.MetroColorStyle.Teal;
-            this.mBanHang.TabIndex = 15;
-            this.mBanHang.Text = "Bán hàng";
-            this.mBanHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mBanHang.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.sell;
-            this.mBanHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mBanHang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mBanHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mBanHang.UseSelectable = true;
-            this.mBanHang.UseTileImage = true;
-            this.mBanHang.Click += new System.EventHandler(this.mBanHang_Click);
-            // 
-            // mNhapHang
-            // 
-            this.mNhapHang.ActiveControl = null;
-            this.mNhapHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mNhapHang.Location = new System.Drawing.Point(6, 6);
-            this.mNhapHang.Name = "mNhapHang";
-            this.mNhapHang.Size = new System.Drawing.Size(298, 161);
-            this.mNhapHang.Style = MetroFramework.MetroColorStyle.Teal;
-            this.mNhapHang.TabIndex = 14;
-            this.mNhapHang.Text = "Nhập hàng";
-            this.mNhapHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mNhapHang.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.product;
-            this.mNhapHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mNhapHang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mNhapHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mNhapHang.UseSelectable = true;
-            this.mNhapHang.UseTileImage = true;
-            this.mNhapHang.Click += new System.EventHandler(this.mNhapHang_Click);
-            // 
-            // mThongKeDoanhThu
-            // 
-            this.mThongKeDoanhThu.ActiveControl = null;
-            this.mThongKeDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mThongKeDoanhThu.Location = new System.Drawing.Point(6, 6);
-            this.mThongKeDoanhThu.Name = "mThongKeDoanhThu";
-            this.mThongKeDoanhThu.Size = new System.Drawing.Size(611, 158);
-            this.mThongKeDoanhThu.Style = MetroFramework.MetroColorStyle.Lime;
-            this.mThongKeDoanhThu.TabIndex = 11;
-            this.mThongKeDoanhThu.Text = "Thống kê doanh thu";
-            this.mThongKeDoanhThu.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mThongKeDoanhThu.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coins;
-            this.mThongKeDoanhThu.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mThongKeDoanhThu.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mThongKeDoanhThu.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mThongKeDoanhThu.UseSelectable = true;
-            this.mThongKeDoanhThu.UseTileImage = true;
-            this.mThongKeDoanhThu.Click += new System.EventHandler(this.mThongKeDoanhThu_Click);
-            // 
-            // mQuanLyKho
-            // 
-            this.mQuanLyKho.ActiveControl = null;
-            this.mQuanLyKho.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mQuanLyKho.Location = new System.Drawing.Point(6, 6);
-            this.mQuanLyKho.Name = "mQuanLyKho";
-            this.mQuanLyKho.Size = new System.Drawing.Size(608, 158);
-            this.mQuanLyKho.Style = MetroFramework.MetroColorStyle.Silver;
-            this.mQuanLyKho.TabIndex = 10;
-            this.mQuanLyKho.Text = "Quản lý kho";
-            this.mQuanLyKho.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mQuanLyKho.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.warehouse;
-            this.mQuanLyKho.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mQuanLyKho.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mQuanLyKho.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mQuanLyKho.UseSelectable = true;
-            this.mQuanLyKho.UseTileImage = true;
-            this.mQuanLyKho.Click += new System.EventHandler(this.mQuanLyKho_Click);
-            // 
-            // mThongKeNhapHang
-            // 
-            this.mThongKeNhapHang.ActiveControl = null;
-            this.mThongKeNhapHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mThongKeNhapHang.Location = new System.Drawing.Point(6, 17);
-            this.mThongKeNhapHang.Name = "mThongKeNhapHang";
-            this.mThongKeNhapHang.Size = new System.Drawing.Size(301, 147);
-            this.mThongKeNhapHang.Style = MetroFramework.MetroColorStyle.Lime;
-            this.mThongKeNhapHang.TabIndex = 13;
-            this.mThongKeNhapHang.Text = "Thống kê nhập hàng";
-            this.mThongKeNhapHang.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mThongKeNhapHang.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.transaction_list;
-            this.mThongKeNhapHang.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mThongKeNhapHang.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mThongKeNhapHang.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mThongKeNhapHang.UseSelectable = true;
-            this.mThongKeNhapHang.UseTileImage = true;
-            this.mThongKeNhapHang.Click += new System.EventHandler(this.mThongKeNhapHang_Click);
-            // 
-            // mThongKeHoaDon
-            // 
-            this.mThongKeHoaDon.ActiveControl = null;
-            this.mThongKeHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mThongKeHoaDon.Location = new System.Drawing.Point(6, 17);
-            this.mThongKeHoaDon.Name = "mThongKeHoaDon";
-            this.mThongKeHoaDon.Size = new System.Drawing.Size(298, 147);
-            this.mThongKeHoaDon.Style = MetroFramework.MetroColorStyle.Lime;
-            this.mThongKeHoaDon.TabIndex = 12;
-            this.mThongKeHoaDon.Text = "Thống kê hoá đơn";
-            this.mThongKeHoaDon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mThongKeHoaDon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.purchase_order;
-            this.mThongKeHoaDon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mThongKeHoaDon.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mThongKeHoaDon.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mThongKeHoaDon.UseSelectable = true;
-            this.mThongKeHoaDon.UseTileImage = true;
-            this.mThongKeHoaDon.Click += new System.EventHandler(this.mThongKeHoaDon_Click);
-            // 
-            // mQuanLyMon
-            // 
-            this.mQuanLyMon.ActiveControl = null;
-            this.mQuanLyMon.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mQuanLyMon.Location = new System.Drawing.Point(6, 17);
-            this.mQuanLyMon.Name = "mQuanLyMon";
-            this.mQuanLyMon.Size = new System.Drawing.Size(298, 147);
-            this.mQuanLyMon.Style = MetroFramework.MetroColorStyle.Silver;
-            this.mQuanLyMon.TabIndex = 9;
-            this.mQuanLyMon.Text = "Quản lý món";
-            this.mQuanLyMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mQuanLyMon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coffee_to_go;
-            this.mQuanLyMon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mQuanLyMon.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mQuanLyMon.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mQuanLyMon.UseSelectable = true;
-            this.mQuanLyMon.UseTileImage = true;
-            this.mQuanLyMon.Click += new System.EventHandler(this.mQuanLyMon_Click);
-            // 
-            // mtQuanLyTaiKhoan
-            // 
-            this.mtQuanLyTaiKhoan.ActiveControl = null;
-            this.mtQuanLyTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.mtQuanLyTaiKhoan.Location = new System.Drawing.Point(6, 17);
-            this.mtQuanLyTaiKhoan.Name = "mtQuanLyTaiKhoan";
-            this.mtQuanLyTaiKhoan.Size = new System.Drawing.Size(298, 147);
-            this.mtQuanLyTaiKhoan.Style = MetroFramework.MetroColorStyle.Silver;
-            this.mtQuanLyTaiKhoan.TabIndex = 8;
-            this.mtQuanLyTaiKhoan.Text = "Quản lý tài khoản";
-            this.mtQuanLyTaiKhoan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.mtQuanLyTaiKhoan.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.user_account;
-            this.mtQuanLyTaiKhoan.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.mtQuanLyTaiKhoan.TileTextFontSize = MetroFramework.MetroTileTextSize.Tall;
-            this.mtQuanLyTaiKhoan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
-            this.mtQuanLyTaiKhoan.UseSelectable = true;
-            this.mtQuanLyTaiKhoan.UseTileImage = true;
-            this.mtQuanLyTaiKhoan.Click += new System.EventHandler(this.mtQuanLyTaiKhoan_Click);
-            // 
             // picHinh
             // 
             this.picHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
@@ -592,6 +592,7 @@
             this.Load += new System.EventHandler(this.FrmMain_Load);
             this.mPanel.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
+            this.metroPanel15.ResumeLayout(false);
             this.metroPanel14.ResumeLayout(false);
             this.metroPanel13.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
@@ -603,7 +604,6 @@
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             this.panelTaiKhoan.ResumeLayout(false);
-            this.metroPanel15.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).EndInit();
             this.ResumeLayout(false);
 
