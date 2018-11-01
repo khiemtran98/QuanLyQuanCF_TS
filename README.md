@@ -64,6 +64,8 @@
 
 ---
 
+> #### Update 2.6.1: Thêm bản mẫu chức năng
+
 > #### Update 2.6: Hoàn thiện chức năng Quản lý tài khoản & Quản lý món
 
 > #### Update 2.5: Thêm chức năng Quản lý tài khoản & Quản lý món
