@@ -483,7 +483,7 @@ namespace QuanLyQuanCF_TS
                 mon.Hinh = tenFile + extension;
                 File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension, true);
             }
-            mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+            //mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
             mon.TrangThai = chkQLM_TrangThai.Checked;
 
             if (MonBUS.ThemMon(mon))
@@ -536,7 +536,7 @@ namespace QuanLyQuanCF_TS
                     mon.Hinh = dgvMon.CurrentRow.Cells["colHinh"].Value.ToString();
                 }
             }
-            mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+            //mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
             mon.TrangThai = chkQLM_TrangThai.Checked;
 
             if (MonBUS.SuaMon(mon))

@@ -172,7 +172,7 @@ namespace QuanLyQuanCF_TS
             {
                 MonDTO mon = dsMon[i];
                 ListViewItem lvi = new ListViewItem(mon.TenMon);
-                lvi.SubItems.Add(mon.GiaTien.ToString("#,##0đ"));
+                //lvi.SubItems.Add(mon.GiaTien.ToString("#,##0đ"));
                 lsv.LargeImageList.Images.Add(Image.FromFile("img\\products\\" + mon.Hinh));
                 lvi.Group = lsv.Groups[mon.LoaiMon + ""];
                 lvi.ImageIndex = i;
@@ -240,8 +240,8 @@ namespace QuanLyQuanCF_TS
                     rowMon.Tag = mon;
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
-                    rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###đ") });
-                    rowMon.Cells.Add(new DataGridViewComboBoxCell { FlatStyle = FlatStyle.Flat, Items = { "S", "M", "L" }, Value="S" });
+                    rowMon.Cells.Add(new DataGridViewTextBoxCell {  });
+                    rowMon.Cells.Add(new DataGridViewComboBoxCell { FlatStyle = FlatStyle.Flat });
 
                     if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
                     {
@@ -473,6 +473,15 @@ namespace QuanLyQuanCF_TS
         private void dgvHoaDon_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             radMenuTopping.Enabled = true;
+            DataGridViewRow row = dgvHoaDon.Rows[e.RowIndex];
+            if (row.GetType() == typeof(MonDTO))
+            {
+                ((DataGridViewComboBoxCell)row.Cells["colSize"]).DataSource = SizeMonBUS.LaySizeMon(((MonDTO)row.Tag).MaMon);
+                ((DataGridViewComboBoxCell)row.Cells["colSize"]).DisplayMember = "Size";
+                ((DataGridViewComboBoxCell)row.Cells["colSize"]).ValueMember = "GiaTien";
+
+                ((DataGridViewTextBoxCell)row.Cells["colGiaTien"]).Value = /*((MonDTO)row.Tag).GiaTien.ToString("#,###đ")*/ (SizeMonBUS.LayGiaTien(((MonDTO)row.Tag).MaMon, row.Cells["colSize"].Value.ToString())).ToString("#,###đ");
+            }
         }
 
         private void dgvHoaDon_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -638,7 +647,7 @@ namespace QuanLyQuanCF_TS
             {
                 if (row.Tag.GetType() == typeof(MonDTO))
                 {
-                    tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * ((MonDTO)row.Tag).GiaTien;
+                    tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * SizeMonBUS.LayGiaTien(((MonDTO)row.Tag).MaMon, row.Cells["colSize"].Value.ToString());
                 }
                 else
                 {
