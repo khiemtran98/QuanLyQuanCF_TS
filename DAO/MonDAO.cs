@@ -47,7 +47,7 @@ namespace DAO
         {
             SqlConnection connection = DataProvider.GetConnection();
 
-            string query = "SELECT ma_mon, ten_mon, loai_mon, hinh, Mon.trang_thai FROM Mon, LoaiMon WHERE LoaiMon.ma_loai_mon=Mon.loai_mon";
+            string query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien, Mon.trang_thai FROM Mon, LoaiMon WHERE LoaiMon.ma_loai_mon=Mon.loai_mon";
             SqlCommand command = new SqlCommand();
             if (maLoaiMon != 0)
             {
@@ -82,8 +82,8 @@ namespace DAO
                     {
                         mon.Hinh = reader.GetString(3);
                     }
-                    //mon.GiaTien = reader.GetDouble(4);
-                    mon.TrangThai = reader.GetBoolean(4);
+                    mon.GiaTien = reader.GetDouble(4);
+                    mon.TrangThai = reader.GetBoolean(5);
                     result.Add(mon);
                 }
             }
@@ -125,12 +125,12 @@ namespace DAO
         public static bool ThemMon(MonDTO mon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "INSERT INTO Mon (ten_mon, loai_mon, hinh, trang_thai) VALUES (@tenMon, @loaiMon, @hinh, @giaTien, @trangThai)";
+            string query = "INSERT INTO Mon (ten_mon, loai_mon, hinh, gia_tien, trang_thai) VALUES (@tenMon, @loaiMon, @hinh, @giaTien, @trangThai)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@tenMon", System.Data.SqlDbType.NVarChar, 255).Value = mon.TenMon;
             command.Parameters.Add("@loaiMon", System.Data.SqlDbType.Int, 0).Value = mon.LoaiMon;
             command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = mon.Hinh;
-            //command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = mon.GiaTien;
+            command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = mon.GiaTien;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = mon.TrangThai;
 
             connection.Open();
@@ -169,13 +169,13 @@ namespace DAO
         public static bool SuaMon(MonDTO mon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "UPDATE Mon SET ten_mon=@tenMon, loai_mon=@loaiMon, hinh=@hinh, trang_thai=@trangThai WHERE ma_mon=@maMon";
+            string query = "UPDATE Mon SET ten_mon=@tenMon, loai_mon=@loaiMon, hinh=@hinh, gia_tien=@giaTien, trang_thai=@trangThai WHERE ma_mon=@maMon";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maMon", System.Data.SqlDbType.Int, 0).Value = mon.MaMon;
             command.Parameters.Add("@tenMon", System.Data.SqlDbType.NVarChar, 255).Value = mon.TenMon;
             command.Parameters.Add("@loaiMon", System.Data.SqlDbType.NVarChar, 255).Value = mon.LoaiMon;
             command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = mon.Hinh;
-            //command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = mon.GiaTien;
+            command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = mon.GiaTien;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = mon.TrangThai;
 
             connection.Open();

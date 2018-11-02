@@ -110,7 +110,7 @@ namespace QuanLyQuanCF_TS
                     cthd.MaHoaDon = HoaDonBUS.LayMaHoaDonMoiNhat() + 1;
                     cthd.MaMon = ((MonDTO)row.Tag).MaMon;
                     cthd.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
-                    //cthd.DonGia = Convert.ToDouble(((MonDTO)row.Tag).GiaTien);
+                    cthd.DonGia = Convert.ToDouble(((MonDTO)row.Tag).GiaTien);
                     if (row.Cells["colGhiChu"].Value != null)
                     {
                         cthd.GhiChu = row.Cells["colGhiChu"].Value.ToString();
