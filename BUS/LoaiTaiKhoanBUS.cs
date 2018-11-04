@@ -10,28 +10,44 @@ namespace BUS
 {
     public static class LoaiTaiKhoanBUS
     {
+        public static int LayMaLoaiTaiKhoanMoiNhat()
+        {
+            return LoaiTaiKhoanDAO.LayMaLoaiTaiKhoanMoiNhat();
+        }
+
         public static List<LoaiTaiKhoanDTO> LayDanhSachLoaiTaiKhoan(string timKiem = "", bool trangThai = false)
         {
             return LoaiTaiKhoanDAO.LayDanhSachLoaiTaiKhoan(timKiem, trangThai);
         }
 
-        public static bool ThemLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan)
+        public static bool ThemLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan, List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan)
         {
-            return LoaiTaiKhoanDAO.ThemLoaiTaiKhoan(loaiTaiKhoan);
+            if (LoaiTaiKhoanDAO.ThemLoaiTaiKhoan(loaiTaiKhoan))
+            {
+                return ChucNang_LoaiTaiKhoanBUS.ThemChucNang_LoaiTaiKhoan(lsChucNang_LoaiTaiKhoan);
+            }
+            return false;
         }
 
         public static bool XoaLoaiTaiKhoan(int maLoaiTaiKhoan)
         {
             if (TaiKhoanBUS.XoaTaiKhoanTheoLoai(maLoaiTaiKhoan))
             {
-                return LoaiTaiKhoanDAO.XoaLoaiTaiKhoan(maLoaiTaiKhoan);
+                if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
+                {
+                    return LoaiTaiKhoanDAO.XoaLoaiTaiKhoan(maLoaiTaiKhoan);
+                }
             }
             return false;
         }
 
-        public static bool SuaLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan)
+        public static bool SuaLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan, List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan)
         {
-            return LoaiTaiKhoanDAO.SuaLoaiTaiKhoan(loaiTaiKhoan);
+            if (ChucNang_LoaiTaiKhoanBUS.SuaChucNang_LoaiTaiKhoan(loaiTaiKhoan.MaLoaiTaiKhoan, lsChucNang_LoaiTaiKhoan))
+            {
+                return LoaiTaiKhoanDAO.SuaLoaiTaiKhoan(loaiTaiKhoan);
+            }
+            return false;
         }
     }
 }

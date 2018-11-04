@@ -47,8 +47,7 @@ namespace QuanLyQuanCF_TS
                 r.Cells[0].Value = row.Cells["colTenMon"].Value;
                 r.Cells[1].Value = row.Cells["colSoLuong"].Value;
                 r.Cells[2].Value = row.Cells["colDonGia"].Value;
-                r.Cells[3].Value = row.Cells["colSize"].Value;
-                r.Cells[4].Value = row.Cells["colGhiChu"].Value;
+                r.Cells[3].Value = row.Cells["colGhiChu"].Value;
                 dgvHoaDon.Rows.Add(r);
             }
             dgvHoaDon.ClearSelection();

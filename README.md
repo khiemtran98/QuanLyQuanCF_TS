@@ -1,30 +1,14 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.6.2: Tạo bản mẫu thống kê hoá đơn
+> ## Update 2.6.3: Phân quyền loại tài khoản
 
 ### # CÁC THAY ĐỔI
 
-  **Sửa lỗi:**
-  
-  - Tính sai tổng tiền hoá đơn.
-  
-  - Chức năng sửa tài khoản và món làm mất hình hiện tại.
-  
-  - Danh sách tài khoản và món không tải được hình và tên loại ở một số dòng.
+  *Thực ra viết thì cũng đéo ai đọc.*
   
 ### # QUAN TRỌNG
 
-**1. Dựng bản thử nghiệm:**
-
-- Món bán theo nhiều size với giá khác nhau.
-
-- Hạn chế chức năng cho từng loại tài khoản.
-
-**2. Project:** Bổ sung 2 package hỗ trợ biểu đồ: [ZedGraph](https://www.nuget.org/packages/ZedGraph/), [LiveCharts](https://www.nuget.org/packages/LiveCharts.WinForms/).
-
-**3. Database:** Chỉ sử dụng database *QuanLyQuanCF_TS_TEST.sql* để dựng chức năng mới. Còn lại vẫn sử dụng database *QuanLyQuanCF_TS.sql*.
-
-*Xem hướng dẫn cài đặt để không bị lỗi khi mở project.*
+  Tạo lại database.
 
 ### # HƯỚNG DẪN CÀI ĐẶT
 
@@ -50,6 +34,10 @@
 
   - Thay đổi trạng thái hoặc xoá để món không còn xuất hiện trong form bán hàng và các bên liên quan.
 
+- **Chức năng Thống kê hoá đơn**
+
+  - *Đang xây dựng*
+
 - **Chức năng Bán hàng**
 
   - Thêm món từ menu bằng cách nhấn trực tiếp vào món đó thay vì dùng phím Spacebar như trước.
@@ -63,6 +51,8 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.6.2: Tạo bản mẫu thống kê hoá đơn
 
 > #### Update 2.6.1: Thêm bản mẫu chức năng
 

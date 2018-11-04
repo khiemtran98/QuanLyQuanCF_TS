@@ -33,10 +33,9 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.btnQuayLai = new System.Windows.Forms.Button();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
@@ -51,24 +50,21 @@
             this.colTongTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colTrangThai = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
-            this.metroButton1 = new MetroFramework.Controls.MetroButton();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
             this.dgvCTHD = new System.Windows.Forms.DataGridView();
-            this.colMaCTHDD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoaDon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
             this.dgvTopping = new System.Windows.Forms.DataGridView();
-            this.colMaCTHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaTopping = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaTopping = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colSoLuongTopping = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDonGiaTopping = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGhiChuTopping = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaCTHD = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colMaMon = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel3.SuspendLayout();
@@ -79,7 +75,6 @@
             this.metroPanel4.SuspendLayout();
             this.metroPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
-            this.metroPanel9.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
@@ -164,7 +159,7 @@
             // 
             this.splitContainer1.Panel2.Controls.Add(this.metroPanel5);
             this.splitContainer1.Size = new System.Drawing.Size(719, 370);
-            this.splitContainer1.SplitterDistance = 239;
+            this.splitContainer1.SplitterDistance = 435;
             this.splitContainer1.TabIndex = 2;
             // 
             // metroPanel4
@@ -177,7 +172,7 @@
             this.metroPanel4.HorizontalScrollbarSize = 10;
             this.metroPanel4.Location = new System.Drawing.Point(0, 0);
             this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(239, 370);
+            this.metroPanel4.Size = new System.Drawing.Size(435, 370);
             this.metroPanel4.TabIndex = 0;
             this.metroPanel4.VerticalScrollbarBarColor = true;
             this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
@@ -192,7 +187,7 @@
             this.metroPanel8.HorizontalScrollbarSize = 10;
             this.metroPanel8.Location = new System.Drawing.Point(0, 0);
             this.metroPanel8.Name = "metroPanel8";
-            this.metroPanel8.Size = new System.Drawing.Size(239, 270);
+            this.metroPanel8.Size = new System.Drawing.Size(435, 270);
             this.metroPanel8.TabIndex = 4;
             this.metroPanel8.VerticalScrollbarBarColor = true;
             this.metroPanel8.VerticalScrollbarHighlightOnWheel = false;
@@ -200,6 +195,7 @@
             // 
             // dgvHoaDon
             // 
+            this.dgvHoaDon.AllowUserToAddRows = false;
             this.dgvHoaDon.AllowUserToDeleteRows = false;
             this.dgvHoaDon.AllowUserToResizeRows = false;
             this.dgvHoaDon.BackgroundColor = System.Drawing.Color.PapayaWhip;
@@ -225,6 +221,7 @@
             this.dgvHoaDon.Location = new System.Drawing.Point(0, 0);
             this.dgvHoaDon.MultiSelect = false;
             this.dgvHoaDon.Name = "dgvHoaDon";
+            this.dgvHoaDon.ReadOnly = true;
             this.dgvHoaDon.RowHeadersVisible = false;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightCyan;
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -233,9 +230,10 @@
             this.dgvHoaDon.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvHoaDon.RowTemplate.Height = 35;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(239, 270);
+            this.dgvHoaDon.Size = new System.Drawing.Size(435, 270);
             this.dgvHoaDon.TabIndex = 3;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
+            this.dgvHoaDon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvHoaDon_CellFormatting);
             // 
             // colMaHoaDon
             // 
@@ -261,43 +259,35 @@
             this.colNgayLap.DataPropertyName = "NgayLap";
             this.colNgayLap.HeaderText = "Ngày lập";
             this.colNgayLap.Name = "colNgayLap";
+            this.colNgayLap.ReadOnly = true;
             // 
             // colTongTien
             // 
             this.colTongTien.DataPropertyName = "TongTien";
             this.colTongTien.HeaderText = "Tổng tiền";
             this.colTongTien.Name = "colTongTien";
+            this.colTongTien.ReadOnly = true;
             // 
             // colTrangThai
             // 
             this.colTrangThai.DataPropertyName = "TrangThai";
             this.colTrangThai.HeaderText = "Trạng thái";
             this.colTrangThai.Name = "colTrangThai";
+            this.colTrangThai.ReadOnly = true;
             // 
             // metroPanel9
             // 
-            this.metroPanel9.Controls.Add(this.metroButton1);
             this.metroPanel9.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.metroPanel9.HorizontalScrollbarBarColor = true;
             this.metroPanel9.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel9.HorizontalScrollbarSize = 10;
             this.metroPanel9.Location = new System.Drawing.Point(0, 270);
             this.metroPanel9.Name = "metroPanel9";
-            this.metroPanel9.Size = new System.Drawing.Size(239, 100);
+            this.metroPanel9.Size = new System.Drawing.Size(435, 100);
             this.metroPanel9.TabIndex = 3;
             this.metroPanel9.VerticalScrollbarBarColor = true;
             this.metroPanel9.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel9.VerticalScrollbarSize = 10;
-            // 
-            // metroButton1
-            // 
-            this.metroButton1.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.metroButton1.Location = new System.Drawing.Point(0, 38);
-            this.metroButton1.Name = "metroButton1";
-            this.metroButton1.Size = new System.Drawing.Size(239, 62);
-            this.metroButton1.TabIndex = 2;
-            this.metroButton1.Text = "metroButton1";
-            this.metroButton1.UseSelectable = true;
             // 
             // metroPanel5
             // 
@@ -308,7 +298,7 @@
             this.metroPanel5.HorizontalScrollbarSize = 10;
             this.metroPanel5.Location = new System.Drawing.Point(0, 0);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(476, 370);
+            this.metroPanel5.Size = new System.Drawing.Size(280, 370);
             this.metroPanel5.TabIndex = 0;
             this.metroPanel5.VerticalScrollbarBarColor = true;
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
@@ -328,8 +318,8 @@
             // splitContainer2.Panel2
             // 
             this.splitContainer2.Panel2.Controls.Add(this.metroPanel7);
-            this.splitContainer2.Size = new System.Drawing.Size(476, 370);
-            this.splitContainer2.SplitterDistance = 158;
+            this.splitContainer2.Size = new System.Drawing.Size(280, 370);
+            this.splitContainer2.SplitterDistance = 243;
             this.splitContainer2.TabIndex = 2;
             // 
             // metroPanel6
@@ -341,7 +331,7 @@
             this.metroPanel6.HorizontalScrollbarSize = 10;
             this.metroPanel6.Location = new System.Drawing.Point(0, 0);
             this.metroPanel6.Name = "metroPanel6";
-            this.metroPanel6.Size = new System.Drawing.Size(476, 158);
+            this.metroPanel6.Size = new System.Drawing.Size(280, 243);
             this.metroPanel6.TabIndex = 0;
             this.metroPanel6.VerticalScrollbarBarColor = true;
             this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
@@ -349,6 +339,7 @@
             // 
             // dgvCTHD
             // 
+            this.dgvCTHD.AllowUserToAddRows = false;
             this.dgvCTHD.AllowUserToDeleteRows = false;
             this.dgvCTHD.AllowUserToResizeRows = false;
             this.dgvCTHD.BackgroundColor = System.Drawing.Color.PapayaWhip;
@@ -364,9 +355,8 @@
             this.dgvCTHD.ColumnHeadersHeight = 70;
             this.dgvCTHD.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvCTHD.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaCTHDD,
-            this.colHoaDon,
-            this.colMon,
+            this.colMaCTHD,
+            this.colMaMon,
             this.colSoLuong,
             this.colDonGia,
             this.colGhiChu});
@@ -375,59 +365,19 @@
             this.dgvCTHD.Location = new System.Drawing.Point(0, 0);
             this.dgvCTHD.MultiSelect = false;
             this.dgvCTHD.Name = "dgvCTHD";
+            this.dgvCTHD.ReadOnly = true;
             this.dgvCTHD.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvCTHD.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvCTHD.RowsDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvCTHD.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvCTHD.RowTemplate.Height = 35;
             this.dgvCTHD.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvCTHD.Size = new System.Drawing.Size(476, 158);
+            this.dgvCTHD.Size = new System.Drawing.Size(280, 243);
             this.dgvCTHD.TabIndex = 3;
-            // 
-            // colMaCTHDD
-            // 
-            this.colMaCTHDD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMaCTHDD.DataPropertyName = "MaCTHD";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaCTHDD.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colMaCTHDD.HeaderText = "Mã CTHD";
-            this.colMaCTHDD.Name = "colMaCTHDD";
-            this.colMaCTHDD.ReadOnly = true;
-            this.colMaCTHDD.Width = 99;
-            // 
-            // colHoaDon
-            // 
-            this.colHoaDon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHoaDon.DataPropertyName = "MaHoaDon";
-            this.colHoaDon.HeaderText = "Hóa đơn";
-            this.colHoaDon.Name = "colHoaDon";
-            this.colHoaDon.ReadOnly = true;
-            // 
-            // colMon
-            // 
-            this.colMon.DataPropertyName = "MaMon";
-            this.colMon.HeaderText = "Món";
-            this.colMon.Name = "colMon";
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.DataPropertyName = "SoLuong";
-            this.colSoLuong.HeaderText = "Số lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            // 
-            // colDonGia
-            // 
-            this.colDonGia.DataPropertyName = "DonGia";
-            this.colDonGia.HeaderText = "Đơn giá";
-            this.colDonGia.Name = "colDonGia";
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.DataPropertyName = "GhiChu";
-            this.colGhiChu.HeaderText = "Ghi Chú";
-            this.colGhiChu.Name = "colGhiChu";
+            this.dgvCTHD.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvCTHD_CellClick);
+            this.dgvCTHD.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvCTHD_RowsAdded);
             // 
             // metroPanel7
             // 
@@ -438,7 +388,7 @@
             this.metroPanel7.HorizontalScrollbarSize = 10;
             this.metroPanel7.Location = new System.Drawing.Point(0, 0);
             this.metroPanel7.Name = "metroPanel7";
-            this.metroPanel7.Size = new System.Drawing.Size(476, 208);
+            this.metroPanel7.Size = new System.Drawing.Size(280, 123);
             this.metroPanel7.TabIndex = 0;
             this.metroPanel7.VerticalScrollbarBarColor = true;
             this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
@@ -446,22 +396,22 @@
             // 
             // dgvTopping
             // 
+            this.dgvTopping.AllowUserToAddRows = false;
             this.dgvTopping.AllowUserToDeleteRows = false;
             this.dgvTopping.AllowUserToResizeRows = false;
             this.dgvTopping.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvTopping.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTopping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTopping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvTopping.ColumnHeadersHeight = 70;
             this.dgvTopping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTopping.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaCTHD,
             this.colMaTopping,
             this.colSoLuongTopping,
             this.colDonGiaTopping,
@@ -471,48 +421,89 @@
             this.dgvTopping.Location = new System.Drawing.Point(0, 0);
             this.dgvTopping.MultiSelect = false;
             this.dgvTopping.Name = "dgvTopping";
+            this.dgvTopping.ReadOnly = true;
             this.dgvTopping.RowHeadersVisible = false;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvTopping.RowsDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvTopping.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTopping.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTopping.RowTemplate.Height = 35;
             this.dgvTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTopping.Size = new System.Drawing.Size(476, 208);
+            this.dgvTopping.Size = new System.Drawing.Size(280, 123);
             this.dgvTopping.TabIndex = 3;
-            // 
-            // colMaCTHD
-            // 
-            this.colMaCTHD.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colMaCTHD.DataPropertyName = "MaCTHD";
-            this.colMaCTHD.HeaderText = "Mã CTHD";
-            this.colMaCTHD.Name = "colMaCTHD";
+            this.dgvTopping.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTopping_RowsAdded);
             // 
             // colMaTopping
             // 
             this.colMaTopping.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
             this.colMaTopping.DataPropertyName = "MaTopping";
-            this.colMaTopping.HeaderText = "Mã Topping";
+            this.colMaTopping.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colMaTopping.HeaderText = "Topping";
             this.colMaTopping.Name = "colMaTopping";
+            this.colMaTopping.ReadOnly = true;
+            this.colMaTopping.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMaTopping.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             // 
             // colSoLuongTopping
             // 
             this.colSoLuongTopping.DataPropertyName = "SoLuong";
-            this.colSoLuongTopping.HeaderText = "Số lượng topping";
+            this.colSoLuongTopping.HeaderText = "Số lượng";
             this.colSoLuongTopping.Name = "colSoLuongTopping";
+            this.colSoLuongTopping.ReadOnly = true;
             // 
             // colDonGiaTopping
             // 
             this.colDonGiaTopping.DataPropertyName = "DonGia";
-            this.colDonGiaTopping.HeaderText = "Đơn giá topping";
+            this.colDonGiaTopping.HeaderText = "Đơn giá";
             this.colDonGiaTopping.Name = "colDonGiaTopping";
+            this.colDonGiaTopping.ReadOnly = true;
             // 
             // colGhiChuTopping
             // 
-            this.colGhiChuTopping.DataPropertyName = "GhiChu";
-            this.colGhiChuTopping.HeaderText = "Ghi chú topping";
+            this.colGhiChuTopping.HeaderText = "Ghi chú";
             this.colGhiChuTopping.Name = "colGhiChuTopping";
+            this.colGhiChuTopping.ReadOnly = true;
+            // 
+            // colMaCTHD
+            // 
+            this.colMaCTHD.DataPropertyName = "MaCTHD";
+            this.colMaCTHD.HeaderText = "Mã CTHD";
+            this.colMaCTHD.Name = "colMaCTHD";
+            this.colMaCTHD.ReadOnly = true;
+            this.colMaCTHD.Visible = false;
+            // 
+            // colMaMon
+            // 
+            this.colMaMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colMaMon.DataPropertyName = "MaMon";
+            this.colMaMon.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colMaMon.HeaderText = "Món";
+            this.colMaMon.Name = "colMaMon";
+            this.colMaMon.ReadOnly = true;
+            this.colMaMon.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colMaMon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.DataPropertyName = "SoLuong";
+            this.colSoLuong.HeaderText = "Số lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.DataPropertyName = "DonGia";
+            this.colDonGia.HeaderText = "Đơn giá";
+            this.colDonGia.Name = "colDonGia";
+            this.colDonGia.ReadOnly = true;
+            // 
+            // colGhiChu
+            // 
+            this.colGhiChu.DataPropertyName = "GhiChu";
+            this.colGhiChu.HeaderText = "Ghi Chú";
+            this.colGhiChu.Name = "colGhiChu";
+            this.colGhiChu.ReadOnly = true;
             // 
             // FrmThongKeHoaDon
             // 
@@ -541,7 +532,6 @@
             this.metroPanel4.ResumeLayout(false);
             this.metroPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).EndInit();
-            this.metroPanel9.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
@@ -571,23 +561,20 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTongTien;
         private System.Windows.Forms.DataGridViewCheckBoxColumn colTrangThai;
         private MetroFramework.Controls.MetroPanel metroPanel9;
-        private MetroFramework.Controls.MetroButton metroButton1;
         private MetroFramework.Controls.MetroPanel metroPanel5;
         private System.Windows.Forms.SplitContainer splitContainer2;
         private MetroFramework.Controls.MetroPanel metroPanel6;
         private System.Windows.Forms.DataGridView dgvCTHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTHDD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colHoaDon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
         private MetroFramework.Controls.MetroPanel metroPanel7;
         private System.Windows.Forms.DataGridView dgvTopping;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTHD;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colMaTopping;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colMaTopping;
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuongTopping;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDonGiaTopping;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChuTopping;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colMaCTHD;
+        private System.Windows.Forms.DataGridViewComboBoxColumn colMaMon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
     }
 }

@@ -148,6 +148,7 @@
             // 
             // metroPanel14
             // 
+            this.metroPanel14.AccessibleName = "";
             this.metroPanel14.Controls.Add(this.mBanHang);
             this.metroPanel14.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel14.HorizontalScrollbarBarColor = true;
@@ -160,6 +161,7 @@
             this.metroPanel14.VerticalScrollbarBarColor = true;
             this.metroPanel14.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel14.VerticalScrollbarSize = 10;
+            this.metroPanel14.Visible = false;
             // 
             // mBanHang
             // 
@@ -184,6 +186,7 @@
             // 
             // metroPanel13
             // 
+            this.metroPanel13.AccessibleName = "";
             this.metroPanel13.Controls.Add(this.mNhapHang);
             this.metroPanel13.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel13.HorizontalScrollbarBarColor = true;
@@ -196,6 +199,7 @@
             this.metroPanel13.VerticalScrollbarBarColor = true;
             this.metroPanel13.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel13.VerticalScrollbarSize = 10;
+            this.metroPanel13.Visible = false;
             // 
             // mNhapHang
             // 
@@ -251,6 +255,7 @@
             // 
             // metroPanel11
             // 
+            this.metroPanel11.AccessibleName = "";
             this.metroPanel11.Controls.Add(this.mThongKeDoanhThu);
             this.metroPanel11.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel11.HorizontalScrollbarBarColor = true;
@@ -263,6 +268,7 @@
             this.metroPanel11.VerticalScrollbarBarColor = true;
             this.metroPanel11.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel11.VerticalScrollbarSize = 10;
+            this.metroPanel11.Visible = false;
             // 
             // mThongKeDoanhThu
             // 
@@ -287,6 +293,7 @@
             // 
             // metroPanel10
             // 
+            this.metroPanel10.AccessibleName = "";
             this.metroPanel10.Controls.Add(this.mQuanLyKho);
             this.metroPanel10.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel10.HorizontalScrollbarBarColor = true;
@@ -299,6 +306,7 @@
             this.metroPanel10.VerticalScrollbarBarColor = true;
             this.metroPanel10.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel10.VerticalScrollbarSize = 10;
+            this.metroPanel10.Visible = false;
             // 
             // mQuanLyKho
             // 
@@ -356,6 +364,7 @@
             // 
             // metroPanel8
             // 
+            this.metroPanel8.AccessibleName = "";
             this.metroPanel8.Controls.Add(this.mThongKeNhapHang);
             this.metroPanel8.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel8.HorizontalScrollbarBarColor = true;
@@ -368,6 +377,7 @@
             this.metroPanel8.VerticalScrollbarBarColor = true;
             this.metroPanel8.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel8.VerticalScrollbarSize = 10;
+            this.metroPanel8.Visible = false;
             // 
             // mThongKeNhapHang
             // 
@@ -392,6 +402,7 @@
             // 
             // metroPanel7
             // 
+            this.metroPanel7.AccessibleName = "";
             this.metroPanel7.Controls.Add(this.mThongKeHoaDon);
             this.metroPanel7.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel7.HorizontalScrollbarBarColor = true;
@@ -404,6 +415,7 @@
             this.metroPanel7.VerticalScrollbarBarColor = true;
             this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel7.VerticalScrollbarSize = 10;
+            this.metroPanel7.Visible = false;
             // 
             // mThongKeHoaDon
             // 
@@ -428,6 +440,7 @@
             // 
             // metroPanel6
             // 
+            this.metroPanel6.AccessibleName = "";
             this.metroPanel6.Controls.Add(this.mQuanLyMon);
             this.metroPanel6.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel6.HorizontalScrollbarBarColor = true;
@@ -440,6 +453,7 @@
             this.metroPanel6.VerticalScrollbarBarColor = true;
             this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel6.VerticalScrollbarSize = 10;
+            this.metroPanel6.Visible = false;
             // 
             // mQuanLyMon
             // 
@@ -464,6 +478,7 @@
             // 
             // metroPanel5
             // 
+            this.metroPanel5.AccessibleName = "";
             this.metroPanel5.Controls.Add(this.mtQuanLyTaiKhoan);
             this.metroPanel5.Dock = System.Windows.Forms.DockStyle.Left;
             this.metroPanel5.HorizontalScrollbarBarColor = true;
@@ -476,6 +491,7 @@
             this.metroPanel5.VerticalScrollbarBarColor = true;
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel5.VerticalScrollbarSize = 10;
+            this.metroPanel5.Visible = false;
             // 
             // mtQuanLyTaiKhoan
             // 

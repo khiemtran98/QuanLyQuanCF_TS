@@ -241,7 +241,6 @@ namespace QuanLyQuanCF_TS
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###đ") });
-                    rowMon.Cells.Add(new DataGridViewComboBoxCell { FlatStyle = FlatStyle.Flat, Items = { "S", "M", "L" }, Value="S" });
 
                     if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
                     {
