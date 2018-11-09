@@ -58,10 +58,39 @@ namespace DAO
                 }
             }
 
+
             connection.Close();
             return result;
         }
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT * FROM LoaiMon ";
+            SqlCommand command = new SqlCommand();
 
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<LoaiMonDTO> result = new List<LoaiMonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    LoaiMonDTO loaiMon = new LoaiMonDTO();
+                    loaiMon.MaLoaiMon = reader.GetInt32(0);
+                    loaiMon.TenLoaiMon = reader.GetString(1);
+                    loaiMon.LaDoUong = reader.GetBoolean(2);
+                    loaiMon.TrangThai = reader.GetBoolean(3);
+                    result.Add(loaiMon);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
         public static bool ThemLoaiMon(LoaiMonDTO loaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();

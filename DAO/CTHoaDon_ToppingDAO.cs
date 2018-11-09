@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -32,6 +33,35 @@ namespace DAO
                 return true;
             }
             return false;
+        }
+
+        public static List<CTHoaDon_ToppingDTO> LayDanhSachCTHD_Topping(int maCTHD)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_cthd, ma_topping, so_luong, don_gia, ghi_chu FROM CTHoaDon_Topping WHERE ma_cthd=@maCTHD";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maCTHD", SqlDbType.Int, 0).Value = maCTHD;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<CTHoaDon_ToppingDTO> result = new List<CTHoaDon_ToppingDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    CTHoaDon_ToppingDTO topping = new CTHoaDon_ToppingDTO();
+                    topping.MaCTHD = reader.GetInt32(0);
+                    topping.MaTopping = reader.GetInt32(1);
+                    topping.SoLuong = reader.GetInt32(2);
+                    topping.DonGia = reader.GetDouble(3);
+                    topping.GhiChu = reader.GetString(4);
+                    result.Add(topping);
+                }
+            }
+
+            connection.Close();
+            return result;
         }
     }
 }

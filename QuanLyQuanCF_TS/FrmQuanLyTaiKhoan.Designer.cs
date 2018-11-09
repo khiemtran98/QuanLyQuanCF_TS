@@ -189,7 +189,7 @@
             this.tbcQuanLyTaiKhoan.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tbcQuanLyTaiKhoan.Location = new System.Drawing.Point(41, 0);
             this.tbcQuanLyTaiKhoan.Name = "tbcQuanLyTaiKhoan";
-            this.tbcQuanLyTaiKhoan.SelectedIndex = 1;
+            this.tbcQuanLyTaiKhoan.SelectedIndex = 0;
             this.tbcQuanLyTaiKhoan.Size = new System.Drawing.Size(804, 632);
             this.tbcQuanLyTaiKhoan.TabIndex = 21;
             this.tbcQuanLyTaiKhoan.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -289,6 +289,7 @@
             // 
             // chkBanHang
             // 
+            this.chkBanHang.AccessibleName = "8";
             this.chkBanHang.AutoSize = true;
             this.chkBanHang.Location = new System.Drawing.Point(6, 121);
             this.chkBanHang.Name = "chkBanHang";
@@ -299,6 +300,7 @@
             // 
             // chkNhapHang
             // 
+            this.chkNhapHang.AccessibleName = "7";
             this.chkNhapHang.AutoSize = true;
             this.chkNhapHang.Location = new System.Drawing.Point(6, 100);
             this.chkNhapHang.Name = "chkNhapHang";
@@ -309,6 +311,7 @@
             // 
             // chkThongKeDoanhThu
             // 
+            this.chkThongKeDoanhThu.AccessibleName = "6";
             this.chkThongKeDoanhThu.AutoSize = true;
             this.chkThongKeDoanhThu.Location = new System.Drawing.Point(138, 64);
             this.chkThongKeDoanhThu.Name = "chkThongKeDoanhThu";
@@ -319,6 +322,7 @@
             // 
             // chkThongKeNhapHang
             // 
+            this.chkThongKeNhapHang.AccessibleName = "5";
             this.chkThongKeNhapHang.AutoSize = true;
             this.chkThongKeNhapHang.Location = new System.Drawing.Point(138, 43);
             this.chkThongKeNhapHang.Name = "chkThongKeNhapHang";
@@ -329,6 +333,7 @@
             // 
             // chkThongKeHoaDon
             // 
+            this.chkThongKeHoaDon.AccessibleName = "4";
             this.chkThongKeHoaDon.AutoSize = true;
             this.chkThongKeHoaDon.Location = new System.Drawing.Point(138, 22);
             this.chkThongKeHoaDon.Name = "chkThongKeHoaDon";
@@ -339,6 +344,7 @@
             // 
             // chkQuanLyKho
             // 
+            this.chkQuanLyKho.AccessibleName = "3";
             this.chkQuanLyKho.AutoSize = true;
             this.chkQuanLyKho.Location = new System.Drawing.Point(6, 67);
             this.chkQuanLyKho.Name = "chkQuanLyKho";
@@ -349,6 +355,7 @@
             // 
             // chkQuanLyMon
             // 
+            this.chkQuanLyMon.AccessibleName = "2";
             this.chkQuanLyMon.AutoSize = true;
             this.chkQuanLyMon.Location = new System.Drawing.Point(6, 44);
             this.chkQuanLyMon.Name = "chkQuanLyMon";
@@ -359,6 +366,7 @@
             // 
             // chkQuanLyTaiKhoan
             // 
+            this.chkQuanLyTaiKhoan.AccessibleName = "1";
             this.chkQuanLyTaiKhoan.AutoSize = true;
             this.chkQuanLyTaiKhoan.Location = new System.Drawing.Point(6, 23);
             this.chkQuanLyTaiKhoan.Name = "chkQuanLyTaiKhoan";
@@ -934,7 +942,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNgayBatDau.Enabled = false;
             this.dtpNgayBatDau.Location = new System.Drawing.Point(135, 162);
-            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
             this.dtpNgayBatDau.Size = new System.Drawing.Size(348, 30);
             this.dtpNgayBatDau.TabIndex = 12;

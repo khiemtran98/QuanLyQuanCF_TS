@@ -10,10 +10,14 @@ namespace DTO
     {
         private int maNguyenLieu;
         private string tenNguyenLieu;
-        private int khoiLuong;
+        private int soLuong;
+        private string donVi;
+        private bool trangThai;
 
         public int MaNguyenLieu { get => maNguyenLieu; set => maNguyenLieu = value; }
         public string TenNguyenLieu { get => tenNguyenLieu; set => tenNguyenLieu = value; }
-        public int KhoiLuong { get => khoiLuong; set => khoiLuong = value; }
+        public int SoLuong { get => soLuong; set => soLuong = value; }
+        public string DonVi { get => donVi; set => donVi = value; }
+        public bool TrangThai { get => trangThai; set => trangThai = value; }
     }
 }

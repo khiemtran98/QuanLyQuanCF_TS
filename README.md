@@ -1,38 +1,30 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.6.1: Thêm bản mẫu chức năng
+> ## Update 2.6.3: Phân quyền loại tài khoản
 
-### # Các thay đổi
+### # CÁC THAY ĐỔI
 
-  **2.6.1:** Sửa lỗi Quản lý tài khoản & Bán hàng. Tạo các bản mẫu chức năng xem trước.
+  *Thực ra viết thì cũng đéo ai đọc.*
   
-  **2.6:** Sửa lỗi Quản lý tài khoản & Bán hàng.
+### # QUAN TRỌNG
 
-  **DATABASE:** Thêm bảng, thêm thuộc tính, sửa lỗi trigger.
-  
-  **CHỨC NĂNG:** Hoàn thiện Quản lý tài khoản & Quản lý món: tải ảnh, thay đổi trạng thái, thêm xoá sửa...
-  
-  **HIỆU SUẤT:** Tiếp tục cải thiện tốc độ form bán hàng: bỏ các thao tác thừa, tự dộng hiện màn hình option đầu tiên.
-  
-  **RÀNG BUỘC DỮ LIỆU:** Các chức năng hiện có (QL Tài khoản, QL Món, Bán hàng) được ràng buộc dữ liệu, cập nhật theo thời gian thực.
-  
-  **SỬA LỖI:** Sửa một lỗi trigger khiến các bảng trong database không thể xoá dòng dữ liệu cuối cùng.
+  Tạo lại database.
 
-### # Hướng dẫn cài đặt
+### # HƯỚNG DẪN CÀI ĐẶT
 
   1. Tạo database (*QuanLyQuanCF_TS.sql*).
   
-  2. Cài đặt các gói NuGet: [MetroModernUI](https://www.nuget.org/packages/MetroModernUI/), [MaterialSkin](https://www.nuget.org/packages/MaterialSkin/) bằng cách nhấn chuột phải vào project **QuanLyQuanCF_TS** chọn **Manage NuGet Package...**, tìm các gói NuGet và cài đặt.
+  2. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
+  
+  2. Di chuyển tất cả thư mục trong **assets** ra ngoài thư mục project.
+  
+  3. Mở project.
 
   3. Thêm chuỗi kết nối database trong class *DataProvider*.
   
-  4. Di chuyển 2 folder *img*, *icon* vào trong bin/debug/.
+  5. Build project.
 
-  5. Cập nhật dữ liệu các bảng trong database (tuỳ chọn).
-  
-  6. Build project.
-
-### # Hướng dẫn sử dụng
+### # HƯỚNG DẪN SỬ DỤNG
 
 - **Chức năng Quản lý tài khoản**
 
@@ -41,6 +33,10 @@
 - **Chức năng Quản lý món**
 
   - Thay đổi trạng thái hoặc xoá để món không còn xuất hiện trong form bán hàng và các bên liên quan.
+
+- **Chức năng Thống kê hoá đơn**
+
+  - *Đang xây dựng*
 
 - **Chức năng Bán hàng**
 
@@ -55,6 +51,10 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.6.2: Tạo bản mẫu thống kê hoá đơn
+
+> #### Update 2.6.1: Thêm bản mẫu chức năng
 
 > #### Update 2.6: Hoàn thiện chức năng Quản lý tài khoản & Quản lý món
 

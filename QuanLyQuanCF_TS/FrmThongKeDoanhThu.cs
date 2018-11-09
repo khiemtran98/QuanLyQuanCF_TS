@@ -41,5 +41,11 @@ namespace QuanLyQuanCF_TS
         {
             _Instance = null;
         }
+
+        private void FrmThongKeDoanhThu_Load(object sender, EventArgs e)
+        {
+
+           // this.reportViewer1.RefreshReport();
+        }
     }
 }

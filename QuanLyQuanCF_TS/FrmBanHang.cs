@@ -241,7 +241,6 @@ namespace QuanLyQuanCF_TS
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.GiaTien.ToString("#,###đ") });
-                    rowMon.Cells.Add(new DataGridViewComboBoxCell { FlatStyle = FlatStyle.Flat, Items = { "S", "M", "L" }, Value="S" });
 
                     if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
                     {
@@ -638,13 +637,12 @@ namespace QuanLyQuanCF_TS
             {
                 if (row.Tag.GetType() == typeof(MonDTO))
                 {
-                    tongTien += ((MonDTO)row.Tag).GiaTien;
+                    tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * ((MonDTO)row.Tag).GiaTien;
                 }
                 else
                 {
-                    tongTien += ((ToppingDTO)row.Tag).GiaTien;
+                    tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * ((ToppingDTO)row.Tag).GiaTien;
                 }
-                //tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(row.Cells["colDonGia"].Value);
             }
             return tongTien;
         }

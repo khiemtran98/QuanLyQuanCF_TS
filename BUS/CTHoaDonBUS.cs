@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using DTO;
 using DAO;
 
 namespace BUS
@@ -12,6 +13,11 @@ namespace BUS
         public static int LayMaCTHoaDonMoiNhat()
         {
             return CTHoaDon.LayMaCTHoaDonMoiNhat();
+        }
+
+        public static List<CTHoaDonDTO> LayDanhSachCTHD(int maHoaDon)
+        {
+            return CTHoaDon.LayDanhSachCTHD(maHoaDon);
         }
     }
 }

@@ -14,7 +14,7 @@ namespace DAO
         {
             SqlConnection connection = DataProvider.GetConnection();
 
-            string query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien,trang_thai FROM Topping WHERE 1=1";
+            string query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien, hinh, trang_thai FROM Topping WHERE 1=1";
             SqlCommand command = new SqlCommand();
             if (maLoaiTopping != 0)
             {
@@ -46,7 +46,8 @@ namespace DAO
                     topping.TenTopping = reader.GetString(1);
                     topping.LoaiTopping = reader.GetInt32(2);
                     topping.GiaTien = reader.GetDouble(3);
-                    topping.TrangThai = reader.GetBoolean(4);
+                    topping.Hinh = reader.GetString(4);
+                    topping.TrangThai = reader.GetBoolean(5);
                     result.Add(topping);
                 }
             }
@@ -107,12 +108,12 @@ namespace DAO
         public static bool ThemTopping(ToppingDTO topping)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "INSERT INTO Topping (ten_topping, loai_topping, gia_tien, trang_thai) VALUES (@tenTopping, @loaiTopping, @giaTien, @trangThai)";
+            string query = "INSERT INTO Topping (ten_topping, loai_topping, gia_tien, hinh, trang_thai) VALUES (@tenTopping, @loaiTopping, @giaTien, @hinh, @trangThai)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@tenTopping", System.Data.SqlDbType.NVarChar, 255).Value = topping.TenTopping;
-            command.Parameters.Add("@loaiTopping", System.Data.SqlDbType.NVarChar, 255).Value = topping.LoaiTopping;
-            //command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = topping.Hinh;
+            command.Parameters.Add("@loaiTopping", System.Data.SqlDbType.Int, 0).Value = topping.LoaiTopping;
             command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = topping.GiaTien;
+            command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = topping.Hinh;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = topping.TrangThai;
 
             connection.Open();
@@ -151,13 +152,13 @@ namespace DAO
         public static bool SuaTopping(ToppingDTO topping)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "UPDATE Topping SET ten_topping=@tenTopping, loai_topping=@loaiTopping, gia_tien=@giaTien, trang_thai=@trangThai WHERE ma_topping=@maTopping";
+            string query = "UPDATE Topping SET ten_topping=@tenTopping, loai_topping=@loaiTopping, gia_tien=@giaTien, hinh=@hinh, trang_thai=@trangThai WHERE ma_topping=@maTopping";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maTopping", System.Data.SqlDbType.Int, 0).Value = topping.MaTopping;
             command.Parameters.Add("@tenTopping", System.Data.SqlDbType.NVarChar, 255).Value = topping.TenTopping;
-            command.Parameters.Add("@loaiTopping", System.Data.SqlDbType.NVarChar, 255).Value = topping.LoaiTopping;
-            //command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = topping.Hinh;
+            command.Parameters.Add("@loaiTopping", System.Data.SqlDbType.Int, 0).Value = topping.LoaiTopping;
             command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = topping.GiaTien;
+            command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = topping.Hinh;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = topping.TrangThai;
 
             connection.Open();

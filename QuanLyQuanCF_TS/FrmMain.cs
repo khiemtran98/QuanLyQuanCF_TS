@@ -7,9 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 using DTO;
 using BUS;
-using MetroFramework.Controls;
 
 namespace QuanLyQuanCF_TS
 {
@@ -22,6 +22,8 @@ namespace QuanLyQuanCF_TS
 
         private void MoFormDangNhap()
         {
+            metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = false;
+            metroPanel1.Visible = metroPanel2.Visible = true;
             this.WindowState = FormWindowState.Normal;
             this.Movable = true;
             this.Size = new Size(800, 458);
@@ -40,6 +42,54 @@ namespace QuanLyQuanCF_TS
             lblHoTen.Text = taiKhoan.HoTen;
             lblCapBac.Text = TaiKhoanBUS.LayTenLoaiTaiKhoan(taiKhoan.LoaiTaiKhoan);
             picHinh.ImageLocation = "img\\accounts\\" + taiKhoan.Hinh;
+
+            List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoan(maTaiKhoan);
+            foreach (ChucNang_LoaiTaiKhoanDTO chucNang_LoaiTaiKhoan in lsChucNang_LoaiTaiKhoan)
+            {
+                switch(chucNang_LoaiTaiKhoan.MaChucNang)
+                {
+                    case 1:
+                        metroPanel5.Visible = true;
+                        break;
+                    case 2:
+                        metroPanel6.Visible = true;
+                        break;
+                    case 3:
+                        metroPanel10.Visible = true;
+                        break;
+                    case 4:
+                        metroPanel7.Visible = true;
+                        break;
+                    case 5:
+                        metroPanel8.Visible = true;
+                        break;
+                    case 6:
+                        metroPanel11.Visible = true;
+                        break;
+                    case 7:
+                        metroPanel13.Visible = true;
+                        break;
+                    case 8:
+                        metroPanel14.Visible = true;
+                        break;
+                }
+            }
+            if (metroPanel5.Visible || metroPanel6.Visible || metroPanel7.Visible || metroPanel8.Visible)
+            {
+                metroPanel1.Visible = true;
+            }
+            else
+            {
+                metroPanel1.Visible = false ;
+            }
+            if (metroPanel10.Visible || metroPanel11.Visible)
+            {
+                metroPanel2.Visible = true;
+            }
+            else
+            {
+                metroPanel2.Visible = false;
+            }
         }
 
         public void XuLyChuyenForm()

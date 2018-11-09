@@ -41,7 +41,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang_LoaiTaiKhoanBUS.cs" />
     <Compile Include="CTHoaDonBUS.cs" />
+    <Compile Include="CTHoaDon_ToppingBUS.cs" />
     <Compile Include="CTLoaiMon_LoaiToppingBUS.cs" />
     <Compile Include="HoaDonBUS.cs" />
     <Compile Include="LoaiMonBUS.cs" />

@@ -30,6 +30,7 @@
         {
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.btnQuayLai = new System.Windows.Forms.Button();
+            this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -62,12 +63,27 @@
             this.btnQuayLai.UseVisualStyleBackColor = false;
             this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
             // 
+            // metroPanel2
+            // 
+            this.metroPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel2.HorizontalScrollbarBarColor = true;
+            this.metroPanel2.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.HorizontalScrollbarSize = 10;
+            this.metroPanel2.Location = new System.Drawing.Point(61, 60);
+            this.metroPanel2.Name = "metroPanel2";
+            this.metroPanel2.Size = new System.Drawing.Size(719, 370);
+            this.metroPanel2.TabIndex = 22;
+            this.metroPanel2.VerticalScrollbarBarColor = true;
+            this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel2.VerticalScrollbarSize = 10;
+            // 
             // FrmThongKeDoanhThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
+            this.Controls.Add(this.metroPanel2);
             this.Controls.Add(this.metroPanel1);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -77,6 +93,7 @@
             this.Text = "Thống kê doanh thu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmThongKeDoanhThu_FormClosed);
+            this.Load += new System.EventHandler(this.FrmThongKeDoanhThu_Load);
             this.metroPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -86,5 +103,6 @@
 
         private MetroFramework.Controls.MetroPanel metroPanel1;
         private System.Windows.Forms.Button btnQuayLai;
+        private MetroFramework.Controls.MetroPanel metroPanel2;
     }
 }

@@ -41,6 +41,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ChucNang_LoaiTaiKhoanDTO.cs" />
     <Compile Include="CTHoaDonDTO.cs" />
     <Compile Include="CTHoaDon_ToppingDTO.cs" />
     <Compile Include="CTLoaiMon_LoaiToppingDTO.cs" />

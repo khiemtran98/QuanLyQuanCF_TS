@@ -37,27 +37,26 @@ namespace QuanLyQuanCF_TS
 
         private void FrmQuanLyMon_Load(object sender, EventArgs e)
         {
-            // Khong cho tao cot trong dataGridView
             dgvLoaiMon.AutoGenerateColumns = false;
             dgvLoaiTopping.AutoGenerateColumns = false;
+            dgvMon.AutoGenerateColumns = false;
+            dgvTopping.AutoGenerateColumns = false;
 
             QLLM_LoadDanhSachLoaiMon();
             QLLM_LoadDanhSachLoaiTopping();
 
             QLLT_LoadDachSachLoaiTopping();
-
-            //Quan ly Mon
+            
             QLM_LoadDanhSachMon();
             QLM_LoadLoaiMon();
-
-            //Quan ly Topping
+            
             QLTP_LoadDanhSachTopping();
             QLTP_LoadDachSachLoaiTopping();
-
 
             LamMoiLoaiMon();
             LamMoiLoaiTopping();
             LamMoiMon();
+            LamMoiTopping();
 
             tbcQuanLyMon_Topping.SelectedTab = tbpLoaiMon;
         }
@@ -71,6 +70,16 @@ namespace QuanLyQuanCF_TS
                 gpbLoaiTopping.Controls.Clear();
                 QLLM_LoadDanhSachLoaiTopping();
             }
+
+            if (current.Name == "tbpMon")
+            {
+                QLM_LoadLoaiMon();
+            }
+
+            if (current.Name == "tbpTopping")
+            {
+                QLTP_LoadDachSachLoaiTopping();
+            }
         }
 
         // Bắt đầu khu vực chức năng Quản lý loại món
@@ -83,7 +92,7 @@ namespace QuanLyQuanCF_TS
 
         private void QLLM_LoadDanhSachLoaiTopping()
         {
-            List<LoaiToppingDTO> lsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiTopping("", true);
+            List<LoaiToppingDTO> lsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiTopping();
             foreach (LoaiToppingDTO loaiTopping in lsLoaiTopping)
             {
                 MaterialCheckBox checkBox = new MaterialCheckBox();
@@ -400,18 +409,7 @@ namespace QuanLyQuanCF_TS
 
         // ----------------------------------------------
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            ((FrmMain)this.ParentForm).XuLyFormMain();
-            this.Close();
-        }
-
-        private void FrmQuanLyMon_Topping_FormClosed(object sender, FormClosedEventArgs e)
-        {
-            _Instance = null;
-        }
-
-        //Quan ly Mon
+        // Bắt đầu Khu vực chức năng Quản lý món
 
         private void QLM_LoadDanhSachMon(string timKiem = "")
         {
@@ -429,7 +427,7 @@ namespace QuanLyQuanCF_TS
 
         private void QLM_LoadLoaiMon(string timKiem = "")
         {
-            List<LoaiMonDTO> lsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon("", true);
+            List<LoaiMonDTO> lsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
             cmbLoaiMon.DataSource = lsLoaiMon;
             cmbLoaiMon.DisplayMember = "TenLoaiMon";
             cmbLoaiMon.ValueMember = "MaLoaiMon";
@@ -450,7 +448,7 @@ namespace QuanLyQuanCF_TS
                 txtMaMon.Text = dgvMon.SelectedRows[0].Cells["colMaMon"].Value.ToString();
                 txtTenMon.Text = dgvMon.SelectedRows[0].Cells["colTenMon"].Value.ToString();
                 cmbLoaiMon.SelectedValue = Convert.ToInt32(dgvMon.SelectedRows[0].Cells["colLoaiMon"].Value);
-                picHinh.Image = (Bitmap)dgvMon.SelectedRows[0].Cells["colHinh"].FormattedValue;
+                picHinhMon.Image = (Bitmap)dgvMon.SelectedRows[0].Cells["colHinh"].FormattedValue;
                 txtGiaTien.Text = dgvMon.SelectedRows[0].Cells["colGiaTien"].Value.ToString();
                 chkQLM_TrangThai.Checked = Convert.ToBoolean(dgvMon.SelectedRows[0].Cells["colQLM_TrangThai"].Value);
             }
@@ -461,7 +459,7 @@ namespace QuanLyQuanCF_TS
             txtMaMon.Text = txtTenMon.Text = txtGiaTien.Text = string.Empty;
             cmbLoaiMon.SelectedIndex = 0;
             chkQLM_TrangThai.Checked = false;
-            picHinh.Image = Properties.Resources.default_product;
+            picHinhMon.Image = Properties.Resources.default_product;
             btnThemMon.Enabled = state;
             btnXoaMon.Enabled = !state;
             btnSuaMon.Enabled = !state;
@@ -533,12 +531,12 @@ namespace QuanLyQuanCF_TS
             }
             else
             {
-                if (picHinh.Image != Properties.Resources.user_account)
+                if (picHinhMon.Image != Properties.Resources.user_account)
                 {
                     mon.Hinh = dgvMon.CurrentRow.Cells["colHinh"].Value.ToString();
                 }
             }
-            mon.GiaTien = Convert.ToInt32(txtGiaTien.Text);
+            mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
             mon.TrangThai = chkQLM_TrangThai.Checked;
 
             if (MonBUS.SuaMon(mon))
@@ -554,14 +552,14 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void picHinh_Click(object sender, EventArgs e)
+        private void picHinhMon_Click(object sender, EventArgs e)
         {
             openFileDialog1.ShowDialog();
         }
 
         private void openFileDialog1_FileOk(object sender, CancelEventArgs e)
         {
-            picHinh.ImageLocation = openFileDialog1.FileName;
+            picHinhMon.ImageLocation = openFileDialog1.FileName;
         }
 
         private void txtTimKiemMon_KeyPress(object sender, KeyPressEventArgs e)
@@ -596,9 +594,12 @@ namespace QuanLyQuanCF_TS
         {
             TimKiemMon();
         }
+        
+        // Kết thúc Khu vực chức năng Quản lý món
 
+        // ----------------------------------------------
 
-        //Quan ly Topping
+        // Bắt đầu Khu vực chức năng Quản lý topping
 
         private void QLTP_LoadDanhSachTopping(string timKiem = "")
         {
@@ -623,10 +624,10 @@ namespace QuanLyQuanCF_TS
 
         private void dgvTopping_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
         {
-            //if (dgvTopping.Columns[e.ColumnIndex].Name == "colHinh")
-            //{
-            //    e.Value = new Bitmap("img\\products\\" + e.Value.ToString());
-            //}
+            if (dgvTopping.Columns[e.ColumnIndex].Name == "colHinhTopping")
+            {
+                e.Value = new Bitmap("img\\products\\" + e.Value.ToString());
+            }
         }
 
         private void dgvTopping_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -637,7 +638,7 @@ namespace QuanLyQuanCF_TS
                 txtMaTopping.Text = dgvTopping.SelectedRows[0].Cells["colMaTopping"].Value.ToString();
                 txtTenTopping.Text = dgvTopping.SelectedRows[0].Cells["colTenTopping"].Value.ToString();
                 cmbLoaiTopping.SelectedValue = Convert.ToInt32(dgvTopping.SelectedRows[0].Cells["colLoaiTopping"].Value);
-                //picHinh.Image = (Bitmap)dgvMon.SelectedRows[0].Cells["colHinh"].FormattedValue;
+                picHinhTopping.Image = (Bitmap)dgvTopping.SelectedRows[0].Cells["colHinhTopping"].FormattedValue;
                 txtGiaTienTopping.Text = dgvTopping.SelectedRows[0].Cells["colGiaTienTopping"].Value.ToString();
                 chkQLTP_TrangThai.Checked = Convert.ToBoolean(dgvTopping.SelectedRows[0].Cells["colQLTPTrangThaiTopping"].Value);
             }
@@ -648,26 +649,36 @@ namespace QuanLyQuanCF_TS
             txtMaTopping.Text = txtTenTopping.Text = txtGiaTienTopping.Text = string.Empty;
             cmbLoaiTopping.SelectedIndex = 0;
             chkQLTP_TrangThai.Checked = false;
-            picHinh.Image = Properties.Resources.default_product;
+            picHinhTopping.Image = Properties.Resources.default_product;
             btnThemTopping.Enabled = state;
             btnXoaTopping.Enabled = !state;
             btnSuaTopping.Enabled = !state;
-            openFileDialog1.FileName = "";
+            openFileDialog2.FileName = "";
+        }
+
+        private void picHinhTopping_Click(object sender, EventArgs e)
+        {
+            openFileDialog2.ShowDialog();
+        }
+
+        private void openFileDialog2_FileOk(object sender, CancelEventArgs e)
+        {
+            picHinhTopping.ImageLocation = openFileDialog2.FileName;
         }
 
         private void btnThemTopping_Click(object sender, EventArgs e)
         {
             ToppingDTO topping = new ToppingDTO();
-            topping.TenTopping = txtTenLoaiTopping.Text;
+            topping.TenTopping = txtTenTopping.Text;
             topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
-            //if (openFileDialog1.FileName != "")
-            //{
-            //    string tenFile = DateTime.Now.ToFileTime() + "_" + (ToppingBUS.LayMaToppingMoiNhat() + 1).ToString();
-            //    string extension = Path.GetExtension(openFileDialog1.SafeFileName);
-            //    topping.Hinh = tenFile + extension;
-            //    File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension, true);
-            //}
             topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            if (openFileDialog2.FileName != "")
+            {
+                string tenFile = DateTime.Now.ToFileTime() + "_" + (ToppingBUS.LayMaToppingMoiNhat() + 1).ToString();
+                string extension = Path.GetExtension(openFileDialog2.SafeFileName);
+                topping.Hinh = tenFile + extension;
+                File.Copy(openFileDialog2.FileName, "img\\products\\" + tenFile + extension, true);
+            }
             topping.TrangThai = chkQLTP_TrangThai.Checked;
 
             if (ToppingBUS.ThemTopping(topping))
@@ -706,21 +717,21 @@ namespace QuanLyQuanCF_TS
             topping.MaTopping = Convert.ToInt32(txtMaTopping.Text);
             topping.TenTopping = txtTenTopping.Text;
             topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
-            //if (openFileDialog1.FileName != "")
-            //{
-            //    string tenFile = DateTime.Now.ToFileTime() + "_" + topping.MaTopping;
-            //    string extension = Path.GetExtension(openFileDialog1.SafeFileName);
-            //    topping.Hinh = tenFile + extension;
-            //    File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension);
-            //}
-            //else
-            //{
-            //    if (picHinhTopping.Image != Properties.Resources.user_account)
-            //    {
-            //        topping.Hinh = dgvMon.CurrentRow.Cells["???"].Value.ToString();
-            //    }
-            //}
-            topping.GiaTien = Convert.ToInt32(txtGiaTienTopping.Text);
+            topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            if (openFileDialog2.FileName != "")
+            {
+                string tenFile = DateTime.Now.ToFileTime() + "_" + topping.MaTopping;
+                string extension = Path.GetExtension(openFileDialog2.SafeFileName);
+                topping.Hinh = tenFile + extension;
+                File.Copy(openFileDialog2.FileName, "img\\products\\" + tenFile + extension);
+            }
+            else
+            {
+                if (picHinhTopping.Image != Properties.Resources.default_product)
+                {
+                    topping.Hinh = dgvTopping.CurrentRow.Cells["colHinhTopping"].Value.ToString();
+                }
+            }
             topping.TrangThai = chkQLTP_TrangThai.Checked;
 
             if (ToppingBUS.SuaTopping(topping))
@@ -772,6 +783,19 @@ namespace QuanLyQuanCF_TS
         private void TimKiemTopping()
         {
             QLTP_LoadDanhSachTopping(txtTimKiemTopping.Text);
+        }
+
+        // Kết thúc Khu vực chức năng Quản lý topping
+
+        private void btnQuayLai_Click(object sender, EventArgs e)
+        {
+            ((FrmMain)this.ParentForm).XuLyFormMain();
+            this.Close();
+        }
+
+        private void FrmQuanLyMon_Topping_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            _Instance = null;
         }
     }
 }
