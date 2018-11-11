@@ -83,7 +83,8 @@ create table Topping
 create table NhaCungCap
 (
 	ma_nha_cung_cap int identity,
-	ten_nha_cung_cap nvarchar(max) not null
+	ten_nha_cung_cap nvarchar(max) not null,
+	trang_thai bit not null,
 	constraint PK_NhaCungCap primary key (ma_nha_cung_cap)
 )
 
@@ -91,7 +92,9 @@ create table NguyenLieu
 (
 	ma_nguyen_lieu int identity,
 	ten_nguyen_lieu nvarchar(max) not null,
-	khoi_luong int not null,
+	so_luong int not null,
+	don_vi_tinh nvarchar(max) not null,
+	trang_thai bit not null,
 	constraint PK_NguyenLieu primary key (ma_nguyen_lieu)
 )
 
@@ -101,6 +104,8 @@ create table HoaDon
 	nhan_vien_lap int not null,
 	ngay_lap datetime not null,
 	tong_tien float not null,
+	tien_mat float not null,
+	tien_thua float not null,
 	trang_thai bit not null,
 	constraint PK_HoaDon primary key (ma_hoa_don),
 	constraint FK_HoaDon_TaiKhoan foreign key (nhan_vien_lap) references TaiKhoan(ma_tai_khoan)
@@ -146,7 +151,8 @@ create table CTPhieuNhap
 (
 	ma_phieu_nhap int,
 	ma_nguyen_lieu int not null,
-	khoi_luong int not null,
+	so_luong int not null,
+	don_vi_tinh nvarchar(max) not null,
 	don_gia float not null,
 	constraint PK_CTPhieuNhap primary key (ma_phieu_nhap, ma_nguyen_lieu),
 	constraint FK_CTPhieuNhap_PhieuNhap foreign key (ma_phieu_nhap) references PhieuNhap(ma_phieu_nhap),
@@ -167,14 +173,14 @@ INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Cashi
 INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Accountant', 1)
 
 INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'admin', '123', '1/1/2018', 1, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', '123', '1/1/2018', 2, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', '123', '1/1/2018', 3, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', '', '1/1/2018', 2, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', '', '1/1/2018', 3, 'default-account.png' ,1)
 
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Trà sữa', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Cà phê', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Freeze', 1, 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Bánh mì', 1, 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Xiên que', 1, 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Bánh mì', 1, 0)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Xiên que', 1, 0)
 
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa trân châu', 1, N'1.jpg', 37000, 1)
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa hokkaido', 1, N'2.jpg', 32000, 1)
@@ -286,6 +292,10 @@ INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUE
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 3)
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 2)
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 2)
+
+INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 1', 1)
+INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 2', 1)
+INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 3', 1)
 
 GO
 CREATE TRIGGER TRIG_LoaiTaiKhoan_delete
