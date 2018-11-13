@@ -21,7 +21,5 @@ namespace DTO
         public int SoLuong { get => soLuong; set => soLuong = value; }
         public double DonGia { get => donGia; set => donGia = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }
-
-      
     }
 }

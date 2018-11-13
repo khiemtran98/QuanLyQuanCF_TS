@@ -23,6 +23,22 @@ create table TaiKhoan
 	constraint FK_TaiKhoan_LoaiTaiKhoan foreign key (loai_tai_khoan) references LoaiTaiKhoan(ma_loai_tai_khoan)
 )
 
+create table ChucNang
+(
+	ma_chuc_nang int identity,
+	ten_chuc_nang nvarchar(max) not null
+	constraint PK_ChucNang primary key (ma_chuc_nang)
+)
+
+create table ChucNang_LoaiTaiKhoan
+(
+	ma_chuc_nang int,
+	ma_loai_tai_khoan int,
+	constraint PK_ChucNang_LoaiTaiKhoan primary key (ma_chuc_nang, ma_loai_tai_khoan),
+	constraint FK_ChucNang_LoaiTaiKhoan_ChucNang foreign key (ma_chuc_nang) references ChucNang(ma_chuc_nang),
+	constraint FK_ChucNang_LoaiTaiKhoan_LoaiTaiKhoan foreign key (ma_loai_tai_khoan) references LoaiTaiKhoan(ma_loai_tai_khoan)
+)
+
 create table LoaiMon
 (
 	ma_loai_mon int identity,
@@ -58,6 +74,7 @@ create table Topping
 	ten_topping nvarchar(max) not null,
 	loai_topping int not null,
 	gia_tien float not null,
+	hinh nvarchar(max),
 	trang_thai bit not null,
 	constraint PK_Topping primary key (ma_topping),
 	constraint FK_Topping_LoaiTopping foreign key (loai_topping) references LoaiTopping(ma_loai_topping)
@@ -66,7 +83,8 @@ create table Topping
 create table NhaCungCap
 (
 	ma_nha_cung_cap int identity,
-	ten_nha_cung_cap nvarchar(max) not null
+	ten_nha_cung_cap nvarchar(max) not null,
+	trang_thai bit not null,
 	constraint PK_NhaCungCap primary key (ma_nha_cung_cap)
 )
 
@@ -74,7 +92,9 @@ create table NguyenLieu
 (
 	ma_nguyen_lieu int identity,
 	ten_nguyen_lieu nvarchar(max) not null,
-	khoi_luong int not null,
+	so_luong int not null,
+	don_vi_tinh nvarchar(max) not null,
+	trang_thai bit not null,
 	constraint PK_NguyenLieu primary key (ma_nguyen_lieu)
 )
 
@@ -84,6 +104,8 @@ create table HoaDon
 	nhan_vien_lap int not null,
 	ngay_lap datetime not null,
 	tong_tien float not null,
+	tien_mat float not null,
+	tien_thua float not null,
 	trang_thai bit not null,
 	constraint PK_HoaDon primary key (ma_hoa_don),
 	constraint FK_HoaDon_TaiKhoan foreign key (nhan_vien_lap) references TaiKhoan(ma_tai_khoan)
@@ -129,7 +151,8 @@ create table CTPhieuNhap
 (
 	ma_phieu_nhap int,
 	ma_nguyen_lieu int not null,
-	khoi_luong int not null,
+	so_luong int not null,
+	don_vi_tinh nvarchar(max) not null,
 	don_gia float not null,
 	constraint PK_CTPhieuNhap primary key (ma_phieu_nhap, ma_nguyen_lieu),
 	constraint FK_CTPhieuNhap_PhieuNhap foreign key (ma_phieu_nhap) references PhieuNhap(ma_phieu_nhap),
@@ -145,17 +168,19 @@ create table CTLoaiMon_LoaiTopping
 	constraint FK_CTLoaiMon_LoaiTopping_LoaiTopping foreign key (ma_loai_topping) references LoaiTopping(ma_loai_topping)
 )
 
-INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Admin', 1)
+INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Administrator', 1)
 INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Cashier', 1)
+INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Accountant', 1)
 
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'[TEST-Admin]', '123', '1/1/2018', 1, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'[TEST-Cashier]', '123', '1/1/2018', 2, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'admin', '123', '1/1/2018', 1, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', '', '1/1/2018', 2, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', '', '1/1/2018', 3, 'default-account.png' ,1)
 
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Trà sữa', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Cà phê', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Freeze', 1, 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Bánh mì', 1, 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Xiên que', 1, 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Bánh mì', 1, 0)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Xiên que', 1, 0)
 
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa trân châu', 1, N'1.jpg', 37000, 1)
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa hokkaido', 1, N'2.jpg', 32000, 1)
@@ -231,23 +256,46 @@ INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Kem', 1)
 INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Trân châu', 1)
 INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Thạch', 1)
 
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Kem Macchiato', 1, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu đen', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu trắng', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu xanh', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu sợi', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu tươi socola', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu tươi matcha', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu phô mai tươi', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu tím', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Trân châu mật ong', 2, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Thạch pudding', 3, 5000, 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [trang_thai]) VALUES (N'Thạch viên phô mai', 3, 5000, 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Kem Macchiato', 1, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu đen', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu trắng', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu xanh', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu sợi', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tươi socola', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tươi matcha', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu phô mai tươi', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tím', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu mật ong', 2, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Thạch pudding', 3, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Thạch viên phô mai', 3, 5000, 'default-product.png', 1)
 
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (1, 2)
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (1, 3)
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (2, 1)
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (3, 1)
+
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Quản lý tài khoản')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Quản lý món')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Quản lý kho')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Thống kê hoá đơn')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Thống kê nhập hàng')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Thống kê doanh thu')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Nhập hàng')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Bán hàng')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Cài đặt')
+
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (1, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (2, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (3, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (4, 3)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (5, 3)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 3)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 2)
+
+INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 1', 1)
+INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 2', 1)
+INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 3', 1)
 
 GO
 CREATE TRIGGER TRIG_LoaiTaiKhoan_delete

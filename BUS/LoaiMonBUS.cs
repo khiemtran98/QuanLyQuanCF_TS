@@ -24,10 +24,7 @@ namespace BUS
         {
             if (LoaiMonDAO.ThemLoaiMon(loaiMon))
             {
-                if (CTLoaiMon_LoaiToppingBUS.ThemLoaiMon_LoaiTopping(lsLoaiMon_LoaiTopping))
-                {
-                    return true;
-                }
+                return CTLoaiMon_LoaiToppingBUS.ThemLoaiMon_LoaiTopping(lsLoaiMon_LoaiTopping);
             }
             return false;
         }
@@ -38,10 +35,7 @@ namespace BUS
             {
                 if (CTLoaiMon_LoaiToppingBUS.XoaLoaiMon_LoaiToppingTheoLoaiMon(maLoaiMon))
                 {
-                    if (LoaiMonDAO.XoaLoaiMon(maLoaiMon))
-                    {
-                        return true;
-                    }
+                    return LoaiMonDAO.XoaLoaiMon(maLoaiMon);
                 }
             }
             return false;
@@ -51,10 +45,7 @@ namespace BUS
         {
             if (CTLoaiMon_LoaiToppingBUS.SuaLoaiMon_LoaiTopping(loaiMon.MaLoaiMon, lsLoaiMon_LoaiTopping))
             {
-                if (LoaiMonDAO.SuaLoaiMon(loaiMon))
-                {
-                    return true;
-                }
+                return LoaiMonDAO.SuaLoaiMon(loaiMon);
             }
             return false;
         }

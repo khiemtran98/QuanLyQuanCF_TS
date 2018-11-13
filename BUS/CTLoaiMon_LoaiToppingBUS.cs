@@ -49,10 +49,5 @@ namespace BUS
             }
             return true;
         }
-
-        public static List<CTHoaDon_ToppingDTO> LayDanhSachTopping(int maHoaDon)
-        {
-            return CTHoaDon_ToppingDAO.LayDanhSachTopping(maHoaDon);
-        }
     }
 }

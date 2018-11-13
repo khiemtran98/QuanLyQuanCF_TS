@@ -29,5 +29,25 @@ namespace BUS
         {
             return MonDAO.XoaTatCaMonTheoLoai(maLoaiMon);
         }
+
+        public static int LayMaMonMoiNhat()
+        {
+            return MonDAO.LayMaMonMoiNhat();
+        }
+
+        public static bool ThemMon(MonDTO mon)
+        {
+            return MonDAO.ThemMon(mon);
+        }
+
+        public static bool XoaMon(int maMon)
+        {
+            return MonDAO.XoaMon(maMon);
+        }
+
+        public static bool SuaMon(MonDTO mon)
+        {
+            return MonDAO.SuaMon(mon);
+        }
     }
 }
