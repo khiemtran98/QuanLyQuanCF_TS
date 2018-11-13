@@ -8,7 +8,7 @@ using DTO;
 
 namespace DAO
 {
-    public static class CTHoaDon
+    public static class CTHoaDonDAO
     {
         public static int LayMaCTHoaDonMoiNhat()
         {

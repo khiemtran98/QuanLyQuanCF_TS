@@ -42,9 +42,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ChucNang_LoaiTaiKhoanDAO.cs" />
-    <Compile Include="CTHoaDon.cs" />
+    <Compile Include="CTHoaDonDAO.cs" />
     <Compile Include="CTHoaDon_ToppingDAO.cs" />
     <Compile Include="CTLoaiMon_LoaiToppingDAO.cs" />
+    <Compile Include="CTPhieuNhapDAO.cs" />
     <Compile Include="DataProvider.cs" />
     <Compile Include="HoaDonDAO.cs" />
     <Compile Include="LoaiMonDAO.cs" />
@@ -52,6 +53,8 @@
     <Compile Include="LoaiToppingDAO.cs" />
     <Compile Include="MonDAO.cs" />
     <Compile Include="NguyenLieuDAO.cs" />
+    <Compile Include="NhaCungCapDAO.cs" />
+    <Compile Include="PhieuNhapDAO.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToppingDAO.cs" />

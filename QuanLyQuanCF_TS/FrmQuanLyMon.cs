@@ -433,6 +433,14 @@ namespace QuanLyQuanCF_TS
             cmbLoaiMon.ValueMember = "MaLoaiMon";
         }
 
+        private void txtGiaTien_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void dgvMon_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ((DataGridViewComboBoxCell)dgvMon.Rows[e.RowIndex].Cells["colLoaiMon"]).DataSource = LoaiMonBUS.LayDanhSachLoaiMon();
@@ -483,7 +491,14 @@ namespace QuanLyQuanCF_TS
                 mon.Hinh = tenFile + extension;
                 File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension, true);
             }
-            mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+            if (txtGiaTien.Text != "")
+            {
+                mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+            }
+            else
+            {
+                mon.GiaTien = 0;
+            }
             mon.TrangThai = chkQLM_TrangThai.Checked;
 
             if (MonBUS.ThemMon(mon))
@@ -536,7 +551,14 @@ namespace QuanLyQuanCF_TS
                     mon.Hinh = dgvMon.CurrentRow.Cells["colHinh"].Value.ToString();
                 }
             }
-            mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+            if (txtGiaTien.Text != "")
+            {
+                mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+            }
+            else
+            {
+                mon.GiaTien = 0;
+            }
             mon.TrangThai = chkQLM_TrangThai.Checked;
 
             if (MonBUS.SuaMon(mon))
@@ -656,6 +678,14 @@ namespace QuanLyQuanCF_TS
             openFileDialog2.FileName = "";
         }
 
+        private void txtGiaTienTopping_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
         private void picHinhTopping_Click(object sender, EventArgs e)
         {
             openFileDialog2.ShowDialog();
@@ -671,7 +701,14 @@ namespace QuanLyQuanCF_TS
             ToppingDTO topping = new ToppingDTO();
             topping.TenTopping = txtTenTopping.Text;
             topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
-            topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            if (txtGiaTienTopping.Text != "")
+            {
+                topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            }
+            else
+            {
+                topping.GiaTien = 0;
+            }
             if (openFileDialog2.FileName != "")
             {
                 string tenFile = DateTime.Now.ToFileTime() + "_" + (ToppingBUS.LayMaToppingMoiNhat() + 1).ToString();
@@ -717,7 +754,14 @@ namespace QuanLyQuanCF_TS
             topping.MaTopping = Convert.ToInt32(txtMaTopping.Text);
             topping.TenTopping = txtTenTopping.Text;
             topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
-            topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            if (txtGiaTienTopping.Text != "")
+            {
+                topping.GiaTien = Convert.ToDouble(txtGiaTienTopping.Text);
+            }
+            else
+            {
+                topping.GiaTien = 0;
+            }
             if (openFileDialog2.FileName != "")
             {
                 string tenFile = DateTime.Now.ToFileTime() + "_" + topping.MaTopping;

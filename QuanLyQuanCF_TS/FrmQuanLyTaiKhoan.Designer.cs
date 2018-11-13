@@ -28,10 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuanLyTaiKhoan));
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.btnQuayLai = new System.Windows.Forms.Button();
@@ -452,7 +452,7 @@
             this.btnSuaLoaiTaiKhoan.BackColor = System.Drawing.Color.DimGray;
             this.btnSuaLoaiTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSuaLoaiTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnSuaLoaiTaiKhoan.Location = new System.Drawing.Point(268, 13);
+            this.btnSuaLoaiTaiKhoan.Location = new System.Drawing.Point(153, 13);
             this.btnSuaLoaiTaiKhoan.Name = "btnSuaLoaiTaiKhoan";
             this.btnSuaLoaiTaiKhoan.Size = new System.Drawing.Size(104, 40);
             this.btnSuaLoaiTaiKhoan.TabIndex = 4;
@@ -468,7 +468,7 @@
             this.btnXoaLoaiTaiKhoan.BackColor = System.Drawing.Color.Firebrick;
             this.btnXoaLoaiTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnXoaLoaiTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnXoaLoaiTaiKhoan.Location = new System.Drawing.Point(153, 13);
+            this.btnXoaLoaiTaiKhoan.Location = new System.Drawing.Point(268, 13);
             this.btnXoaLoaiTaiKhoan.Name = "btnXoaLoaiTaiKhoan";
             this.btnXoaLoaiTaiKhoan.Size = new System.Drawing.Size(104, 40);
             this.btnXoaLoaiTaiKhoan.TabIndex = 3;
@@ -626,14 +626,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLoaiTaiKhoan.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvLoaiTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLoaiTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle5.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLoaiTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.dgvLoaiTaiKhoan.ColumnHeadersHeight = 70;
             this.dgvLoaiTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLoaiTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -645,10 +645,10 @@
             this.dgvLoaiTaiKhoan.MultiSelect = false;
             this.dgvLoaiTaiKhoan.Name = "dgvLoaiTaiKhoan";
             this.dgvLoaiTaiKhoan.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvLoaiTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvLoaiTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.dgvLoaiTaiKhoan.RowTemplate.Height = 35;
             this.dgvLoaiTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvLoaiTaiKhoan.Size = new System.Drawing.Size(267, 533);
@@ -888,7 +888,7 @@
             this.btnSuaTaiKhoan.BackColor = System.Drawing.Color.DimGray;
             this.btnSuaTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSuaTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTaiKhoan.Location = new System.Drawing.Point(268, 13);
+            this.btnSuaTaiKhoan.Location = new System.Drawing.Point(153, 13);
             this.btnSuaTaiKhoan.Name = "btnSuaTaiKhoan";
             this.btnSuaTaiKhoan.Size = new System.Drawing.Size(104, 40);
             this.btnSuaTaiKhoan.TabIndex = 4;
@@ -904,7 +904,7 @@
             this.btnXoaTaiKhoan.BackColor = System.Drawing.Color.Firebrick;
             this.btnXoaTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnXoaTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnXoaTaiKhoan.Location = new System.Drawing.Point(153, 13);
+            this.btnXoaTaiKhoan.Location = new System.Drawing.Point(268, 13);
             this.btnXoaTaiKhoan.Name = "btnXoaTaiKhoan";
             this.btnXoaTaiKhoan.Size = new System.Drawing.Size(104, 40);
             this.btnXoaTaiKhoan.TabIndex = 3;
@@ -1149,14 +1149,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvTaiKhoan.ColumnHeadersHeight = 70;
             this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1171,10 +1171,10 @@
             this.dgvTaiKhoan.MultiSelect = false;
             this.dgvTaiKhoan.Name = "dgvTaiKhoan";
             this.dgvTaiKhoan.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle8.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle8;
             this.dgvTaiKhoan.RowTemplate.Height = 35;
             this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTaiKhoan.Size = new System.Drawing.Size(267, 533);

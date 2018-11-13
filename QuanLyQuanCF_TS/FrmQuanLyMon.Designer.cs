@@ -28,21 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuanLyMon_Topping));
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcQuanLyMon_Topping = new MetroFramework.Controls.MetroTabControl();
             this.tbpLoaiMon = new MetroFramework.Controls.MetroTabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -231,7 +231,7 @@
             this.tbcQuanLyMon_Topping.ItemSize = new System.Drawing.Size(83, 40);
             this.tbcQuanLyMon_Topping.Location = new System.Drawing.Point(0, 0);
             this.tbcQuanLyMon_Topping.Name = "tbcQuanLyMon_Topping";
-            this.tbcQuanLyMon_Topping.SelectedIndex = 2;
+            this.tbcQuanLyMon_Topping.SelectedIndex = 3;
             this.tbcQuanLyMon_Topping.Size = new System.Drawing.Size(804, 532);
             this.tbcQuanLyMon_Topping.TabIndex = 0;
             this.tbcQuanLyMon_Topping.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -335,7 +335,7 @@
             this.btnSuaLoaiMon.BackColor = System.Drawing.Color.DimGray;
             this.btnSuaLoaiMon.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSuaLoaiMon.ForeColor = System.Drawing.Color.White;
-            this.btnSuaLoaiMon.Location = new System.Drawing.Point(257, 19);
+            this.btnSuaLoaiMon.Location = new System.Drawing.Point(139, 19);
             this.btnSuaLoaiMon.Name = "btnSuaLoaiMon";
             this.btnSuaLoaiMon.Size = new System.Drawing.Size(105, 40);
             this.btnSuaLoaiMon.TabIndex = 4;
@@ -351,7 +351,7 @@
             this.btnXoaLoaiMon.BackColor = System.Drawing.Color.Firebrick;
             this.btnXoaLoaiMon.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnXoaLoaiMon.ForeColor = System.Drawing.Color.White;
-            this.btnXoaLoaiMon.Location = new System.Drawing.Point(139, 19);
+            this.btnXoaLoaiMon.Location = new System.Drawing.Point(257, 19);
             this.btnXoaLoaiMon.Name = "btnXoaLoaiMon";
             this.btnXoaLoaiMon.Size = new System.Drawing.Size(105, 40);
             this.btnXoaLoaiMon.TabIndex = 3;
@@ -560,7 +560,7 @@
             this.metroPanel6.HorizontalScrollbarSize = 10;
             this.metroPanel6.Location = new System.Drawing.Point(4, 0);
             this.metroPanel6.Name = "metroPanel6";
-            this.metroPanel6.Size = new System.Drawing.Size(285, 39);
+            this.metroPanel6.Size = new System.Drawing.Size(291, 39);
             this.metroPanel6.TabIndex = 4;
             this.metroPanel6.VerticalScrollbarBarColor = true;
             this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
@@ -574,7 +574,7 @@
             // 
             // 
             this.txtTimKiemLoaiMon.CustomButton.Image = null;
-            this.txtTimKiemLoaiMon.CustomButton.Location = new System.Drawing.Point(171, 1);
+            this.txtTimKiemLoaiMon.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.txtTimKiemLoaiMon.CustomButton.Name = "";
             this.txtTimKiemLoaiMon.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemLoaiMon.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -594,7 +594,7 @@
             this.txtTimKiemLoaiMon.SelectionLength = 0;
             this.txtTimKiemLoaiMon.SelectionStart = 0;
             this.txtTimKiemLoaiMon.ShortcutsEnabled = true;
-            this.txtTimKiemLoaiMon.Size = new System.Drawing.Size(193, 23);
+            this.txtTimKiemLoaiMon.Size = new System.Drawing.Size(199, 23);
             this.txtTimKiemLoaiMon.TabIndex = 3;
             this.txtTimKiemLoaiMon.Text = "Tìm kiếm tên loại món";
             this.txtTimKiemLoaiMon.UseSelectable = true;
@@ -609,7 +609,7 @@
             this.btnTimKiemTenLoaiMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTimKiemTenLoaiMon.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnTimKiemTenLoaiMon.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemTenLoaiMon.Location = new System.Drawing.Point(212, 7);
+            this.btnTimKiemTenLoaiMon.Location = new System.Drawing.Point(218, 7);
             this.btnTimKiemTenLoaiMon.Name = "btnTimKiemTenLoaiMon";
             this.btnTimKiemTenLoaiMon.Size = new System.Drawing.Size(70, 23);
             this.btnTimKiemTenLoaiMon.TabIndex = 2;
@@ -628,7 +628,7 @@
             this.metroPanel5.HorizontalScrollbarSize = 10;
             this.metroPanel5.Location = new System.Drawing.Point(4, 36);
             this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(285, 439);
+            this.metroPanel5.Size = new System.Drawing.Size(291, 439);
             this.metroPanel5.TabIndex = 0;
             this.metroPanel5.VerticalScrollbarBarColor = true;
             this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
@@ -643,14 +643,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLoaiMon.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvLoaiMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLoaiMon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle15.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle15.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle15.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLoaiMon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle15;
             this.dgvLoaiMon.ColumnHeadersHeight = 70;
             this.dgvLoaiMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLoaiMon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -663,14 +663,14 @@
             this.dgvLoaiMon.MultiSelect = false;
             this.dgvLoaiMon.Name = "dgvLoaiMon";
             this.dgvLoaiMon.RowHeadersVisible = false;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvLoaiMon.RowsDefaultCellStyle = dataGridViewCellStyle3;
+            dataGridViewCellStyle17.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle17.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvLoaiMon.RowsDefaultCellStyle = dataGridViewCellStyle17;
             this.dgvLoaiMon.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvLoaiMon.RowTemplate.Height = 35;
             this.dgvLoaiMon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLoaiMon.Size = new System.Drawing.Size(269, 427);
+            this.dgvLoaiMon.Size = new System.Drawing.Size(275, 427);
             this.dgvLoaiMon.TabIndex = 2;
             this.dgvLoaiMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiMon_CellClick);
             // 
@@ -678,8 +678,8 @@
             // 
             this.colMaLoaiMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colMaLoaiMon.DataPropertyName = "MaLoaiMon";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaLoaiMon.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle16.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaLoaiMon.DefaultCellStyle = dataGridViewCellStyle16;
             this.colMaLoaiMon.HeaderText = "Mã loại món";
             this.colMaLoaiMon.Name = "colMaLoaiMon";
             this.colMaLoaiMon.ReadOnly = true;
@@ -828,7 +828,7 @@
             this.btnSuaLoaiTopping.BackColor = System.Drawing.Color.DimGray;
             this.btnSuaLoaiTopping.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSuaLoaiTopping.ForeColor = System.Drawing.Color.White;
-            this.btnSuaLoaiTopping.Location = new System.Drawing.Point(257, 19);
+            this.btnSuaLoaiTopping.Location = new System.Drawing.Point(139, 19);
             this.btnSuaLoaiTopping.Name = "btnSuaLoaiTopping";
             this.btnSuaLoaiTopping.Size = new System.Drawing.Size(105, 40);
             this.btnSuaLoaiTopping.TabIndex = 4;
@@ -844,7 +844,7 @@
             this.btnXoaLoaiTopping.BackColor = System.Drawing.Color.Firebrick;
             this.btnXoaLoaiTopping.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnXoaLoaiTopping.ForeColor = System.Drawing.Color.White;
-            this.btnXoaLoaiTopping.Location = new System.Drawing.Point(139, 19);
+            this.btnXoaLoaiTopping.Location = new System.Drawing.Point(257, 19);
             this.btnXoaLoaiTopping.Name = "btnXoaLoaiTopping";
             this.btnXoaLoaiTopping.Size = new System.Drawing.Size(105, 40);
             this.btnXoaLoaiTopping.TabIndex = 3;
@@ -1007,7 +1007,7 @@
             this.metroPanel12.HorizontalScrollbarSize = 10;
             this.metroPanel12.Location = new System.Drawing.Point(4, 0);
             this.metroPanel12.Name = "metroPanel12";
-            this.metroPanel12.Size = new System.Drawing.Size(285, 39);
+            this.metroPanel12.Size = new System.Drawing.Size(291, 39);
             this.metroPanel12.TabIndex = 4;
             this.metroPanel12.VerticalScrollbarBarColor = true;
             this.metroPanel12.VerticalScrollbarHighlightOnWheel = false;
@@ -1021,7 +1021,7 @@
             // 
             // 
             this.txtTimKiemLoaiTopping.CustomButton.Image = null;
-            this.txtTimKiemLoaiTopping.CustomButton.Location = new System.Drawing.Point(171, 1);
+            this.txtTimKiemLoaiTopping.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.txtTimKiemLoaiTopping.CustomButton.Name = "";
             this.txtTimKiemLoaiTopping.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemLoaiTopping.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1041,7 +1041,7 @@
             this.txtTimKiemLoaiTopping.SelectionLength = 0;
             this.txtTimKiemLoaiTopping.SelectionStart = 0;
             this.txtTimKiemLoaiTopping.ShortcutsEnabled = true;
-            this.txtTimKiemLoaiTopping.Size = new System.Drawing.Size(193, 23);
+            this.txtTimKiemLoaiTopping.Size = new System.Drawing.Size(199, 23);
             this.txtTimKiemLoaiTopping.TabIndex = 3;
             this.txtTimKiemLoaiTopping.Text = "Tìm kiếm tên loại topping";
             this.txtTimKiemLoaiTopping.UseSelectable = true;
@@ -1056,7 +1056,7 @@
             this.btnTimKiemLoaiTopping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTimKiemLoaiTopping.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnTimKiemLoaiTopping.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemLoaiTopping.Location = new System.Drawing.Point(212, 7);
+            this.btnTimKiemLoaiTopping.Location = new System.Drawing.Point(218, 7);
             this.btnTimKiemLoaiTopping.Name = "btnTimKiemLoaiTopping";
             this.btnTimKiemLoaiTopping.Size = new System.Drawing.Size(70, 23);
             this.btnTimKiemLoaiTopping.TabIndex = 2;
@@ -1075,7 +1075,7 @@
             this.metroPanel13.HorizontalScrollbarSize = 10;
             this.metroPanel13.Location = new System.Drawing.Point(4, 36);
             this.metroPanel13.Name = "metroPanel13";
-            this.metroPanel13.Size = new System.Drawing.Size(285, 439);
+            this.metroPanel13.Size = new System.Drawing.Size(291, 439);
             this.metroPanel13.TabIndex = 0;
             this.metroPanel13.VerticalScrollbarBarColor = true;
             this.metroPanel13.VerticalScrollbarHighlightOnWheel = false;
@@ -1091,14 +1091,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvLoaiTopping.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvLoaiTopping.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLoaiTopping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
+            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle18.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle18.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle18.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLoaiTopping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle18;
             this.dgvLoaiTopping.ColumnHeadersHeight = 70;
             this.dgvLoaiTopping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvLoaiTopping.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1110,14 +1110,14 @@
             this.dgvLoaiTopping.MultiSelect = false;
             this.dgvLoaiTopping.Name = "dgvLoaiTopping";
             this.dgvLoaiTopping.RowHeadersVisible = false;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvLoaiTopping.RowsDefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle20.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle20.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvLoaiTopping.RowsDefaultCellStyle = dataGridViewCellStyle20;
             this.dgvLoaiTopping.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvLoaiTopping.RowTemplate.Height = 35;
             this.dgvLoaiTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLoaiTopping.Size = new System.Drawing.Size(269, 427);
+            this.dgvLoaiTopping.Size = new System.Drawing.Size(275, 427);
             this.dgvLoaiTopping.TabIndex = 2;
             this.dgvLoaiTopping.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiTopping_CellClick);
             // 
@@ -1125,8 +1125,8 @@
             // 
             this.colMaLoaiTopping.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colMaLoaiTopping.DataPropertyName = "MaLoaiTopping";
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaLoaiTopping.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle19.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaLoaiTopping.DefaultCellStyle = dataGridViewCellStyle19;
             this.colMaLoaiTopping.HeaderText = "Mã loại topping";
             this.colMaLoaiTopping.Name = "colMaLoaiTopping";
             this.colMaLoaiTopping.ReadOnly = true;
@@ -1248,7 +1248,7 @@
             this.btnSuaMon.BackColor = System.Drawing.Color.DimGray;
             this.btnSuaMon.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSuaMon.ForeColor = System.Drawing.Color.White;
-            this.btnSuaMon.Location = new System.Drawing.Point(257, 19);
+            this.btnSuaMon.Location = new System.Drawing.Point(139, 19);
             this.btnSuaMon.Name = "btnSuaMon";
             this.btnSuaMon.Size = new System.Drawing.Size(105, 40);
             this.btnSuaMon.TabIndex = 4;
@@ -1264,7 +1264,7 @@
             this.btnXoaMon.BackColor = System.Drawing.Color.Firebrick;
             this.btnXoaMon.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnXoaMon.ForeColor = System.Drawing.Color.White;
-            this.btnXoaMon.Location = new System.Drawing.Point(139, 19);
+            this.btnXoaMon.Location = new System.Drawing.Point(257, 19);
             this.btnXoaMon.Name = "btnXoaMon";
             this.btnXoaMon.Size = new System.Drawing.Size(105, 40);
             this.btnXoaMon.TabIndex = 3;
@@ -1349,6 +1349,7 @@
             this.txtGiaTien.UseSelectable = true;
             this.txtGiaTien.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGiaTien.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtGiaTien.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaTien_KeyPress);
             // 
             // picHinhMon
             // 
@@ -1518,7 +1519,7 @@
             this.metroPanel18.HorizontalScrollbarSize = 10;
             this.metroPanel18.Location = new System.Drawing.Point(4, 0);
             this.metroPanel18.Name = "metroPanel18";
-            this.metroPanel18.Size = new System.Drawing.Size(285, 39);
+            this.metroPanel18.Size = new System.Drawing.Size(291, 39);
             this.metroPanel18.TabIndex = 4;
             this.metroPanel18.VerticalScrollbarBarColor = true;
             this.metroPanel18.VerticalScrollbarHighlightOnWheel = false;
@@ -1532,7 +1533,7 @@
             // 
             // 
             this.txtTimKiemMon.CustomButton.Image = null;
-            this.txtTimKiemMon.CustomButton.Location = new System.Drawing.Point(171, 1);
+            this.txtTimKiemMon.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.txtTimKiemMon.CustomButton.Name = "";
             this.txtTimKiemMon.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemMon.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1552,7 +1553,7 @@
             this.txtTimKiemMon.SelectionLength = 0;
             this.txtTimKiemMon.SelectionStart = 0;
             this.txtTimKiemMon.ShortcutsEnabled = true;
-            this.txtTimKiemMon.Size = new System.Drawing.Size(193, 23);
+            this.txtTimKiemMon.Size = new System.Drawing.Size(199, 23);
             this.txtTimKiemMon.TabIndex = 3;
             this.txtTimKiemMon.Text = "Tìm kiếm tên món";
             this.txtTimKiemMon.UseSelectable = true;
@@ -1567,7 +1568,7 @@
             this.btnTimKiemCuaMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTimKiemCuaMon.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnTimKiemCuaMon.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemCuaMon.Location = new System.Drawing.Point(212, 7);
+            this.btnTimKiemCuaMon.Location = new System.Drawing.Point(218, 7);
             this.btnTimKiemCuaMon.Name = "btnTimKiemCuaMon";
             this.btnTimKiemCuaMon.Size = new System.Drawing.Size(70, 23);
             this.btnTimKiemCuaMon.TabIndex = 2;
@@ -1586,7 +1587,7 @@
             this.metroPanel19.HorizontalScrollbarSize = 10;
             this.metroPanel19.Location = new System.Drawing.Point(4, 36);
             this.metroPanel19.Name = "metroPanel19";
-            this.metroPanel19.Size = new System.Drawing.Size(285, 439);
+            this.metroPanel19.Size = new System.Drawing.Size(291, 439);
             this.metroPanel19.TabIndex = 0;
             this.metroPanel19.VerticalScrollbarBarColor = true;
             this.metroPanel19.VerticalScrollbarHighlightOnWheel = false;
@@ -1602,14 +1603,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvMon.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvMon.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvMon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle21.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle21.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle21.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvMon.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle21;
             this.dgvMon.ColumnHeadersHeight = 70;
             this.dgvMon.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvMon.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1624,14 +1625,14 @@
             this.dgvMon.MultiSelect = false;
             this.dgvMon.Name = "dgvMon";
             this.dgvMon.RowHeadersVisible = false;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvMon.RowsDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle24.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle24.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvMon.RowsDefaultCellStyle = dataGridViewCellStyle24;
             this.dgvMon.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvMon.RowTemplate.Height = 35;
             this.dgvMon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvMon.Size = new System.Drawing.Size(269, 427);
+            this.dgvMon.Size = new System.Drawing.Size(275, 427);
             this.dgvMon.TabIndex = 2;
             this.dgvMon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvMon_CellClick);
             this.dgvMon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMon_CellFormatting);
@@ -1641,8 +1642,8 @@
             // 
             this.colMaMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colMaMon.DataPropertyName = "MaMon";
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaMon.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaMon.DefaultCellStyle = dataGridViewCellStyle22;
             this.colMaMon.HeaderText = "Mã món";
             this.colMaMon.Name = "colMaMon";
             this.colMaMon.ReadOnly = true;
@@ -1667,9 +1668,9 @@
             // colGiaTien
             // 
             this.colGiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "#,##0đ";
-            this.colGiaTien.DefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "#,##0đ";
+            this.colGiaTien.DefaultCellStyle = dataGridViewCellStyle23;
             this.colGiaTien.HeaderText = "Giá";
             this.colGiaTien.Name = "colGiaTien";
             this.colGiaTien.ReadOnly = true;
@@ -1794,7 +1795,7 @@
             this.btnSuaTopping.BackColor = System.Drawing.Color.DimGray;
             this.btnSuaTopping.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnSuaTopping.ForeColor = System.Drawing.Color.White;
-            this.btnSuaTopping.Location = new System.Drawing.Point(257, 19);
+            this.btnSuaTopping.Location = new System.Drawing.Point(139, 19);
             this.btnSuaTopping.Name = "btnSuaTopping";
             this.btnSuaTopping.Size = new System.Drawing.Size(105, 40);
             this.btnSuaTopping.TabIndex = 4;
@@ -1810,7 +1811,7 @@
             this.btnXoaTopping.BackColor = System.Drawing.Color.Firebrick;
             this.btnXoaTopping.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnXoaTopping.ForeColor = System.Drawing.Color.White;
-            this.btnXoaTopping.Location = new System.Drawing.Point(139, 19);
+            this.btnXoaTopping.Location = new System.Drawing.Point(257, 19);
             this.btnXoaTopping.Name = "btnXoaTopping";
             this.btnXoaTopping.Size = new System.Drawing.Size(105, 40);
             this.btnXoaTopping.TabIndex = 3;
@@ -1918,6 +1919,7 @@
             this.txtGiaTienTopping.UseSelectable = true;
             this.txtGiaTienTopping.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtGiaTienTopping.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtGiaTienTopping.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtGiaTienTopping_KeyPress);
             // 
             // metroLabel13
             // 
@@ -2064,7 +2066,7 @@
             this.metroPanel23.HorizontalScrollbarSize = 10;
             this.metroPanel23.Location = new System.Drawing.Point(4, 0);
             this.metroPanel23.Name = "metroPanel23";
-            this.metroPanel23.Size = new System.Drawing.Size(285, 39);
+            this.metroPanel23.Size = new System.Drawing.Size(291, 39);
             this.metroPanel23.TabIndex = 4;
             this.metroPanel23.VerticalScrollbarBarColor = true;
             this.metroPanel23.VerticalScrollbarHighlightOnWheel = false;
@@ -2078,7 +2080,7 @@
             // 
             // 
             this.txtTimKiemTopping.CustomButton.Image = null;
-            this.txtTimKiemTopping.CustomButton.Location = new System.Drawing.Point(171, 1);
+            this.txtTimKiemTopping.CustomButton.Location = new System.Drawing.Point(177, 1);
             this.txtTimKiemTopping.CustomButton.Name = "";
             this.txtTimKiemTopping.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemTopping.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -2098,7 +2100,7 @@
             this.txtTimKiemTopping.SelectionLength = 0;
             this.txtTimKiemTopping.SelectionStart = 0;
             this.txtTimKiemTopping.ShortcutsEnabled = true;
-            this.txtTimKiemTopping.Size = new System.Drawing.Size(193, 23);
+            this.txtTimKiemTopping.Size = new System.Drawing.Size(199, 23);
             this.txtTimKiemTopping.TabIndex = 3;
             this.txtTimKiemTopping.Text = "Tìm kiếm tên topping";
             this.txtTimKiemTopping.UseSelectable = true;
@@ -2111,7 +2113,7 @@
             this.btnTimKiemTopping.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTimKiemTopping.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnTimKiemTopping.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemTopping.Location = new System.Drawing.Point(212, 7);
+            this.btnTimKiemTopping.Location = new System.Drawing.Point(218, 7);
             this.btnTimKiemTopping.Name = "btnTimKiemTopping";
             this.btnTimKiemTopping.Size = new System.Drawing.Size(70, 23);
             this.btnTimKiemTopping.TabIndex = 2;
@@ -2130,7 +2132,7 @@
             this.metroPanel24.HorizontalScrollbarSize = 10;
             this.metroPanel24.Location = new System.Drawing.Point(4, 36);
             this.metroPanel24.Name = "metroPanel24";
-            this.metroPanel24.Size = new System.Drawing.Size(285, 439);
+            this.metroPanel24.Size = new System.Drawing.Size(291, 439);
             this.metroPanel24.TabIndex = 0;
             this.metroPanel24.VerticalScrollbarBarColor = true;
             this.metroPanel24.VerticalScrollbarHighlightOnWheel = false;
@@ -2146,14 +2148,14 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvTopping.BackgroundColor = System.Drawing.Color.PapayaWhip;
             this.dgvTopping.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTopping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle25.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTopping.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
             this.dgvTopping.ColumnHeadersHeight = 70;
             this.dgvTopping.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvTopping.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -2168,14 +2170,14 @@
             this.dgvTopping.MultiSelect = false;
             this.dgvTopping.Name = "dgvTopping";
             this.dgvTopping.RowHeadersVisible = false;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvTopping.RowsDefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvTopping.RowsDefaultCellStyle = dataGridViewCellStyle28;
             this.dgvTopping.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTopping.RowTemplate.Height = 35;
             this.dgvTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTopping.Size = new System.Drawing.Size(269, 427);
+            this.dgvTopping.Size = new System.Drawing.Size(275, 427);
             this.dgvTopping.TabIndex = 2;
             this.dgvTopping.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopping_CellClick);
             this.dgvTopping.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTopping_CellFormatting);
@@ -2185,8 +2187,8 @@
             // 
             this.colMaTopping.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.colMaTopping.DataPropertyName = "MaTopping";
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaTopping.DefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaTopping.DefaultCellStyle = dataGridViewCellStyle26;
             this.colMaTopping.HeaderText = "Mã topping";
             this.colMaTopping.Name = "colMaTopping";
             this.colMaTopping.ReadOnly = true;
@@ -2211,9 +2213,9 @@
             // colGiaTienTopping
             // 
             this.colGiaTienTopping.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle13.Format = "#,##0đ";
-            this.colGiaTienTopping.DefaultCellStyle = dataGridViewCellStyle13;
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle27.Format = "#,##0đ";
+            this.colGiaTienTopping.DefaultCellStyle = dataGridViewCellStyle27;
             this.colGiaTienTopping.HeaderText = "Giá";
             this.colGiaTienTopping.Name = "colGiaTienTopping";
             this.colGiaTienTopping.ReadOnly = true;

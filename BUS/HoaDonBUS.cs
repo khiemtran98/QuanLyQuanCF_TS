@@ -24,7 +24,7 @@ namespace BUS
 
             foreach (CTHoaDonDTO cthd in lsCTHD)
             {
-                if (!CTHoaDon.LuuCTHoaDon(cthd))
+                if (!CTHoaDonDAO.LuuCTHoaDon(cthd))
                 {
                     return false;
                 }

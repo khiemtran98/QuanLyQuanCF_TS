@@ -16,7 +16,7 @@ namespace DTO
 
         public int MaPhieuNhap { get => maPhieuNhap; set => maPhieuNhap = value; }
         public int MaNguyenLieu { get => maNguyenLieu; set => maNguyenLieu = value; }
-        public int KhoiLuong { get => soLuong; set => soLuong = value; }
+        public int SoLuong { get => soLuong; set => soLuong = value; }
         public string DonViTinh { get => donViTinh; set => donViTinh = value; }
         public double DonGia { get => donGia; set => donGia = value; }
     }

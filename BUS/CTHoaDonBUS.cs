@@ -12,12 +12,12 @@ namespace BUS
     {
         public static int LayMaCTHoaDonMoiNhat()
         {
-            return CTHoaDon.LayMaCTHoaDonMoiNhat();
+            return CTHoaDonDAO.LayMaCTHoaDonMoiNhat();
         }
 
         public static List<CTHoaDonDTO> LayDanhSachCTHD(int maHoaDon)
         {
-            return CTHoaDon.LayDanhSachCTHD(maHoaDon);
+            return CTHoaDonDAO.LayDanhSachCTHD(maHoaDon);
         }
     }
 }
