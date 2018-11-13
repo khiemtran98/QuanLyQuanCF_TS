@@ -51,6 +51,7 @@
     <Compile Include="LoaiTaiKhoanDAO.cs" />
     <Compile Include="LoaiToppingDAO.cs" />
     <Compile Include="MonDAO.cs" />
+    <Compile Include="NguyenLieuDAO.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToppingDAO.cs" />

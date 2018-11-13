@@ -17,7 +17,7 @@ create table TaiKhoan
 	mat_khau varchar(max) not null,
 	ngay_bat_dau date not null,
 	loai_tai_khoan int not null,
-	hinh nvarchar(max),
+	hinh nvarchar(max) default 'default-account.png',
 	trang_thai bit not null,
 	constraint PK_TaiKhoan primary key (ma_tai_khoan),
 	constraint FK_TaiKhoan_LoaiTaiKhoan foreign key (loai_tai_khoan) references LoaiTaiKhoan(ma_loai_tai_khoan)
@@ -53,7 +53,7 @@ create table Mon
 	ma_mon int identity,
 	ten_mon nvarchar(max) not null,
 	loai_mon int not null,
-	hinh nvarchar(max),
+	hinh nvarchar(max) default 'default-product.png',
 	gia_tien float not null,
 	trang_thai bit not null,
 	constraint PK_Mon primary key (ma_mon),
@@ -169,12 +169,14 @@ create table CTLoaiMon_LoaiTopping
 )
 
 INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Administrator', 1)
+INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Manager', 1)
 INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Cashier', 1)
 INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Accountant', 1)
 
 INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'admin', '123', '1/1/2018', 1, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', '', '1/1/2018', 2, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', '', '1/1/2018', 3, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'manager', '123', '1/1/2018', 2, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', '', '1/1/2018', 3, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', '', '1/1/2018', 4, 'default-account.png' ,1)
 
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Trà sữa', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Cà phê', 1, 1)
@@ -282,16 +284,31 @@ INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Thống kê nhập hàng')
 INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Thống kê doanh thu')
 INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Nhập hàng')
 INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Bán hàng')
+INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Báo cáo')
 INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Cài đặt')
 
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (1, 1)
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (2, 1)
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (3, 1)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (4, 3)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (5, 3)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 3)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 2)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (4, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (5, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (9, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 1)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (1, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (2, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (3, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (9, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 2)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (4, 4)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (5, 4)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 4)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 4)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 3)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 3)
+INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 3)
 
 INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 1', 1)
 INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 2', 1)

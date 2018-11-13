@@ -1,10 +1,10 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.6.3: Phân quyền loại tài khoản
+> ## Update 2.6.4: Thêm chức năng báo cáo
 
 ### # CÁC THAY ĐỔI
 
-  *Thực ra viết thì cũng đéo ai đọc.*
+  Cải thiện chức năng quản lý tài khoản và thêm báo cáo.
   
 ### # QUAN TRỌNG
 
@@ -18,7 +18,7 @@
   
   2. Di chuyển tất cả thư mục trong **assets** ra ngoài thư mục project.
   
-  3. Mở project.
+  3. Chạy file **Microsoft.RdlcDesigner.vsix** để cài đặt Report.
 
   3. Thêm chuỗi kết nối database trong class *DataProvider*.
   
@@ -51,6 +51,8 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.6.3: Phân quyền loại tài khoản
 
 > #### Update 2.6.2: Tạo bản mẫu thống kê hoá đơn
 

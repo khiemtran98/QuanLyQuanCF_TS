@@ -93,6 +93,7 @@
             this.Text = "Thống kê doanh thu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmThongKeDoanhThu_FormClosed);
+            this.Load += new System.EventHandler(this.FrmThongKeDoanhThu_Load);
             this.metroPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -92,7 +92,42 @@ namespace DAO
             connection.Close();
             return result;
         }
+        public static List<MonDTO> LayDanhSachMon(int maLoaiMon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
 
+            string query = "SELECT * FROM Mon WHERE loai_mon=@maLoaiMon";
+            SqlCommand command = new SqlCommand();
+             command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0,"loai_mon").Value = maLoaiMon;
+            
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<MonDTO> result = new List<MonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    MonDTO mon = new MonDTO();
+                    mon.MaMon = reader.GetInt32(0);
+                    mon.TenMon = reader.GetString(1);
+                    mon.LoaiMon = reader.GetInt32(2);
+                    if (!reader.IsDBNull(3))
+                    {
+                        mon.Hinh = reader.GetString(3);
+                    }
+                    mon.GiaTien = reader.GetDouble(4);
+                    mon.TrangThai = reader.GetBoolean(5);
+                    result.Add(mon);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
         public static bool KiemTraMonLaNuocUong(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();

@@ -41,5 +41,10 @@ namespace QuanLyQuanCF_TS
         {
             _Instance = null;
         }
+
+        private void FrmQuanLyKho_Load(object sender, EventArgs e)
+        {
+            tbcQuanLyKho.SelectedTab = tbpNguyenLieu;
+        }
     }
 }

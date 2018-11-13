@@ -19,6 +19,10 @@ namespace BUS
         {
             return LoaiMonDAO.LayDanhSachLoaiMon(timKiem, trangThai);
         }
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon()
+        {
+            return LoaiMonDAO.LayDanhSachLoaiMon();
+        }
 
         public static bool ThemLoaiMon(LoaiMonDTO loaiMon, List<CTLoaiMon_LoaiToppingDTO> lsLoaiMon_LoaiTopping)
         {

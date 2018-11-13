@@ -22,7 +22,7 @@ namespace QuanLyQuanCF_TS
 
         private void MoFormDangNhap()
         {
-            metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = false;
+            metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = metroPanel15.Visible = metroPanel16.Visible = false;
             metroPanel1.Visible = metroPanel2.Visible = true;
             this.WindowState = FormWindowState.Normal;
             this.Movable = true;
@@ -46,31 +46,47 @@ namespace QuanLyQuanCF_TS
             List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoan(maTaiKhoan);
             foreach (ChucNang_LoaiTaiKhoanDTO chucNang_LoaiTaiKhoan in lsChucNang_LoaiTaiKhoan)
             {
-                switch(chucNang_LoaiTaiKhoan.MaChucNang)
+                switch (chucNang_LoaiTaiKhoan.MaChucNang)
                 {
                     case 1:
                         metroPanel5.Visible = true;
+                        metroPanel5.BringToFront();
                         break;
                     case 2:
                         metroPanel6.Visible = true;
+                        metroPanel6.BringToFront();
                         break;
                     case 3:
                         metroPanel10.Visible = true;
+                        metroPanel10.BringToFront();
                         break;
                     case 4:
                         metroPanel7.Visible = true;
+                        metroPanel7.BringToFront();
                         break;
                     case 5:
                         metroPanel8.Visible = true;
+                        metroPanel8.BringToFront();
                         break;
                     case 6:
                         metroPanel11.Visible = true;
+                        metroPanel11.BringToFront();
                         break;
                     case 7:
                         metroPanel13.Visible = true;
+                        metroPanel13.BringToFront();
                         break;
                     case 8:
                         metroPanel14.Visible = true;
+                        metroPanel14.BringToFront();
+                        break;
+                    case 9:
+                        metroPanel15.Visible = true;
+                        metroPanel15.BringToFront();
+                        break;
+                    case 10:
+                        metroPanel16.Visible = true;
+                        metroPanel16.BringToFront();
                         break;
                 }
             }
@@ -122,6 +138,11 @@ namespace QuanLyQuanCF_TS
         }
 
         private void btnDangXuat_Click(object sender, EventArgs e)
+        {
+            DangXuat();
+        }
+
+        public void DangXuat()
         {
             XuLyChuyenForm();
             TaiKhoanBUS.LuuTaiKhoanDangNhap(-1);
@@ -206,6 +227,16 @@ namespace QuanLyQuanCF_TS
             m_frmBanHang.MdiParent = this;
             m_frmBanHang.Dock = DockStyle.Fill;
             m_frmBanHang.Show();
+        }
+
+        private void mBaoCao_Click(object sender, EventArgs e)
+        {
+            Cursor.Current = Cursors.WaitCursor;
+            XuLyChuyenForm();
+            FrmBaoCao m_frmBaoCao = FrmBaoCao.Instance;
+            m_frmBaoCao.MdiParent = this;
+            m_frmBaoCao.Dock = DockStyle.Fill;
+            m_frmBaoCao.Show();
         }
 
         private void mCaiDat_Click(object sender, EventArgs e)

@@ -42,6 +42,8 @@
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
             this.gpbChucNang = new System.Windows.Forms.GroupBox();
+            this.chkCaiDat = new MetroFramework.Controls.MetroCheckBox();
+            this.chkBaoCao = new MetroFramework.Controls.MetroCheckBox();
             this.chkBanHang = new MetroFramework.Controls.MetroCheckBox();
             this.chkNhapHang = new MetroFramework.Controls.MetroCheckBox();
             this.chkThongKeDoanhThu = new MetroFramework.Controls.MetroCheckBox();
@@ -189,7 +191,7 @@
             this.tbcQuanLyTaiKhoan.FontWeight = MetroFramework.MetroTabControlWeight.Regular;
             this.tbcQuanLyTaiKhoan.Location = new System.Drawing.Point(41, 0);
             this.tbcQuanLyTaiKhoan.Name = "tbcQuanLyTaiKhoan";
-            this.tbcQuanLyTaiKhoan.SelectedIndex = 0;
+            this.tbcQuanLyTaiKhoan.SelectedIndex = 1;
             this.tbcQuanLyTaiKhoan.Size = new System.Drawing.Size(804, 632);
             this.tbcQuanLyTaiKhoan.TabIndex = 21;
             this.tbcQuanLyTaiKhoan.TextAlign = System.Drawing.ContentAlignment.TopLeft;
@@ -272,6 +274,8 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbChucNang.AutoSize = true;
             this.gpbChucNang.BackColor = System.Drawing.Color.White;
+            this.gpbChucNang.Controls.Add(this.chkCaiDat);
+            this.gpbChucNang.Controls.Add(this.chkBaoCao);
             this.gpbChucNang.Controls.Add(this.chkBanHang);
             this.gpbChucNang.Controls.Add(this.chkNhapHang);
             this.gpbChucNang.Controls.Add(this.chkThongKeDoanhThu);
@@ -286,6 +290,28 @@
             this.gpbChucNang.Size = new System.Drawing.Size(321, 165);
             this.gpbChucNang.TabIndex = 23;
             this.gpbChucNang.TabStop = false;
+            // 
+            // chkCaiDat
+            // 
+            this.chkCaiDat.AccessibleName = "10";
+            this.chkCaiDat.AutoSize = true;
+            this.chkCaiDat.Location = new System.Drawing.Point(138, 121);
+            this.chkCaiDat.Name = "chkCaiDat";
+            this.chkCaiDat.Size = new System.Drawing.Size(60, 15);
+            this.chkCaiDat.TabIndex = 9;
+            this.chkCaiDat.Text = "Cài đặt";
+            this.chkCaiDat.UseSelectable = true;
+            // 
+            // chkBaoCao
+            // 
+            this.chkBaoCao.AccessibleName = "9";
+            this.chkBaoCao.AutoSize = true;
+            this.chkBaoCao.Location = new System.Drawing.Point(138, 100);
+            this.chkBaoCao.Name = "chkBaoCao";
+            this.chkBaoCao.Size = new System.Drawing.Size(65, 15);
+            this.chkBaoCao.TabIndex = 8;
+            this.chkBaoCao.Text = "Báo cáo";
+            this.chkBaoCao.UseSelectable = true;
             // 
             // chkBanHang
             // 
@@ -592,6 +618,7 @@
             // 
             // dgvLoaiTaiKhoan
             // 
+            this.dgvLoaiTaiKhoan.AllowUserToAddRows = false;
             this.dgvLoaiTaiKhoan.AllowUserToDeleteRows = false;
             this.dgvLoaiTaiKhoan.AllowUserToResizeRows = false;
             this.dgvLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -942,7 +969,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNgayBatDau.Enabled = false;
             this.dtpNgayBatDau.Location = new System.Drawing.Point(135, 162);
-            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
             this.dtpNgayBatDau.Size = new System.Drawing.Size(348, 30);
             this.dtpNgayBatDau.TabIndex = 12;
@@ -1114,6 +1141,7 @@
             // 
             // dgvTaiKhoan
             // 
+            this.dgvTaiKhoan.AllowUserToAddRows = false;
             this.dgvTaiKhoan.AllowUserToDeleteRows = false;
             this.dgvTaiKhoan.AllowUserToResizeRows = false;
             this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
@@ -1408,5 +1436,7 @@
         private MetroFramework.Controls.MetroCheckBox chkQuanLyKho;
         private MetroFramework.Controls.MetroCheckBox chkQuanLyMon;
         private MetroFramework.Controls.MetroCheckBox chkQuanLyTaiKhoan;
+        private MetroFramework.Controls.MetroCheckBox chkCaiDat;
+        private MetroFramework.Controls.MetroCheckBox chkBaoCao;
     }
 }

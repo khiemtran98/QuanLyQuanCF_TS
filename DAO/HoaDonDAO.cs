@@ -26,11 +26,13 @@ namespace DAO
         public static bool LuuHoaDon(HoaDonDTO hoaDon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "INSERT INTO HoaDon (nhan_vien_lap, ngay_lap, tong_tien, trang_thai) VALUES (@nhanVienLap, @ngayLap, @tongTien, @trangThai)";
+            string query = "INSERT INTO HoaDon (nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai) VALUES (@nhanVienLap, @ngayLap, @tongTien, @tienMat, @tienThua, @trangThai)";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@nhanVienLap", System.Data.SqlDbType.Int, 0).Value = hoaDon.NhanVienLap;
             command.Parameters.Add("@ngayLap", System.Data.SqlDbType.DateTime, 0).Value = hoaDon.NgayLap;
             command.Parameters.Add("@tongTien", System.Data.SqlDbType.Float, 0).Value = hoaDon.TongTien;
+            command.Parameters.Add("@tienMat", System.Data.SqlDbType.Float, 0).Value = hoaDon.TienMat;
+            command.Parameters.Add("@tienThua", System.Data.SqlDbType.Float, 0).Value = hoaDon.TienThua;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = hoaDon.TrangThai;
 
             connection.Open();
