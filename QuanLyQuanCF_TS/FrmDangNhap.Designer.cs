@@ -68,9 +68,9 @@
             this.lblPhienBan.AutoSize = true;
             this.lblPhienBan.Location = new System.Drawing.Point(717, 351);
             this.lblPhienBan.Name = "lblPhienBan";
-            this.lblPhienBan.Size = new System.Drawing.Size(42, 19);
+            this.lblPhienBan.Size = new System.Drawing.Size(32, 19);
             this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.6.4";
+            this.lblPhienBan.Text = "v2.7";
             // 
             // lblThongTin1
             // 

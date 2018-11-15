@@ -22,8 +22,8 @@ namespace QuanLyQuanCF_TS
 
         private void MoFormDangNhap()
         {
-            metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = metroPanel15.Visible = metroPanel16.Visible = false;
-            metroPanel1.Visible = metroPanel2.Visible = true;
+            //metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = metroPanel15.Visible = metroPanel16.Visible = false;
+            //metroPanel1.Visible = metroPanel2.Visible = true;
             this.WindowState = FormWindowState.Normal;
             this.Movable = true;
             this.Size = new Size(800, 458);
@@ -118,9 +118,9 @@ namespace QuanLyQuanCF_TS
         public void XuLyFormMain()
         {
             mPanel.Visible = true;
-            this.DisplayHeader = true;
             this.Movable = false;
             panelTaiKhoan.Visible = true;
+            this.DisplayHeader = true;
         }
 
         private void FrmMain_Load(object sender, EventArgs e)

@@ -45,6 +45,7 @@
     <Compile Include="CTHoaDonBUS.cs" />
     <Compile Include="CTHoaDon_ToppingBUS.cs" />
     <Compile Include="CTLoaiMon_LoaiToppingBUS.cs" />
+    <Compile Include="CTPhieuNhapBUS.cs" />
     <Compile Include="HoaDonBUS.cs" />
     <Compile Include="LoaiMonBUS.cs" />
     <Compile Include="LoaiTaiKhoanBUS.cs" />

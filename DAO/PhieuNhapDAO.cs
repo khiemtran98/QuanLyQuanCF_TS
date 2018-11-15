@@ -46,12 +46,102 @@ namespace DAO
             return false;
         }
 
-        public static List<PhieuNhapDTO> LayDanhSachPhieuNhap()
+        public static bool XoaPhieuNhap(int maPhieuNhap)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_phieu_nhap, nha_cung_cap, ngay_lap, tong_tien, trang_thai FROM PhieuNhap";
+            string query = "UPDATE PhieuNhap SET trang_thai=0 WHERE ma_phieu_nhap=@maPhieuNhap";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maPhieuNhap", System.Data.SqlDbType.Int, 0).Value = maPhieuNhap;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool KhoiPhucPhieuNhap(int maPhieuNhap)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE PhieuNhap SET trang_thai=1 WHERE ma_phieu_nhap=@maPhieuNhap";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maPhieuNhap", System.Data.SqlDbType.Int, 0).Value = maPhieuNhap;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static List<PhieuNhapDTO> LayDanhSachPhieuNhap(bool trangThai)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_phieu_nhap, nha_cung_cap, ngay_lap, tong_tien, trang_thai FROM PhieuNhap WHERE 1=1";
             SqlCommand command = new SqlCommand();
 
+            if (trangThai)
+            {
+                query += "AND trang_thai=1";
+            }
+            else
+            {
+                query += "AND trang_thai=0";
+            }
+
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<PhieuNhapDTO> result = new List<PhieuNhapDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    PhieuNhapDTO phieuNhap = new PhieuNhapDTO();
+                    phieuNhap.MaPhieuNhap = reader.GetInt32(0);
+                    phieuNhap.NhaCungCap = reader.GetInt32(1);
+                    phieuNhap.NgayLap = reader.GetDateTime(2);
+                    phieuNhap.TongTien = reader.GetDouble(3);
+                    phieuNhap.TrangThai = reader.GetBoolean(4);
+                    result.Add(phieuNhap);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
+
+        public static List<PhieuNhapDTO> LayDanhSachPhieuNhapTheoNgay(DateTime ngayNhap, bool trangThai)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_phieu_nhap, nha_cung_cap, ngay_lap, tong_tien, trang_thai FROM PhieuNhap WHERE DAY(ngay_lap)=@ngay AND MONTH(ngay_lap)=@thang AND YEAR(ngay_lap)=@nam";
+            if (trangThai)
+            {
+                query += " AND trang_thai=1";
+            }
+            else
+            {
+                query += " AND trang_thai=0";
+            }
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@ngay", System.Data.SqlDbType.Int, 0).Value = ngayNhap.Day;
+            command.Parameters.Add("@thang", System.Data.SqlDbType.Int, 0).Value = ngayNhap.Month;
+            command.Parameters.Add("@nam", System.Data.SqlDbType.Int, 0).Value = ngayNhap.Year;
             command.CommandText = query;
             command.Connection = connection;
 

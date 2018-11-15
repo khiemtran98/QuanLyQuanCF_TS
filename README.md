@@ -1,10 +1,22 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.6.4: Thêm chức năng báo cáo
+> ## Update 2.7: Hoàn thiện chức năng Quản lý kho + Nhập hàng
 
 ### # CÁC THAY ĐỔI
 
-  Cải thiện chức năng quản lý tài khoản và thêm báo cáo.
+  - Hoàn thiện chức năng **QL Kho**, **Nhập Hàng**.
+
+  - Tốc độ tải dữ liệu các form được cải thiện: **QL Tài Khoản**, **QL Món**.
+  
+  - Các chức năng sửa thông tin được cải thiện: **QL Loại Tài Khoản**, **QL Tài Khoản**.
+  
+  - Thay đổi cơ chế xoá ở tất cả form.
+  
+  - Hỗ trợ khôi phục dữ liệu đã xoá ở tất cả form.
+  
+  - Mã hoá mật khẩu tài khoản.
+  
+  - Sửa lỗi không thể xoá món hoặc tài khoản trong một số trường hợp.
   
 ### # QUAN TRỌNG
 
@@ -26,19 +38,25 @@
 
 ### # HƯỚNG DẪN SỬ DỤNG
 
-- **Chức năng Quản lý tài khoản**
+- **Quản lý tài khoản**
 
-  - Thay đổi trạng thái hoặc xoá để tài khoản không còn xuất hiện trong form đăng nhập và các bên liên quan.
+  - Thêm hoặc xoá để kiểm soát dữ liệu tài khoản xuất hiện trong form đăng nhập và các bên liên quan.
   
-- **Chức năng Quản lý món**
+- **Quản lý món**
 
-  - Thay đổi trạng thái hoặc xoá để món không còn xuất hiện trong form bán hàng và các bên liên quan.
+  - Thêm hoặc xoá để kiểm soát dữ liệu món xuất hiện trong form bán hàng và các bên liên quan.
 
-- **Chức năng Thống kê hoá đơn**
+- **Quản lý kho**
 
-  - *Đang xây dựng*
+  - Thêm hoặc xoá nguyên liệu sẽ để kiểm soát việc nhập nguyên liệu.
+  
+  - Xoá phiếu nhập sẽ trừ số lượng tồn kho của các nguyên liệu trong phiếu nhập.
+  
+- **Nhập hàng**
 
-- **Chức năng Bán hàng**
+  - Nhập hàng dựa trên dữ liệu nguyên liệu đã có. Số lượng tồn kho của nguyên liệu tự động tăng theo chi tiết phiếu nhập.
+
+- **Bán hàng**
 
   - Thêm món từ menu bằng cách nhấn trực tiếp vào món đó thay vì dùng phím Spacebar như trước.
   
@@ -51,6 +69,8 @@
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
 
 ---
+
+> #### Update 2.6.4: Thêm chức năng báo cáo
 
 > #### Update 2.6.3: Phân quyền loại tài khoản
 

@@ -37,6 +37,10 @@ namespace DAO
             {
                 query += " AND trang_thai=1";
             }
+            else
+            {
+                query += " AND trang_thai=0";
+            }
 
             command.CommandText = query;
             command.Connection = connection;
@@ -58,18 +62,15 @@ namespace DAO
                 }
             }
 
-
             connection.Close();
             return result;
         }
-        public static List<LoaiMonDTO> LayDanhSachLoaiMon()
+
+        public static List<LoaiMonDTO> LayDanhSachTatCaLoaiMon()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT * FROM LoaiMon ";
-            SqlCommand command = new SqlCommand();
-
-            command.CommandText = query;
-            command.Connection = connection;
+            string query = "SELECT ma_loai_mon, ten_loai_mon, la_do_uong, trang_thai FROM LoaiMon";
+            SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -87,10 +88,11 @@ namespace DAO
                     result.Add(loaiMon);
                 }
             }
-
+            
             connection.Close();
             return result;
         }
+
         public static bool ThemLoaiMon(LoaiMonDTO loaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
@@ -117,7 +119,7 @@ namespace DAO
         public static bool XoaLoaiMon(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM LoaiMon WHERE ma_loai_mon=@maLoaiMon";
+            string query = "UPDATE LoaiMon SET trang_thai=0 WHERE ma_loai_mon=@maLoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
 
             command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.NVarChar, 255).Value = maLoaiMon;
@@ -144,6 +146,27 @@ namespace DAO
             command.Parameters.Add("@tenLoaiMon", System.Data.SqlDbType.NVarChar, 255).Value = loaiMon.TenLoaiMon;
             command.Parameters.Add("@laDoUong", System.Data.SqlDbType.Bit, 0).Value = loaiMon.LaDoUong;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = loaiMon.TrangThai;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader > 0)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool KhoiPhucLoaiMon(int maLoaiMon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE LoaiMon SET trang_thai=1 WHERE ma_loai_mon=@maLoaiMon";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.NVarChar, 255).Value = maLoaiMon;
 
             connection.Open();
 

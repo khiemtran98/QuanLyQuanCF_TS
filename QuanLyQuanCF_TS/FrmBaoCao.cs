@@ -47,11 +47,11 @@ namespace QuanLyQuanCF_TS
 
         private void frmBaoCao_Load(object sender, EventArgs e)
         {
-            rpvReport.LocalReport.ReportEmbeddedResource = "QuanLyQuanCF_TS.rptGroupDanhSachMon.rdlc";
-            rpvReport.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
-            List<LoaiMonDTO> lstLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
-            rpvReport.LocalReport.DataSources.Add(new ReportDataSource("DSMON", lstLoaiMon));
-            this.rpvReport.RefreshReport();
+            //rpvReport.LocalReport.ReportEmbeddedResource = "QuanLyQuanCF_TS.rptGroupDanhSachMon.rdlc";
+            //rpvReport.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
+            //List<LoaiMonDTO> lstLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
+            //rpvReport.LocalReport.DataSources.Add(new ReportDataSource("DSMON", lstLoaiMon));
+            //this.rpvReport.RefreshReport();
         }
 
         private void LocalReport_SubreportProcessing(object sender,SubreportProcessingEventArgs e)

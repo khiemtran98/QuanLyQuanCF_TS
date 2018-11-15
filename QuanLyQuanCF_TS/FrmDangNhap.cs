@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using DTO;
 using BUS;
+using System.Security.Cryptography;
 
 namespace QuanLyQuanCF_TS
 {
@@ -33,9 +34,24 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private string MaHoaMatKhau(string matKhau)
+        {
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhau);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+
+            return sb.ToString();
+        }
+
         private void KiemTraDangNhap()
         {
-            if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, txtMatKhau.Text))
+            if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, MaHoaMatKhau(txtMatKhau.Text)))
             {
                 ((FrmMain)this.ParentForm).XuLyDangNhapThanhCong((int)cmbTaiKhoan.SelectedValue);
                 this.Close();
@@ -48,7 +64,7 @@ namespace QuanLyQuanCF_TS
 
         private void FrmDangNhap_Load(object sender, EventArgs e)
         {
-            cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan("", true);
+            cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan();
             cmbTaiKhoan.DisplayMember = "HoTen";
             cmbTaiKhoan.ValueMember = "MaTaiKhoan";
         }

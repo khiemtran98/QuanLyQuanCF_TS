@@ -30,6 +30,10 @@ namespace DAO
             {
                 query += " AND trang_thai=1";
             }
+            else
+            {
+                query += " AND trang_thai=0";
+            }
             command.CommandText = query;
             command.Connection = connection;
 
@@ -59,7 +63,7 @@ namespace DAO
         public static bool XoaToppingTheoLoai(int maLoaiTopping)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM Topping WHERE loai_topping=@maLoaiTopping";
+            string query = "UPDATE Topping SET trang_thai=0 WHERE loai_topping=@maLoaiTopping";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
 
@@ -132,7 +136,7 @@ namespace DAO
         public static bool XoaTopping(int maTopping)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM Topping WHERE ma_topping=@maTopping";
+            string query = "UPDATE Topping SET trang_thai=0 WHERE ma_topping=@maTopping";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maTopping", System.Data.SqlDbType.Int, 0).Value = maTopping;
 
@@ -160,6 +164,26 @@ namespace DAO
             command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = topping.GiaTien;
             command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = topping.Hinh;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = topping.TrangThai;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool KhoiPhucTopping(int maTopping)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE Topping SET trang_thai=1 WHERE ma_topping=@maTopping";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maTopping", System.Data.SqlDbType.Int, 0).Value = maTopping;
 
             connection.Open();
 

@@ -43,7 +43,7 @@ namespace QuanLyQuanCF_TS
         {
             grvBangChonNhanh.AutoGenerateColumns = false;
 
-            List<NguyenLieuDTO> lsNguyenLieu = NguyenLieuBUS.LoadDanhSachNguyenLieu();
+            List<NguyenLieuDTO> lsNguyenLieu = NguyenLieuBUS.LayDanhSachNguyenLieu();
             LoadBangChonNhanh(lsNguyenLieu);
             LoadDanhSachNguyenLieu(lsNguyenLieu);
             LoadNhaCungCap();
@@ -107,6 +107,8 @@ namespace QuanLyQuanCF_TS
         {
             if (grvBangChonNhanh.SelectedRows.Count > 0)
             {
+                btnThem.Enabled = true;
+                btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = false;
                 cmbNguyenLieu.SelectedValue = Convert.ToInt32(grvBangChonNhanh.SelectedRows[0].Cells["colQuickView_MaNguyenLieu"].Value);
                 lblDonViTinh.Text = grvBangChonNhanh.SelectedRows[0].Cells["colQuickView_DonViTinh"].Value.ToString();
             }
@@ -114,6 +116,8 @@ namespace QuanLyQuanCF_TS
 
         private void LamMoi(bool state = true)
         {
+            lblMaPhieu.Text = PhieuNhapBUS.LayMaPhieuNhapMoiNhat() + 1 + "";
+            dtpNgayLap.Value = DateTime.Now;
             txtSoLuong.Text = txtDonGia.Text = string.Empty;
             btnThem.Enabled = state;
             btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = !state;
@@ -144,11 +148,11 @@ namespace QuanLyQuanCF_TS
             row.Cells.Add(new DataGridViewTextBoxCell { Value = txtSoLuong.Text });
             if (txtDonGia.Text != "")
             {
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = Convert.ToDouble(txtDonGia.Text) + "đ" });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = Convert.ToDouble(txtDonGia.Text).ToString("#,###đ") });
             }
             else
             {
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = 0 + "đ" });
+                row.Cells.Add(new DataGridViewTextBoxCell { Value = 0.ToString("#,###đ") });
             }
             row.Cells.Add(new DataGridViewTextBoxCell { Value = lblDonViTinh.Text });
             dgvCTPhieuNhap.Rows.Add(row);
@@ -192,11 +196,12 @@ namespace QuanLyQuanCF_TS
 
         private void dgvCTPhieuNhap_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((DataGridViewComboBoxCell)dgvCTPhieuNhap.Rows[e.RowIndex].Cells["colMaNguyenLieu"]).DataSource = NguyenLieuBUS.LoadDanhSachNguyenLieu();
+            ((DataGridViewComboBoxCell)dgvCTPhieuNhap.Rows[e.RowIndex].Cells["colMaNguyenLieu"]).DataSource = NguyenLieuBUS.LayDanhSachNguyenLieu();
             ((DataGridViewComboBoxCell)dgvCTPhieuNhap.Rows[e.RowIndex].Cells["colMaNguyenLieu"]).DisplayMember = "TenNguyenLieu";
             ((DataGridViewComboBoxCell)dgvCTPhieuNhap.Rows[e.RowIndex].Cells["colMaNguyenLieu"]).ValueMember = "MaNguyenLieu";
 
             lblTongTien.Text = TinhTongTien().ToString("#,##0") + "đ";
+            btnNhapHang.Enabled = true;
         }
 
         private void dgvCTPhieuNhap_RowsRemoved(object sender, DataGridViewRowsRemovedEventArgs e)
@@ -209,6 +214,7 @@ namespace QuanLyQuanCF_TS
             {
                 lblTongTien.Text = "0đ";
                 LamMoi();
+                btnNhapHang.Enabled = false;
             }
         }
 
@@ -241,6 +247,7 @@ namespace QuanLyQuanCF_TS
             phieuNhap.NhaCungCap = (int)cmbNhaCungCap.SelectedValue;
             phieuNhap.NgayLap = DateTime.Now;
             phieuNhap.TongTien = Convert.ToDouble(lblTongTien.Text.Remove(lblTongTien.Text.Length - 1));
+            phieuNhap.TrangThai = true;
 
             List<CTPhieuNhapDTO> lsCTPhieuNhap = new List<CTPhieuNhapDTO>();
             foreach (DataGridViewRow row in dgvCTPhieuNhap.Rows)
@@ -253,6 +260,15 @@ namespace QuanLyQuanCF_TS
                 ctPhieuNhap.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
                 ctPhieuNhap.DonViTinh = row.Cells["colDonViTinh"].Value.ToString();
                 ctPhieuNhap.DonGia = Convert.ToDouble(donGia.Remove(donGia.Length - 1));
+                if (row.Cells["colGhiChu"].Value != null)
+                {
+                    ctPhieuNhap.GhiChu = row.Cells["colGhiChu"].Value.ToString();
+                }
+                else
+                {
+                    ctPhieuNhap.GhiChu = string.Empty;
+                }
+                
                 lsCTPhieuNhap.Add(ctPhieuNhap);
             }
 
@@ -266,6 +282,37 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Lưu phiếu nhập thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnThemNguyenLieu_Click(object sender, EventArgs e)
+        {
+            FrmQuanLyKho frmQuanLyKho = FrmQuanLyKho.Instance;
+            frmQuanLyKho.WindowState = FormWindowState.Normal;
+            frmQuanLyKho.Resizable = true;
+            frmQuanLyKho.ControlBox = true;
+            frmQuanLyKho.MaximizeBox = true;
+            frmQuanLyKho.FormClosed += FrmQuanLyKho_FormClosed;
+            frmQuanLyKho.ShowDialog();
+        }
+
+        private void btnThemNhaCungCap_Click(object sender, EventArgs e)
+        {
+            FrmNhaCungCap frmNhaCungCap = FrmNhaCungCap.Instance;
+            frmNhaCungCap.MinimizeBox = false;
+            frmNhaCungCap.FormClosed += FrmNhaCungCap_FormClosed;
+            frmNhaCungCap.ShowDialog();
+        }
+
+        private void FrmNhaCungCap_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            LoadNhaCungCap();
+        }
+
+        private void FrmQuanLyKho_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            List<NguyenLieuDTO> lsNguyenLieu = NguyenLieuBUS.LayDanhSachNguyenLieu();
+            LoadBangChonNhanh(lsNguyenLieu);
+            LoadDanhSachNguyenLieu(lsNguyenLieu);
         }
     }
 }

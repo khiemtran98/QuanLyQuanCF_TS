@@ -9,14 +9,19 @@ namespace BUS
 {
     public static class NguyenLieuBUS
     {
-        public static List<NguyenLieuDTO> LoadDanhSachNguyenLieu(string timKiem = "")
+        public static List<NguyenLieuDTO> LayDanhSachNguyenLieu(string timKiem = "", bool trangThai = true)
         {
-            return NguyenLieuDAO.LayDanhSachNguyenLieu(timKiem);
+            return NguyenLieuDAO.LayDanhSachNguyenLieu(timKiem, trangThai);
         }
 
-        public static bool ThemNguyenLieu(NguyenLieuDTO nl)
+        public static List<NguyenLieuDTO> LayDanhSachTatCaNguyenLieu()
         {
-            return NguyenLieuDAO.ThemNguyenLieu(nl);
+            return NguyenLieuDAO.LayDanhSachTatCaNguyenLieu();
+        }
+
+        public static bool ThemNguyenLieu(NguyenLieuDTO nguyenLieu)
+        {
+            return NguyenLieuDAO.ThemNguyenLieu(nguyenLieu);
         }
 
         public static bool XoaNguyenLieu(int maNguyenLieu)
@@ -24,9 +29,14 @@ namespace BUS
             return NguyenLieuDAO.XoaNguyenLieu(maNguyenLieu);
         }
 
-        public static bool SuaNguyenLieu(NguyenLieuDTO nl)
+        public static bool SuaNguyenLieu(NguyenLieuDTO nguyenLieu)
         {
-            return NguyenLieuDAO.SuaNguyenLieu(nl);
+            return NguyenLieuDAO.SuaNguyenLieu(nguyenLieu);
+        }
+
+        public static bool KhoiPhucNguyenLieu(int maNguyenLieu)
+        {
+            return NguyenLieuDAO.KhoiPhucNguyenLieu(maNguyenLieu);
         }
     }
 }
