@@ -1,26 +1,6 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.7: Hoàn thiện chức năng Quản lý kho + Nhập hàng
-
-### # CÁC THAY ĐỔI
-
-  - Hoàn thiện chức năng **QL Kho**, **Nhập Hàng**.
-
-  - Tốc độ tải dữ liệu các form được cải thiện: **QL Tài Khoản**, **QL Món**.
-  
-  - Các chức năng sửa thông tin được cải thiện: **QL Loại Tài Khoản**, **QL Tài Khoản**.
-  
-  - Thay đổi cơ chế xoá ở tất cả form.
-  
-  - Hỗ trợ khôi phục dữ liệu đã xoá ở tất cả form.
-  
-  - Mã hoá mật khẩu tài khoản.
-  
-  - Sửa lỗi không thể xoá món hoặc tài khoản trong một số trường hợp.
-  
-### # QUAN TRỌNG
-
-  Tạo lại database.
+> ## Update 2.8: Pre-Final
 
 ### # HƯỚNG DẪN CÀI ĐẶT
 
@@ -67,8 +47,22 @@
   - Thay đổi số lượng món hoặc topping trực tiếp trong ô số lượng.
   
   - Nhập tiền mặt và nhấn Enter để tính tiền thừa.
+  
+- **Thống kê hoá đơn**
+
+  - Xem lịch sử lưu hoá đơn.
+  
+- **Thống kê nhập hàng**
+
+  - Xem lịch sử nhập hàng.
+  
+- **Báo cáo**
+
+  - Tạo báo cáo.
 
 ---
+
+> #### Update 2.7: Hoàn thiện chức năng Quản lý kho + Nhập hàng
 
 > #### Update 2.6.4: Thêm chức năng báo cáo
 
