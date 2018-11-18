@@ -31,12 +31,16 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucXemLaiHoaDon));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ucXemLaiHoaDon));
             this.dgvHoaDon = new System.Windows.Forms.DataGridView();
+            this.colTenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.lblTenTaiKhoan = new MetroFramework.Controls.MetroLabel();
             this.lblNgayLap = new MetroFramework.Controls.MetroLabel();
             this.lblSoLuongMon = new MetroFramework.Controls.MetroLabel();
@@ -51,14 +55,9 @@
             this.panel2 = new System.Windows.Forms.Panel();
             this.btnNhapLai = new System.Windows.Forms.Button();
             this.lblSoHoaDon = new MetroFramework.Controls.MetroLabel();
-            this.btnQuayLai = new System.Windows.Forms.Button();
             this.lblHoaDon = new MetroFramework.Controls.MetroLabel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.colTenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHoaDon)).BeginInit();
             this.panel1.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -109,6 +108,48 @@
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvHoaDon.Size = new System.Drawing.Size(229, 477);
             this.dgvHoaDon.TabIndex = 5;
+            // 
+            // colTenMon
+            // 
+            this.colTenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colTenMon.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colTenMon.HeaderText = "Tên món";
+            this.colTenMon.Name = "colTenMon";
+            this.colTenMon.ReadOnly = true;
+            this.colTenMon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colSoLuong.HeaderText = "Số lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            this.colSoLuong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colSoLuong.Width = 98;
+            // 
+            // colDonGia
+            // 
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            this.colDonGia.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colDonGia.HeaderText = "Đơn giá";
+            this.colDonGia.Name = "colDonGia";
+            this.colDonGia.ReadOnly = true;
+            this.colDonGia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.colDonGia.Width = 150;
+            // 
+            // colGhiChu
+            // 
+            this.colGhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colGhiChu.DefaultCellStyle = dataGridViewCellStyle5;
+            this.colGhiChu.HeaderText = "Ghi chú";
+            this.colGhiChu.Name = "colGhiChu";
+            this.colGhiChu.ReadOnly = true;
+            this.colGhiChu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
             // 
             // lblTenTaiKhoan
             // 
@@ -331,19 +372,6 @@
             this.lblSoHoaDon.TabIndex = 19;
             this.lblSoHoaDon.Text = "Số hoá đơn: ";
             // 
-            // btnQuayLai
-            // 
-            this.btnQuayLai.BackgroundImage = global::QuanLyQuanCF_TS.Properties.Resources.back;
-            this.btnQuayLai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnQuayLai.FlatAppearance.BorderSize = 0;
-            this.btnQuayLai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnQuayLai.Location = new System.Drawing.Point(13, 10);
-            this.btnQuayLai.Name = "btnQuayLai";
-            this.btnQuayLai.Size = new System.Drawing.Size(20, 20);
-            this.btnQuayLai.TabIndex = 6;
-            this.btnQuayLai.UseVisualStyleBackColor = true;
-            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
-            // 
             // lblHoaDon
             // 
             this.lblHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -377,48 +405,6 @@
             this.panel3.Size = new System.Drawing.Size(466, 59);
             this.panel3.TabIndex = 6;
             // 
-            // colTenMon
-            // 
-            this.colTenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colTenMon.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colTenMon.HeaderText = "Tên món";
-            this.colTenMon.Name = "colTenMon";
-            this.colTenMon.ReadOnly = true;
-            this.colTenMon.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colSoLuong.HeaderText = "Số lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            this.colSoLuong.ReadOnly = true;
-            this.colSoLuong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colSoLuong.Width = 98;
-            // 
-            // colDonGia
-            // 
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            this.colDonGia.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colDonGia.HeaderText = "Đơn giá";
-            this.colDonGia.Name = "colDonGia";
-            this.colDonGia.ReadOnly = true;
-            this.colDonGia.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.colDonGia.Width = 150;
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colGhiChu.DefaultCellStyle = dataGridViewCellStyle5;
-            this.colGhiChu.HeaderText = "Ghi chú";
-            this.colGhiChu.Name = "colGhiChu";
-            this.colGhiChu.ReadOnly = true;
-            this.colGhiChu.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
             // ucXemLaiHoaDon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -426,7 +412,6 @@
             this.Controls.Add(this.panel3);
             this.Controls.Add(this.metroLabel1);
             this.Controls.Add(this.lblHoaDon);
-            this.Controls.Add(this.btnQuayLai);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel1);
             this.Name = "ucXemLaiHoaDon";
@@ -454,7 +439,6 @@
         private System.Windows.Forms.Button btnXuatHoaDon;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
-        private System.Windows.Forms.Button btnQuayLai;
         private MetroFramework.Controls.MetroLabel lblSoHoaDon;
         private System.Windows.Forms.DataGridView dgvHoaDon;
         private System.Windows.Forms.Button btnNhapLai;

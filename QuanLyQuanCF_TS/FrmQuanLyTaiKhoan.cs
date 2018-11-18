@@ -634,12 +634,6 @@ namespace QuanLyQuanCF_TS
 
         // Kết thúc Khu vực chức năng Quản lý tài khoản
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            ((FrmMain)this.ParentForm).XuLyFormMain();
-            this.Close();
-        }
-
         private void FrmQuanLyTaiKhoan_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;

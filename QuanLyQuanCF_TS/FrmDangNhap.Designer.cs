@@ -70,7 +70,7 @@
             this.lblPhienBan.Name = "lblPhienBan";
             this.lblPhienBan.Size = new System.Drawing.Size(32, 19);
             this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.7";
+            this.lblPhienBan.Text = "v2.8";
             // 
             // lblThongTin1
             // 
@@ -94,6 +94,7 @@
             // 
             // btnDangNhap
             // 
+            this.btnDangNhap.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.btnDangNhap.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnDangNhap.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -107,6 +108,7 @@
             // 
             // txtMatKhau
             // 
+            this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
             // 
             // 
             // 
@@ -140,6 +142,7 @@
             // 
             // cmbTaiKhoan
             // 
+            this.cmbTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.cmbTaiKhoan.FormattingEnabled = true;
             this.cmbTaiKhoan.ItemHeight = 23;
             this.cmbTaiKhoan.Location = new System.Drawing.Point(266, 105);
@@ -150,6 +153,7 @@
             // 
             // lblMatKhau
             // 
+            this.lblMatKhau.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblMatKhau.AutoSize = true;
             this.lblMatKhau.Location = new System.Drawing.Point(184, 145);
             this.lblMatKhau.Name = "lblMatKhau";
@@ -159,6 +163,7 @@
             // 
             // lblTaiKhoan
             // 
+            this.lblTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.lblTaiKhoan.AutoSize = true;
             this.lblTaiKhoan.Location = new System.Drawing.Point(184, 111);
             this.lblTaiKhoan.Name = "lblTaiKhoan";
@@ -177,9 +182,7 @@
             this.MinimizeBox = false;
             this.Name = "FrmDangNhap";
             this.Resizable = false;
-            this.ShowIcon = false;
             this.Text = "Đăng nhập";
-            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.mDangNhap.ResumeLayout(false);

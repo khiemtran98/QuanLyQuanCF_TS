@@ -58,8 +58,14 @@
             this.lblCapBac = new MetroFramework.Controls.MetroLabel();
             this.lblHoTen = new MetroFramework.Controls.MetroLabel();
             this.panelTaiKhoan = new System.Windows.Forms.Panel();
+            this.panelThongTin = new MetroFramework.Controls.MetroPanel();
             this.picHinh = new System.Windows.Forms.PictureBox();
-            this.btnDangXuat = new System.Windows.Forms.Button();
+            this.panelTieuDe = new MetroFramework.Controls.MetroPanel();
+            this.lblTieuDe = new System.Windows.Forms.Label();
+            this.btnAnHien = new System.Windows.Forms.Button();
+            this.btnQuayLai = new System.Windows.Forms.Button();
+            this.ctmTaiKhoan = new MaterialSkin.Controls.MaterialContextMenuStrip();
+            this.mnDangXuat = new System.Windows.Forms.ToolStripMenuItem();
             this.mPanel.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.metroPanel16.SuspendLayout();
@@ -75,7 +81,10 @@
             this.metroPanel6.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             this.panelTaiKhoan.SuspendLayout();
+            this.panelThongTin.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).BeginInit();
+            this.panelTieuDe.SuspendLayout();
+            this.ctmTaiKhoan.SuspendLayout();
             this.SuspendLayout();
             // 
             // mPanel
@@ -87,7 +96,7 @@
             this.mPanel.HorizontalScrollbarBarColor = true;
             this.mPanel.HorizontalScrollbarHighlightOnWheel = false;
             this.mPanel.HorizontalScrollbarSize = 10;
-            this.mPanel.Location = new System.Drawing.Point(20, 60);
+            this.mPanel.Location = new System.Drawing.Point(20, 120);
             this.mPanel.Name = "mPanel";
             this.mPanel.Size = new System.Drawing.Size(1319, 531);
             this.mPanel.TabIndex = 0;
@@ -572,77 +581,157 @@
             // 
             // lblCapBac
             // 
-            this.lblCapBac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblCapBac.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblCapBac.BackColor = System.Drawing.Color.White;
             this.lblCapBac.FontSize = MetroFramework.MetroLabelSize.Small;
-            this.lblCapBac.Location = new System.Drawing.Point(889, 29);
+            this.lblCapBac.Location = new System.Drawing.Point(659, 27);
             this.lblCapBac.Name = "lblCapBac";
-            this.lblCapBac.Size = new System.Drawing.Size(326, 23);
+            this.lblCapBac.Size = new System.Drawing.Size(604, 23);
             this.lblCapBac.TabIndex = 18;
             this.lblCapBac.Text = "Cấp bậc";
             this.lblCapBac.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // lblHoTen
             // 
-            this.lblHoTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.lblHoTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.lblHoTen.BackColor = System.Drawing.Color.White;
             this.lblHoTen.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblHoTen.Location = new System.Drawing.Point(889, 8);
+            this.lblHoTen.Location = new System.Drawing.Point(659, 6);
             this.lblHoTen.Name = "lblHoTen";
-            this.lblHoTen.Size = new System.Drawing.Size(326, 25);
+            this.lblHoTen.Size = new System.Drawing.Size(604, 25);
             this.lblHoTen.TabIndex = 17;
             this.lblHoTen.Text = "Họ tên";
             this.lblHoTen.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // panelTaiKhoan
             // 
-            this.panelTaiKhoan.Controls.Add(this.picHinh);
-            this.panelTaiKhoan.Controls.Add(this.btnDangXuat);
-            this.panelTaiKhoan.Controls.Add(this.lblHoTen);
-            this.panelTaiKhoan.Controls.Add(this.lblCapBac);
-            this.panelTaiKhoan.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelTaiKhoan.Location = new System.Drawing.Point(20, 591);
+            this.panelTaiKhoan.Controls.Add(this.panelThongTin);
+            this.panelTaiKhoan.Controls.Add(this.panelTieuDe);
+            this.panelTaiKhoan.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTaiKhoan.Location = new System.Drawing.Point(20, 30);
             this.panelTaiKhoan.Name = "panelTaiKhoan";
-            this.panelTaiKhoan.Size = new System.Drawing.Size(1319, 60);
+            this.panelTaiKhoan.Size = new System.Drawing.Size(1319, 90);
             this.panelTaiKhoan.TabIndex = 20;
+            // 
+            // panelThongTin
+            // 
+            this.panelThongTin.Controls.Add(this.picHinh);
+            this.panelThongTin.Controls.Add(this.lblHoTen);
+            this.panelThongTin.Controls.Add(this.lblCapBac);
+            this.panelThongTin.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panelThongTin.HorizontalScrollbarBarColor = true;
+            this.panelThongTin.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelThongTin.HorizontalScrollbarSize = 10;
+            this.panelThongTin.Location = new System.Drawing.Point(0, 30);
+            this.panelThongTin.Name = "panelThongTin";
+            this.panelThongTin.Size = new System.Drawing.Size(1319, 60);
+            this.panelThongTin.TabIndex = 25;
+            this.panelThongTin.VerticalScrollbarBarColor = true;
+            this.panelThongTin.VerticalScrollbarHighlightOnWheel = false;
+            this.panelThongTin.VerticalScrollbarSize = 10;
             // 
             // picHinh
             // 
-            this.picHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.picHinh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.picHinh.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.picHinh.Location = new System.Drawing.Point(1221, 6);
+            this.picHinh.Location = new System.Drawing.Point(1269, 6);
             this.picHinh.Name = "picHinh";
             this.picHinh.Size = new System.Drawing.Size(50, 50);
             this.picHinh.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.picHinh.TabIndex = 20;
             this.picHinh.TabStop = false;
+            this.picHinh.Click += new System.EventHandler(this.picHinh_Click);
             // 
-            // btnDangXuat
+            // panelTieuDe
             // 
-            this.btnDangXuat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDangXuat.BackgroundImage = global::QuanLyQuanCF_TS.Properties.Resources.logout;
-            this.btnDangXuat.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnDangXuat.FlatAppearance.BorderSize = 0;
-            this.btnDangXuat.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnDangXuat.Location = new System.Drawing.Point(1277, 8);
-            this.btnDangXuat.Name = "btnDangXuat";
-            this.btnDangXuat.Size = new System.Drawing.Size(30, 44);
-            this.btnDangXuat.TabIndex = 19;
-            this.btnDangXuat.UseVisualStyleBackColor = true;
-            this.btnDangXuat.Click += new System.EventHandler(this.btnDangXuat_Click);
+            this.panelTieuDe.Controls.Add(this.lblTieuDe);
+            this.panelTieuDe.Controls.Add(this.btnAnHien);
+            this.panelTieuDe.Controls.Add(this.btnQuayLai);
+            this.panelTieuDe.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panelTieuDe.HorizontalScrollbarBarColor = true;
+            this.panelTieuDe.HorizontalScrollbarHighlightOnWheel = false;
+            this.panelTieuDe.HorizontalScrollbarSize = 10;
+            this.panelTieuDe.Location = new System.Drawing.Point(0, 0);
+            this.panelTieuDe.Name = "panelTieuDe";
+            this.panelTieuDe.Size = new System.Drawing.Size(1319, 30);
+            this.panelTieuDe.TabIndex = 27;
+            this.panelTieuDe.VerticalScrollbarBarColor = true;
+            this.panelTieuDe.VerticalScrollbarHighlightOnWheel = false;
+            this.panelTieuDe.VerticalScrollbarSize = 10;
+            // 
+            // lblTieuDe
+            // 
+            this.lblTieuDe.AutoSize = true;
+            this.lblTieuDe.Font = new System.Drawing.Font("Segoe UI", 11F, System.Drawing.FontStyle.Bold);
+            this.lblTieuDe.ForeColor = System.Drawing.Color.CadetBlue;
+            this.lblTieuDe.Location = new System.Drawing.Point(26, 4);
+            this.lblTieuDe.Name = "lblTieuDe";
+            this.lblTieuDe.Size = new System.Drawing.Size(60, 20);
+            this.lblTieuDe.TabIndex = 25;
+            this.lblTieuDe.Text = "Tiêu đề";
+            // 
+            // btnAnHien
+            // 
+            this.btnAnHien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnAnHien.BackColor = System.Drawing.Color.White;
+            this.btnAnHien.BackgroundImage = global::QuanLyQuanCF_TS.Properties.Resources.resize_vertical;
+            this.btnAnHien.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnAnHien.FlatAppearance.BorderSize = 0;
+            this.btnAnHien.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAnHien.Location = new System.Drawing.Point(1299, 5);
+            this.btnAnHien.Name = "btnAnHien";
+            this.btnAnHien.Size = new System.Drawing.Size(20, 20);
+            this.btnAnHien.TabIndex = 23;
+            this.btnAnHien.UseVisualStyleBackColor = false;
+            this.btnAnHien.Click += new System.EventHandler(this.btnAnHien_Click);
+            // 
+            // btnQuayLai
+            // 
+            this.btnQuayLai.BackColor = System.Drawing.Color.White;
+            this.btnQuayLai.BackgroundImage = global::QuanLyQuanCF_TS.Properties.Resources.back;
+            this.btnQuayLai.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnQuayLai.FlatAppearance.BorderSize = 0;
+            this.btnQuayLai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnQuayLai.Location = new System.Drawing.Point(0, 5);
+            this.btnQuayLai.Name = "btnQuayLai";
+            this.btnQuayLai.Size = new System.Drawing.Size(20, 20);
+            this.btnQuayLai.TabIndex = 22;
+            this.btnQuayLai.UseVisualStyleBackColor = false;
+            this.btnQuayLai.Click += new System.EventHandler(this.btnQuayLai_Click);
+            // 
+            // ctmTaiKhoan
+            // 
+            this.ctmTaiKhoan.AutoSize = false;
+            this.ctmTaiKhoan.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.ctmTaiKhoan.Depth = 0;
+            this.ctmTaiKhoan.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mnDangXuat});
+            this.ctmTaiKhoan.MouseState = MaterialSkin.MouseState.HOVER;
+            this.ctmTaiKhoan.Name = "ctmTaiKhoan";
+            this.ctmTaiKhoan.Size = new System.Drawing.Size(110, 40);
+            // 
+            // mnDangXuat
+            // 
+            this.mnDangXuat.AutoSize = false;
+            this.mnDangXuat.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.mnDangXuat.Image = global::QuanLyQuanCF_TS.Properties.Resources.logout;
+            this.mnDangXuat.Name = "mnDangXuat";
+            this.mnDangXuat.Size = new System.Drawing.Size(110, 36);
+            this.mnDangXuat.Text = "Đăng xuất";
+            this.mnDangXuat.Click += new System.EventHandler(this.mnDangXuat_Click);
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BorderStyle = MetroFramework.Forms.MetroFormBorderStyle.FixedSingle;
             this.ClientSize = new System.Drawing.Size(1359, 671);
             this.Controls.Add(this.mPanel);
             this.Controls.Add(this.panelTaiKhoan);
+            this.DisplayHeader = false;
             this.IsMdiContainer = true;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
             this.Name = "FrmMain";
-            this.Resizable = false;
+            this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Text = "Phần mềm quản lý quán cà phê - trà sữa";
             this.Theme = MetroFramework.MetroThemeStyle.Default;
             this.TransparencyKey = System.Drawing.Color.Empty;
@@ -663,7 +752,11 @@
             this.metroPanel6.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             this.panelTaiKhoan.ResumeLayout(false);
+            this.panelThongTin.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).EndInit();
+            this.panelTieuDe.ResumeLayout(false);
+            this.panelTieuDe.PerformLayout();
+            this.ctmTaiKhoan.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -681,7 +774,6 @@
         private MetroFramework.Controls.MetroTile mtQuanLyTaiKhoan;
         private MetroFramework.Controls.MetroLabel lblHoTen;
         private MetroFramework.Controls.MetroLabel lblCapBac;
-        private System.Windows.Forms.Button btnDangXuat;
         private System.Windows.Forms.Panel panelTaiKhoan;
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroPanel metroPanel1;
@@ -702,6 +794,13 @@
         private MetroFramework.Controls.MetroTile mCaiDat;
         private MetroFramework.Controls.MetroPanel metroPanel15;
         private MetroFramework.Controls.MetroTile mBaoCao;
+        private System.Windows.Forms.Button btnQuayLai;
+        private System.Windows.Forms.Button btnAnHien;
+        private MetroFramework.Controls.MetroPanel panelThongTin;
+        private MetroFramework.Controls.MetroPanel panelTieuDe;
+        private System.Windows.Forms.Label lblTieuDe;
+        private MaterialSkin.Controls.MaterialContextMenuStrip ctmTaiKhoan;
+        private System.Windows.Forms.ToolStripMenuItem mnDangXuat;
     }
 }
 

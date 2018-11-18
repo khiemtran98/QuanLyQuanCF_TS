@@ -34,12 +34,6 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            ((FrmMain)this.ParentForm).XuLyFormMain();
-            this.Close();
-        }
-
         private void FrmBaoCao_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;
@@ -47,18 +41,69 @@ namespace QuanLyQuanCF_TS
 
         private void frmBaoCao_Load(object sender, EventArgs e)
         {
-            //rpvReport.LocalReport.ReportEmbeddedResource = "QuanLyQuanCF_TS.rptGroupDanhSachMon.rdlc";
-            //rpvReport.LocalReport.SubreportProcessing += LocalReport_SubreportProcessing;
-            //List<LoaiMonDTO> lstLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
-            //rpvReport.LocalReport.DataSources.Add(new ReportDataSource("DSMON", lstLoaiMon));
-            //this.rpvReport.RefreshReport();
+            cmbLoaiMon.DisplayMember = "TenLoaiMon";
+            cmbLoaiMon.ValueMember = "MaLoaiMon";
+            cmbLoaiMon.DataSource = LoaiMonBUS.LayDanhSachLoaiMon();
         }
 
-        private void LocalReport_SubreportProcessing(object sender,SubreportProcessingEventArgs e)
+        private void btnBaoCao_Click(object sender, EventArgs e)
         {
-            int maLoai =int.Parse(e.Parameters["paLoaiMon"].Values[0]);
-            List<MonDTO> lstMon = MonBUS.LayDanhSachMon(maLoai);
-            e.DataSources.Add(new ReportDataSource("DSMON", lstMon));
+            FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
+
+            if (radTatCaMon.Checked)
+            {
+                frm.HienTatCaMon();
+            }
+            else if (radTheoLoaiMon.Checked)
+            {
+                frm.HienMonTheoLoai((int)cmbLoaiMon.SelectedValue);
+            }
+            else if (radGomNhomMon.Checked)
+            {
+                //frm.HienSanPhamTheoNhom();
+            }
+            else if (radTatCaHoaDon.Checked)
+            {
+                //frm.HienSanPhamTheoNhom();
+            }
+            //else if (radHoaDonTheoThang.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radHoaDonTheoNam.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radDoanhThuTheoTuan.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radDoanhThuTheoThang.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radDoanhThuTheoNam.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radTatCaNguyenLieu.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radTatCaPhieuNhap.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radPhieuNhapTheoThang.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+            //else if (radPhieuNhapTheoNam.Checked)
+            //{
+            //    frm.HienSanPhamTheoNhom();
+            //}
+
+            frm.Show();
         }
     }
 }

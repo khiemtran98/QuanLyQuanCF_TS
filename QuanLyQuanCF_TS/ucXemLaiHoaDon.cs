@@ -57,12 +57,6 @@ namespace QuanLyQuanCF_TS
             lblTongPhaiTra.Text = "Tổng phải trả: " + tongTien.ToString("#,##0đ");
         }
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            ((FrmBanHang)this.FindForm()).QuayLaiManHinhChonMon();
-            ReseHoaDon();
-        }
-
         private void txtTienMat_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -146,7 +140,6 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Tạo hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ((FrmBanHang)this.FindForm()).QuayLaiManHinhChonMon(true);
-                ReseHoaDon();
             }
             else
             {
@@ -159,7 +152,7 @@ namespace QuanLyQuanCF_TS
             txtTienMat.Text = string.Empty;
         }
 
-        private void ReseHoaDon()
+        public void ResetHoaDon()
         {
             btnXuatHoaDon.BackColor = Color.Gray;
             btnXuatHoaDon.Enabled = false;
@@ -169,7 +162,7 @@ namespace QuanLyQuanCF_TS
 
         private void btnNhapLai_Click(object sender, EventArgs e)
         {
-            ReseHoaDon();
+            ResetHoaDon();
         }
     }
 }

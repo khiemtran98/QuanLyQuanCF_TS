@@ -51,9 +51,41 @@ namespace DAO
         public static List<HoaDonDTO> LayDanhSachHoaDon()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, trang_thai FROM HoaDon";
-            SqlCommand command = new SqlCommand();
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon";
+            SqlCommand command = new SqlCommand(query, connection);
 
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<HoaDonDTO> result = new List<HoaDonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    HoaDonDTO hd = new HoaDonDTO();
+                    hd.MaHoaDon = reader.GetInt32(0);
+                    hd.NhanVienLap = reader.GetInt32(1);
+                    hd.NgayLap = reader.GetDateTime(2);
+                    hd.TongTien = reader.GetDouble(3);
+                    hd.TienMat = reader.GetDouble(4);
+                    hd.TienThua = reader.GetDouble(5);
+                    hd.TrangThai = reader.GetBoolean(6);
+                    result.Add(hd);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
+
+        // Lấy danh sách theo khoảng thời gian
+        public static List<HoaDonDTO> GetListBillByTime(DateTime dateFrom, DateTime dateEnd)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon WHERE (DATEPART(YYYY, ngay_lap) >= YEAR(@dateFrom) AND DATEPART(YYYY, ngay_lap) <= YEAR(@dateEnd)) AND (DATEPART(MM, ngay_lap) >= MONTH(@dateFrom) AND DATEPART(MM, ngay_lap) <= MONTH(@dateEnd)) AND (DATEPART(DD, ngay_lap) >= DAY(@dateFrom) AND DATEPART(DD, ngay_lap) <= DAY(@dateEnd)) ";
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@dateFrom", System.Data.SqlDbType.DateTime, 0).Value = dateFrom;
+            command.Parameters.Add("@dateEnd", System.Data.SqlDbType.DateTime, 0).Value = dateEnd;
             command.CommandText = query;
             command.Connection = connection;
 
@@ -70,7 +102,44 @@ namespace DAO
                     hd.NhanVienLap = reader.GetInt32(1);
                     hd.NgayLap = reader.GetDateTime(2);
                     hd.TongTien = reader.GetDouble(3);
-                    hd.TrangThai = reader.GetBoolean(4);
+                    hd.TienMat = reader.GetDouble(4);
+                    hd.TienThua = reader.GetDouble(5);
+                    hd.TrangThai = reader.GetBoolean(6);
+                    result.Add(hd);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
+
+        // Lấy hóa đơn một ngày cụ thể
+        public static List<HoaDonDTO> GetListBillTimeline(DateTime timeLine)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon WHERE DATEPART(YYYY, ngay_lap) = YEAR(@timeLine) AND DATEPART(MM, ngay_lap) = MONTH(@timeLine) AND DATEPART(DD, ngay_lap) = DAY(@timeLine)";
+
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@timeLine", System.Data.SqlDbType.DateTime, 0).Value = timeLine;
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<HoaDonDTO> result = new List<HoaDonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    HoaDonDTO hd = new HoaDonDTO();
+                    hd.MaHoaDon = reader.GetInt32(0);
+                    hd.NhanVienLap = reader.GetInt32(1);
+                    hd.NgayLap = reader.GetDateTime(2);
+                    hd.TongTien = reader.GetDouble(3);
+                    hd.TienMat = reader.GetDouble(4);
+                    hd.TienThua = reader.GetDouble(5);
+                    hd.TrangThai = reader.GetBoolean(6);
                     result.Add(hd);
                 }
             }

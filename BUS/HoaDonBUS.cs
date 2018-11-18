@@ -45,5 +45,23 @@ namespace BUS
         {
             return HoaDonDAO.LayDanhSachHoaDon();
         }
+
+        // Lấy danh sách hóa đơn theo khoảng thời gian
+        public static List<HoaDonDTO> GetListBillByTime(DateTime dateFrom, DateTime dateEnd)
+        {
+            return HoaDonDAO.GetListBillByTime(dateFrom, dateEnd);
+        }
+
+        // Lấy toàn bộ danh sách hóa đơn
+        public static List<HoaDonDTO> GetEntireListBill()
+        {
+            return HoaDonDAO.LayDanhSachHoaDon();
+        }
+
+        // Lấy danh sách hóa đơn theo mốc thời gian 
+        public static List<HoaDonDTO> GetListBillTimeline(DateTime dateTimeline)
+        {
+            return HoaDonDAO.GetListBillTimeline(dateTimeline);
+        }
     }
 }

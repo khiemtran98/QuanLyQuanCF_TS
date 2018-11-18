@@ -67,6 +67,8 @@ namespace QuanLyQuanCF_TS
             cmbTaiKhoan.DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan();
             cmbTaiKhoan.DisplayMember = "HoTen";
             cmbTaiKhoan.ValueMember = "MaTaiKhoan";
+
+            txtMatKhau.Select();
         }
 
         private void FrmDangNhap_FormClosed(object sender, FormClosedEventArgs e)

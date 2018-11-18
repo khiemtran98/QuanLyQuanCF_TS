@@ -462,18 +462,5 @@ namespace QuanLyQuanCF_TS
         // Kết thúc Khu vực chức năng Xem lịch sử phiếu nhập
 
         // ----------------------------------------------
-
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            if (this.ParentForm == null)
-            {
-                this.Close();
-            }
-            else
-            {
-                ((FrmMain)this.ParentForm).XuLyFormMain();
-                this.Close();
-            }
-        }
     }
 }

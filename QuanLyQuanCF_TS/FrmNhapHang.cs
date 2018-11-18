@@ -28,12 +28,6 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            ((FrmMain)this.ParentForm).XuLyFormMain();
-            this.Close();
-        }
-
         private void FrmNhapHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;
@@ -141,19 +135,17 @@ namespace QuanLyQuanCF_TS
                 MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
+            if (txtDonGia.Text == "")
+            {
+                MessageBox.Show("Bạn chưa nhập đơn giá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
             DataGridViewRow row = new DataGridViewRow();
             row.DefaultCellStyle.BackColor = Color.AliceBlue;
             row.Height = 50;
             row.Cells.Add(new DataGridViewComboBoxCell { DisplayStyle = DataGridViewComboBoxDisplayStyle.Nothing, Value = cmbNguyenLieu.SelectedValue });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = txtSoLuong.Text });
-            if (txtDonGia.Text != "")
-            {
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = Convert.ToDouble(txtDonGia.Text).ToString("#,###đ") });
-            }
-            else
-            {
-                row.Cells.Add(new DataGridViewTextBoxCell { Value = 0.ToString("#,###đ") });
-            }
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = Convert.ToDouble(txtDonGia.Text).ToString("#,###đ") });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = lblDonViTinh.Text });
             dgvCTPhieuNhap.Rows.Add(row);
         }

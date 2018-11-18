@@ -608,13 +608,15 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void LapHoaDon()
+        private void btnThanhToan_Click(object sender, EventArgs e)
         {
-            panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = false;
+            //panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = false;
             splitContainer1.Visible = false;
             ucXemLaiHoaDon uc = ucXemLaiHoaDon.Instance;
             uc.Dock = DockStyle.Fill;
             panelLayout.Controls.Add(uc);
+
+            ((FrmMain)this.ParentForm).SetTieuDe("Xem lại hoá đơn");
 
             int soLuongMon = 0;
             foreach (DataGridViewRow row in dgvHoaDon.Rows)
@@ -625,11 +627,6 @@ namespace QuanLyQuanCF_TS
                 }
             }
             uc.LoadThongTinHoaDon(soLuongMon, TinhThanhTien());
-        }
-
-        private void btnThanhToan_Click(object sender, EventArgs e)
-        {
-            LapHoaDon();
         }
 
         public double TinhThanhTien()
@@ -651,7 +648,9 @@ namespace QuanLyQuanCF_TS
 
         public void QuayLaiManHinhChonMon(bool luuThanhCong = false)
         {
-            panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = true;
+            ((FrmMain)this.ParentForm).SetTieuDe("Bán hàng");
+            ucXemLaiHoaDon.Instance.ResetHoaDon();
+            //panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = true;
             splitContainer1.Visible = true;
             if (luuThanhCong) // Clear bảng hoá đơn nếu đã thanh toán
             {
@@ -659,21 +658,10 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void QuayLaiManHinhChinh()
+        private void FrmBanHang_FormClosed(object sender, FormClosedEventArgs e)
         {
             // Xoá bộ nhớ ucXemLaiHoaDon
             panelLayout.Controls.Clear();
-            ((FrmMain)this.ParentForm).XuLyFormMain();
-            this.Close();
-        }
-
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            QuayLaiManHinhChinh();
-        }
-
-        private void FrmBanHang_FormClosed(object sender, FormClosedEventArgs e)
-        {
             _Instance = null;
         }
     }

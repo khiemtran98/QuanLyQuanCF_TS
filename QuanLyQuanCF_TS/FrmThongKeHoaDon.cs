@@ -33,12 +33,6 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnQuayLai_Click(object sender, EventArgs e)
-        {
-            ((FrmMain)this.ParentForm).XuLyFormMain();
-            this.Close();
-        }
-
         private void FrmThongKeHoaDon_FormClosed(object sender, FormClosedEventArgs e)
         {
             _Instance = null;
@@ -51,11 +45,14 @@ namespace QuanLyQuanCF_TS
             dgvTopping.AutoGenerateColumns = false;
 
             LoadHoaDon();
+
+            radScopeTime.Checked = true;
+            SetEnableRad(true);
         }
 
         private void LoadHoaDon()
         {
-            List<HoaDonDTO> lsHoaDon = HoaDonBUS.LayDanhSachHoaDon();
+            List<HoaDonDTO> lsHoaDon = HoaDonBUS.GetEntireListBill();
             dgvHoaDon.DataSource = lsHoaDon;
         }
 
@@ -76,43 +73,74 @@ namespace QuanLyQuanCF_TS
             dgvTopping.DataSource = lsTopping;
         }
 
-        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void SetEnableRad(bool enable)
         {
-            if (dgvHoaDon.SelectedRows.Count > 0)
-            {
-                LoadCTHD(Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colMaHoaDon"].Value));
-            }
+            dateTimePick.Enabled = !enable;
+            dateTimeStart.Enabled = enable;
+            dateTimeEnd.Enabled = enable;
         }
 
-        private void dgvHoaDon_CellFormatting(object sender, DataGridViewCellFormattingEventArgs e)
+        private void radScopeTime_CheckedChanged_1(object sender, EventArgs e)
         {
-            if (dgvHoaDon.Columns[e.ColumnIndex].Name == "colNhanVienLap")
-            {
-                TaiKhoanDTO taiKhoan = TaiKhoanBUS.LayThongTinTaiKhoan(Convert.ToInt32(e.Value));
-                e.Value = taiKhoan.HoTen;
-            }
+            SetEnableRad(true);
         }
 
-        private void dgvCTHD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        private void radTimeLine_CheckedChanged_1(object sender, EventArgs e)
+        {
+            SetEnableRad(false);
+        }
+
+        private void dateTimeEnd_ValueChanged_1(object sender, EventArgs e)
+        {
+            DateTime dateFrom = dateTimeStart.Value;
+            DateTime dateEnd = dateTimeEnd.Value;
+            List<HoaDonDTO> lsHoaDon = HoaDonBUS.GetListBillByTime(dateFrom, dateEnd);
+            dgvHoaDon.DataSource = lsHoaDon;
+        }
+
+        private void dateTimePick_ValueChanged_1(object sender, EventArgs e)
+        {
+            DateTime dateSingle = dateTimePick.Value;
+            List<HoaDonDTO> lsHoaDon = HoaDonBUS.GetListBillTimeline(dateSingle);
+            dgvHoaDon.DataSource = lsHoaDon;
+        }
+
+        private void dgvHoaDon_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ((DataGridViewComboBoxCell)dgvHoaDon.Rows[e.RowIndex].Cells["colNhanVienLap"]).DataSource = TaiKhoanBUS.LayDanhSachTaiKhoan();
+            ((DataGridViewComboBoxCell)dgvHoaDon.Rows[e.RowIndex].Cells["colNhanVienLap"]).DisplayMember = "HoTen";
+            ((DataGridViewComboBoxCell)dgvHoaDon.Rows[e.RowIndex].Cells["colNhanVienLap"]).ValueMember = "MaTaiKhoan";
+        }
+
+        private void dgvCTHD_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ((DataGridViewComboBoxCell)dgvCTHD.Rows[e.RowIndex].Cells["colMaMon"]).DataSource = MonBUS.LayDanhSachMon();
             ((DataGridViewComboBoxCell)dgvCTHD.Rows[e.RowIndex].Cells["colMaMon"]).DisplayMember = "TenMon";
             ((DataGridViewComboBoxCell)dgvCTHD.Rows[e.RowIndex].Cells["colMaMon"]).ValueMember = "MaMon";
         }
 
-        private void dgvCTHD_CellClick(object sender, DataGridViewCellEventArgs e)
+        private void dgvTopping_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
+        {
+            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).DataSource = ToppingBUS.LayDanhSachTopping();
+            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).DisplayMember = "TenTopping";
+            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).ValueMember = "MaTopping";
+        }
+
+        private void dgvHoaDon_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        {
+            if (dgvHoaDon.SelectedRows.Count > 0)
+            {
+                LoadCTHD(Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colMaHoaDon"].Value));
+
+            }
+        }
+
+        private void dgvCTHD_CellClick_1(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvHoaDon.SelectedRows.Count > 0)
             {
                 LoadCTHD_Topping(Convert.ToInt32(dgvCTHD.SelectedRows[0].Cells["colMaCTHD"].Value));
             }
-        }
-
-        private void dgvTopping_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
-        {
-            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).DataSource = ToppingBUS.LayDanhSachTopping();
-            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).DisplayMember = "TenTopping";
-            ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).ValueMember = "MaTopping";
         }
     }
 }
