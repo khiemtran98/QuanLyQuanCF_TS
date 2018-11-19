@@ -36,17 +36,14 @@
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.dtpDoanhThu = new MetroFramework.Controls.MetroDateTime();
             this.dtpHoaDonTheoThang = new MetroFramework.Controls.MetroDateTime();
-            this.radDoanhThuTheoNam = new MetroFramework.Controls.MetroRadioButton();
             this.radDoanhThuTheoThang = new MetroFramework.Controls.MetroRadioButton();
             this.radDoanhThuTheoTuan = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.radTatCaNguyenLieu = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.radPhieuNhapTheoNam = new MetroFramework.Controls.MetroRadioButton();
             this.radPhieuNhapTheoThang = new MetroFramework.Controls.MetroRadioButton();
             this.radTatCaPhieuNhap = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel4 = new MetroFramework.Controls.MetroLabel();
-            this.radHoaDonTheoNam = new MetroFramework.Controls.MetroRadioButton();
             this.radHoaDonTheoThang = new MetroFramework.Controls.MetroRadioButton();
             this.radTatCaHoaDon = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel3 = new MetroFramework.Controls.MetroLabel();
@@ -57,6 +54,7 @@
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.dtpPhieuNhapTheoThang = new MetroFramework.Controls.MetroDateTime();
             this.metroPanel1.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.metroPanel5.SuspendLayout();
@@ -146,19 +144,17 @@
             // 
             // metroPanel4
             // 
+            this.metroPanel4.Controls.Add(this.dtpPhieuNhapTheoThang);
             this.metroPanel4.Controls.Add(this.dtpDoanhThu);
             this.metroPanel4.Controls.Add(this.dtpHoaDonTheoThang);
-            this.metroPanel4.Controls.Add(this.radDoanhThuTheoNam);
             this.metroPanel4.Controls.Add(this.radDoanhThuTheoThang);
             this.metroPanel4.Controls.Add(this.radDoanhThuTheoTuan);
             this.metroPanel4.Controls.Add(this.metroLabel6);
             this.metroPanel4.Controls.Add(this.radTatCaNguyenLieu);
             this.metroPanel4.Controls.Add(this.metroLabel5);
-            this.metroPanel4.Controls.Add(this.radPhieuNhapTheoNam);
             this.metroPanel4.Controls.Add(this.radPhieuNhapTheoThang);
             this.metroPanel4.Controls.Add(this.radTatCaPhieuNhap);
             this.metroPanel4.Controls.Add(this.metroLabel4);
-            this.metroPanel4.Controls.Add(this.radHoaDonTheoNam);
             this.metroPanel4.Controls.Add(this.radHoaDonTheoThang);
             this.metroPanel4.Controls.Add(this.radTatCaHoaDon);
             this.metroPanel4.Controls.Add(this.metroLabel3);
@@ -198,18 +194,6 @@
             this.dtpHoaDonTheoThang.Name = "dtpHoaDonTheoThang";
             this.dtpHoaDonTheoThang.Size = new System.Drawing.Size(121, 29);
             this.dtpHoaDonTheoThang.TabIndex = 24;
-            // 
-            // radDoanhThuTheoNam
-            // 
-            this.radDoanhThuTheoNam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.radDoanhThuTheoNam.AutoSize = true;
-            this.radDoanhThuTheoNam.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radDoanhThuTheoNam.Location = new System.Drawing.Point(177, 349);
-            this.radDoanhThuTheoNam.Name = "radDoanhThuTheoNam";
-            this.radDoanhThuTheoNam.Size = new System.Drawing.Size(107, 25);
-            this.radDoanhThuTheoNam.TabIndex = 23;
-            this.radDoanhThuTheoNam.Text = "Theo năm";
-            this.radDoanhThuTheoNam.UseSelectable = true;
             // 
             // radDoanhThuTheoThang
             // 
@@ -269,18 +253,6 @@
             this.metroLabel5.TabIndex = 18;
             this.metroLabel5.Text = "Nguyên liệu";
             // 
-            // radPhieuNhapTheoNam
-            // 
-            this.radPhieuNhapTheoNam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.radPhieuNhapTheoNam.AutoSize = true;
-            this.radPhieuNhapTheoNam.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radPhieuNhapTheoNam.Location = new System.Drawing.Point(634, 226);
-            this.radPhieuNhapTheoNam.Name = "radPhieuNhapTheoNam";
-            this.radPhieuNhapTheoNam.Size = new System.Drawing.Size(107, 25);
-            this.radPhieuNhapTheoNam.TabIndex = 17;
-            this.radPhieuNhapTheoNam.Text = "Theo năm";
-            this.radPhieuNhapTheoNam.UseSelectable = true;
-            // 
             // radPhieuNhapTheoThang
             // 
             this.radPhieuNhapTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
@@ -315,18 +287,6 @@
             this.metroLabel4.Size = new System.Drawing.Size(99, 25);
             this.metroLabel4.TabIndex = 14;
             this.metroLabel4.Text = "Phiếu nhập";
-            // 
-            // radHoaDonTheoNam
-            // 
-            this.radHoaDonTheoNam.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.radHoaDonTheoNam.AutoSize = true;
-            this.radHoaDonTheoNam.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radHoaDonTheoNam.Location = new System.Drawing.Point(177, 226);
-            this.radHoaDonTheoNam.Name = "radHoaDonTheoNam";
-            this.radHoaDonTheoNam.Size = new System.Drawing.Size(107, 25);
-            this.radHoaDonTheoNam.TabIndex = 13;
-            this.radHoaDonTheoNam.Text = "Theo năm";
-            this.radHoaDonTheoNam.UseSelectable = true;
             // 
             // radHoaDonTheoThang
             // 
@@ -449,6 +409,16 @@
             this.metroLabel1.Text = "Chọn loại báo cáo";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dtpPhieuNhapTheoThang
+            // 
+            this.dtpPhieuNhapTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpPhieuNhapTheoThang.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPhieuNhapTheoThang.Location = new System.Drawing.Point(631, 225);
+            this.dtpPhieuNhapTheoThang.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpPhieuNhapTheoThang.Name = "dtpPhieuNhapTheoThang";
+            this.dtpPhieuNhapTheoThang.Size = new System.Drawing.Size(121, 29);
+            this.dtpPhieuNhapTheoThang.TabIndex = 26;
+            // 
             // FrmBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -484,17 +454,14 @@
         private MetroFramework.Controls.MetroPanel metroPanel4;
         private MetroFramework.Controls.MetroDateTime dtpDoanhThu;
         private MetroFramework.Controls.MetroDateTime dtpHoaDonTheoThang;
-        private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoNam;
         private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoThang;
         private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoTuan;
         private MetroFramework.Controls.MetroLabel metroLabel6;
         private MetroFramework.Controls.MetroRadioButton radTatCaNguyenLieu;
         private MetroFramework.Controls.MetroLabel metroLabel5;
-        private MetroFramework.Controls.MetroRadioButton radPhieuNhapTheoNam;
         private MetroFramework.Controls.MetroRadioButton radPhieuNhapTheoThang;
         private MetroFramework.Controls.MetroRadioButton radTatCaPhieuNhap;
         private MetroFramework.Controls.MetroLabel metroLabel4;
-        private MetroFramework.Controls.MetroRadioButton radHoaDonTheoNam;
         private MetroFramework.Controls.MetroRadioButton radHoaDonTheoThang;
         private MetroFramework.Controls.MetroRadioButton radTatCaHoaDon;
         private MetroFramework.Controls.MetroLabel metroLabel3;
@@ -506,5 +473,6 @@
         private MetroFramework.Controls.MetroPanel metroPanel3;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton btnBaoCao;
+        private MetroFramework.Controls.MetroDateTime dtpPhieuNhapTheoThang;
     }
 }

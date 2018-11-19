@@ -76,5 +76,10 @@ namespace BUS
             }
             return true;
         }
+
+        public static List<PhieuNhapDTO> LayDanhSachPhieuNhapTheoThang(DateTime ngaylap)
+        {
+            return PhieuNhapDAO.LayDanhSachPhieuNhapTheoThang(ngaylap);
+        }
     }
 }

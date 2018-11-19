@@ -76,7 +76,7 @@ namespace QuanLyQuanCF_TS
 
         private void LocalReport_SubreportProcessing2(object sender, SubreportProcessingEventArgs e)
         {
-            //Lấy mã loại truyền từ report cha
+            //Lấy mã hóa đơn truyền từ report cha
             int maHD = int.Parse(e.Parameters["paMaHoaDon"].Values[0]);
             //Lấy dữ liệu cho report con
             List<CTHoaDonDTO> lsCTHD = CTHoaDonBUS.LayDanhSachCTHD_Report(maHD);
@@ -84,22 +84,42 @@ namespace QuanLyQuanCF_TS
             e.DataSources.Add(new ReportDataSource("DSCHITIETHD", lsCTHD));
         }
 
-        //private void LocalReport_SubreportProcessing1(object sender, SubreportProcessingEventArgs e)
-        //{
-        //    //Lấy mã loại truyền từ report cha
-        //    int mahd = int.Parse(e.Parameters["paMaHD"].Values[0]);
-        //    //Lấy dữ liệu cho report con
-        //    List<HoaDonDTO> lsHD = HoaDonBUS.LayDanhSachHoaDonTheoMa(mahd);
-        //    //Đỗ dữ liệu cho report con
-        //    e.DataSources.Add(new ReportDataSource("DSHOADON", lsHD));
-        //}
-
         public void HienTatCaPhieuNhap()
         {
             List<PhieuNhapDTO> lsPhieuNhap = PhieuNhapBUS.LayDanhSachPhieuNhap();
             rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptTatCaPhieuNhap.rdlc";
+            rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing3);
             rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP", lsPhieuNhap));
             rpvBaoCao.RefreshReport();
+        }
+
+        private void LocalReport_SubreportProcessing3(object sender, SubreportProcessingEventArgs e)
+        {
+            //Lấy mã phiếu nhập truyền từ report cha
+            int maPhieuNhap = int.Parse(e.Parameters["paMaPhieuNhap"].Values[0]);
+            //Lấy dữ liệu cho report con
+            List<CTPhieuNhapDTO> lsCTPN = CTPhieuNhapBUS.LayDanhSachCTPhieuNhap(maPhieuNhap);
+            //Đỗ dữ liệu cho report con
+            e.DataSources.Add(new ReportDataSource("DSCHITIETPHIEUNHAP", lsCTPN));
+        }
+
+        public void HienThiTatCacPhieuNhapTheoThang(DateTime ngaylap)
+        {
+            List<PhieuNhapDTO> lsPhieuNhap = PhieuNhapBUS.LayDanhSachPhieuNhapTheoThang(ngaylap);
+            rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptPhieuNhapTheoThang.rdlc";
+            rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing4);
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP", lsPhieuNhap));
+            rpvBaoCao.RefreshReport();
+        }
+
+        private void LocalReport_SubreportProcessing4(object sender, SubreportProcessingEventArgs e)
+        {
+            // Lấy mã phiếu nhập truyền từ report cha
+            int maPhieuNhap = int.Parse(e.Parameters["paMaPhieuNhap"].Values[0]);
+            //Lấy dữ liệu cho report con
+            List<CTPhieuNhapDTO> lsCTPN = CTPhieuNhapBUS.LayDanhSachCTPhieuNhap(maPhieuNhap);
+            //Đỗ dữ liệu cho report con
+            e.DataSources.Add(new ReportDataSource("DSCHITIETPHIEUNHAP", lsCTPN));
         }
 
         public void HienThiMonTheoNhom()

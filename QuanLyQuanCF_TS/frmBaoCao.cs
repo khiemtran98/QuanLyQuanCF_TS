@@ -50,8 +50,6 @@ namespace QuanLyQuanCF_TS
             cmbLoaiMon.DisplayMember = "TenLoaiMon";
             cmbLoaiMon.ValueMember = "MaLoaiMon";
             cmbLoaiMon.DataSource = LoaiMonBUS.LayDanhSachLoaiMon();
-
-            
         }
 
         private void btnBaoCao_Click(object sender, EventArgs e)
@@ -78,22 +76,6 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienThiTatCacHoaDonTheoThang((DateTime)dtpHoaDonTheoThang.Value);
             }
-            //else if (radHoaDonTheoNam.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radDoanhThuTheoTuan.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radDoanhThuTheoThang.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radDoanhThuTheoNam.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
             else if (radTatCaNguyenLieu.Checked)
             {
                 frm.HienTatCaNguyenLieu();
@@ -102,10 +84,10 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienTatCaPhieuNhap();
             }
-            //else if (radPhieuNhapTheoThang.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
+            else if (radPhieuNhapTheoThang.Checked)
+            {
+                frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
+            }
             //else if (radPhieuNhapTheoNam.Checked)
             //{
             //    frm.HienSanPhamTheoNhom();

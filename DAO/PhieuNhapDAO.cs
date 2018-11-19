@@ -86,6 +86,38 @@ namespace DAO
             return false;
         }
 
+        public static List<PhieuNhapDTO> LayDanhSachPhieuNhapTheoThang(DateTime ngaylap)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_phieu_nhap, nha_cung_cap, ngay_lap, tong_tien, trang_thai FROM PhieuNhap WHERE DATEPART(YYYY, ngay_lap) = YEAR(@timeLine) AND DATEPART(MM, ngay_lap) = MONTH(@timeLine) AND DATEPART(DD, ngay_lap) = DAY(@timeLine)";
+
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@timeLine", System.Data.SqlDbType.DateTime, 0).Value = ngaylap;
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<PhieuNhapDTO> result = new List<PhieuNhapDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    PhieuNhapDTO pn = new PhieuNhapDTO();
+                    pn.MaPhieuNhap = reader.GetInt32(0);
+                    pn.NhaCungCap = reader.GetInt32(1);
+                    pn.NgayLap = reader.GetDateTime(2);
+                    pn.TongTien = reader.GetDouble(3);
+                    pn.TrangThai = reader.GetBoolean(4);
+                    result.Add(pn);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
+
         public static List<PhieuNhapDTO> LayDanhSachPhieuNhap(bool trangThai)
         {
             SqlConnection connection = DataProvider.GetConnection();
