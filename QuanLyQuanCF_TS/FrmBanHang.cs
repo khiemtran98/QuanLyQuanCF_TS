@@ -44,7 +44,7 @@ namespace QuanLyQuanCF_TS
 
         private void LayDanhSachLoaiMon()
         {
-            List<LoaiMonDTO> dsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon("", true);
+            List<LoaiMonDTO> dsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
             foreach (LoaiMonDTO loaiMon in dsLoaiMon)
             {
                 MaterialFlatButton btn = new MaterialFlatButton();
@@ -100,7 +100,7 @@ namespace QuanLyQuanCF_TS
 
                         lsv.Click += new EventHandler(ThemMon);
 
-                        List<MonDTO> lsMon = MonBUS.LayDanhSachMon(Convert.ToInt32(lsv.Name), "", true);
+                        List<MonDTO> lsMon = MonBUS.LayDanhSachMon(Convert.ToInt32(lsv.Name));
                         LayDanhSachMon(lsv, lsMon);
                         panelMenu.Controls.Add(lsv);
                     }
@@ -131,7 +131,7 @@ namespace QuanLyQuanCF_TS
 
                 lsv.Click += new EventHandler(ThemTopping);
 
-                List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachTopping(loaiTopping.MaLoaiTopping, "", true);
+                List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachTopping(loaiTopping.MaLoaiTopping);
                 LayDanhSachTopping(lsv, lsTopping);
                 panelMenu.Controls.Add(lsv);
             }
@@ -206,7 +206,9 @@ namespace QuanLyQuanCF_TS
                 ToppingDTO topping = dsTopping[i];
                 ListViewItem lvi = new ListViewItem(topping.TenTopping);
                 lvi.SubItems.Add(topping.GiaTien.ToString("#,##0đ"));
+                lsv.LargeImageList.Images.Add(Image.FromFile("img\\products\\" + topping.Hinh));
                 lvi.Group = lsv.Groups[topping.LoaiTopping + ""];
+                lvi.ImageIndex = i;
                 lvi.Tag = topping;
                 lsv.Items.Add(lvi);
             }
@@ -336,7 +338,7 @@ namespace QuanLyQuanCF_TS
 
         private void TaoGroupMon(ListView lsv)
         {
-            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon("", true))
+            foreach (LoaiMonDTO loaiMon in LoaiMonBUS.LayDanhSachLoaiMon())
             {
                 lsv.Groups.Add(loaiMon.MaLoaiMon + "", loaiMon.TenLoaiMon);
             }
@@ -517,14 +519,14 @@ namespace QuanLyQuanCF_TS
                 // Tìm kiếm món
                 if (radMenuMon.Checked)
                 {
-                    List<MonDTO> dsMon = MonBUS.LayDanhSachMon(loaiDangChon, txtTimKiem.Text, true);
+                    List<MonDTO> dsMon = MonBUS.LayDanhSachMon(loaiDangChon, txtTimKiem.Text);
                     LayDanhSachMon(lsv, dsMon);
                 }
 
                 // Tìm kiếm topping
                 else
                 {
-                    List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachTopping(loaiDangChon, txtTimKiem.Text, true);
+                    List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachTopping(loaiDangChon);
                     LayDanhSachTopping(lsv, dsTopping);
                 }
             }

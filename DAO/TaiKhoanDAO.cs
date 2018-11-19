@@ -48,6 +48,10 @@ namespace DAO
             {
                 query += " AND LoaiTaiKhoan.trang_thai=1 AND TaiKhoan.trang_thai=1";
             }
+            else
+            {
+                query += " AND LoaiTaiKhoan.trang_thai=1 AND TaiKhoan.trang_thai=0";
+            }
             command.CommandText = query;
             command.Connection = connection;
 
@@ -175,7 +179,7 @@ namespace DAO
         public static bool XoaTaiKhoan(int maTaiKhoan)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM TaiKhoan WHERE ma_tai_khoan=@maTaiKhoan";
+            string query = "UPDATE TaiKhoan SET trang_thai=0 WHERE ma_tai_khoan=@maTaiKhoan";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maTaiKhoan", System.Data.SqlDbType.Int, 0).Value = maTaiKhoan;
 
@@ -190,6 +194,22 @@ namespace DAO
                 return true;
             }
             return false;
+        }
+
+        public static bool XoaTaiKhoanTheoLoai(int maLoaiTaiKhoan)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE TaiKhoan SET trang_thai=0 WHERE loai_tai_khoan=@maLoaiTaiKhoan";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maLoaiTaiKhoan", System.Data.SqlDbType.Int, 0).Value = maLoaiTaiKhoan;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            return true;
         }
 
         public static bool SuaTaiKhoan(TaiKhoanDTO taiKhoan)
@@ -217,12 +237,12 @@ namespace DAO
             return false;
         }
 
-        public static bool XoaTaiKhoanTheoLoai(int maLoaiTaiKhoan)
+        public static bool KhoiPhucTaiKhoan(int maTaiKhoan)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM TaiKhoan WHERE loai_tai_khoan=@maLoaiTaiKhoan";
+            string query = "UPDATE TaiKhoan SET trang_thai=1 WHERE ma_tai_khoan=@maTaiKhoan";
             SqlCommand command = new SqlCommand(query, connection);
-            command.Parameters.Add("@maLoaiTaiKhoan", System.Data.SqlDbType.Int, 0).Value = maLoaiTaiKhoan;
+            command.Parameters.Add("@maTaiKhoan", System.Data.SqlDbType.Int, 0).Value = maTaiKhoan;
 
             connection.Open();
 
@@ -230,7 +250,11 @@ namespace DAO
 
             connection.Close();
 
-            return true;
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
         }
     }
 }

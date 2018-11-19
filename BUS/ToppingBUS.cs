@@ -10,7 +10,7 @@ namespace BUS
 {
     public class ToppingBUS
     {
-        public static List<ToppingDTO> LayDanhSachTopping(int maLoaiTopping = 0, string timkiem = "", bool trangThai = false)
+        public static List<ToppingDTO> LayDanhSachTopping(int maLoaiTopping = 0, string timkiem = "", bool trangThai = true)
         {
             return ToppingDAO.LayDanhSachTopping(maLoaiTopping, timkiem, trangThai);
         }
@@ -43,6 +43,11 @@ namespace BUS
         public static int LayMaToppingMoiNhat()
         {
             return ToppingDAO.LayMaToppingMoiNhat();
+        }
+
+        public static bool KhoiPhucTopping(int maTopping)
+        {
+            return ToppingDAO.KhoiPhucTopping(maTopping);
         }
     }
 }

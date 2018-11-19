@@ -68,9 +68,9 @@
             this.lblPhienBan.AutoSize = true;
             this.lblPhienBan.Location = new System.Drawing.Point(717, 351);
             this.lblPhienBan.Name = "lblPhienBan";
-            this.lblPhienBan.Size = new System.Drawing.Size(42, 19);
+            this.lblPhienBan.Size = new System.Drawing.Size(32, 19);
             this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.6.3";
+            this.lblPhienBan.Text = "v2.7";
             // 
             // lblThongTin1
             // 
@@ -94,7 +94,6 @@
             // 
             // btnDangNhap
             // 
-            this.btnDangNhap.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.btnDangNhap.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnDangNhap.FontWeight = MetroFramework.MetroButtonWeight.Regular;
             this.btnDangNhap.ForeColor = System.Drawing.SystemColors.ControlText;
@@ -108,7 +107,6 @@
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
             // 
             // 
             // 
@@ -142,7 +140,6 @@
             // 
             // cmbTaiKhoan
             // 
-            this.cmbTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cmbTaiKhoan.FormattingEnabled = true;
             this.cmbTaiKhoan.ItemHeight = 23;
             this.cmbTaiKhoan.Location = new System.Drawing.Point(266, 105);
@@ -153,7 +150,6 @@
             // 
             // lblMatKhau
             // 
-            this.lblMatKhau.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblMatKhau.AutoSize = true;
             this.lblMatKhau.Location = new System.Drawing.Point(184, 145);
             this.lblMatKhau.Name = "lblMatKhau";
@@ -163,7 +159,6 @@
             // 
             // lblTaiKhoan
             // 
-            this.lblTaiKhoan.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.lblTaiKhoan.AutoSize = true;
             this.lblTaiKhoan.Location = new System.Drawing.Point(184, 111);
             this.lblTaiKhoan.Name = "lblTaiKhoan";

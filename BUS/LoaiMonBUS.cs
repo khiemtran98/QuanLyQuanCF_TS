@@ -15,13 +15,14 @@ namespace BUS
             return LoaiMonDAO.LayMaLoaiMonMoiNhat();
         }
 
-        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem = "", bool trangThai = false)
+        public static List<LoaiMonDTO> LayDanhSachLoaiMon(string timKiem = "", bool trangThai = true)
         {
             return LoaiMonDAO.LayDanhSachLoaiMon(timKiem, trangThai);
         }
-        public static List<LoaiMonDTO> LayDanhSachLoaiMon()
+
+        public static List<LoaiMonDTO> LayDanhSachTatCaLoaiMon()
         {
-            return LoaiMonDAO.LayDanhSachLoaiMon();
+            return LoaiMonDAO.LayDanhSachTatCaLoaiMon();
         }
 
         public static bool ThemLoaiMon(LoaiMonDTO loaiMon, List<CTLoaiMon_LoaiToppingDTO> lsLoaiMon_LoaiTopping)
@@ -37,10 +38,10 @@ namespace BUS
         {
             if (MonBUS.XoaTatCaMonTheoLoai(maLoaiMon))
             {
-                if (CTLoaiMon_LoaiToppingBUS.XoaLoaiMon_LoaiToppingTheoLoaiMon(maLoaiMon))
-                {
+                //if (CTLoaiMon_LoaiToppingBUS.XoaLoaiMon_LoaiToppingTheoLoaiMon(maLoaiMon))
+                //{
                     return LoaiMonDAO.XoaLoaiMon(maLoaiMon);
-                }
+                //}
             }
             return false;
         }
@@ -52,6 +53,11 @@ namespace BUS
                 return LoaiMonDAO.SuaLoaiMon(loaiMon);
             }
             return false;
+        }
+
+        public static bool KhoiPhucLoaiMon(int maLoaiMon)
+        {
+            return LoaiMonDAO.KhoiPhucLoaiMon(maLoaiMon);
         }
     }
 }

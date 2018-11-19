@@ -15,9 +15,14 @@ namespace BUS
             return LoaiTaiKhoanDAO.LayMaLoaiTaiKhoanMoiNhat();
         }
 
-        public static List<LoaiTaiKhoanDTO> LayDanhSachLoaiTaiKhoan(string timKiem = "", bool trangThai = false)
+        public static List<LoaiTaiKhoanDTO> LayDanhSachLoaiTaiKhoan(string timKiem = "", bool trangThai = true)
         {
             return LoaiTaiKhoanDAO.LayDanhSachLoaiTaiKhoan(timKiem, trangThai);
+        }
+
+        public static List<LoaiTaiKhoanDTO> LayDanhSachTatCaLoaiTaiKhoan()
+        {
+            return LoaiTaiKhoanDAO.LayDanhSachTatCaLoaiTaiKhoan();
         }
 
         public static bool ThemLoaiTaiKhoan(LoaiTaiKhoanDTO loaiTaiKhoan, List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan)
@@ -33,10 +38,10 @@ namespace BUS
         {
             if (TaiKhoanBUS.XoaTaiKhoanTheoLoai(maLoaiTaiKhoan))
             {
-                if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
-                {
+                //if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
+                //{
                     return LoaiTaiKhoanDAO.XoaLoaiTaiKhoan(maLoaiTaiKhoan);
-                }
+                //}
             }
             return false;
         }
@@ -48,6 +53,11 @@ namespace BUS
                 return LoaiTaiKhoanDAO.SuaLoaiTaiKhoan(loaiTaiKhoan);
             }
             return false;
+        }
+
+        public static bool KhoiPhucLoaiTaiKhoan(int maLoaiTaiKhoan)
+        {
+            return LoaiTaiKhoanDAO.KhoiPhucLoaiTaiKhoan(maLoaiTaiKhoan);
         }
     }
 }

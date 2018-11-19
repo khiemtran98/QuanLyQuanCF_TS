@@ -96,6 +96,8 @@ namespace QuanLyQuanCF_TS
             hoaDon.NhanVienLap = TaiKhoanBUS.LayTaiKhoanDangNhap();
             hoaDon.NgayLap = DateTime.Now;
             hoaDon.TongTien = ((FrmBanHang)this.FindForm()).TinhThanhTien();
+            hoaDon.TienMat = Convert.ToDouble(txtTienMat.Text.Remove(txtTienMat.Text.Length - 1));
+            hoaDon.TienThua = Convert.ToDouble(txtTienThua.Text.Remove(txtTienThua.Text.Length - 1));
             hoaDon.TrangThai = true;
 
             List<CTHoaDonDTO> lsCTHD = new List<CTHoaDonDTO>();

@@ -11,6 +11,7 @@ using MetroFramework.Controls;
 using System.IO;
 using DTO;
 using BUS;
+using System.Security.Cryptography;
 
 namespace QuanLyQuanCF_TS
 {
@@ -37,15 +38,16 @@ namespace QuanLyQuanCF_TS
 
         private void FrmQuanLyTaiKhoan_Load(object sender, EventArgs e)
         {
+            dgvLoaiTaiKhoan.AutoGenerateColumns = false;
             dgvTaiKhoan.AutoGenerateColumns = false;
 
             QLLTK_LoadDanhSachLoaiTaiKhoan();
 
-            QLTK_LoadDanhSachTaiKhoan();
-            QLTK_LoadLoaiTaiKhoan();
+            //QLTK_LoadDanhSachTaiKhoan();
+            //QLTK_LoadLoaiTaiKhoan();
 
             LamMoiLoaiTaiKhoan();
-            LamMoiTaiKhoan();
+            //LamMoiTaiKhoan();
 
             tbcQuanLyTaiKhoan.SelectedTab = tbpLoaiTaiKhoan;
         }
@@ -54,10 +56,29 @@ namespace QuanLyQuanCF_TS
         {
             TabPage current = (sender as TabControl).SelectedTab;
 
+            if (current.Name == "tbpLoaiTaiKhoan")
+            {
+                if (lnkDSLoaiTaiKhoan.AccessibleName == "DSLoaiTaiKhoan")
+                {
+                    QLLTK_LoadDanhSachLoaiTaiKhoan();
+                }
+                else
+                {
+                    QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa();
+                }
+            }
+
             if (current.Name == "tbpTaiKhoan")
             {
                 QLTK_LoadLoaiTaiKhoan();
-                QLTK_LoadDanhSachTaiKhoan();
+                if (lnkDSTaiKhoan.AccessibleName == "DSTaiKhoan")
+                {
+                    QLTK_LoadDanhSachTaiKhoan();
+                }
+                else
+                {
+                    QLTK_LoadDanhSachTaiKhoanDaXoa();
+                }
             }
         }
 
@@ -66,6 +87,12 @@ namespace QuanLyQuanCF_TS
         private void QLLTK_LoadDanhSachLoaiTaiKhoan(string timKiem = "")
         {
             List<LoaiTaiKhoanDTO> lsLoaiTaiKhoan = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan(timKiem);
+            dgvLoaiTaiKhoan.DataSource = lsLoaiTaiKhoan;
+        }
+
+        private void QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa(string timKiem = "")
+        {
+            List<LoaiTaiKhoanDTO> lsLoaiTaiKhoan = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan(timKiem, false);
             dgvLoaiTaiKhoan.DataSource = lsLoaiTaiKhoan;
         }
 
@@ -105,20 +132,25 @@ namespace QuanLyQuanCF_TS
                         case 8:
                             chkBanHang.Checked = true;
                             break;
+                        case 9:
+                            chkBaoCao.Checked = true;
+                            break;
+                        case 10:
+                            chkCaiDat.Checked = true;
+                            break;
                     }
                 }
-                chkQLLTK_TrangThai.Checked = Convert.ToBoolean(dgvLoaiTaiKhoan.SelectedRows[0].Cells["colQLLTK_TrangThai"].Value);
             }
         }
 
         private void LamMoiLoaiTaiKhoan(bool state = true)
         {
             txtMaLoaiTaiKhoan.Text = txtTenLoaiTaiKhoan.Text = string.Empty;
-            chkQLLTK_TrangThai.Checked = false;
             btnThemLoaiTaiKhoan.Enabled = state;
             btnXoaLoaiTaiKhoan.Enabled = !state;
             btnSuaLoaiTaiKhoan.Enabled = !state;
-            foreach(Control ctrl in gpbChucNang.Controls)
+            btnKhoiPhucLoaiTaiKhoan.Enabled = !state;
+            foreach (Control ctrl in gpbChucNang.Controls)
             {
                 if (ctrl.GetType() == typeof(MetroCheckBox))
                 {
@@ -155,11 +187,35 @@ namespace QuanLyQuanCF_TS
             return lsChucNang_LoaiTaiKhoan;
         }
 
+        private void lnkDSLoaiTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (lnkDSLoaiTaiKhoan.AccessibleName == "DSLoaiTaiKhoan")
+            {
+                lnkDSLoaiTaiKhoan.Text = "Hiện danh sách loại tài khoản đang có";
+                QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa();
+                lnkDSLoaiTaiKhoan.AccessibleName = "DSLoaiTaiKhoanDaXoa";
+                panelChucNangDSLoaiTaiKhoan.Visible = false;
+                panelChucNangDSLoaiTaiKhoanDaXoa.Visible = true;
+                LamMoiLoaiTaiKhoan();
+                txtTenLoaiTaiKhoan.Enabled = gpbChucNang.Enabled = false;
+            }
+            else
+            {
+                lnkDSLoaiTaiKhoan.Text = "Hiện danh sách loại tài khoản đã xoá";
+                QLLTK_LoadDanhSachLoaiTaiKhoan();
+                lnkDSLoaiTaiKhoan.AccessibleName = "DSLoaiTaiKhoan";
+                panelChucNangDSLoaiTaiKhoan.Visible = true;
+                panelChucNangDSLoaiTaiKhoanDaXoa.Visible = false;
+                LamMoiLoaiTaiKhoan();
+                txtTenLoaiTaiKhoan.Enabled = gpbChucNang.Enabled = true;
+            }
+        }
+
         private void btnThemLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
             LoaiTaiKhoanDTO loaiTaiKhoan = new LoaiTaiKhoanDTO();
             loaiTaiKhoan.TenLoaiTaiKhoan = txtTenLoaiTaiKhoan.Text;
-            loaiTaiKhoan.TrangThai = chkQLLTK_TrangThai.Checked;
+            loaiTaiKhoan.TrangThai = true;
 
             if (LoaiTaiKhoanBUS.ThemLoaiTaiKhoan(loaiTaiKhoan, LayDanhSachCheckBoxChucNang(true)))
             {
@@ -181,13 +237,19 @@ namespace QuanLyQuanCF_TS
                 MessageBox.Show("Đây là loại tài khoản mặc định và không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
-            if (DialogResult.Yes == MessageBox.Show("Xoá loại tài khoản sẽ đồng thời xoá tất cả tài khoản thuộc loại tài khoản đó. Nếu muốn tạm thời ẩn loại tài khoản này hãy thay đổi trạng thái hoạt động.\n\nBạn có chắc chắn muốn xoá loại tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
+            if (DialogResult.Yes == MessageBox.Show("Xoá loại tài khoản sẽ đồng thời xoá tất cả tài khoản thuộc loại tài khoản này.\n\nBạn có chắc chắn muốn xoá loại tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
             {
+                if (TaiKhoanBUS.LayThongTinTaiKhoan(TaiKhoanBUS.LayTaiKhoanDangNhap()).LoaiTaiKhoan == int.Parse(txtMaLoaiTaiKhoan.Text))
+                {
+                    MessageBox.Show("Tài khoản đang đang nhập thuộc loại tài khoản này!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Hand);
+                    return;
+                }
                 if (LoaiTaiKhoanBUS.XoaLoaiTaiKhoan(Convert.ToInt32(txtMaLoaiTaiKhoan.Text)))
                 {
                     MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LamMoiLoaiTaiKhoan();
                     QLLTK_LoadDanhSachLoaiTaiKhoan();
+                    dgvLoaiTaiKhoan.ClearSelection();
                 }
                 else
                 {
@@ -198,22 +260,22 @@ namespace QuanLyQuanCF_TS
 
         private void btnSuaLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (txtMaLoaiTaiKhoan.Text == "1")
-            {
-                if (!chkQLLTK_TrangThai.Checked)
-                {
-                    MessageBox.Show("Đây là loại tài khoản mặc định và không thể bị dừng hoạt động!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                    return;
-                }
-            }
             LoaiTaiKhoanDTO loaiTaiKhoan = new LoaiTaiKhoanDTO();
             loaiTaiKhoan.MaLoaiTaiKhoan = Convert.ToInt32(txtMaLoaiTaiKhoan.Text);
             loaiTaiKhoan.TenLoaiTaiKhoan = txtTenLoaiTaiKhoan.Text;
-            loaiTaiKhoan.TrangThai = chkQLLTK_TrangThai.Checked;
+            loaiTaiKhoan.TrangThai = true;
 
             if (LoaiTaiKhoanBUS.SuaLoaiTaiKhoan(loaiTaiKhoan, LayDanhSachCheckBoxChucNang(false)))
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (TaiKhoanBUS.LayThongTinTaiKhoan(TaiKhoanBUS.LayTaiKhoanDangNhap()).LoaiTaiKhoan == int.Parse(txtMaLoaiTaiKhoan.Text))
+                {
+                    if (DialogResult.OK == MessageBox.Show("Vui lòng đăng nhập lại để cập nhật thay đổi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                    {
+                        ((FrmMain)this.ParentForm).DangXuat();
+                        this.Close();
+                    }
+                }
                 LamMoiLoaiTaiKhoan();
                 QLLTK_LoadDanhSachLoaiTaiKhoan();
             }
@@ -224,9 +286,25 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void btnKhoiPhucLoaiTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (LoaiTaiKhoanBUS.KhoiPhucLoaiTaiKhoan(Convert.ToInt32(txtMaLoaiTaiKhoan.Text)))
+            {
+                MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa();
+                LamMoiLoaiTaiKhoan();
+                dgvLoaiTaiKhoan.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void btnLamMoiLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
             LamMoiLoaiTaiKhoan();
+            dgvLoaiTaiKhoan.ClearSelection();
         }
 
         private void btnTimKiemLoaiTaiKhoan_Click(object sender, EventArgs e)
@@ -244,7 +322,14 @@ namespace QuanLyQuanCF_TS
 
         private void TimKiemLoaiTaiKhoan()
         {
-            QLLTK_LoadDanhSachLoaiTaiKhoan(txtTimKiemLoaiTaiKhoan.Text);
+            if (lnkDSLoaiTaiKhoan.AccessibleName == "DSLoaiTaiKhoan")
+            {
+                QLLTK_LoadDanhSachLoaiTaiKhoan(txtTimKiemLoaiTaiKhoan.Text);
+            }
+            else
+            {
+                QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa(txtTimKiemLoaiTaiKhoan.Text);
+            }
         }
 
         private void txtTimKiemLoaiTaiKhoan_Enter(object sender, EventArgs e)
@@ -275,6 +360,12 @@ namespace QuanLyQuanCF_TS
             dgvTaiKhoan.DataSource = lsTaiKhoan;
         }
 
+        private void QLTK_LoadDanhSachTaiKhoanDaXoa(string timKiem = "")
+        {
+            List<TaiKhoanDTO> lsTaiKhoan = TaiKhoanBUS.LayDanhSachTaiKhoan(timKiem, false);
+            dgvTaiKhoan.DataSource = lsTaiKhoan;
+        }
+
         private void QLTK_LoadLoaiTaiKhoan()
         {
             List<LoaiTaiKhoanDTO> lsLoaiTaiKhoan = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan();
@@ -285,7 +376,7 @@ namespace QuanLyQuanCF_TS
 
         private void dgvTaiKhoan_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
-            ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachLoaiTaiKhoan();
+            ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).DataSource = LoaiTaiKhoanBUS.LayDanhSachTatCaLoaiTaiKhoan();
             ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).DisplayMember = "TenLoaiTaiKhoan";
             ((DataGridViewComboBoxCell)dgvTaiKhoan.Rows[e.RowIndex].Cells["colLoaiTaiKhoan"]).ValueMember = "MaLoaiTaiKhoan";
         }
@@ -318,15 +409,53 @@ namespace QuanLyQuanCF_TS
                 dtpNgayBatDau.Value = Convert.ToDateTime(dgvTaiKhoan.SelectedRows[0].Cells["colNgayBatDau"].Value);
                 cmbLoaiTaiKhoan.SelectedValue = Convert.ToInt32(dgvTaiKhoan.SelectedRows[0].Cells["colLoaiTaiKhoan"].Value);
                 picHinh.Image = (Bitmap)dgvTaiKhoan.SelectedRows[0].Cells["colHinh"].FormattedValue;
-                chkQLTK_TrangThai.Checked = Convert.ToBoolean(dgvTaiKhoan.SelectedRows[0].Cells["colQLTK_TrangThai"].Value);
             }
+        }
+
+        private void lnkTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (lnkDSTaiKhoan.AccessibleName == "DSTaiKhoan")
+            {
+                lnkDSTaiKhoan.Text = "Hiện danh sách tài khoản đang có";
+                QLTK_LoadDanhSachTaiKhoanDaXoa();
+                lnkDSTaiKhoan.AccessibleName = "DSTaiKhoanDaXoa";
+                panelChucNangDSTaiKhoan.Visible = false;
+                panelChucNangDSTaiKhoanDaXoa.Visible = true;
+                LamMoiTaiKhoan();
+                txtHoTen.Enabled = txtMatKhau.Enabled = dtpNgayBatDau.Enabled = cmbLoaiTaiKhoan.Enabled = picHinh.Enabled = false;
+            }
+            else
+            {
+                lnkDSTaiKhoan.Text = "Hiện danh sách tài khoản đã xoá";
+                QLTK_LoadDanhSachTaiKhoan();
+                lnkDSTaiKhoan.AccessibleName = "DSTaiKhoan";
+                panelChucNangDSTaiKhoan.Visible = true;
+                panelChucNangDSTaiKhoanDaXoa.Visible = false;
+                LamMoiTaiKhoan();
+                txtHoTen.Enabled = txtMatKhau.Enabled = dtpNgayBatDau.Enabled = cmbLoaiTaiKhoan.Enabled = picHinh.Enabled = true;
+            }
+        }
+
+        private string MaHoaMatKhau(string matKhau)
+        {
+            MD5 mh = MD5.Create();
+            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhau);
+            byte[] hash = mh.ComputeHash(inputBytes);
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < hash.Length; i++)
+            {
+                sb.Append(hash[i].ToString("x2"));
+            }
+
+            return sb.ToString();
         }
 
         private void btnThemTaiKhoan_Click(object sender, EventArgs e)
         {
             TaiKhoanDTO taiKhoan = new TaiKhoanDTO();
             taiKhoan.HoTen = txtHoTen.Text;
-            taiKhoan.MatKhau = txtMatKhau.Text;
+            taiKhoan.MatKhau = MaHoaMatKhau(txtMatKhau.Text);
             taiKhoan.NgayBatDau = dtpNgayBatDau.Value;
             taiKhoan.LoaiTaiKhoan = Convert.ToInt32(cmbLoaiTaiKhoan.SelectedValue);
             if (openFileDialog1.FileName != "")
@@ -336,13 +465,14 @@ namespace QuanLyQuanCF_TS
                 taiKhoan.Hinh = tenFile + extension;
                 File.Copy(openFileDialog1.FileName, "img\\accounts\\" + tenFile + extension, true);
             }
-            taiKhoan.TrangThai = chkQLTK_TrangThai.Checked;
+            taiKhoan.TrangThai = true;
 
             if (TaiKhoanBUS.ThemTaiKhoan(taiKhoan))
             {
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiTaiKhoan();
                 QLTK_LoadDanhSachTaiKhoan();
+                dgvTaiKhoan.ClearSelection();
             }
             else
             {
@@ -353,9 +483,14 @@ namespace QuanLyQuanCF_TS
 
         private void btnXoaTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (txtMaTaiKhoan.Text == "1")
+            if (int.Parse(txtMaTaiKhoan.Text) == 1)
             {
                 MessageBox.Show("Đây là tài khoản mặc định và không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+            if (int.Parse(txtMaTaiKhoan.Text) == TaiKhoanBUS.LayTaiKhoanDangNhap())
+            {
+                MessageBox.Show("Tài khoản này đang được dùng để đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
                 return;
             }
             if (DialogResult.Yes == MessageBox.Show("Bạn có chắc chắn muốn xoá tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
@@ -365,6 +500,7 @@ namespace QuanLyQuanCF_TS
                     MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LamMoiTaiKhoan();
                     QLTK_LoadDanhSachTaiKhoan();
+                    dgvTaiKhoan.ClearSelection();
                 }
                 else
                 {
@@ -375,21 +511,10 @@ namespace QuanLyQuanCF_TS
 
         private void btnSuaTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (cmbLoaiTaiKhoan.SelectedValue.ToString() == "1")
-            {
-                if (txtMaTaiKhoan.Text == "1")
-                {
-                    if (!chkQLTK_TrangThai.Checked)
-                    {
-                        MessageBox.Show("Đây là tài khoản mặc định và không thể bị dừng hoạt động!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                        return;
-                    }
-                }
-            }
             TaiKhoanDTO taiKhoan = new TaiKhoanDTO();
             taiKhoan.MaTaiKhoan = Convert.ToInt32(txtMaTaiKhoan.Text);
             taiKhoan.HoTen = txtHoTen.Text;
-            taiKhoan.MatKhau = txtMatKhau.Text;
+            taiKhoan.MatKhau = MaHoaMatKhau(txtMatKhau.Text);
             taiKhoan.NgayBatDau = dtpNgayBatDau.Value;
             taiKhoan.LoaiTaiKhoan = Convert.ToInt32(cmbLoaiTaiKhoan.SelectedValue);
             if (openFileDialog1.FileName != "")
@@ -406,13 +531,25 @@ namespace QuanLyQuanCF_TS
                     taiKhoan.Hinh = dgvTaiKhoan.CurrentRow.Cells["colHinh"].Value.ToString();
                 }
             }
-            taiKhoan.TrangThai = chkQLTK_TrangThai.Checked;
+            taiKhoan.TrangThai = true;
 
             if (TaiKhoanBUS.SuaTaiKhoan(taiKhoan))
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                LamMoiTaiKhoan();
-                QLTK_LoadDanhSachTaiKhoan();
+                if (int.Parse(txtMaTaiKhoan.Text) == TaiKhoanBUS.LayTaiKhoanDangNhap())
+                {
+                    if (DialogResult.OK == MessageBox.Show("Vui lòng đăng nhập lại để cập nhật thay đổi!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information))
+                    {
+                        ((FrmMain)this.ParentForm).DangXuat();
+                        this.Close();
+                    }
+                }
+                else
+                {
+                    LamMoiTaiKhoan();
+                    QLTK_LoadDanhSachTaiKhoan();
+                    dgvTaiKhoan.ClearSelection();
+                }
             }
             else
             {
@@ -421,16 +558,31 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void btnKhoiPhucTaiKhoan_Click(object sender, EventArgs e)
+        {
+            if (TaiKhoanBUS.KhoiPhucTaiKhoan(Convert.ToInt32(txtMaTaiKhoan.Text)))
+            {
+                MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                QLTK_LoadDanhSachTaiKhoanDaXoa();
+                LamMoiTaiKhoan();
+                dgvLoaiTaiKhoan.ClearSelection();
+            }
+            else
+            {
+                MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
         private void LamMoiTaiKhoan(bool state = true)
         {
             txtMaTaiKhoan.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
             dtpNgayBatDau.Value = DateTime.Now;
             cmbLoaiTaiKhoan.SelectedIndex = 0;
-            chkQLTK_TrangThai.Checked = false;
             picHinh.Image = Properties.Resources.default_account;
             btnThemTaiKhoan.Enabled = state;
             btnXoaTaiKhoan.Enabled = !state;
             btnSuaTaiKhoan.Enabled = !state;
+            btnKhoiPhucTaiKhoan.Enabled = !state;
             openFileDialog1.FileName = "";
         }
 
@@ -454,7 +606,14 @@ namespace QuanLyQuanCF_TS
 
         private void TimKiemTaiKhoan()
         {
-            QLTK_LoadDanhSachTaiKhoan(txtTimKiemTaiKhoan.Text);
+            if (lnkDSTaiKhoan.AccessibleName == "DSTaiKhoan")
+            {
+                QLTK_LoadDanhSachTaiKhoan(txtTimKiemTaiKhoan.Text);
+            }
+            else
+            {
+                QLTK_LoadDanhSachTaiKhoanDaXoa(txtTimKiemTaiKhoan.Text);
+            }
         }
 
         private void txtTimKiemTaiKhoan_Enter(object sender, EventArgs e)

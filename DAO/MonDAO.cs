@@ -64,6 +64,10 @@ namespace DAO
             {
                 query += " AND Mon.trang_thai=1 AND LoaiMon.trang_thai=1";
             }
+            else
+            {
+                query += " AND Mon.trang_thai=0 AND LoaiMon.trang_thai=1";
+            }
             command.CommandText = query;
             command.Connection = connection;
 
@@ -92,6 +96,7 @@ namespace DAO
             connection.Close();
             return result;
         }
+
         public static List<MonDTO> LayDanhSachMon(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
@@ -145,7 +150,7 @@ namespace DAO
         public static bool XoaTatCaMonTheoLoai(int maLoaiMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM Mon WHERE loai_mon=@maLoaiMon";
+            string query = "UPDATE Mon SET trang_thai=0 WHERE loai_mon=@maLoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
 
@@ -185,7 +190,7 @@ namespace DAO
         public static bool XoaMon(int maMon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "DELETE FROM Mon WHERE ma_mon=@maMon";
+            string query = "UPDATE Mon SET trang_thai=0 WHERE ma_mon=@maMon";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maMon", System.Data.SqlDbType.Int, 0).Value = maMon;
 
@@ -213,6 +218,26 @@ namespace DAO
             command.Parameters.Add("@hinh", System.Data.SqlDbType.NVarChar, 255).Value = mon.Hinh;
             command.Parameters.Add("@giaTien", System.Data.SqlDbType.Float, 0).Value = mon.GiaTien;
             command.Parameters.Add("@trangThai", System.Data.SqlDbType.Bit, 0).Value = mon.TrangThai;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        public static bool KhoiPhucMon(object maMon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE Mon SET trang_thai=1 WHERE ma_mon=@maMon";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maMon", System.Data.SqlDbType.Int, 0).Value = maMon;
 
             connection.Open();
 

@@ -24,7 +24,7 @@ namespace BUS
 
             foreach (CTHoaDonDTO cthd in lsCTHD)
             {
-                if (!CTHoaDon.LuuCTHoaDon(cthd))
+                if (!CTHoaDonDAO.LuuCTHoaDon(cthd))
                 {
                     return false;
                 }
@@ -44,6 +44,16 @@ namespace BUS
         public static List<HoaDonDTO> LayDanhSachHoaDon()
         {
             return HoaDonDAO.LayDanhSachHoaDon();
+        }
+
+        public static List<HoaDonDTO> LayDanhSachHoaDonTheoMa(int mahd)
+        {
+            return HoaDonDAO.LayDanhSachHoaDonTheoMa(mahd);
+        }
+
+        public static List<HoaDonDTO> LayDanhSachHoaDonTheoThang(DateTime ngaylap)
+        {
+            return HoaDonDAO.LayDanhSachHoaDonTheoThang(ngaylap);
         }
     }
 }
