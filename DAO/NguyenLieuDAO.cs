@@ -13,7 +13,7 @@ namespace DAO
         public static List<NguyenLieuDTO> GetEntireMaterials()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_nguyen_lieu, ten_nguyen_lieu, khoi_luong FROM NguyenLieu";
+            string query = "SELECT ma_nguyen_lieu, ten_nguyen_lieu, so_luong, don_vi_tinh FROM NguyenLieu";
             SqlCommand command = new SqlCommand();
           
             command.CommandText = query;
@@ -30,7 +30,8 @@ namespace DAO
                     NguyenLieuDTO obj = new NguyenLieuDTO();
                     obj.MaNguyenLieu = reader.GetInt32(0);
                     obj.TenNguyenLieu = reader.GetString(1);
-                    obj.KhoiLuong = reader.GetInt32(2);
+                    obj.SoLuong = reader.GetInt32(2);
+                    obj.DonVi = reader.GetString(3);
                     result.Add(obj);
                 }
             }

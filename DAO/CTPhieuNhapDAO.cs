@@ -14,7 +14,7 @@ namespace DAO
         public static List<CTPhieuNhapDTO> GetListDetailMaterials(int maPhieuNhap)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_phieu_nhap, ma_nguyen_lieu, khoi_luong, don_gia FROM CTPhieuNhap WHERE ma_phieu_nhap=@maPhieuNhap";
+            string query = "SELECT ma_phieu_nhap, ma_nguyen_lieu, so_luong, don_vi_tinh, don_gia FROM CTPhieuNhap WHERE ma_phieu_nhap=@maPhieuNhap";
 
             SqlCommand command = new SqlCommand();
             command.Parameters.Add("@maPhieuNhap", System.Data.SqlDbType.NVarChar, 255).Value = maPhieuNhap;
@@ -32,8 +32,9 @@ namespace DAO
                     CTPhieuNhapDTO obj = new CTPhieuNhapDTO();
                     obj.MaPhieuNhap = reader.GetInt32(0);
                     obj.MaNguyenLieu = reader.GetInt32(1);
-                    obj.KhoiLuong = reader.GetInt32(2);
-                    obj.DonGia = reader.GetDouble(3);
+                    obj.SoLuong = reader.GetInt32(2);
+                    obj.DonVi = reader.GetString(3);
+                    obj.DonGia = reader.GetDouble(4);
                     result.Add(obj);
                 }
             }

@@ -428,7 +428,7 @@
             this.mThongKeHoaDon.Size = new System.Drawing.Size(298, 147);
             this.mThongKeHoaDon.Style = MetroFramework.MetroColorStyle.Lime;
             this.mThongKeHoaDon.TabIndex = 12;
-            this.mThongKeHoaDon.Text = "Thống kê hoá đơn";
+            this.mThongKeHoaDon.Text = "Danh sách hóa đơn";
             this.mThongKeHoaDon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mThongKeHoaDon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.purchase_order;
             this.mThongKeHoaDon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;

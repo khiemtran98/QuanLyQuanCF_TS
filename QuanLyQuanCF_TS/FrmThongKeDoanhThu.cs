@@ -45,7 +45,7 @@ namespace QuanLyQuanCF_TS
 
         private void FrmThongKeDoanhThu_Load(object sender, EventArgs e)
         {
-           
+            radXem.Checked = true;
 
             // set title 
             this.chart1.Titles.Add("THỐNG KÊ DOANH THU");
@@ -55,6 +55,12 @@ namespace QuanLyQuanCF_TS
             chart1.Series["Lãi"].Points.AddXY("3/10/2018", 0);
             chart1.Series["Lãi"].Points.AddXY("4/10/2018", 1000);
             chart1.Series["Lãi"].Points.AddXY("5/10/2018", 1000);
+            chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
+            chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
+            chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
+            chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
+            chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
+            chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
             chart1.Series["Lãi"].Points.AddXY("6/10/2018", 1000);
 
             chart1.Series["Doanh thu"].Points.AddXY("1/10/2018", 5000);
@@ -81,7 +87,25 @@ namespace QuanLyQuanCF_TS
 
         }
 
-        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        private void SetVisibleComponents(bool show)
+        {
+            dateTimePick.Visible = show;
+            
+            dateTimeStart.Visible = !show;
+            dateTimeEnd.Visible = !show;
+        }
+
+        private void radXem_CheckedChanged(object sender, EventArgs e)
+        {
+            SetVisibleComponents(false);
+        }
+
+        private void radSoSanh_CheckedChanged(object sender, EventArgs e)
+        {
+            SetVisibleComponents(true);
+        }
+
+        private void metroLabel1_Click(object sender, EventArgs e)
         {
 
         }

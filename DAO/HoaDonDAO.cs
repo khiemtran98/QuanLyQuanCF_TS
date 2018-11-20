@@ -116,7 +116,7 @@ namespace DAO
         public static List<HoaDonDTO> GetEntireListBill()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, trang_thai FROM HoaDon";
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon";
             SqlCommand command = new SqlCommand();
             command.CommandText = query;
             command.Connection = connection;
@@ -134,7 +134,10 @@ namespace DAO
                     hd.NhanVienLap = reader.GetInt32(1);
                     hd.NgayLap = reader.GetDateTime(2);
                     hd.TongTien = reader.GetDouble(3);
-                    hd.TrangThai = reader.GetBoolean(4);
+                    hd.TienMat = reader.GetDouble(4);
+                    hd.TienThua = reader.GetDouble(5);
+                    hd.TrangThai = reader.GetBoolean(6);
+                   
                     result.Add(hd);
                 }
             }

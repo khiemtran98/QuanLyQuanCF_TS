@@ -81,9 +81,9 @@ namespace QuanLyQuanCF_TS
 
         private void SetEnableRad(bool enable)
         {
-            dateTimePick.Enabled = !enable;
-            dateTimeStart.Enabled = enable;
-            dateTimeEnd.Enabled = enable;
+            dateTimePick.Visible = !enable;
+            dateTimeStart.Visible = enable;
+            dateTimeEnd.Visible = enable;
         }
 
   
