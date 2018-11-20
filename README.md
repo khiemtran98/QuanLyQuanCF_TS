@@ -1,6 +1,6 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.8: Pre-Final
+> ## Update 2.8.1: Pre-Final-2
 
 ### # HƯỚNG DẪN CÀI ĐẶT
 
@@ -61,6 +61,8 @@
   - Tạo báo cáo.
 
 ---
+
+> ##@@ Update 2.8: Pre-Final
 
 > #### Update 2.7: Hoàn thiện chức năng Quản lý kho + Nhập hàng
 

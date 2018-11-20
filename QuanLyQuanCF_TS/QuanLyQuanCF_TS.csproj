@@ -247,8 +247,19 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reports\rptHoaDonTheoThang.rdlc" />
     <EmbeddedResource Include="Reports\rptMonTheoLoai.rdlc" />
+    <EmbeddedResource Include="Reports\rptMonTheoNhom.rdlc" />
+    <EmbeddedResource Include="Reports\rptPhieuNhapTheoThang.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubReportHoaDonTheoThang.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubReportMon.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubReportPhieuNhapTheoThang.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubReportTatCaHoaDon.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubReportTatCaPhieuNhap.rdlc" />
+    <EmbeddedResource Include="Reports\rptTatCaHoaDon.rdlc" />
     <EmbeddedResource Include="Reports\rptTatCaMon.rdlc" />
+    <EmbeddedResource Include="Reports\rptTatCaNguyenLieu.rdlc" />
+    <EmbeddedResource Include="Reports\rptTatCaPhieuNhap.rdlc" />
     <EmbeddedResource Include="ucXemLaiHoaDon.resx">
       <DependentUpon>ucXemLaiHoaDon.cs</DependentUpon>
     </EmbeddedResource>

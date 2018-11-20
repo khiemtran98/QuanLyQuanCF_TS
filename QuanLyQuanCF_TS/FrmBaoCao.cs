@@ -60,44 +60,28 @@ namespace QuanLyQuanCF_TS
             }
             else if (radGomNhomMon.Checked)
             {
-                //frm.HienSanPhamTheoNhom();
+                frm.HienThiMonTheoNhom();
             }
             else if (radTatCaHoaDon.Checked)
             {
-                //frm.HienSanPhamTheoNhom();
+                frm.HienThiTatCacHoaDon();
             }
-            //else if (radHoaDonTheoThang.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radHoaDonTheoNam.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radDoanhThuTheoTuan.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radDoanhThuTheoThang.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radDoanhThuTheoNam.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radTatCaNguyenLieu.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radTatCaPhieuNhap.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
-            //else if (radPhieuNhapTheoThang.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
+            else if (radHoaDonTheoThang.Checked)
+            {
+                frm.HienThiTatCacHoaDonTheoThang((DateTime)dtpHoaDonTheoThang.Value);
+            }
+            else if (radTatCaNguyenLieu.Checked)
+            {
+                frm.HienTatCaNguyenLieu();
+            }
+            else if (radTatCaPhieuNhap.Checked)
+            {
+                frm.HienTatCaPhieuNhap();
+            }
+            else if (radPhieuNhapTheoThang.Checked)
+            {
+                frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
+            }
             //else if (radPhieuNhapTheoNam.Checked)
             //{
             //    frm.HienSanPhamTheoNhom();

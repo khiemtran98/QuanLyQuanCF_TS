@@ -79,5 +79,38 @@ namespace DAO
             connection.Close();
             return result;
         }
+
+        public static List<CTHoaDonDTO> LayDanhSachCTHD_Report(int maHD)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_cthd, hoa_don, mon, so_luong, don_gia, ghi_chu FROM CTHoaDon WHERE hoa_don=@maHD";
+
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@maHD", System.Data.SqlDbType.NVarChar, 255).Value = maHD;
+            command.CommandText = query;
+            command.Connection = connection;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<CTHoaDonDTO> result = new List<CTHoaDonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    CTHoaDonDTO cthd = new CTHoaDonDTO();
+                    cthd.MaCTHD = reader.GetInt32(0);
+                    cthd.MaHoaDon = reader.GetInt32(1);
+                    cthd.MaMon = reader.GetInt32(2);
+                    cthd.SoLuong = reader.GetInt32(3);
+                    cthd.DonGia = reader.GetDouble(4);
+                    cthd.GhiChu = reader.GetString(5);
+                    result.Add(cthd);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
     }
 }
