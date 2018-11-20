@@ -42,11 +42,15 @@
           <Paragraph>
             <TextRuns>
               <TextRun>
-                <Value>Loại món: </Value>
+                <Value>Tên loại món: </Value>
                 <Style>
                   <FontSize>11pt</FontSize>
                   <FontWeight>Bold</FontWeight>
                 </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Fields!TenMon.Value</Value>
+                <Style />
               </TextRun>
             </TextRuns>
             <Style />
@@ -54,9 +58,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox10</rd:DefaultName>
         <Top>1.24037cm</Top>
-        <Left>0.75027cm</Left>
+        <Left>5.16881cm</Left>
         <Height>0.6cm</Height>
-        <Width>2.07667cm</Width>
+        <Width>4.29917cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -322,10 +326,10 @@
         </Style>
       </Tablix>
     </ReportItems>
-    <Height>2in</Height>
+    <Height>1.69792in</Height>
     <Style />
   </Body>
-  <Width>5.31758in</Width>
+  <Width>5.53633in</Width>
   <Page>
     <PageHeight>29.7cm</PageHeight>
     <PageWidth>21cm</PageWidth>

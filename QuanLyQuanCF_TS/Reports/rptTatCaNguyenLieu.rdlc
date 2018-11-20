@@ -65,7 +65,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Mã nguyên liệu</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -97,7 +100,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Tên nguyên liệu</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -129,7 +135,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Số lượng</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -161,7 +170,10 @@
                           <TextRuns>
                             <TextRun>
                               <Value>Đơn vị tính</Value>
-                              <Style />
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>

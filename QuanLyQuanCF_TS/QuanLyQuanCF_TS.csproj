@@ -277,6 +277,10 @@
     <None Include="Properties\DataSources\DTO.NguyenLieuDTO.datasource" />
     <None Include="Properties\DataSources\DTO.NhaCungCapDTO.datasource" />
     <None Include="Properties\DataSources\DTO.PhieuNhapDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptHoaDon_TaiKhoanDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptMon_CTHDDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptMon_LoaiMonDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptNhaCungCap_PhieuNhapDTO.datasource" />
     <None Include="Properties\DataSources\DTO.TaiKhoanDTO.datasource" />
     <None Include="Properties\DataSources\DTO.ToppingDTO.datasource" />
     <None Include="Properties\Settings.settings">

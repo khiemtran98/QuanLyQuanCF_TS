@@ -1,6 +1,5 @@
 D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DTO\bin\Debug\DTO.dll
 D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DTO\bin\Debug\DTO.pdb
-D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DTO\obj\Debug\DTO.csprojAssemblyReference.cache
 D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DTO\obj\Debug\DTO.csproj.CoreCompileInputs.cache
 D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DTO\obj\Debug\DTO.dll
 D:\Năm cuối CĐKT Cao thắng\WinNC Professional\QuanLyQuanCF_TS-master\DTO\obj\Debug\DTO.pdb

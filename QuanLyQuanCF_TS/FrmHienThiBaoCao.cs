@@ -20,9 +20,10 @@ namespace QuanLyQuanCF_TS
             InitializeComponent();
         }
         string s = "QuanLyQuanCF_TS.Reports.";
+
         public void HienTatCaMon()
         {
-            List<MonDTO> lsMon = MonBUS.LayDanhSachMon();
+            List<rptMon_LoaiMonDTO> lsMon = rptMon_LoaiMonBUS.DoiMaLoaiMonThanhTenLoaiMon();
             rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptTatCaMon.rdlc";
             rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSMON", lsMon));
             rpvBaoCao.RefreshReport();
@@ -47,10 +48,10 @@ namespace QuanLyQuanCF_TS
 
         public void HienThiTatCacHoaDon()
         {
-            List<HoaDonDTO> lsHoaDon = HoaDonBUS.LayDanhSachHoaDon();
+            List<rptHoaDon_TaiKhoanDTO> lsHoaDon_TK = rptHoaDon_TaiKhoanBUS.DoiMaNhanVienThanhTenNhanVien();
             rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptTatCaHoaDon.rdlc";
             rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing1);
-            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSHOADON", lsHoaDon));
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSHOADON", lsHoaDon_TK));
             rpvBaoCao.RefreshReport();
         }
 
@@ -66,7 +67,7 @@ namespace QuanLyQuanCF_TS
 
         public void HienThiTatCacHoaDonTheoThang(DateTime ngaylap)
         {
-            List<HoaDonDTO> lsHoaDon = HoaDonBUS.LayDanhSachHoaDonTheoThang(ngaylap);
+            List<rptHoaDon_TaiKhoanDTO> lsHoaDon = rptHoaDon_TaiKhoanBUS.DoiMaNhanVienThanhTenNhanVien(ngaylap);
             rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptHoaDonTheoThang.rdlc";
             rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing2);
             rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSHOADON", lsHoaDon));
@@ -79,17 +80,17 @@ namespace QuanLyQuanCF_TS
             //Lấy mã hóa đơn truyền từ report cha
             int maHD = int.Parse(e.Parameters["paMaHoaDon"].Values[0]);
             //Lấy dữ liệu cho report con
-            List<CTHoaDonDTO> lsCTHD = CTHoaDonBUS.LayDanhSachCTHD_Report(maHD);
+            List<rptMon_CTHDDTO> lsMon_CTHD = rptMon_CTHDBUS.DoiMaMonThanhTenMon(maHD);
             //Đỗ dữ liệu cho report con
-            e.DataSources.Add(new ReportDataSource("DSCHITIETHD", lsCTHD));
+            e.DataSources.Add(new ReportDataSource("DSCHITIETHD", lsMon_CTHD));
         }
 
         public void HienTatCaPhieuNhap()
         {
-            List<PhieuNhapDTO> lsPhieuNhap = PhieuNhapBUS.LayDanhSachPhieuNhap();
+            List<rptNhaCungCap_PhieuNhapDTO> lsPhieuNhap_NCC = rptNhaCungCap_PhieuNhapBUS.DoiMaNhaCungCapThanhTenNhaCungCap();
             rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptTatCaPhieuNhap.rdlc";
             rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing3);
-            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP", lsPhieuNhap));
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP_NCC", lsPhieuNhap_NCC));
             rpvBaoCao.RefreshReport();
         }
 
@@ -105,10 +106,10 @@ namespace QuanLyQuanCF_TS
 
         public void HienThiTatCacPhieuNhapTheoThang(DateTime ngaylap)
         {
-            List<PhieuNhapDTO> lsPhieuNhap = PhieuNhapBUS.LayDanhSachPhieuNhapTheoThang(ngaylap);
+            List<rptNhaCungCap_PhieuNhapDTO> lsPhieuNhap_NCC = rptNhaCungCap_PhieuNhapBUS.DoiMaNhaCungCapThanhTenNhaCungCap(ngaylap);
             rpvBaoCao.LocalReport.ReportEmbeddedResource = s + "rptPhieuNhapTheoThang.rdlc";
             rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing4);
-            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP", lsPhieuNhap));
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP", lsPhieuNhap_NCC));
             rpvBaoCao.RefreshReport();
         }
 
