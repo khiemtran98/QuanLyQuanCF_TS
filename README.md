@@ -62,7 +62,7 @@
 
 ---
 
-> ##@@ Update 2.8: Pre-Final
+> #### Update 2.8: Pre-Final
 
 > #### Update 2.7: Hoàn thiện chức năng Quản lý kho + Nhập hàng
 
