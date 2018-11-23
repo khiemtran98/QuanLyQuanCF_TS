@@ -60,7 +60,7 @@ namespace QuanLyQuanCF_TS
             //Lấy mã loại truyền từ report cha
             int maHD = int.Parse(e.Parameters["paMaHoaDon"].Values[0]);
             //Lấy dữ liệu cho report con
-            List<CTHoaDonDTO> lsCTHD = CTHoaDonBUS.LayDanhSachCTHD_Report(maHD);
+            List<rptMon_CTHDDTO> lsCTHD = rptMon_CTHDBUS.DoiMaMonThanhTenMon(maHD);
             //Đỗ dữ liệu cho report con
             e.DataSources.Add(new ReportDataSource("DSCHITIETHD", lsCTHD));
         }
@@ -99,7 +99,7 @@ namespace QuanLyQuanCF_TS
             //Lấy mã phiếu nhập truyền từ report cha
             int maPhieuNhap = int.Parse(e.Parameters["paMaPhieuNhap"].Values[0]);
             //Lấy dữ liệu cho report con
-            List<CTPhieuNhapDTO> lsCTPN = CTPhieuNhapBUS.LayDanhSachCTPhieuNhap(maPhieuNhap);
+            List<rptPhieuNhap_CTPhieuNhapDTO> lsCTPN = rptPhieuNhap_CTPhieuNhapBUS.DoiMaNguyenLieuThanhTenNguyenLieu(maPhieuNhap);
             //Đỗ dữ liệu cho report con
             e.DataSources.Add(new ReportDataSource("DSCHITIETPHIEUNHAP", lsCTPN));
         }
@@ -118,7 +118,7 @@ namespace QuanLyQuanCF_TS
             // Lấy mã phiếu nhập truyền từ report cha
             int maPhieuNhap = int.Parse(e.Parameters["paMaPhieuNhap"].Values[0]);
             //Lấy dữ liệu cho report con
-            List<CTPhieuNhapDTO> lsCTPN = CTPhieuNhapBUS.LayDanhSachCTPhieuNhap(maPhieuNhap);
+            List<rptPhieuNhap_CTPhieuNhapDTO> lsCTPN = rptPhieuNhap_CTPhieuNhapBUS.DoiMaNguyenLieuThanhTenNguyenLieu(maPhieuNhap);
             //Đỗ dữ liệu cho report con
             e.DataSources.Add(new ReportDataSource("DSCHITIETPHIEUNHAP", lsCTPN));
         }

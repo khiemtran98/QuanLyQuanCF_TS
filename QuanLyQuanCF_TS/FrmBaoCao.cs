@@ -82,10 +82,6 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
             }
-            //else if (radPhieuNhapTheoNam.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
 
             frm.Show();
         }

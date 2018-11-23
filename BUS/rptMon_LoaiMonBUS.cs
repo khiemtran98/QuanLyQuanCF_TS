@@ -14,5 +14,9 @@ namespace BUS
         {
             return rptMon_LoaiMonDAO.DoiMaLoaiMonThanhLoaiMon();
         }
+        public static List<rptMon_LoaiMonDTO> DoiMaLoaiMonThanhTenLoaiMon(int maMon)
+        {
+            return rptMon_LoaiMonDAO.DoiMaLoaiMonThanhLoaiMon(maMon);
+        }
     }
 }

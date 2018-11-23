@@ -19,6 +19,7 @@ namespace DTO
         private string hinh;
         private double giaTien;
         private bool trangThai;
+        private string tenLoaiMon;
 
         public int MaMon { get => maMon; set => maMon = value; }
         public string TenMon { get => tenMon; set => tenMon = value; }
@@ -26,5 +27,6 @@ namespace DTO
         public string Hinh { get => hinh; set => hinh = value; }
         public double GiaTien { get => giaTien; set => giaTien = value; }
         public bool TrangThai { get => trangThai; set => trangThai = value; }
+        public string TenLoaiMon { get => tenLoaiMon; set => tenLoaiMon = value; }
     }
 }

@@ -48,7 +48,7 @@ namespace DAO
         {
             SqlConnection connection = DataProvider.GetConnection();
 
-            string query = "SELECT ma_mon, ten_mon, loai_mon, hinh, gia_tien, Mon.trang_thai FROM Mon, LoaiMon WHERE LoaiMon.ma_loai_mon=Mon.loai_mon";
+            string query = "SELECT ma_mon, ten_mon, loai_mon, LoaiMon.ten_loai_mon, hinh, gia_tien, Mon.trang_thai FROM Mon, LoaiMon WHERE LoaiMon.ma_loai_mon=Mon.loai_mon";
             SqlCommand command = new SqlCommand();
             if (maLoaiMon != 0)
             {
@@ -83,12 +83,13 @@ namespace DAO
                     mon.MaMon = reader.GetInt32(0);
                     mon.TenMon = reader.GetString(1);
                     mon.LoaiMon = reader.GetInt32(2);
-                    if (!reader.IsDBNull(3))
+                    mon.TenLoaiMon = reader.GetString(3);
+                    if (!reader.IsDBNull(4))
                     {
-                        mon.Hinh = reader.GetString(3);
+                        mon.Hinh = reader.GetString(4);
                     }
-                    mon.GiaTien = reader.GetDouble(4);
-                    mon.TrangThai = reader.GetBoolean(5);
+                    mon.GiaTien = reader.GetDouble(5);
+                    mon.TrangThai = reader.GetBoolean(6);
                     result.Add(mon);
                 }
             }

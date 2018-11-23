@@ -59,6 +59,7 @@
     <Compile Include="rptMon_CTHDDAO.cs" />
     <Compile Include="rptMon_LoaiMonDAO.cs" />
     <Compile Include="rptNhaCungCap_PhieuNhapDAO.cs" />
+    <Compile Include="rptPhieuNhap_CTPhieuNhapDAO.cs" />
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToppingDAO.cs" />

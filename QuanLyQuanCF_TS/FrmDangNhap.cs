@@ -68,6 +68,7 @@ namespace QuanLyQuanCF_TS
             cmbTaiKhoan.DisplayMember = "HoTen";
             cmbTaiKhoan.ValueMember = "MaTaiKhoan";
 
+            txtMatKhau.Text = "123";
             txtMatKhau.Select();
         }
 

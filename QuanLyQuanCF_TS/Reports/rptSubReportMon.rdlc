@@ -257,7 +257,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!GiaTien.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <Format>#,##0 đ</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
