@@ -444,7 +444,6 @@
             this.chkCaiDat.TabIndex = 9;
             this.chkCaiDat.Text = "Cài đặt";
             this.chkCaiDat.UseSelectable = true;
-            this.chkCaiDat.Visible = false;
             // 
             // chkBaoCao
             // 

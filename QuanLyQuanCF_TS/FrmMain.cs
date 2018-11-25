@@ -44,8 +44,8 @@ namespace QuanLyQuanCF_TS
 
         private void MoFormDangNhap()
         {
-            //metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = metroPanel15.Visible = metroPanel16.Visible = false;
-            //metroPanel1.Visible = metroPanel2.Visible = true;
+            metroPanel5.Visible = metroPanel6.Visible = metroPanel7.Visible = metroPanel8.Visible = metroPanel10.Visible = metroPanel11.Visible = metroPanel13.Visible = metroPanel14.Visible = metroPanel15.Visible = metroPanel16.Visible = false;
+            metroPanel1.Visible = metroPanel2.Visible = true;
 
             panelTaiKhoan.Visible = false;
             this.WindowState = FormWindowState.Normal;
