@@ -107,7 +107,21 @@ namespace DAO
             return result;
         }
 
+        // Đổi trạng thái phiếu nhập
+        public static bool isActive(int maPhieuNhap)
+        {
+            SqlConnection conn = DataProvider.GetConnection();
+            string query = "UPDATE PhieuNhap SET trang_thai=0 WHERE ma_phieu_nhap=@maPhieuNhap";
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.Add("@maPhieuNhap", System.Data.SqlDbType.Int, 0).Value = maPhieuNhap;
+            conn.Open();
 
+            int reader = command.ExecuteNonQuery();
+            if (reader == 1)
+                return true;
+            else
+                return false;
+        }
 
     }
 }

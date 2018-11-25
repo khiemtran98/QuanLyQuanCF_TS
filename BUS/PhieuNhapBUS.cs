@@ -27,5 +27,10 @@ namespace BUS
         {
             return PhieuNhapDAO.GetListInputTimeline(dateOnly);
         }
+
+        public static bool isActive(int maPhieuNhap)
+        {
+            return PhieuNhapDAO.isActive(maPhieuNhap);
+        }
     }
 }

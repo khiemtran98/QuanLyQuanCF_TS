@@ -48,6 +48,7 @@
             this.radMocThoiGian = new MetroFramework.Controls.MetroRadioButton();
             this.radKhoangThoiGian = new MetroFramework.Controls.MetroRadioButton();
             this.splitContainer3 = new System.Windows.Forms.SplitContainer();
+            this.btnTrangThai = new MaterialSkin.Controls.MaterialFlatButton();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.dgvPhieuNhap = new System.Windows.Forms.DataGridView();
             this.colMaPhieuNhap = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,6 +193,7 @@
             this.dateTimeStart.Name = "dateTimeStart";
             this.dateTimeStart.Size = new System.Drawing.Size(211, 29);
             this.dateTimeStart.TabIndex = 7;
+            this.dateTimeStart.ValueChanged += new System.EventHandler(this.dateTimeStart_ValueChanged);
             // 
             // radMocThoiGian
             // 
@@ -224,6 +226,7 @@
             // 
             // splitContainer3.Panel1
             // 
+            this.splitContainer3.Panel1.Controls.Add(this.btnTrangThai);
             this.splitContainer3.Panel1.Controls.Add(this.metroLabel1);
             // 
             // splitContainer3.Panel2
@@ -232,6 +235,25 @@
             this.splitContainer3.Size = new System.Drawing.Size(611, 313);
             this.splitContainer3.SplitterDistance = 25;
             this.splitContainer3.TabIndex = 0;
+            // 
+            // btnTrangThai
+            // 
+            this.btnTrangThai.AutoSize = true;
+            this.btnTrangThai.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.btnTrangThai.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            this.btnTrangThai.Depth = 0;
+            this.btnTrangThai.Dock = System.Windows.Forms.DockStyle.Right;
+            this.btnTrangThai.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnTrangThai.Location = new System.Drawing.Point(489, 0);
+            this.btnTrangThai.Margin = new System.Windows.Forms.Padding(4, 6, 4, 6);
+            this.btnTrangThai.MouseState = MaterialSkin.MouseState.HOVER;
+            this.btnTrangThai.Name = "btnTrangThai";
+            this.btnTrangThai.Primary = false;
+            this.btnTrangThai.Size = new System.Drawing.Size(122, 25);
+            this.btnTrangThai.TabIndex = 10;
+            this.btnTrangThai.Text = "Sửa trạng thái";
+            this.btnTrangThai.UseVisualStyleBackColor = false;
+            this.btnTrangThai.Click += new System.EventHandler(this.btnTrangThai_Click);
             // 
             // metroLabel1
             // 
@@ -474,6 +496,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
             this.splitContainer3.Panel1.ResumeLayout(false);
+            this.splitContainer3.Panel1.PerformLayout();
             this.splitContainer3.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer3)).EndInit();
             this.splitContainer3.ResumeLayout(false);
@@ -514,5 +537,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDonVi;
         private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
+        private MaterialSkin.Controls.MaterialFlatButton btnTrangThai;
     }
 }

@@ -58,5 +58,10 @@ namespace BUS
         {
             return HoaDonDAO.GetListBillTimeline(dateTimeline);
         }
+
+        public static bool isActive(int maHoaDon)
+        {
+            return HoaDonDAO.isActive(maHoaDon);
+        }
     }
 }

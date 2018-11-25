@@ -155,6 +155,28 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-    
+        private void dateTimeStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dateFrom = dateTimeStart.Value;
+            DateTime dateEnd = dateTimeEnd.Value;
+            List<HoaDonDTO> lsHoaDon = HoaDonBUS.GetListBillByTime(dateFrom, dateEnd);
+            dgvHoaDon.DataSource = lsHoaDon;
+        }
+
+        private void materialFlatButton1_Click(object sender, EventArgs e)
+        {
+            if (dgvHoaDon.Columns.Count > 0)
+            {
+                if (HoaDonBUS.isActive(Convert.ToInt32(Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colMaHoaDon"].Value))))
+                {
+                    List<HoaDonDTO> lsHoaDon = HoaDonBUS.GetEntireListBill();
+                    dgvHoaDon.DataSource = lsHoaDon;
+                    MessageBox.Show("Sửa trạng thái thành công!");
+                }
+                else
+                    MessageBox.Show("Sửa trạng thái thất bại!");
+            }
+            
+        }
     }
 }

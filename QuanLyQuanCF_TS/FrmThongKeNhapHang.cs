@@ -117,5 +117,28 @@ namespace QuanLyQuanCF_TS
         {
 
         }
+
+        private void btnTrangThai_Click(object sender, EventArgs e)
+        {
+            if (dgvPhieuNhap.Columns.Count > 0)
+            {
+                if(PhieuNhapBUS.isActive(Convert.ToInt32(dgvPhieuNhap.SelectedRows[0].Cells["colMaPhieuNhap"].Value)))
+                {
+                    List<PhieuNhapDTO> lsPhieuNhap = PhieuNhapBUS.GetEntireInputMaterial();
+                    dgvPhieuNhap.DataSource = lsPhieuNhap;
+                    MessageBox.Show("Đổi trạng thái thành công!");
+                }
+                else
+                    MessageBox.Show("Đổi trạng thái thất bại!");
+
+            }
+        }
+
+        private void dateTimeStart_ValueChanged(object sender, EventArgs e)
+        {
+            DateTime dateFrom = dateTimeStart.Value;
+            DateTime dateEnd = dateTimeEnd.Value;
+            dgvPhieuNhap.DataSource = PhieuNhapBUS.GetListInputByTime(dateFrom, dateEnd);
+        }
     }
 }

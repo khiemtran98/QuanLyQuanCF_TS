@@ -146,6 +146,19 @@ namespace DAO
             return result;
         }
 
+        public static bool isActive(int maHoaDon)
+        {
+            SqlConnection conn = DataProvider.GetConnection();
+            string query = "UPDATE HoaDon SET trang_thai=0 WHERE ma_hoa_don=@maHoaDon";
+            SqlCommand command = new SqlCommand(query, conn);
+            command.Parameters.Add("@maHoaDon", System.Data.SqlDbType.Int, 0).Value = maHoaDon;
+            conn.Open();
 
+            int reader = command.ExecuteNonQuery();
+            if (reader == 1)
+                return true;
+            else
+                return false;
+        }
     }
 }
