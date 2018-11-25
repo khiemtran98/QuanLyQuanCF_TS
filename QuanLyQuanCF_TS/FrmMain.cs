@@ -224,7 +224,7 @@ namespace QuanLyQuanCF_TS
 
             MaterialFlatButton btnTatCaMon = new MaterialFlatButton();
             btnTatCaMon.Dock = DockStyle.Left;
-            btnTatCaMon.Text = "Danh sách tất cả";
+            btnTatCaMon.Text = "Tất cả món";
             btnTatCaMon.Name = "TatCaMon";
             btnTatCaMon.Click += btn_Click;
             panelBaoCao.Controls.Add(btnTatCaMon);
@@ -232,7 +232,7 @@ namespace QuanLyQuanCF_TS
 
             MaterialFlatButton btn = new MaterialFlatButton();
             btn.Dock = DockStyle.Left;
-            btn.Text = "Danh sách gom nhóm";
+            btn.Text = "Món theo nhóm";
             btn.Name = "MonGomNhom";
             btn.Click += btn_Click;
             panelBaoCao.Controls.Add(btn);
@@ -319,7 +319,7 @@ namespace QuanLyQuanCF_TS
 
             MaterialFlatButton btnTatCaNguyenLieu = new MaterialFlatButton();
             btnTatCaNguyenLieu.Dock = DockStyle.Left;
-            btnTatCaNguyenLieu.Text = "Danh sách tất cả";
+            btnTatCaNguyenLieu.Text = "Tất cả nguyên liệu";
             btnTatCaNguyenLieu.Name = "TatCaNguyenLieu";
             btnTatCaNguyenLieu.Click += btn_Click;
             panelBaoCao.Controls.Add(btnTatCaNguyenLieu);
