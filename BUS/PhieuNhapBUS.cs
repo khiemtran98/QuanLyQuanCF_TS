@@ -76,5 +76,10 @@ namespace BUS
             }
             return true;
         }
+
+        public static double LayDoanhSoPhieuNhapTheoThang(int thang)
+        {
+            return PhieuNhapDAO.LayDoanhSoPhieuNhapTheoThang(thang);
+        }
     }
 }

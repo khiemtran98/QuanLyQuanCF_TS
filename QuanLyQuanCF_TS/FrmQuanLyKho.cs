@@ -16,6 +16,29 @@ namespace QuanLyQuanCF_TS
         public FrmQuanLyKho()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            tbcQuanLyKho.Style = FrmMain.style;
+            txtTimKiemNguyenLieu.Style = FrmMain.style;
+            btnTimKiemNguyenLieu.Style = FrmMain.style;
+            lnkDSNguyenLieu.Style = FrmMain.style;
+            txtMaNguyenLieu.Style = FrmMain.style;
+            txtTenNguyenLieu.Style = FrmMain.style;
+            txtSoLuong.Style = FrmMain.style;
+            txtDonViTinh.Style = FrmMain.style;
+            btnThemNguyenLieu.Style = FrmMain.style;
+            btnXoaNguyenLieu.Style = FrmMain.style;
+            btnSuaNguyenLieu.Style = FrmMain.style;
+            btnKhoiPhucNguyenLieu.Style = FrmMain.style;
+
+            radHienThiTatCa.Style = FrmMain.style;
+            radHienThiTheoNgay.Style = FrmMain.style;
+            dtpNgayNhap.Style = FrmMain.style;
+            lnkDSPhieuNhap.Style = FrmMain.style;
+            btnXoaPhieuNhap.Style = FrmMain.style;
+            btnKhoiPhucPhieuNhap.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmQuanLyKho _Instance = null;
@@ -46,7 +69,7 @@ namespace QuanLyQuanCF_TS
             NL_LoadDanhSachNguyenLieu();
             LSPN_LoadDanhSachPhieuNhap();
 
-            tbcQuanLyKho.SelectedTab = tbpNguyenLieu;
+            //tbcQuanLyKho.SelectedTab = tbpNguyenLieu;
         }
 
         private void tbcQuanLyKho_Selecting(object sender, TabControlCancelEventArgs e)
@@ -257,7 +280,7 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnTimKiemCuaNguyenLieu_Click(object sender, EventArgs e)
+        private void btnTimKiemNguyenLieu_Click(object sender, EventArgs e)
         {
             TimKiemNguyenLieu();
         }

@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework;
 using MetroFramework.Controls;
+using MaterialSkin.Controls;
 using DTO;
 using BUS;
 
@@ -18,9 +20,27 @@ namespace QuanLyQuanCF_TS
         public FrmMain()
         {
             InitializeComponent();
+            _Instance = this;
         }
 
-        Form f;
+        private static FrmMain _Instance;
+
+        public static FrmMain Instance
+        {
+            get
+            {
+                return _Instance;
+            }
+        }
+
+        bool panelThongTinState = true;
+
+        private Form f;
+
+        DateTime startTime = DateTime.Now;
+
+        public static MetroColorStyle style = MetroColorStyle.Default;
+        public static bool topMost = false;
 
         private void MoFormDangNhap()
         {
@@ -35,11 +55,15 @@ namespace QuanLyQuanCF_TS
             FrmDangNhap m_frmDangNhap = FrmDangNhap.Instance;
             m_frmDangNhap.MdiParent = this;
             m_frmDangNhap.Dock = DockStyle.Fill;
+            m_frmDangNhap.Style = style;
             m_frmDangNhap.Show();
         }
 
         public void XuLyDangNhapThanhCong(int maTaiKhoan)
         {
+            startTime = DateTime.Now;
+            timer1.Start();
+
             panelTaiKhoan.Visible = true;
             this.WindowState = FormWindowState.Maximized;
             XuLyFormMain();
@@ -75,8 +99,8 @@ namespace QuanLyQuanCF_TS
                         metroPanel8.BringToFront();
                         break;
                     case 6:
-                        //metroPanel11.Visible = true;
-                        //metroPanel11.BringToFront();
+                        metroPanel11.Visible = true;
+                        metroPanel11.BringToFront();
                         break;
                     case 7:
                         metroPanel13.Visible = true;
@@ -91,8 +115,8 @@ namespace QuanLyQuanCF_TS
                         metroPanel15.BringToFront();
                         break;
                     case 10:
-                        //metroPanel16.Visible = true;
-                        //metroPanel16.BringToFront();
+                        metroPanel16.Visible = true;
+                        metroPanel16.BringToFront();
                         break;
                 }
             }
@@ -114,6 +138,13 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            DateTime passTime = DateTime.Parse((DateTime.Now - startTime).ToString());
+            lblActiveTime.Text = passTime.ToLongTimeString();
+            lblSystemTime.Text = DateTime.Now.ToLongTimeString();
+        }
+
         public void XuLyChuyenForm()
         {
             mPanel.Visible = false;
@@ -132,6 +163,8 @@ namespace QuanLyQuanCF_TS
             panelTaiKhoan.Visible = true;
             //this.DisplayHeader = true;
             btnQuayLai.Visible = false;
+
+            panelBaoCao.Controls.Clear();
         }
 
         private void FrmMain_Load(object sender, EventArgs e)
@@ -148,16 +181,12 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnDangXuat_Click(object sender, EventArgs e)
-        {
-
-        }
-
         public void DangXuat()
         {
             DongFormCon();
             XuLyChuyenForm();
             TaiKhoanBUS.LuuTaiKhoanDangNhap(-1);
+            timer1.Stop();
             MoFormDangNhap();
         }
 
@@ -178,11 +207,36 @@ namespace QuanLyQuanCF_TS
             lblTieuDe.Text = "Quản lý món";
             Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
-            FrmQuanLyMon_Topping m_FrmQuanLyMonVaTopping = FrmQuanLyMon_Topping.Instance;
-            f = m_FrmQuanLyMonVaTopping;
-            m_FrmQuanLyMonVaTopping.MdiParent = this;
-            m_FrmQuanLyMonVaTopping.Dock = DockStyle.Fill;
-            m_FrmQuanLyMonVaTopping.Show();
+            FrmQuanLyMon m_FrmQuanLyMon = FrmQuanLyMon.Instance;
+            f = m_FrmQuanLyMon;
+            m_FrmQuanLyMon.MdiParent = this;
+            m_FrmQuanLyMon.Dock = DockStyle.Fill;
+            m_FrmQuanLyMon.Show();
+
+            Label lbl = new Label();
+            lbl.Dock = DockStyle.Left;
+            lbl.Text = "Lập báo cáo nhanh";
+            lbl.ForeColor = Color.CadetBlue;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
+            panelBaoCao.Controls.Add(lbl);
+            lbl.BringToFront();
+
+            MaterialFlatButton btnTatCaMon = new MaterialFlatButton();
+            btnTatCaMon.Dock = DockStyle.Left;
+            btnTatCaMon.Text = "Danh sách tất cả";
+            btnTatCaMon.Name = "TatCaMon";
+            btnTatCaMon.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnTatCaMon);
+            btnTatCaMon.BringToFront();
+
+            MaterialFlatButton btn = new MaterialFlatButton();
+            btn.Dock = DockStyle.Left;
+            btn.Text = "Danh sách gom nhóm";
+            btn.Name = "MonGomNhom";
+            btn.Click += btn_Click;
+            panelBaoCao.Controls.Add(btn);
+            btn.BringToFront();
         }
 
         private void mThongKeHoaDon_Click(object sender, EventArgs e)
@@ -195,6 +249,23 @@ namespace QuanLyQuanCF_TS
             m_FrmThongKeHoaDon.MdiParent = this;
             m_FrmThongKeHoaDon.Dock = DockStyle.Fill;
             m_FrmThongKeHoaDon.Show();
+
+            Label lbl = new Label();
+            lbl.Dock = DockStyle.Left;
+            lbl.Text = "Lập báo cáo nhanh";
+            lbl.ForeColor = Color.CadetBlue;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
+            panelBaoCao.Controls.Add(lbl);
+            lbl.BringToFront();
+
+            MaterialFlatButton btnTatCaHoaDon = new MaterialFlatButton();
+            btnTatCaHoaDon.Dock = DockStyle.Left;
+            btnTatCaHoaDon.Text = "Tất cả hoá đơn";
+            btnTatCaHoaDon.Name = "TatCaHoaDon";
+            btnTatCaHoaDon.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnTatCaHoaDon);
+            btnTatCaHoaDon.BringToFront();
         }
 
         private void mThongKeNhapHang_Click(object sender, EventArgs e)
@@ -207,6 +278,23 @@ namespace QuanLyQuanCF_TS
             m_FrmThongKeNhapHang.MdiParent = this;
             m_FrmThongKeNhapHang.Dock = DockStyle.Fill;
             m_FrmThongKeNhapHang.Show();
+
+            Label lbl = new Label();
+            lbl.Dock = DockStyle.Left;
+            lbl.Text = "Lập báo cáo nhanh";
+            lbl.ForeColor = Color.CadetBlue;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
+            panelBaoCao.Controls.Add(lbl);
+            lbl.BringToFront();
+
+            MaterialFlatButton btnTatCaPhieuNhap = new MaterialFlatButton();
+            btnTatCaPhieuNhap.Dock = DockStyle.Left;
+            btnTatCaPhieuNhap.Text = "Tất cả phiếu nhập";
+            btnTatCaPhieuNhap.Name = "TatCaPhieuNhap";
+            btnTatCaPhieuNhap.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnTatCaPhieuNhap);
+            btnTatCaPhieuNhap.BringToFront();
         }
 
         private void mQuanLyKho_Click(object sender, EventArgs e)
@@ -219,6 +307,23 @@ namespace QuanLyQuanCF_TS
             m_FrmQuanLyKho.MdiParent = this;
             m_FrmQuanLyKho.Dock = DockStyle.Fill;
             m_FrmQuanLyKho.Show();
+
+            Label lbl = new Label();
+            lbl.Dock = DockStyle.Left;
+            lbl.Text = "Lập báo cáo nhanh";
+            lbl.ForeColor = Color.CadetBlue;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
+            panelBaoCao.Controls.Add(lbl);
+            lbl.BringToFront();
+
+            MaterialFlatButton btnTatCaNguyenLieu = new MaterialFlatButton();
+            btnTatCaNguyenLieu.Dock = DockStyle.Left;
+            btnTatCaNguyenLieu.Text = "Danh sách tất cả";
+            btnTatCaNguyenLieu.Name = "TatCaNguyenLieu";
+            btnTatCaNguyenLieu.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnTatCaNguyenLieu);
+            btnTatCaNguyenLieu.BringToFront();
         }
 
         private void mThongKeDoanhThu_Click(object sender, EventArgs e)
@@ -272,7 +377,6 @@ namespace QuanLyQuanCF_TS
         private void mCaiDat_Click(object sender, EventArgs e)
         {
             lblTieuDe.Text = "Cài đặt";
-            this.Text = "Cài đặt";
             Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
             FrmCaiDat m_frmCaiDat = FrmCaiDat.Instance;
@@ -282,11 +386,38 @@ namespace QuanLyQuanCF_TS
             m_frmCaiDat.Show();
         }
 
-        bool panel = true;
+        private void btn_Click(object sender, EventArgs e)
+        {
+            string btnName = ((MaterialFlatButton)sender).Name;
+            FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
+            if (btnName == "TatCaMon")
+            {
+                frm.HienTatCaMon();
+            }
+            else if (btnName == "MonGomNhom")
+            {
+                frm.HienThiMonTheoNhom();
+            }
+            else if (btnName == "TatCaHoaDon")
+            {
+                frm.HienThiTatCacHoaDon();
+            }
+            else if (btnName == "TatCaPhieuNhap")
+            {
+                frm.HienTatCaPhieuNhap();
+            }
+            else if (btnName == "TatCaNguyenLieu")
+            {
+                frm.HienTatCaNguyenLieu();
+            }
+
+            this.TopMost = false;
+            frm.Show();
+        }
 
         private void btnAnHien_Click(object sender, EventArgs e)
         {
-            if (panel)
+            if (panelThongTinState)
             {
                 panelThongTin.Visible = false;
                 panelTaiKhoan.Size = new Size(1319, 30);
@@ -296,7 +427,7 @@ namespace QuanLyQuanCF_TS
                 panelThongTin.Visible = true;
                 panelTaiKhoan.Size = new Size(1319, 90);
             }
-            panel = !panel;
+            panelThongTinState = !panelThongTinState;
         }
 
         private void DongFormCon()
@@ -344,12 +475,7 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void picHinh_Click(object sender, EventArgs e)
-        {
-            ctmTaiKhoan.Show(1230, 110);
-        }
-
-        private void mnDangXuat_Click(object sender, EventArgs e)
+        private void btnDangXuat_Click(object sender, EventArgs e)
         {
             DangXuat();
         }

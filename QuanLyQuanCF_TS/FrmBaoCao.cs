@@ -18,6 +18,30 @@ namespace QuanLyQuanCF_TS
         public FrmBaoCao()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            cmbLoaiMon.Style = FrmMain.style;
+            radTatCaMon.Style = FrmMain.style;
+            radTheoLoaiMon.Style = FrmMain.style;
+            radGomNhomMon.Style = FrmMain.style;
+
+            dtpHoaDonTheoThang.Style = FrmMain.style;
+            radTatCaHoaDon.Style = FrmMain.style;
+            radHoaDonTheoThang.Style = FrmMain.style;
+
+            dtpDoanhThu.Style = FrmMain.style;
+            radDoanhThuTheoTuan.Style = FrmMain.style;
+            radDoanhThuTheoThang.Style = FrmMain.style;
+
+            radTatCaNguyenLieu.Style = FrmMain.style;
+
+            dtpPhieuNhapTheoThang.Style = FrmMain.style;
+            radTatCaPhieuNhap.Style = FrmMain.style;
+            radPhieuNhapTheoThang.Style = FrmMain.style;
+
+            btnBaoCao.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmBaoCao _Instance = null;
@@ -48,6 +72,7 @@ namespace QuanLyQuanCF_TS
 
         private void btnBaoCao_Click(object sender, EventArgs e)
         {
+            FrmMain.Instance.TopMost = false;
             FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
 
             if (radTatCaMon.Checked)
@@ -82,10 +107,6 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
             }
-            //else if (radPhieuNhapTheoNam.Checked)
-            //{
-            //    frm.HienSanPhamTheoNhom();
-            //}
 
             frm.Show();
         }

@@ -58,6 +58,7 @@
     <Compile Include="rptMon_CTHDDTO.cs" />
     <Compile Include="rptMon_LoaiMonDTO.cs" />
     <Compile Include="rptNhaCungCap_PhieuNhapDTO.cs" />
+    <Compile Include="rptPhieuNhap_CTPhieuNhapDTO.cs" />
     <Compile Include="TaiKhoanDTO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToppingDTO.cs" />

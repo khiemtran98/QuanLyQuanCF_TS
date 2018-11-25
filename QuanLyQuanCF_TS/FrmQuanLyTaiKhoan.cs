@@ -12,6 +12,7 @@ using System.IO;
 using DTO;
 using BUS;
 using System.Security.Cryptography;
+using MetroFramework;
 
 namespace QuanLyQuanCF_TS
 {
@@ -20,6 +21,43 @@ namespace QuanLyQuanCF_TS
         public FrmQuanLyTaiKhoan()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            tbcQuanLyTaiKhoan.Style = FrmMain.style;
+            txtTimKiemLoaiTaiKhoan.Style = FrmMain.style;
+            btnTimKiemLoaiTaiKhoan.Style = FrmMain.style;
+            lnkDSLoaiTaiKhoan.Style = FrmMain.style;
+            txtMaLoaiTaiKhoan.Style = FrmMain.style;
+            txtTenLoaiTaiKhoan.Style = FrmMain.style;
+            chkQuanLyTaiKhoan.Style = FrmMain.style;
+            chkQuanLyMon.Style = FrmMain.style;
+            chkQuanLyKho.Style = FrmMain.style;
+            chkThongKeHoaDon.Style = FrmMain.style;
+            chkThongKeNhapHang.Style = FrmMain.style;
+            chkThongKeDoanhThu.Style = FrmMain.style;
+            chkNhapHang.Style = FrmMain.style;
+            chkBanHang.Style = FrmMain.style;
+            chkBaoCao.Style = FrmMain.style;
+            chkCaiDat.Style = FrmMain.style;
+            btnThemLoaiTaiKhoan.Style = FrmMain.style;
+            btnXoaLoaiTaiKhoan.Style = FrmMain.style;
+            btnSuaLoaiTaiKhoan.Style = FrmMain.style;
+            btnKhoiPhucLoaiTaiKhoan.Style = FrmMain.style;
+            
+            txtTimKiemTaiKhoan.Style = FrmMain.style;
+            btnTimKiemTaiKhoan.Style = FrmMain.style;
+            lnkDSTaiKhoan.Style = FrmMain.style;
+            txtMaTaiKhoan.Style = FrmMain.style;
+            txtHoTen.Style = FrmMain.style;
+            txtMatKhau.Style = FrmMain.style;
+            dtpNgayBatDau.Style = FrmMain.style;
+            cmbLoaiTaiKhoan.Style = FrmMain.style;
+            btnThemTaiKhoan.Style = FrmMain.style;
+            btnXoaTaiKhoan.Style = FrmMain.style;
+            btnSuaTaiKhoan.Style = FrmMain.style;
+            btnKhoiPhucTaiKhoan.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmQuanLyTaiKhoan _Instance = null;
@@ -47,9 +85,9 @@ namespace QuanLyQuanCF_TS
             //QLTK_LoadLoaiTaiKhoan();
 
             LamMoiLoaiTaiKhoan();
-            //LamMoiTaiKhoan();
+            LamMoiTaiKhoan();
 
-            tbcQuanLyTaiKhoan.SelectedTab = tbpLoaiTaiKhoan;
+            //tbcQuanLyTaiKhoan.SelectedTab = tbpLoaiTaiKhoan;
         }
 
         private void tbcQuanLyTaiKhoan_Selecting(object sender, TabControlCancelEventArgs e)
@@ -577,7 +615,7 @@ namespace QuanLyQuanCF_TS
         {
             txtMaTaiKhoan.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
             dtpNgayBatDau.Value = DateTime.Now;
-            cmbLoaiTaiKhoan.SelectedIndex = 0;
+            //cmbLoaiTaiKhoan.SelectedIndex = 0;
             picHinh.Image = Properties.Resources.default_account;
             btnThemTaiKhoan.Enabled = state;
             btnXoaTaiKhoan.Enabled = !state;

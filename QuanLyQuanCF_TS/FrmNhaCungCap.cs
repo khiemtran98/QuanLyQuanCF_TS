@@ -17,6 +17,17 @@ namespace QuanLyQuanCF_TS
         public FrmNhaCungCap()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            txtMaNhaCungCap.Style = FrmMain.style;
+            txtTenNhaCungCap.Style = FrmMain.style;
+            btnThem.Style = FrmMain.style;
+            btnXoa.Style = FrmMain.style;
+            btnSua.Style = FrmMain.style;
+            btnLamMoi.Style = FrmMain.style;
+            lnkDSNhaCungCap.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmNhaCungCap _Instance = null;

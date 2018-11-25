@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -165,6 +166,21 @@ namespace DAO
 
             connection.Close();
             return result;
+        }
+
+        public static double LayDoanhSoPhieuNhapTheoThang(int thang)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT SUM(tong_tien) FROM PhieuNhap WHERE trang_thai=1 AND MONTH(ngay_lap)=@thang AND YEAR(ngay_lap)=@nam";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@thang", SqlDbType.Int, 0).Value = thang;
+            command.Parameters.Add("@nam", SqlDbType.Int, 0).Value = DateTime.Now.Year;
+
+            connection.Open();
+            var result = command.ExecuteScalar();
+            connection.Close();
+
+            return result is DBNull ? 0 : Convert.ToDouble(result);
         }
     }
 }

@@ -49,6 +49,7 @@
             this.DisplayHeader = false;
             this.Name = "FrmHienThiBaoCao";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmHienThiBaoCao_FormClosed);
             this.ResumeLayout(false);
 
         }

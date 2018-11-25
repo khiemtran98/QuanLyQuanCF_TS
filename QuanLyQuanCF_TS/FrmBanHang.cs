@@ -13,6 +13,11 @@ namespace QuanLyQuanCF_TS
         public FrmBanHang()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            txtTimKiem.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmBanHang _Instance = null;
@@ -611,6 +616,7 @@ namespace QuanLyQuanCF_TS
         private void btnThanhToan_Click(object sender, EventArgs e)
         {
             //panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = false;
+            panelLoai.Visible = false;
             splitContainer1.Visible = false;
             ucXemLaiHoaDon uc = ucXemLaiHoaDon.Instance;
             uc.Dock = DockStyle.Fill;
@@ -651,6 +657,7 @@ namespace QuanLyQuanCF_TS
             ((FrmMain)this.ParentForm).SetTieuDe("Bán hàng");
             ucXemLaiHoaDon.Instance.ResetHoaDon();
             //panelHoaDon.Visible = panelLoai.Visible = panelMain.Visible = panelThanhToan.Visible = true;
+            panelLoai.Visible = true;
             splitContainer1.Visible = true;
             if (luuThanhCong) // Clear bảng hoá đơn nếu đã thanh toán
             {

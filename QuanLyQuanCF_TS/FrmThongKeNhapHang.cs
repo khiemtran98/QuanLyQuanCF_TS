@@ -17,6 +17,13 @@ namespace QuanLyQuanCF_TS
         public FrmThongKeNhapHang()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            radHienThiTatCa.Style = FrmMain.style;
+            radHienThiTheoNgay.Style = FrmMain.style;
+            dtpNgayNhap.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmThongKeNhapHang _Instance = null;

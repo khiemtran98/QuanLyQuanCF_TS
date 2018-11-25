@@ -37,7 +37,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.splitContainer1 = new System.Windows.Forms.SplitContainer();
             this.metroPanel20 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
             this.dgvPhieuNhap = new System.Windows.Forms.DataGridView();
@@ -60,10 +60,10 @@
             this.colCTPN_GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
-            this.splitContainer2.Panel1.SuspendLayout();
-            this.splitContainer2.Panel2.SuspendLayout();
-            this.splitContainer2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
+            this.splitContainer1.Panel1.SuspendLayout();
+            this.splitContainer1.Panel2.SuspendLayout();
+            this.splitContainer1.SuspendLayout();
             this.metroPanel20.SuspendLayout();
             this.metroPanel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuNhap)).BeginInit();
@@ -74,28 +74,28 @@
             this.metroPanel7.SuspendLayout();
             this.SuspendLayout();
             // 
-            // splitContainer2
+            // splitContainer1
             // 
-            this.splitContainer2.BackColor = System.Drawing.SystemColors.Control;
-            this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
-            this.splitContainer2.Location = new System.Drawing.Point(20, 30);
-            this.splitContainer2.Name = "splitContainer2";
+            this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
+            this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.Location = new System.Drawing.Point(20, 30);
+            this.splitContainer1.Name = "splitContainer1";
             // 
-            // splitContainer2.Panel1
+            // splitContainer1.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.metroPanel20);
-            this.splitContainer2.Panel1MinSize = 500;
+            this.splitContainer1.Panel1.Controls.Add(this.metroPanel20);
+            this.splitContainer1.Panel1MinSize = 500;
             // 
-            // splitContainer2.Panel2
+            // splitContainer1.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.metroPanel6);
-            this.splitContainer2.Panel2MinSize = 250;
-            this.splitContainer2.Size = new System.Drawing.Size(760, 400);
-            this.splitContainer2.SplitterDistance = 500;
-            this.splitContainer2.SplitterIncrement = 3;
-            this.splitContainer2.SplitterWidth = 10;
-            this.splitContainer2.TabIndex = 8;
+            this.splitContainer1.Panel2.Controls.Add(this.metroPanel6);
+            this.splitContainer1.Panel2MinSize = 250;
+            this.splitContainer1.Size = new System.Drawing.Size(760, 400);
+            this.splitContainer1.SplitterDistance = 500;
+            this.splitContainer1.SplitterIncrement = 3;
+            this.splitContainer1.SplitterWidth = 10;
+            this.splitContainer1.TabIndex = 8;
             // 
             // metroPanel20
             // 
@@ -435,22 +435,22 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.ControlBox = false;
-            this.Controls.Add(this.splitContainer2);
+            this.Controls.Add(this.splitContainer1);
             this.DisplayHeader = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Movable = false;
             this.Name = "FrmThongKeNhapHang";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;
-            this.ShowIcon = false;
             this.Text = "Thống kê nhập hàng";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmThongKeNhapHang_FormClosed);
             this.Load += new System.EventHandler(this.FrmThongKeNhapHang_Load);
-            this.splitContainer2.Panel1.ResumeLayout(false);
-            this.splitContainer2.Panel2.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
-            this.splitContainer2.ResumeLayout(false);
+            this.splitContainer1.Panel1.ResumeLayout(false);
+            this.splitContainer1.Panel2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
+            this.splitContainer1.ResumeLayout(false);
             this.metroPanel20.ResumeLayout(false);
             this.metroPanel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPhieuNhap)).EndInit();
@@ -466,7 +466,7 @@
 
         #endregion
 
-        private System.Windows.Forms.SplitContainer splitContainer2;
+        private System.Windows.Forms.SplitContainer splitContainer1;
         private MetroFramework.Controls.MetroPanel metroPanel20;
         private MetroFramework.Controls.MetroPanel metroPanel5;
         private System.Windows.Forms.DataGridView dgvPhieuNhap;

@@ -12,6 +12,23 @@ namespace QuanLyQuanCF_TS
         public FrmNhapHang()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            cmbNhaCungCap.Style = FrmMain.style;
+            dtpNgayLap.Style = FrmMain.style;
+            lnkHienBangChonNhanh.Style = FrmMain.style;
+            btnNhapHang.Style = FrmMain.style;
+
+            cmbNguyenLieu.Style = FrmMain.style;
+            txtSoLuong.Style = FrmMain.style;
+            txtDonGia.Style = FrmMain.style;
+            btnThem.Style = FrmMain.style;
+            btnXoa.Style = FrmMain.style;
+            btnSua.Style = FrmMain.style;
+            btnLamMoi.Style = FrmMain.style;
+            grvBangChonNhanh.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmNhapHang _Instance = null;
@@ -279,11 +296,14 @@ namespace QuanLyQuanCF_TS
         private void btnThemNguyenLieu_Click(object sender, EventArgs e)
         {
             FrmQuanLyKho frmQuanLyKho = FrmQuanLyKho.Instance;
-            frmQuanLyKho.WindowState = FormWindowState.Normal;
             frmQuanLyKho.Resizable = true;
+            frmQuanLyKho.Movable = true;
             frmQuanLyKho.ControlBox = true;
             frmQuanLyKho.MaximizeBox = true;
+            frmQuanLyKho.Size = new Size(800, 450);
             frmQuanLyKho.FormClosed += FrmQuanLyKho_FormClosed;
+
+            ((FrmMain)this.ParentForm).TopMost = false;
             frmQuanLyKho.ShowDialog();
         }
 
@@ -292,16 +312,20 @@ namespace QuanLyQuanCF_TS
             FrmNhaCungCap frmNhaCungCap = FrmNhaCungCap.Instance;
             frmNhaCungCap.MinimizeBox = false;
             frmNhaCungCap.FormClosed += FrmNhaCungCap_FormClosed;
+
+            ((FrmMain)this.ParentForm).TopMost = false;
             frmNhaCungCap.ShowDialog();
         }
 
         private void FrmNhaCungCap_FormClosed(object sender, FormClosedEventArgs e)
         {
+            ((FrmMain)this.ParentForm).TopMost = FrmMain.topMost;
             LoadNhaCungCap();
         }
 
         private void FrmQuanLyKho_FormClosed(object sender, FormClosedEventArgs e)
         {
+            ((FrmMain)this.ParentForm).TopMost = FrmMain.topMost;
             List<NguyenLieuDTO> lsNguyenLieu = NguyenLieuBUS.LayDanhSachNguyenLieu();
             LoadBangChonNhanh(lsNguyenLieu);
             LoadDanhSachNguyenLieu(lsNguyenLieu);

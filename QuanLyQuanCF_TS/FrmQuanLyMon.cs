@@ -7,29 +7,83 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MetroFramework.Controls;
 using MaterialSkin.Controls;
+using System.IO;
 using DTO;
 using BUS;
-using System.IO;
 
 namespace QuanLyQuanCF_TS
 {
-    public partial class FrmQuanLyMon_Topping : MetroFramework.Forms.MetroForm
+    public partial class FrmQuanLyMon : MetroFramework.Forms.MetroForm
     {
-        public FrmQuanLyMon_Topping()
+        public FrmQuanLyMon()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            tbcQuanLyMon_Topping.Style = FrmMain.style;
+            txtTimKiemLoaiMon.Style = FrmMain.style;
+            btnTimKiemLoaiMon.Style = FrmMain.style;
+            lnkDSLoaiMon.Style = FrmMain.style;
+            txtMaLoaiMon.Style = FrmMain.style;
+            txtTenLoaiMon.Style = FrmMain.style;
+            chkDoUong.Style = FrmMain.style;
+            btnThemLoaiMon.Style = FrmMain.style;
+            btnSuaLoaiMon.Style = FrmMain.style;
+            btnXoaLoaiMon.Style = FrmMain.style;
+            btnLamMoiLoaiMon.Style = FrmMain.style;
+            btnKhoiPhucLoaiMon.Style = FrmMain.style;
+
+            txtTimKiemLoaiTopping.Style = FrmMain.style;
+            btnTimKiemLoaiTopping.Style = FrmMain.style;
+            lnkDSLoaiTopping.Style = FrmMain.style;
+            txtMaLoaiTopping.Style = FrmMain.style;
+            txtTenLoaiTopping.Style = FrmMain.style;
+            btnThemLoaiTopping.Style = FrmMain.style;
+            btnSuaLoaiTopping.Style = FrmMain.style;
+            btnXoaLoaiTopping.Style = FrmMain.style;
+            btnLamMoiLoaiTopping.Style = FrmMain.style;
+            btnKhoiPhucLoaiTopping.Style = FrmMain.style;
+
+            txtTimKiemMon.Style = FrmMain.style;
+            btnTimKiemMon.Style = FrmMain.style;
+            lnkDSMon.Style = FrmMain.style;
+            txtMaMon.Style = FrmMain.style;
+            txtTenMon.Style = FrmMain.style;
+            cmbLoaiMon.Style = FrmMain.style;
+            txtGiaTienMon.Style = FrmMain.style;
+            btnThemMon.Style = FrmMain.style;
+            btnSuaMon.Style = FrmMain.style;
+            btnXoaMon.Style = FrmMain.style;
+            btnLamMoiMon.Style = FrmMain.style;
+            btnKhoiPhucMon.Style = FrmMain.style;
+
+            txtTimKiemTopping.Style = FrmMain.style;
+            btnTimKiemTopping.Style = FrmMain.style;
+            lnkDSTopping.Style = FrmMain.style;
+            txtMaTopping.Style = FrmMain.style;
+            txtTenTopping.Style = FrmMain.style;
+            cmbLoaiTopping.Style = FrmMain.style;
+            txtGiaTienTopping.Style = FrmMain.style;
+            btnThemTopping.Style = FrmMain.style;
+            btnSuaTopping.Style = FrmMain.style;
+            btnXoaTopping.Style = FrmMain.style;
+            btnLamMoiTopping.Style = FrmMain.style;
+            btnKhoiPhucTopping.Style = FrmMain.style;
+            #endregion
         }
 
-        private static FrmQuanLyMon_Topping _Instance = null;
+        private static FrmQuanLyMon _Instance = null;
 
-        public static FrmQuanLyMon_Topping Instance
+        public static FrmQuanLyMon Instance
         {
             get
             {
                 if (_Instance == null)
                 {
-                    _Instance = new FrmQuanLyMon_Topping();
+                    _Instance = new FrmQuanLyMon();
                 }
                 return _Instance;
             }
@@ -58,7 +112,7 @@ namespace QuanLyQuanCF_TS
             LamMoiMon();
             LamMoiTopping();
 
-            tbcQuanLyMon_Topping.SelectedTab = tbpLoaiMon;
+            //tbcQuanLyMon_Topping.SelectedTab = tbpLoaiMon;
         }
 
         private void tbcQuanLyMon_Topping_Selecting(object sender, TabControlCancelEventArgs e)
@@ -141,9 +195,18 @@ namespace QuanLyQuanCF_TS
             List<LoaiToppingDTO> lsLoaiTopping = LoaiToppingBUS.LayDanhSachLoaiTopping();
             foreach (LoaiToppingDTO loaiTopping in lsLoaiTopping)
             {
-                MaterialCheckBox checkBox = new MaterialCheckBox();
+                //MaterialCheckBox checkBox = new MaterialCheckBox();
+                //checkBox.Name = loaiTopping.MaLoaiTopping.ToString();
+                //checkBox.Text = loaiTopping.TenLoaiTopping;
+                //checkBox.Dock = DockStyle.Top;
+                //checkBox.Tag = loaiTopping;
+                //gpbLoaiTopping.Controls.Add(checkBox);
+                //checkBox.BringToFront();
+
+                MetroCheckBox checkBox = new MetroCheckBox();
                 checkBox.Name = loaiTopping.MaLoaiTopping.ToString();
                 checkBox.Text = loaiTopping.TenLoaiTopping;
+                checkBox.Style = FrmMain.style;
                 checkBox.Dock = DockStyle.Top;
                 checkBox.Tag = loaiTopping;
                 gpbLoaiTopping.Controls.Add(checkBox);
@@ -584,7 +647,7 @@ namespace QuanLyQuanCF_TS
             cmbLoaiMon.ValueMember = "MaLoaiMon";
         }
 
-        private void txtGiaTien_KeyPress(object sender, KeyPressEventArgs e)
+        private void txtGiaTienMon_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
@@ -607,7 +670,7 @@ namespace QuanLyQuanCF_TS
                 panelChucNangDSMon.Visible = false;
                 panelChucNangDSMonDaXoa.Visible = true;
                 LamMoiMon();
-                txtTenMon.Enabled = txtGiaTien.Enabled = cmbLoaiMon.Enabled = picHinhMon.Enabled = false;
+                txtTenMon.Enabled = txtGiaTienMon.Enabled = cmbLoaiMon.Enabled = picHinhMon.Enabled = false;
             }
             else
             {
@@ -617,7 +680,7 @@ namespace QuanLyQuanCF_TS
                 panelChucNangDSMon.Visible = true;
                 panelChucNangDSMonDaXoa.Visible = false;
                 LamMoiMon();
-                txtTenMon.Enabled = txtGiaTien.Enabled = cmbLoaiMon.Enabled = picHinhMon.Enabled = true;
+                txtTenMon.Enabled = txtGiaTienMon.Enabled = cmbLoaiMon.Enabled = picHinhMon.Enabled = true;
             }
         }
 
@@ -637,13 +700,13 @@ namespace QuanLyQuanCF_TS
                 txtTenMon.Text = dgvMon.SelectedRows[0].Cells["colTenMon"].Value.ToString();
                 cmbLoaiMon.SelectedValue = Convert.ToInt32(dgvMon.SelectedRows[0].Cells["colLoaiMon"].Value);
                 picHinhMon.Image = (Bitmap)dgvMon.SelectedRows[0].Cells["colHinh"].FormattedValue;
-                txtGiaTien.Text = dgvMon.SelectedRows[0].Cells["colGiaTien"].Value.ToString();
+                txtGiaTienMon.Text = dgvMon.SelectedRows[0].Cells["colGiaTien"].Value.ToString();
             }
         }
 
         private void LamMoiMon(bool state = true)
         {
-            txtMaMon.Text = txtTenMon.Text = txtGiaTien.Text = string.Empty;
+            txtMaMon.Text = txtTenMon.Text = txtGiaTienMon.Text = string.Empty;
             cmbLoaiMon.SelectedIndex = 0;
             picHinhMon.Image = Properties.Resources.default_product;
             btnThemMon.Enabled = state;
@@ -671,9 +734,9 @@ namespace QuanLyQuanCF_TS
                 mon.Hinh = tenFile + extension;
                 File.Copy(openFileDialog1.FileName, "img\\products\\" + tenFile + extension, true);
             }
-            if (txtGiaTien.Text != "")
+            if (txtGiaTienMon.Text != "")
             {
-                mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+                mon.GiaTien = Convert.ToDouble(txtGiaTienMon.Text);
             }
             else
             {
@@ -733,9 +796,9 @@ namespace QuanLyQuanCF_TS
                     mon.Hinh = dgvMon.CurrentRow.Cells["colHinh"].Value.ToString();
                 }
             }
-            if (txtGiaTien.Text != "")
+            if (txtGiaTienMon.Text != "")
             {
-                mon.GiaTien = Convert.ToDouble(txtGiaTien.Text);
+                mon.GiaTien = Convert.ToDouble(txtGiaTienMon.Text);
             }
             else
             {
@@ -817,7 +880,7 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void btnTimKiemCuaMon_Click(object sender, EventArgs e)
+        private void btnTimKiemMon_Click(object sender, EventArgs e)
         {
             TimKiemMon();
         }

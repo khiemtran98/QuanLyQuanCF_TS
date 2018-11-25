@@ -277,6 +277,11 @@
     <None Include="Properties\DataSources\DTO.NguyenLieuDTO.datasource" />
     <None Include="Properties\DataSources\DTO.NhaCungCapDTO.datasource" />
     <None Include="Properties\DataSources\DTO.PhieuNhapDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptHoaDon_TaiKhoanDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptMon_CTHDDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptMon_LoaiMonDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptNhaCungCap_PhieuNhapDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptPhieuNhap_CTPhieuNhapDTO.datasource" />
     <None Include="Properties\DataSources\DTO.TaiKhoanDTO.datasource" />
     <None Include="Properties\DataSources\DTO.ToppingDTO.datasource" />
     <None Include="Properties\Settings.settings">
@@ -359,6 +364,7 @@
   <ItemGroup>
     <None Include="bin\Debug\icon\resize-vertical.png" />
     <None Include="bin\Debug\icon\exit.png" />
+    <None Include="bin\Debug\img\backgrounds\maxresdefault.jpg" />
     <Content Include="SqlServerTypes\readme.htm" />
     <Content Include="SqlServerTypes\x64\msvcr120.dll">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>

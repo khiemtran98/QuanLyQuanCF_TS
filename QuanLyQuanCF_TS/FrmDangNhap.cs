@@ -18,6 +18,13 @@ namespace QuanLyQuanCF_TS
         public FrmDangNhap()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            cmbTaiKhoan.Style = FrmMain.style;
+            txtMatKhau.Style = FrmMain.style;
+            btnDangNhap.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmDangNhap _Instance = null;
@@ -68,6 +75,7 @@ namespace QuanLyQuanCF_TS
             cmbTaiKhoan.DisplayMember = "HoTen";
             cmbTaiKhoan.ValueMember = "MaTaiKhoan";
 
+            txtMatKhau.Text = "123";
             txtMatKhau.Select();
         }
 

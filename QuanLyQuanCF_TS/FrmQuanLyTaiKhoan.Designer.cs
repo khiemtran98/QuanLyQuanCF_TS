@@ -489,7 +489,6 @@
             this.chkThongKeDoanhThu.TabIndex = 5;
             this.chkThongKeDoanhThu.Text = "Thống kê doanh thu";
             this.chkThongKeDoanhThu.UseSelectable = true;
-            this.chkThongKeDoanhThu.Visible = false;
             // 
             // chkThongKeNhapHang
             // 
@@ -1402,6 +1401,7 @@
             this.DisplayHeader = false;
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Movable = false;
             this.Name = "FrmQuanLyTaiKhoan";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;

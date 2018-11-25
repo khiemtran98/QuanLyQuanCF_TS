@@ -68,9 +68,9 @@
             this.lblPhienBan.AutoSize = true;
             this.lblPhienBan.Location = new System.Drawing.Point(717, 351);
             this.lblPhienBan.Name = "lblPhienBan";
-            this.lblPhienBan.Size = new System.Drawing.Size(40, 19);
+            this.lblPhienBan.Size = new System.Drawing.Size(42, 19);
             this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.8.1";
+            this.lblPhienBan.Text = "v2.8.2";
             // 
             // lblThongTin1
             // 
@@ -180,9 +180,11 @@
             this.Controls.Add(this.mDangNhap);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.Movable = false;
             this.Name = "FrmDangNhap";
             this.Resizable = false;
             this.Text = "Đăng nhập";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmDangNhap_FormClosed);
             this.Load += new System.EventHandler(this.FrmDangNhap_Load);
             this.mDangNhap.ResumeLayout(false);

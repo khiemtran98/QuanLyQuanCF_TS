@@ -1,6 +1,6 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.8.1: Pre-Final-2
+> ## Update 2.8.2: Pre-Final-3
 
 ### # HƯỚNG DẪN CÀI ĐẶT
 
@@ -61,6 +61,8 @@
   - Tạo báo cáo.
 
 ---
+
+> #### Update 2.8.1: Pre-Final-2
 
 > #### Update 2.8: Pre-Final
 

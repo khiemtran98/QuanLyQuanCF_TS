@@ -17,6 +17,12 @@ namespace QuanLyQuanCF_TS
         public ucXemLaiHoaDon()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            txtTienMat.Style = FrmMain.style;
+            txtTienThua.Style = FrmMain.style;
+            #endregion
         }
 
         private static ucXemLaiHoaDon _Instance = new ucXemLaiHoaDon();

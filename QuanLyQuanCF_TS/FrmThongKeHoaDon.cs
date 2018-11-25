@@ -17,6 +17,15 @@ namespace QuanLyQuanCF_TS
         public FrmThongKeHoaDon()
         {
             InitializeComponent();
+
+            #region
+            this.Style = FrmMain.style;
+            radScopeTime.Style = FrmMain.style;
+            radTimeLine.Style = FrmMain.style;
+            dateTimeStart.Style = FrmMain.style;
+            dateTimeEnd.Style = FrmMain.style;
+            dateTimePick.Style = FrmMain.style;
+            #endregion
         }
 
         private static FrmThongKeHoaDon _Instance = null;
@@ -112,21 +121,21 @@ namespace QuanLyQuanCF_TS
             ((DataGridViewComboBoxCell)dgvHoaDon.Rows[e.RowIndex].Cells["colNhanVienLap"]).ValueMember = "MaTaiKhoan";
         }
 
-        private void dgvCTHD_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dgvCTHD_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ((DataGridViewComboBoxCell)dgvCTHD.Rows[e.RowIndex].Cells["colMaMon"]).DataSource = MonBUS.LayDanhSachMon();
             ((DataGridViewComboBoxCell)dgvCTHD.Rows[e.RowIndex].Cells["colMaMon"]).DisplayMember = "TenMon";
             ((DataGridViewComboBoxCell)dgvCTHD.Rows[e.RowIndex].Cells["colMaMon"]).ValueMember = "MaMon";
         }
 
-        private void dgvTopping_RowsAdded_1(object sender, DataGridViewRowsAddedEventArgs e)
+        private void dgvTopping_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).DataSource = ToppingBUS.LayDanhSachTopping();
             ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).DisplayMember = "TenTopping";
             ((DataGridViewComboBoxCell)dgvTopping.Rows[e.RowIndex].Cells["colMaTopping"]).ValueMember = "MaTopping";
         }
 
-        private void dgvHoaDon_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvHoaDon_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvHoaDon.SelectedRows.Count > 0)
             {
@@ -135,7 +144,7 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void dgvCTHD_CellClick_1(object sender, DataGridViewCellEventArgs e)
+        private void dgvCTHD_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dgvHoaDon.SelectedRows.Count > 0)
             {
