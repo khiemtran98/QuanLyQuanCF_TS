@@ -56,9 +56,17 @@
 
   - Xem lịch sử nhập hàng.
   
+- **Thống kê doanh số**
+
+  - Xem biểu đồ tổng quát, chi phí, doanh thu, lợi nhuận.
+  
 - **Báo cáo**
 
   - Tạo báo cáo.
+  
+- **Cài đặt**
+
+  - Tuỳ chỉnh màu sắc, chế độ.
 
 ---
 
