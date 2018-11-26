@@ -38,10 +38,10 @@ namespace BUS
         {
             if (TaiKhoanBUS.XoaTaiKhoanTheoLoai(maLoaiTaiKhoan))
             {
-                //if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
-                //{
+                if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
+                {
                     return LoaiTaiKhoanDAO.XoaLoaiTaiKhoan(maLoaiTaiKhoan);
-                //}
+                }
             }
             return false;
         }

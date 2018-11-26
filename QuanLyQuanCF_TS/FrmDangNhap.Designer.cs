@@ -70,7 +70,7 @@
             this.lblPhienBan.Name = "lblPhienBan";
             this.lblPhienBan.Size = new System.Drawing.Size(42, 19);
             this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.8.2";
+            this.lblPhienBan.Text = "v2.8.3";
             // 
             // lblThongTin1
             // 
@@ -150,6 +150,7 @@
             this.cmbTaiKhoan.Size = new System.Drawing.Size(301, 29);
             this.cmbTaiKhoan.TabIndex = 4;
             this.cmbTaiKhoan.UseSelectable = true;
+            this.cmbTaiKhoan.SelectedIndexChanged += new System.EventHandler(this.cmbTaiKhoan_SelectedIndexChanged);
             // 
             // lblMatKhau
             // 

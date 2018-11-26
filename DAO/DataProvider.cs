@@ -11,7 +11,7 @@ namespace DAO
     {
         public static SqlConnection GetConnection()
         {
-            string connectionString = @"";
+            string connectionString = @"Data Source=.;Initial Catalog=QuanLyQuanCF_TS;Integrated Security=True";
             return new SqlConnection(connectionString);
         }
 

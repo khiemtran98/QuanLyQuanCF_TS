@@ -51,6 +51,11 @@ namespace BUS
             return HoaDonDAO.LayDoanhSoHoaDonTheoThang(thang);
         }
 
+        public static double LayDoanhSoHoaDonTheoNam(int nam)
+        {
+            return HoaDonDAO.LayDoanhSoHoaDonTheoNam(nam);
+        }
+
         // Lấy danh sách hóa đơn theo khoảng thời gian
         public static List<HoaDonDTO> GetListBillByTime(DateTime dateFrom, DateTime dateEnd)
         {

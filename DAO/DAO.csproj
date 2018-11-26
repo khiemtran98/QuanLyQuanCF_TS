@@ -63,6 +63,7 @@
     <Compile Include="TaiKhoanDAO.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ToppingDAO.cs" />
+    <Compile Include="TrendingMonDAO.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\DTO\DTO.csproj">

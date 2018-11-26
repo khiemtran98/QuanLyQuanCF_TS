@@ -38,6 +38,16 @@
             this.tbpLoaiTaiKhoan = new System.Windows.Forms.TabPage();
             this.metroPanel9 = new MetroFramework.Controls.MetroPanel();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel28 = new MetroFramework.Controls.MetroPanel();
+            this.lnkDSLoaiTaiKhoan = new MetroFramework.Controls.MetroLink();
+            this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
+            this.dgvLoaiTaiKhoan = new System.Windows.Forms.DataGridView();
+            this.colMaLoaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenLoaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroPanel12 = new MetroFramework.Controls.MetroPanel();
+            this.txtTimKiemLoaiTaiKhoan = new MetroFramework.Controls.MetroTextBox();
+            this.btnTimKiemLoaiTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
             this.panelChucNangDSLoaiTaiKhoanDaXoa = new MetroFramework.Controls.MetroPanel();
             this.btnKhoiPhucLoaiTaiKhoan = new MetroFramework.Controls.MetroButton();
@@ -63,18 +73,22 @@
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel12 = new MetroFramework.Controls.MetroLabel();
             this.txtMaLoaiTaiKhoan = new MetroFramework.Controls.MetroTextBox();
-            this.metroPanel28 = new MetroFramework.Controls.MetroPanel();
-            this.lnkDSLoaiTaiKhoan = new MetroFramework.Controls.MetroLink();
-            this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
-            this.dgvLoaiTaiKhoan = new System.Windows.Forms.DataGridView();
-            this.colMaLoaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenLoaiTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroPanel12 = new MetroFramework.Controls.MetroPanel();
-            this.txtTimKiemLoaiTaiKhoan = new MetroFramework.Controls.MetroTextBox();
-            this.btnTimKiemLoaiTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.tbpTaiKhoan = new System.Windows.Forms.TabPage();
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
             this.splitContainer2 = new System.Windows.Forms.SplitContainer();
+            this.metroPanel14 = new MetroFramework.Controls.MetroPanel();
+            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.dgvTaiKhoan = new System.Windows.Forms.DataGridView();
+            this.colMaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiTaiKhoan = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
+            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.lnkDSTaiKhoan = new MetroFramework.Controls.MetroLink();
+            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.txtTimKiemTaiKhoan = new MetroFramework.Controls.MetroTextBox();
+            this.btnTimKiemTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.panelChucNangDSTaiKhoanDaXoa = new MetroFramework.Controls.MetroPanel();
             this.btnKhoiPhucTaiKhoan = new MetroFramework.Controls.MetroButton();
@@ -96,18 +110,6 @@
             this.txtHoTen = new MetroFramework.Controls.MetroTextBox();
             this.dtpNgayBatDau = new MetroFramework.Controls.MetroDateTime();
             this.txtMatKhau = new MetroFramework.Controls.MetroTextBox();
-            this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
-            this.lnkDSTaiKhoan = new MetroFramework.Controls.MetroLink();
-            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
-            this.dgvTaiKhoan = new System.Windows.Forms.DataGridView();
-            this.colMaTaiKhoan = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHoTen = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colNgayBatDau = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiTaiKhoan = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
-            this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
-            this.txtTimKiemTaiKhoan = new MetroFramework.Controls.MetroTextBox();
-            this.btnTimKiemTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.metroPanel1.SuspendLayout();
             this.tbcQuanLyTaiKhoan.SuspendLayout();
@@ -117,30 +119,32 @@
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
             this.splitContainer1.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
+            this.metroPanel28.SuspendLayout();
+            this.metroPanel11.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiTaiKhoan)).BeginInit();
+            this.metroPanel12.SuspendLayout();
             this.metroPanel7.SuspendLayout();
             this.panelChucNangDSLoaiTaiKhoanDaXoa.SuspendLayout();
             this.panelChucNangDSLoaiTaiKhoan.SuspendLayout();
             this.metroPanel13.SuspendLayout();
             this.gpbChucNang.SuspendLayout();
-            this.metroPanel28.SuspendLayout();
-            this.metroPanel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiTaiKhoan)).BeginInit();
-            this.metroPanel12.SuspendLayout();
             this.tbpTaiKhoan.SuspendLayout();
             this.metroPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).BeginInit();
             this.splitContainer2.Panel1.SuspendLayout();
             this.splitContainer2.Panel2.SuspendLayout();
             this.splitContainer2.SuspendLayout();
+            this.metroPanel14.SuspendLayout();
+            this.metroPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
+            this.metroPanel4.SuspendLayout();
+            this.metroPanel6.SuspendLayout();
             this.metroPanel2.SuspendLayout();
             this.panelChucNangDSTaiKhoanDaXoa.SuspendLayout();
             this.panelChucNangDSTaiKhoan.SuspendLayout();
             this.metroPanel10.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).BeginInit();
-            this.metroPanel4.SuspendLayout();
-            this.metroPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).BeginInit();
-            this.metroPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
@@ -204,27 +208,207 @@
             // 
             this.splitContainer1.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.metroPanel7);
-            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.splitContainer1.Panel1MinSize = 500;
+            this.splitContainer1.Panel1.Controls.Add(this.metroPanel3);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Panel1MinSize = 250;
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.metroPanel28);
-            this.splitContainer1.Panel2.Controls.Add(this.metroPanel11);
-            this.splitContainer1.Panel2.Controls.Add(this.metroPanel12);
-            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer1.Panel2.Controls.Add(this.metroPanel7);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Panel2MinSize = 500;
             this.splitContainer1.Size = new System.Drawing.Size(837, 614);
-            this.splitContainer1.SplitterDistance = 500;
+            this.splitContainer1.SplitterDistance = 333;
             this.splitContainer1.SplitterIncrement = 3;
             this.splitContainer1.TabIndex = 3;
+            // 
+            // metroPanel3
+            // 
+            this.metroPanel3.Controls.Add(this.metroPanel28);
+            this.metroPanel3.Controls.Add(this.metroPanel11);
+            this.metroPanel3.Controls.Add(this.metroPanel12);
+            this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(333, 614);
+            this.metroPanel3.TabIndex = 1;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel28
+            // 
+            this.metroPanel28.Controls.Add(this.lnkDSLoaiTaiKhoan);
+            this.metroPanel28.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.metroPanel28.HorizontalScrollbarBarColor = true;
+            this.metroPanel28.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel28.HorizontalScrollbarSize = 10;
+            this.metroPanel28.Location = new System.Drawing.Point(0, 575);
+            this.metroPanel28.Name = "metroPanel28";
+            this.metroPanel28.Size = new System.Drawing.Size(333, 39);
+            this.metroPanel28.TabIndex = 24;
+            this.metroPanel28.VerticalScrollbarBarColor = true;
+            this.metroPanel28.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel28.VerticalScrollbarSize = 10;
+            // 
+            // lnkDSLoaiTaiKhoan
+            // 
+            this.lnkDSLoaiTaiKhoan.AccessibleName = "DSLoaiTaiKhoan";
+            this.lnkDSLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkDSLoaiTaiKhoan.Location = new System.Drawing.Point(13, 7);
+            this.lnkDSLoaiTaiKhoan.Name = "lnkDSLoaiTaiKhoan";
+            this.lnkDSLoaiTaiKhoan.Size = new System.Drawing.Size(317, 23);
+            this.lnkDSLoaiTaiKhoan.TabIndex = 2;
+            this.lnkDSLoaiTaiKhoan.Text = "Hiện danh sách loại tài khoản đã xoá";
+            this.lnkDSLoaiTaiKhoan.UseSelectable = true;
+            this.lnkDSLoaiTaiKhoan.Click += new System.EventHandler(this.lnkDSLoaiTaiKhoan_Click);
+            // 
+            // metroPanel11
+            // 
+            this.metroPanel11.Controls.Add(this.dgvLoaiTaiKhoan);
+            this.metroPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel11.HorizontalScrollbarBarColor = true;
+            this.metroPanel11.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel11.HorizontalScrollbarSize = 10;
+            this.metroPanel11.Location = new System.Drawing.Point(0, 39);
+            this.metroPanel11.Name = "metroPanel11";
+            this.metroPanel11.Size = new System.Drawing.Size(333, 575);
+            this.metroPanel11.TabIndex = 0;
+            this.metroPanel11.VerticalScrollbarBarColor = true;
+            this.metroPanel11.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel11.VerticalScrollbarSize = 10;
+            // 
+            // dgvLoaiTaiKhoan
+            // 
+            this.dgvLoaiTaiKhoan.AllowUserToAddRows = false;
+            this.dgvLoaiTaiKhoan.AllowUserToDeleteRows = false;
+            this.dgvLoaiTaiKhoan.AllowUserToResizeRows = false;
+            this.dgvLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvLoaiTaiKhoan.BackgroundColor = System.Drawing.Color.PapayaWhip;
+            this.dgvLoaiTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvLoaiTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            this.dgvLoaiTaiKhoan.ColumnHeadersHeight = 70;
+            this.dgvLoaiTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvLoaiTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMaLoaiTaiKhoan,
+            this.colTenLoaiTaiKhoan});
+            this.dgvLoaiTaiKhoan.EnableHeadersVisualStyles = false;
+            this.dgvLoaiTaiKhoan.Location = new System.Drawing.Point(14, 5);
+            this.dgvLoaiTaiKhoan.MultiSelect = false;
+            this.dgvLoaiTaiKhoan.Name = "dgvLoaiTaiKhoan";
+            this.dgvLoaiTaiKhoan.RowHeadersVisible = false;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvLoaiTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle2;
+            this.dgvLoaiTaiKhoan.RowTemplate.Height = 35;
+            this.dgvLoaiTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvLoaiTaiKhoan.Size = new System.Drawing.Size(316, 567);
+            this.dgvLoaiTaiKhoan.TabIndex = 2;
+            this.dgvLoaiTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiTaiKhoan_CellClick);
+            // 
+            // colMaLoaiTaiKhoan
+            // 
+            this.colMaLoaiTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMaLoaiTaiKhoan.DataPropertyName = "MaLoaiTaiKhoan";
+            this.colMaLoaiTaiKhoan.HeaderText = "Mã loại tài khoản";
+            this.colMaLoaiTaiKhoan.Name = "colMaLoaiTaiKhoan";
+            this.colMaLoaiTaiKhoan.ReadOnly = true;
+            this.colMaLoaiTaiKhoan.Width = 110;
+            // 
+            // colTenLoaiTaiKhoan
+            // 
+            this.colTenLoaiTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTenLoaiTaiKhoan.DataPropertyName = "TenLoaiTaiKhoan";
+            this.colTenLoaiTaiKhoan.HeaderText = "Tên loại tài khoản";
+            this.colTenLoaiTaiKhoan.Name = "colTenLoaiTaiKhoan";
+            this.colTenLoaiTaiKhoan.ReadOnly = true;
+            // 
+            // metroPanel12
+            // 
+            this.metroPanel12.Controls.Add(this.txtTimKiemLoaiTaiKhoan);
+            this.metroPanel12.Controls.Add(this.btnTimKiemLoaiTaiKhoan);
+            this.metroPanel12.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroPanel12.HorizontalScrollbarBarColor = true;
+            this.metroPanel12.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel12.HorizontalScrollbarSize = 10;
+            this.metroPanel12.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel12.Name = "metroPanel12";
+            this.metroPanel12.Size = new System.Drawing.Size(333, 39);
+            this.metroPanel12.TabIndex = 4;
+            this.metroPanel12.VerticalScrollbarBarColor = true;
+            this.metroPanel12.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel12.VerticalScrollbarSize = 10;
+            // 
+            // txtTimKiemLoaiTaiKhoan
+            // 
+            this.txtTimKiemLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Image = null;
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Location = new System.Drawing.Point(203, 1);
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Name = "";
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.TabIndex = 1;
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.UseSelectable = true;
+            this.txtTimKiemLoaiTaiKhoan.CustomButton.Visible = false;
+            this.txtTimKiemLoaiTaiKhoan.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txtTimKiemLoaiTaiKhoan.Lines = new string[] {
+        "Tìm kiếm tên loại tài khoản"};
+            this.txtTimKiemLoaiTaiKhoan.Location = new System.Drawing.Point(14, 7);
+            this.txtTimKiemLoaiTaiKhoan.MaxLength = 32767;
+            this.txtTimKiemLoaiTaiKhoan.Name = "txtTimKiemLoaiTaiKhoan";
+            this.txtTimKiemLoaiTaiKhoan.PasswordChar = '\0';
+            this.txtTimKiemLoaiTaiKhoan.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTimKiemLoaiTaiKhoan.SelectedText = "";
+            this.txtTimKiemLoaiTaiKhoan.SelectionLength = 0;
+            this.txtTimKiemLoaiTaiKhoan.SelectionStart = 0;
+            this.txtTimKiemLoaiTaiKhoan.ShortcutsEnabled = true;
+            this.txtTimKiemLoaiTaiKhoan.Size = new System.Drawing.Size(225, 23);
+            this.txtTimKiemLoaiTaiKhoan.TabIndex = 3;
+            this.txtTimKiemLoaiTaiKhoan.Text = "Tìm kiếm tên loại tài khoản";
+            this.txtTimKiemLoaiTaiKhoan.UseSelectable = true;
+            this.txtTimKiemLoaiTaiKhoan.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtTimKiemLoaiTaiKhoan.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTimKiemLoaiTaiKhoan.Enter += new System.EventHandler(this.txtTimKiemLoaiTaiKhoan_Enter);
+            this.txtTimKiemLoaiTaiKhoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiemLoaiTaiKhoan_KeyPress);
+            this.txtTimKiemLoaiTaiKhoan.Leave += new System.EventHandler(this.txtTimKiemLoaiTaiKhoan_Leave);
+            // 
+            // btnTimKiemLoaiTaiKhoan
+            // 
+            this.btnTimKiemLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimKiemLoaiTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnTimKiemLoaiTaiKhoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnTimKiemLoaiTaiKhoan.Location = new System.Drawing.Point(245, 7);
+            this.btnTimKiemLoaiTaiKhoan.Name = "btnTimKiemLoaiTaiKhoan";
+            this.btnTimKiemLoaiTaiKhoan.Size = new System.Drawing.Size(85, 23);
+            this.btnTimKiemLoaiTaiKhoan.TabIndex = 2;
+            this.btnTimKiemLoaiTaiKhoan.Text = "Tìm kiếm";
+            this.btnTimKiemLoaiTaiKhoan.UseSelectable = true;
+            this.btnTimKiemLoaiTaiKhoan.Click += new System.EventHandler(this.btnTimKiemLoaiTaiKhoan_Click);
             // 
             // metroPanel7
             // 
@@ -265,7 +449,7 @@
             this.btnKhoiPhucLoaiTaiKhoan.BackColor = System.Drawing.Color.OliveDrab;
             this.btnKhoiPhucLoaiTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnKhoiPhucLoaiTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnKhoiPhucLoaiTaiKhoan.Location = new System.Drawing.Point(375, 19);
+            this.btnKhoiPhucLoaiTaiKhoan.Location = new System.Drawing.Point(384, 19);
             this.btnKhoiPhucLoaiTaiKhoan.Name = "btnKhoiPhucLoaiTaiKhoan";
             this.btnKhoiPhucLoaiTaiKhoan.Size = new System.Drawing.Size(105, 40);
             this.btnKhoiPhucLoaiTaiKhoan.TabIndex = 18;
@@ -430,7 +614,7 @@
             this.gpbChucNang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpbChucNang.Location = new System.Drawing.Point(165, 129);
             this.gpbChucNang.Name = "gpbChucNang";
-            this.gpbChucNang.Size = new System.Drawing.Size(317, 165);
+            this.gpbChucNang.Size = new System.Drawing.Size(444, 165);
             this.gpbChucNang.TabIndex = 23;
             this.gpbChucNang.TabStop = false;
             // 
@@ -607,175 +791,6 @@
             this.txtMaLoaiTaiKhoan.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMaLoaiTaiKhoan.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroPanel28
-            // 
-            this.metroPanel28.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel28.Controls.Add(this.lnkDSLoaiTaiKhoan);
-            this.metroPanel28.HorizontalScrollbarBarColor = true;
-            this.metroPanel28.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel28.HorizontalScrollbarSize = 10;
-            this.metroPanel28.Location = new System.Drawing.Point(5, 572);
-            this.metroPanel28.Name = "metroPanel28";
-            this.metroPanel28.Size = new System.Drawing.Size(325, 39);
-            this.metroPanel28.TabIndex = 24;
-            this.metroPanel28.VerticalScrollbarBarColor = true;
-            this.metroPanel28.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel28.VerticalScrollbarSize = 10;
-            // 
-            // lnkDSLoaiTaiKhoan
-            // 
-            this.lnkDSLoaiTaiKhoan.AccessibleName = "DSLoaiTaiKhoan";
-            this.lnkDSLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkDSLoaiTaiKhoan.Location = new System.Drawing.Point(13, 7);
-            this.lnkDSLoaiTaiKhoan.Name = "lnkDSLoaiTaiKhoan";
-            this.lnkDSLoaiTaiKhoan.Size = new System.Drawing.Size(309, 23);
-            this.lnkDSLoaiTaiKhoan.TabIndex = 2;
-            this.lnkDSLoaiTaiKhoan.Text = "Hiện danh sách loại tài khoản đã xoá";
-            this.lnkDSLoaiTaiKhoan.UseSelectable = true;
-            this.lnkDSLoaiTaiKhoan.Click += new System.EventHandler(this.lnkDSLoaiTaiKhoan_Click);
-            // 
-            // metroPanel11
-            // 
-            this.metroPanel11.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel11.Controls.Add(this.dgvLoaiTaiKhoan);
-            this.metroPanel11.HorizontalScrollbarBarColor = true;
-            this.metroPanel11.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel11.HorizontalScrollbarSize = 10;
-            this.metroPanel11.Location = new System.Drawing.Point(5, 40);
-            this.metroPanel11.Name = "metroPanel11";
-            this.metroPanel11.Size = new System.Drawing.Size(325, 533);
-            this.metroPanel11.TabIndex = 0;
-            this.metroPanel11.VerticalScrollbarBarColor = true;
-            this.metroPanel11.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel11.VerticalScrollbarSize = 10;
-            // 
-            // dgvLoaiTaiKhoan
-            // 
-            this.dgvLoaiTaiKhoan.AllowUserToAddRows = false;
-            this.dgvLoaiTaiKhoan.AllowUserToDeleteRows = false;
-            this.dgvLoaiTaiKhoan.AllowUserToResizeRows = false;
-            this.dgvLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvLoaiTaiKhoan.BackgroundColor = System.Drawing.Color.PapayaWhip;
-            this.dgvLoaiTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvLoaiTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.dgvLoaiTaiKhoan.ColumnHeadersHeight = 70;
-            this.dgvLoaiTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvLoaiTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaLoaiTaiKhoan,
-            this.colTenLoaiTaiKhoan});
-            this.dgvLoaiTaiKhoan.EnableHeadersVisualStyles = false;
-            this.dgvLoaiTaiKhoan.Location = new System.Drawing.Point(14, 5);
-            this.dgvLoaiTaiKhoan.MultiSelect = false;
-            this.dgvLoaiTaiKhoan.Name = "dgvLoaiTaiKhoan";
-            this.dgvLoaiTaiKhoan.RowHeadersVisible = false;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvLoaiTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle2;
-            this.dgvLoaiTaiKhoan.RowTemplate.Height = 35;
-            this.dgvLoaiTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvLoaiTaiKhoan.Size = new System.Drawing.Size(308, 525);
-            this.dgvLoaiTaiKhoan.TabIndex = 2;
-            this.dgvLoaiTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvLoaiTaiKhoan_CellClick);
-            // 
-            // colMaLoaiTaiKhoan
-            // 
-            this.colMaLoaiTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMaLoaiTaiKhoan.DataPropertyName = "MaLoaiTaiKhoan";
-            this.colMaLoaiTaiKhoan.HeaderText = "Mã loại tài khoản";
-            this.colMaLoaiTaiKhoan.Name = "colMaLoaiTaiKhoan";
-            this.colMaLoaiTaiKhoan.ReadOnly = true;
-            this.colMaLoaiTaiKhoan.Width = 110;
-            // 
-            // colTenLoaiTaiKhoan
-            // 
-            this.colTenLoaiTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTenLoaiTaiKhoan.DataPropertyName = "TenLoaiTaiKhoan";
-            this.colTenLoaiTaiKhoan.HeaderText = "Tên loại tài khoản";
-            this.colTenLoaiTaiKhoan.Name = "colTenLoaiTaiKhoan";
-            this.colTenLoaiTaiKhoan.ReadOnly = true;
-            // 
-            // metroPanel12
-            // 
-            this.metroPanel12.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel12.Controls.Add(this.txtTimKiemLoaiTaiKhoan);
-            this.metroPanel12.Controls.Add(this.btnTimKiemLoaiTaiKhoan);
-            this.metroPanel12.HorizontalScrollbarBarColor = true;
-            this.metroPanel12.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel12.HorizontalScrollbarSize = 10;
-            this.metroPanel12.Location = new System.Drawing.Point(5, 0);
-            this.metroPanel12.Name = "metroPanel12";
-            this.metroPanel12.Size = new System.Drawing.Size(325, 39);
-            this.metroPanel12.TabIndex = 4;
-            this.metroPanel12.VerticalScrollbarBarColor = true;
-            this.metroPanel12.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel12.VerticalScrollbarSize = 10;
-            // 
-            // txtTimKiemLoaiTaiKhoan
-            // 
-            this.txtTimKiemLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Image = null;
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Location = new System.Drawing.Point(195, 1);
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Name = "";
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.TabIndex = 1;
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.UseSelectable = true;
-            this.txtTimKiemLoaiTaiKhoan.CustomButton.Visible = false;
-            this.txtTimKiemLoaiTaiKhoan.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.txtTimKiemLoaiTaiKhoan.Lines = new string[] {
-        "Tìm kiếm tên loại tài khoản"};
-            this.txtTimKiemLoaiTaiKhoan.Location = new System.Drawing.Point(14, 7);
-            this.txtTimKiemLoaiTaiKhoan.MaxLength = 32767;
-            this.txtTimKiemLoaiTaiKhoan.Name = "txtTimKiemLoaiTaiKhoan";
-            this.txtTimKiemLoaiTaiKhoan.PasswordChar = '\0';
-            this.txtTimKiemLoaiTaiKhoan.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTimKiemLoaiTaiKhoan.SelectedText = "";
-            this.txtTimKiemLoaiTaiKhoan.SelectionLength = 0;
-            this.txtTimKiemLoaiTaiKhoan.SelectionStart = 0;
-            this.txtTimKiemLoaiTaiKhoan.ShortcutsEnabled = true;
-            this.txtTimKiemLoaiTaiKhoan.Size = new System.Drawing.Size(217, 23);
-            this.txtTimKiemLoaiTaiKhoan.TabIndex = 3;
-            this.txtTimKiemLoaiTaiKhoan.Text = "Tìm kiếm tên loại tài khoản";
-            this.txtTimKiemLoaiTaiKhoan.UseSelectable = true;
-            this.txtTimKiemLoaiTaiKhoan.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTimKiemLoaiTaiKhoan.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtTimKiemLoaiTaiKhoan.Enter += new System.EventHandler(this.txtTimKiemLoaiTaiKhoan_Enter);
-            this.txtTimKiemLoaiTaiKhoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiemLoaiTaiKhoan_KeyPress);
-            this.txtTimKiemLoaiTaiKhoan.Leave += new System.EventHandler(this.txtTimKiemLoaiTaiKhoan_Leave);
-            // 
-            // btnTimKiemLoaiTaiKhoan
-            // 
-            this.btnTimKiemLoaiTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTimKiemLoaiTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnTimKiemLoaiTaiKhoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemLoaiTaiKhoan.Location = new System.Drawing.Point(237, 7);
-            this.btnTimKiemLoaiTaiKhoan.Name = "btnTimKiemLoaiTaiKhoan";
-            this.btnTimKiemLoaiTaiKhoan.Size = new System.Drawing.Size(85, 23);
-            this.btnTimKiemLoaiTaiKhoan.TabIndex = 2;
-            this.btnTimKiemLoaiTaiKhoan.Text = "Tìm kiếm";
-            this.btnTimKiemLoaiTaiKhoan.UseSelectable = true;
-            this.btnTimKiemLoaiTaiKhoan.Click += new System.EventHandler(this.btnTimKiemLoaiTaiKhoan_Click);
-            // 
             // tbpTaiKhoan
             // 
             this.tbpTaiKhoan.Controls.Add(this.metroPanel8);
@@ -805,27 +820,242 @@
             // 
             this.splitContainer2.BackColor = System.Drawing.SystemColors.Control;
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer2.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
             this.splitContainer2.Name = "splitContainer2";
             // 
             // splitContainer2.Panel1
             // 
-            this.splitContainer2.Panel1.Controls.Add(this.metroPanel2);
-            this.splitContainer2.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.splitContainer2.Panel1MinSize = 500;
+            this.splitContainer2.Panel1.Controls.Add(this.metroPanel14);
+            this.splitContainer2.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer2.Panel1MinSize = 250;
             // 
             // splitContainer2.Panel2
             // 
-            this.splitContainer2.Panel2.Controls.Add(this.metroPanel4);
-            this.splitContainer2.Panel2.Controls.Add(this.metroPanel5);
-            this.splitContainer2.Panel2.Controls.Add(this.metroPanel6);
-            this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.splitContainer2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer2.Panel2.Controls.Add(this.metroPanel2);
+            this.splitContainer2.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer2.Panel2MinSize = 500;
             this.splitContainer2.Size = new System.Drawing.Size(837, 614);
-            this.splitContainer2.SplitterDistance = 500;
+            this.splitContainer2.SplitterDistance = 333;
             this.splitContainer2.SplitterIncrement = 3;
             this.splitContainer2.TabIndex = 2;
+            // 
+            // metroPanel14
+            // 
+            this.metroPanel14.Controls.Add(this.metroPanel5);
+            this.metroPanel14.Controls.Add(this.metroPanel4);
+            this.metroPanel14.Controls.Add(this.metroPanel6);
+            this.metroPanel14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel14.HorizontalScrollbarBarColor = true;
+            this.metroPanel14.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel14.HorizontalScrollbarSize = 10;
+            this.metroPanel14.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel14.Name = "metroPanel14";
+            this.metroPanel14.Size = new System.Drawing.Size(333, 614);
+            this.metroPanel14.TabIndex = 27;
+            this.metroPanel14.VerticalScrollbarBarColor = true;
+            this.metroPanel14.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel14.VerticalScrollbarSize = 10;
+            // 
+            // metroPanel5
+            // 
+            this.metroPanel5.Controls.Add(this.dgvTaiKhoan);
+            this.metroPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel5.HorizontalScrollbarBarColor = true;
+            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.HorizontalScrollbarSize = 10;
+            this.metroPanel5.Location = new System.Drawing.Point(0, 39);
+            this.metroPanel5.Name = "metroPanel5";
+            this.metroPanel5.Size = new System.Drawing.Size(333, 536);
+            this.metroPanel5.TabIndex = 0;
+            this.metroPanel5.VerticalScrollbarBarColor = true;
+            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // dgvTaiKhoan
+            // 
+            this.dgvTaiKhoan.AllowUserToAddRows = false;
+            this.dgvTaiKhoan.AllowUserToDeleteRows = false;
+            this.dgvTaiKhoan.AllowUserToResizeRows = false;
+            this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.PapayaWhip;
+            this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LemonChiffon;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12.75F);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
+            this.dgvTaiKhoan.ColumnHeadersHeight = 70;
+            this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
+            this.dgvTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.colMaTaiKhoan,
+            this.colHoTen,
+            this.colNgayBatDau,
+            this.colLoaiTaiKhoan,
+            this.colHinh});
+            this.dgvTaiKhoan.EnableHeadersVisualStyles = false;
+            this.dgvTaiKhoan.Location = new System.Drawing.Point(14, 5);
+            this.dgvTaiKhoan.MultiSelect = false;
+            this.dgvTaiKhoan.Name = "dgvTaiKhoan";
+            this.dgvTaiKhoan.RowHeadersVisible = false;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightCyan;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            this.dgvTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle4;
+            this.dgvTaiKhoan.RowTemplate.Height = 35;
+            this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dgvTaiKhoan.Size = new System.Drawing.Size(316, 528);
+            this.dgvTaiKhoan.TabIndex = 2;
+            this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
+            this.dgvTaiKhoan.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTaiKhoan_CellFormatting);
+            this.dgvTaiKhoan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTaiKhoan_RowsAdded);
+            // 
+            // colMaTaiKhoan
+            // 
+            this.colMaTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
+            this.colMaTaiKhoan.HeaderText = "Mã tài khoản";
+            this.colMaTaiKhoan.Name = "colMaTaiKhoan";
+            this.colMaTaiKhoan.ReadOnly = true;
+            this.colMaTaiKhoan.Width = 123;
+            // 
+            // colHoTen
+            // 
+            this.colHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colHoTen.DataPropertyName = "HoTen";
+            this.colHoTen.HeaderText = "Họ tên";
+            this.colHoTen.Name = "colHoTen";
+            this.colHoTen.ReadOnly = true;
+            // 
+            // colNgayBatDau
+            // 
+            this.colNgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colNgayBatDau.DataPropertyName = "NgayBatDau";
+            this.colNgayBatDau.HeaderText = "Ngày bắt đầu";
+            this.colNgayBatDau.Name = "colNgayBatDau";
+            this.colNgayBatDau.ReadOnly = true;
+            this.colNgayBatDau.Width = 101;
+            // 
+            // colLoaiTaiKhoan
+            // 
+            this.colLoaiTaiKhoan.DataPropertyName = "LoaiTaiKhoan";
+            this.colLoaiTaiKhoan.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colLoaiTaiKhoan.HeaderText = "Loại tài khoản";
+            this.colLoaiTaiKhoan.Name = "colLoaiTaiKhoan";
+            this.colLoaiTaiKhoan.ReadOnly = true;
+            this.colLoaiTaiKhoan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colLoaiTaiKhoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.colLoaiTaiKhoan.Width = 139;
+            // 
+            // colHinh
+            // 
+            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colHinh.DataPropertyName = "Hinh";
+            this.colHinh.HeaderText = "Hình";
+            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colHinh.Name = "colHinh";
+            this.colHinh.ReadOnly = true;
+            this.colHinh.Width = 52;
+            // 
+            // metroPanel4
+            // 
+            this.metroPanel4.Controls.Add(this.lnkDSTaiKhoan);
+            this.metroPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.metroPanel4.HorizontalScrollbarBarColor = true;
+            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.HorizontalScrollbarSize = 10;
+            this.metroPanel4.Location = new System.Drawing.Point(0, 575);
+            this.metroPanel4.Name = "metroPanel4";
+            this.metroPanel4.Size = new System.Drawing.Size(333, 39);
+            this.metroPanel4.TabIndex = 25;
+            this.metroPanel4.VerticalScrollbarBarColor = true;
+            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel4.VerticalScrollbarSize = 10;
+            // 
+            // lnkDSTaiKhoan
+            // 
+            this.lnkDSTaiKhoan.AccessibleName = "DSTaiKhoan";
+            this.lnkDSTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.lnkDSTaiKhoan.Location = new System.Drawing.Point(13, 7);
+            this.lnkDSTaiKhoan.Name = "lnkDSTaiKhoan";
+            this.lnkDSTaiKhoan.Size = new System.Drawing.Size(317, 23);
+            this.lnkDSTaiKhoan.TabIndex = 2;
+            this.lnkDSTaiKhoan.Text = "Hiện danh sách tài khoản đã xoá";
+            this.lnkDSTaiKhoan.UseSelectable = true;
+            this.lnkDSTaiKhoan.Click += new System.EventHandler(this.lnkTaiKhoan_Click);
+            // 
+            // metroPanel6
+            // 
+            this.metroPanel6.Controls.Add(this.txtTimKiemTaiKhoan);
+            this.metroPanel6.Controls.Add(this.btnTimKiemTaiKhoan);
+            this.metroPanel6.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroPanel6.HorizontalScrollbarBarColor = true;
+            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.HorizontalScrollbarSize = 10;
+            this.metroPanel6.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel6.Name = "metroPanel6";
+            this.metroPanel6.Size = new System.Drawing.Size(333, 39);
+            this.metroPanel6.TabIndex = 4;
+            this.metroPanel6.VerticalScrollbarBarColor = true;
+            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel6.VerticalScrollbarSize = 10;
+            // 
+            // txtTimKiemTaiKhoan
+            // 
+            this.txtTimKiemTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.txtTimKiemTaiKhoan.CustomButton.Image = null;
+            this.txtTimKiemTaiKhoan.CustomButton.Location = new System.Drawing.Point(203, 1);
+            this.txtTimKiemTaiKhoan.CustomButton.Name = "";
+            this.txtTimKiemTaiKhoan.CustomButton.Size = new System.Drawing.Size(21, 21);
+            this.txtTimKiemTaiKhoan.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.txtTimKiemTaiKhoan.CustomButton.TabIndex = 1;
+            this.txtTimKiemTaiKhoan.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.txtTimKiemTaiKhoan.CustomButton.UseSelectable = true;
+            this.txtTimKiemTaiKhoan.CustomButton.Visible = false;
+            this.txtTimKiemTaiKhoan.FontSize = MetroFramework.MetroTextBoxSize.Medium;
+            this.txtTimKiemTaiKhoan.Lines = new string[] {
+        "Tìm kiếm tên tài khoản"};
+            this.txtTimKiemTaiKhoan.Location = new System.Drawing.Point(14, 7);
+            this.txtTimKiemTaiKhoan.MaxLength = 32767;
+            this.txtTimKiemTaiKhoan.Name = "txtTimKiemTaiKhoan";
+            this.txtTimKiemTaiKhoan.PasswordChar = '\0';
+            this.txtTimKiemTaiKhoan.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.txtTimKiemTaiKhoan.SelectedText = "";
+            this.txtTimKiemTaiKhoan.SelectionLength = 0;
+            this.txtTimKiemTaiKhoan.SelectionStart = 0;
+            this.txtTimKiemTaiKhoan.ShortcutsEnabled = true;
+            this.txtTimKiemTaiKhoan.Size = new System.Drawing.Size(225, 23);
+            this.txtTimKiemTaiKhoan.TabIndex = 3;
+            this.txtTimKiemTaiKhoan.Text = "Tìm kiếm tên tài khoản";
+            this.txtTimKiemTaiKhoan.UseSelectable = true;
+            this.txtTimKiemTaiKhoan.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.txtTimKiemTaiKhoan.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.txtTimKiemTaiKhoan.Enter += new System.EventHandler(this.txtTimKiemTaiKhoan_Enter);
+            this.txtTimKiemTaiKhoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiemTaiKhoan_KeyPress);
+            this.txtTimKiemTaiKhoan.Leave += new System.EventHandler(this.txtTimKiemTaiKhoan_Leave);
+            // 
+            // btnTimKiemTaiKhoan
+            // 
+            this.btnTimKiemTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnTimKiemTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Medium;
+            this.btnTimKiemTaiKhoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
+            this.btnTimKiemTaiKhoan.Location = new System.Drawing.Point(245, 7);
+            this.btnTimKiemTaiKhoan.Name = "btnTimKiemTaiKhoan";
+            this.btnTimKiemTaiKhoan.Size = new System.Drawing.Size(85, 23);
+            this.btnTimKiemTaiKhoan.TabIndex = 2;
+            this.btnTimKiemTaiKhoan.Text = "Tìm kiếm";
+            this.btnTimKiemTaiKhoan.UseSelectable = true;
+            this.btnTimKiemTaiKhoan.Click += new System.EventHandler(this.btnTimKiemTaiKhoan_Click);
             // 
             // metroPanel2
             // 
@@ -866,7 +1096,7 @@
             this.btnKhoiPhucTaiKhoan.BackColor = System.Drawing.Color.OliveDrab;
             this.btnKhoiPhucTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Tall;
             this.btnKhoiPhucTaiKhoan.ForeColor = System.Drawing.Color.White;
-            this.btnKhoiPhucTaiKhoan.Location = new System.Drawing.Point(375, 19);
+            this.btnKhoiPhucTaiKhoan.Location = new System.Drawing.Point(384, 19);
             this.btnKhoiPhucTaiKhoan.Name = "btnKhoiPhucTaiKhoan";
             this.btnKhoiPhucTaiKhoan.Size = new System.Drawing.Size(105, 40);
             this.btnKhoiPhucTaiKhoan.TabIndex = 18;
@@ -1142,7 +1372,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNgayBatDau.Enabled = false;
             this.dtpNgayBatDau.Location = new System.Drawing.Point(130, 162);
-            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
             this.dtpNgayBatDau.Size = new System.Drawing.Size(352, 30);
             this.dtpNgayBatDau.TabIndex = 12;
@@ -1180,210 +1410,6 @@
             this.txtMatKhau.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
             this.txtMatKhau.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
-            // metroPanel4
-            // 
-            this.metroPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel4.Controls.Add(this.lnkDSTaiKhoan);
-            this.metroPanel4.HorizontalScrollbarBarColor = true;
-            this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(5, 572);
-            this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(325, 39);
-            this.metroPanel4.TabIndex = 25;
-            this.metroPanel4.VerticalScrollbarBarColor = true;
-            this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel4.VerticalScrollbarSize = 10;
-            // 
-            // lnkDSTaiKhoan
-            // 
-            this.lnkDSTaiKhoan.AccessibleName = "DSTaiKhoan";
-            this.lnkDSTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.lnkDSTaiKhoan.Location = new System.Drawing.Point(13, 7);
-            this.lnkDSTaiKhoan.Name = "lnkDSTaiKhoan";
-            this.lnkDSTaiKhoan.Size = new System.Drawing.Size(309, 23);
-            this.lnkDSTaiKhoan.TabIndex = 2;
-            this.lnkDSTaiKhoan.Text = "Hiện danh sách tài khoản đã xoá";
-            this.lnkDSTaiKhoan.UseSelectable = true;
-            this.lnkDSTaiKhoan.Click += new System.EventHandler(this.lnkTaiKhoan_Click);
-            // 
-            // metroPanel5
-            // 
-            this.metroPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel5.Controls.Add(this.dgvTaiKhoan);
-            this.metroPanel5.HorizontalScrollbarBarColor = true;
-            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel5.HorizontalScrollbarSize = 10;
-            this.metroPanel5.Location = new System.Drawing.Point(5, 40);
-            this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(325, 533);
-            this.metroPanel5.TabIndex = 0;
-            this.metroPanel5.VerticalScrollbarBarColor = true;
-            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel5.VerticalScrollbarSize = 10;
-            // 
-            // dgvTaiKhoan
-            // 
-            this.dgvTaiKhoan.AllowUserToAddRows = false;
-            this.dgvTaiKhoan.AllowUserToDeleteRows = false;
-            this.dgvTaiKhoan.AllowUserToResizeRows = false;
-            this.dgvTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvTaiKhoan.BackgroundColor = System.Drawing.Color.PapayaWhip;
-            this.dgvTaiKhoan.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.LemonChiffon;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI", 12.75F);
-            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.dgvTaiKhoan.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.dgvTaiKhoan.ColumnHeadersHeight = 70;
-            this.dgvTaiKhoan.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
-            this.dgvTaiKhoan.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.colMaTaiKhoan,
-            this.colHoTen,
-            this.colNgayBatDau,
-            this.colLoaiTaiKhoan,
-            this.colHinh});
-            this.dgvTaiKhoan.EnableHeadersVisualStyles = false;
-            this.dgvTaiKhoan.Location = new System.Drawing.Point(14, 5);
-            this.dgvTaiKhoan.MultiSelect = false;
-            this.dgvTaiKhoan.Name = "dgvTaiKhoan";
-            this.dgvTaiKhoan.RowHeadersVisible = false;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.LightCyan;
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
-            this.dgvTaiKhoan.RowsDefaultCellStyle = dataGridViewCellStyle4;
-            this.dgvTaiKhoan.RowTemplate.Height = 35;
-            this.dgvTaiKhoan.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTaiKhoan.Size = new System.Drawing.Size(308, 525);
-            this.dgvTaiKhoan.TabIndex = 2;
-            this.dgvTaiKhoan.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTaiKhoan_CellClick);
-            this.dgvTaiKhoan.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTaiKhoan_CellFormatting);
-            this.dgvTaiKhoan.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvTaiKhoan_RowsAdded);
-            // 
-            // colMaTaiKhoan
-            // 
-            this.colMaTaiKhoan.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMaTaiKhoan.DataPropertyName = "MaTaiKhoan";
-            this.colMaTaiKhoan.HeaderText = "Mã tài khoản";
-            this.colMaTaiKhoan.Name = "colMaTaiKhoan";
-            this.colMaTaiKhoan.ReadOnly = true;
-            this.colMaTaiKhoan.Width = 123;
-            // 
-            // colHoTen
-            // 
-            this.colHoTen.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colHoTen.DataPropertyName = "HoTen";
-            this.colHoTen.HeaderText = "Họ tên";
-            this.colHoTen.Name = "colHoTen";
-            this.colHoTen.ReadOnly = true;
-            // 
-            // colNgayBatDau
-            // 
-            this.colNgayBatDau.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colNgayBatDau.DataPropertyName = "NgayBatDau";
-            this.colNgayBatDau.HeaderText = "Ngày bắt đầu";
-            this.colNgayBatDau.Name = "colNgayBatDau";
-            this.colNgayBatDau.ReadOnly = true;
-            this.colNgayBatDau.Width = 101;
-            // 
-            // colLoaiTaiKhoan
-            // 
-            this.colLoaiTaiKhoan.DataPropertyName = "LoaiTaiKhoan";
-            this.colLoaiTaiKhoan.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.colLoaiTaiKhoan.HeaderText = "Loại tài khoản";
-            this.colLoaiTaiKhoan.Name = "colLoaiTaiKhoan";
-            this.colLoaiTaiKhoan.ReadOnly = true;
-            this.colLoaiTaiKhoan.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colLoaiTaiKhoan.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            this.colLoaiTaiKhoan.Width = 139;
-            // 
-            // colHinh
-            // 
-            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colHinh.DataPropertyName = "Hinh";
-            this.colHinh.HeaderText = "Hình";
-            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colHinh.Name = "colHinh";
-            this.colHinh.ReadOnly = true;
-            this.colHinh.Width = 52;
-            // 
-            // metroPanel6
-            // 
-            this.metroPanel6.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroPanel6.Controls.Add(this.txtTimKiemTaiKhoan);
-            this.metroPanel6.Controls.Add(this.btnTimKiemTaiKhoan);
-            this.metroPanel6.HorizontalScrollbarBarColor = true;
-            this.metroPanel6.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel6.HorizontalScrollbarSize = 10;
-            this.metroPanel6.Location = new System.Drawing.Point(5, 0);
-            this.metroPanel6.Name = "metroPanel6";
-            this.metroPanel6.Size = new System.Drawing.Size(325, 39);
-            this.metroPanel6.TabIndex = 4;
-            this.metroPanel6.VerticalScrollbarBarColor = true;
-            this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel6.VerticalScrollbarSize = 10;
-            // 
-            // txtTimKiemTaiKhoan
-            // 
-            this.txtTimKiemTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.txtTimKiemTaiKhoan.CustomButton.Image = null;
-            this.txtTimKiemTaiKhoan.CustomButton.Location = new System.Drawing.Point(195, 1);
-            this.txtTimKiemTaiKhoan.CustomButton.Name = "";
-            this.txtTimKiemTaiKhoan.CustomButton.Size = new System.Drawing.Size(21, 21);
-            this.txtTimKiemTaiKhoan.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.txtTimKiemTaiKhoan.CustomButton.TabIndex = 1;
-            this.txtTimKiemTaiKhoan.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.txtTimKiemTaiKhoan.CustomButton.UseSelectable = true;
-            this.txtTimKiemTaiKhoan.CustomButton.Visible = false;
-            this.txtTimKiemTaiKhoan.FontSize = MetroFramework.MetroTextBoxSize.Medium;
-            this.txtTimKiemTaiKhoan.Lines = new string[] {
-        "Tìm kiếm tên tài khoản"};
-            this.txtTimKiemTaiKhoan.Location = new System.Drawing.Point(14, 7);
-            this.txtTimKiemTaiKhoan.MaxLength = 32767;
-            this.txtTimKiemTaiKhoan.Name = "txtTimKiemTaiKhoan";
-            this.txtTimKiemTaiKhoan.PasswordChar = '\0';
-            this.txtTimKiemTaiKhoan.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.txtTimKiemTaiKhoan.SelectedText = "";
-            this.txtTimKiemTaiKhoan.SelectionLength = 0;
-            this.txtTimKiemTaiKhoan.SelectionStart = 0;
-            this.txtTimKiemTaiKhoan.ShortcutsEnabled = true;
-            this.txtTimKiemTaiKhoan.Size = new System.Drawing.Size(217, 23);
-            this.txtTimKiemTaiKhoan.TabIndex = 3;
-            this.txtTimKiemTaiKhoan.Text = "Tìm kiếm tên tài khoản";
-            this.txtTimKiemTaiKhoan.UseSelectable = true;
-            this.txtTimKiemTaiKhoan.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.txtTimKiemTaiKhoan.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            this.txtTimKiemTaiKhoan.Enter += new System.EventHandler(this.txtTimKiemTaiKhoan_Enter);
-            this.txtTimKiemTaiKhoan.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtTimKiemTaiKhoan_KeyPress);
-            this.txtTimKiemTaiKhoan.Leave += new System.EventHandler(this.txtTimKiemTaiKhoan_Leave);
-            // 
-            // btnTimKiemTaiKhoan
-            // 
-            this.btnTimKiemTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnTimKiemTaiKhoan.FontSize = MetroFramework.MetroButtonSize.Medium;
-            this.btnTimKiemTaiKhoan.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemTaiKhoan.Location = new System.Drawing.Point(237, 7);
-            this.btnTimKiemTaiKhoan.Name = "btnTimKiemTaiKhoan";
-            this.btnTimKiemTaiKhoan.Size = new System.Drawing.Size(85, 23);
-            this.btnTimKiemTaiKhoan.TabIndex = 2;
-            this.btnTimKiemTaiKhoan.Text = "Tìm kiếm";
-            this.btnTimKiemTaiKhoan.UseSelectable = true;
-            this.btnTimKiemTaiKhoan.Click += new System.EventHandler(this.btnTimKiemTaiKhoan_Click);
-            // 
             // openFileDialog1
             // 
             this.openFileDialog1.FileName = "openFileDialog1";
@@ -1417,6 +1443,11 @@
             this.splitContainer1.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).EndInit();
             this.splitContainer1.ResumeLayout(false);
+            this.metroPanel3.ResumeLayout(false);
+            this.metroPanel28.ResumeLayout(false);
+            this.metroPanel11.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiTaiKhoan)).EndInit();
+            this.metroPanel12.ResumeLayout(false);
             this.metroPanel7.ResumeLayout(false);
             this.metroPanel7.PerformLayout();
             this.panelChucNangDSLoaiTaiKhoanDaXoa.ResumeLayout(false);
@@ -1425,16 +1456,17 @@
             this.metroPanel13.PerformLayout();
             this.gpbChucNang.ResumeLayout(false);
             this.gpbChucNang.PerformLayout();
-            this.metroPanel28.ResumeLayout(false);
-            this.metroPanel11.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvLoaiTaiKhoan)).EndInit();
-            this.metroPanel12.ResumeLayout(false);
             this.tbpTaiKhoan.ResumeLayout(false);
             this.metroPanel8.ResumeLayout(false);
             this.splitContainer2.Panel1.ResumeLayout(false);
             this.splitContainer2.Panel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer2)).EndInit();
             this.splitContainer2.ResumeLayout(false);
+            this.metroPanel14.ResumeLayout(false);
+            this.metroPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
+            this.metroPanel4.ResumeLayout(false);
+            this.metroPanel6.ResumeLayout(false);
             this.metroPanel2.ResumeLayout(false);
             this.metroPanel2.PerformLayout();
             this.panelChucNangDSTaiKhoanDaXoa.ResumeLayout(false);
@@ -1442,10 +1474,6 @@
             this.metroPanel10.ResumeLayout(false);
             this.metroPanel10.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picHinh)).EndInit();
-            this.metroPanel4.ResumeLayout(false);
-            this.metroPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvTaiKhoan)).EndInit();
-            this.metroPanel6.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1528,5 +1556,7 @@
         private MetroFramework.Controls.MetroButton btnKhoiPhucTaiKhoan;
         private MetroFramework.Controls.MetroPanel metroPanel4;
         private MetroFramework.Controls.MetroLink lnkDSTaiKhoan;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
+        private MetroFramework.Controls.MetroPanel metroPanel14;
     }
 }

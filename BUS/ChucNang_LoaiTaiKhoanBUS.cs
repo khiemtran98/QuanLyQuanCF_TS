@@ -45,9 +45,14 @@ namespace BUS
             return true;
         }
 
-        public static List<ChucNang_LoaiTaiKhoanDTO> LayDanhSachChucNang_LoaiTaiKhoan(int maTaiKhoan)
+        public static List<ChucNang_LoaiTaiKhoanDTO> LayDanhSachChucNang_LoaiTaiKhoanTheoMaTaiKhoan(int maTaiKhoan)
         {
-            return ChucNang_LoaiTaiKhoanDAO.LayDanhSachChucNang_LoaiTaiKhoan(maTaiKhoan);
+            return ChucNang_LoaiTaiKhoanDAO.LayDanhSachChucNang_LoaiTaiKhoanTheoMaTaiKhoan(maTaiKhoan);
+        }
+
+        public static List<ChucNang_LoaiTaiKhoanDTO> LayDanhSachChucNang_LoaiTaiKhoanTheoMaLoaiTaiKhoan(int maLoaiTaiKhoan)
+        {
+            return ChucNang_LoaiTaiKhoanDAO.LayDanhSachChucNang_LoaiTaiKhoanTheoMaLoaiTaiKhoan(maLoaiTaiKhoan);
         }
     }
 }

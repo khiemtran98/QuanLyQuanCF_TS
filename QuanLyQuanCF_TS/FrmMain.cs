@@ -49,7 +49,6 @@ namespace QuanLyQuanCF_TS
 
             panelTaiKhoan.Visible = false;
             this.WindowState = FormWindowState.Normal;
-            //this.Movable = true;
             this.Size = new Size(800, 458);
 
             FrmDangNhap m_frmDangNhap = FrmDangNhap.Instance;
@@ -73,7 +72,7 @@ namespace QuanLyQuanCF_TS
             lblCapBac.Text = TaiKhoanBUS.LayTenLoaiTaiKhoan(taiKhoan.LoaiTaiKhoan);
             picHinh.ImageLocation = "img\\accounts\\" + taiKhoan.Hinh;
 
-            List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoan(maTaiKhoan);
+            List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoanTheoMaTaiKhoan(maTaiKhoan);
             foreach (ChucNang_LoaiTaiKhoanDTO chucNang_LoaiTaiKhoan in lsChucNang_LoaiTaiKhoan)
             {
                 switch (chucNang_LoaiTaiKhoan.MaChucNang)
@@ -326,12 +325,12 @@ namespace QuanLyQuanCF_TS
             btnTatCaNguyenLieu.BringToFront();
         }
 
-        private void mThongKeDoanhThu_Click(object sender, EventArgs e)
+        private void mThongKeDoanhSo_Click(object sender, EventArgs e)
         {
-            lblTieuDe.Text = "Thống kê doanh thu";
+            lblTieuDe.Text = "Thống kê doanh số";
             Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
-            FrmThongKeDoanhThu m_FrmThongKeDoanhThu = FrmThongKeDoanhThu.Instance;
+            FrmThongKeDoanhSo m_FrmThongKeDoanhThu = FrmThongKeDoanhSo.Instance;
             f = m_FrmThongKeDoanhThu;
             m_FrmThongKeDoanhThu.MdiParent = this;
             m_FrmThongKeDoanhThu.Dock = DockStyle.Fill;

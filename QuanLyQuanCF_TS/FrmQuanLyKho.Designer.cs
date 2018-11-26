@@ -103,6 +103,7 @@
             this.colCTPN_GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel1.SuspendLayout();
             this.tbcQuanLyKho.SuspendLayout();
             this.tbpNguyenLieu.SuspendLayout();
@@ -132,6 +133,7 @@
             this.metroPanel8.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuNhap)).BeginInit();
             this.metroPanel7.SuspendLayout();
+            this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel1
@@ -187,26 +189,23 @@
             this.splitContainer1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel1;
+            this.splitContainer1.FixedPanel = System.Windows.Forms.FixedPanel.Panel2;
             this.splitContainer1.Location = new System.Drawing.Point(3, 3);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
             // 
-            this.splitContainer1.Panel1.Controls.Add(this.metroPanel15);
-            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.splitContainer1.Panel1MinSize = 500;
+            this.splitContainer1.Panel1.Controls.Add(this.metroPanel3);
+            this.splitContainer1.Panel1.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Panel1MinSize = 250;
             // 
             // splitContainer1.Panel2
             // 
-            this.splitContainer1.Panel2.Controls.Add(this.metroPanel4);
-            this.splitContainer1.Panel2.Controls.Add(this.metroPanel18);
-            this.splitContainer1.Panel2.Controls.Add(this.metroPanel19);
-            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
-            this.splitContainer1.Panel2MinSize = 250;
-            this.splitContainer1.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
+            this.splitContainer1.Panel2.Controls.Add(this.metroPanel15);
+            this.splitContainer1.Panel2.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.splitContainer1.Panel2MinSize = 500;
             this.splitContainer1.Size = new System.Drawing.Size(831, 508);
-            this.splitContainer1.SplitterDistance = 500;
+            this.splitContainer1.SplitterDistance = 329;
             this.splitContainer1.SplitterIncrement = 3;
             this.splitContainer1.SplitterWidth = 2;
             this.splitContainer1.TabIndex = 5;
@@ -216,11 +215,10 @@
             this.metroPanel15.Controls.Add(this.panelChucNangDSNguyenLieuDaXoa);
             this.metroPanel15.Controls.Add(this.panelChucNangDSNguyenLieu);
             this.metroPanel15.Controls.Add(this.metroPanel17);
-            this.metroPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel15.HorizontalScrollbarBarColor = true;
             this.metroPanel15.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel15.HorizontalScrollbarSize = 10;
-            this.metroPanel15.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel15.Location = new System.Drawing.Point(3, 7);
             this.metroPanel15.Name = "metroPanel15";
             this.metroPanel15.Size = new System.Drawing.Size(500, 508);
             this.metroPanel15.TabIndex = 0;
@@ -538,15 +536,14 @@
             // 
             // metroPanel4
             // 
-            this.metroPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel4.Controls.Add(this.lnkDSNguyenLieu);
+            this.metroPanel4.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.metroPanel4.HorizontalScrollbarBarColor = true;
             this.metroPanel4.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel4.HorizontalScrollbarSize = 10;
-            this.metroPanel4.Location = new System.Drawing.Point(4, 466);
+            this.metroPanel4.Location = new System.Drawing.Point(0, 469);
             this.metroPanel4.Name = "metroPanel4";
-            this.metroPanel4.Size = new System.Drawing.Size(334, 39);
+            this.metroPanel4.Size = new System.Drawing.Size(329, 39);
             this.metroPanel4.TabIndex = 26;
             this.metroPanel4.VerticalScrollbarBarColor = true;
             this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
@@ -559,7 +556,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.lnkDSNguyenLieu.Location = new System.Drawing.Point(13, 7);
             this.lnkDSNguyenLieu.Name = "lnkDSNguyenLieu";
-            this.lnkDSNguyenLieu.Size = new System.Drawing.Size(318, 23);
+            this.lnkDSNguyenLieu.Size = new System.Drawing.Size(313, 23);
             this.lnkDSNguyenLieu.TabIndex = 2;
             this.lnkDSNguyenLieu.Text = "Hiện danh sách nguyên liệu đã xoá";
             this.lnkDSNguyenLieu.UseSelectable = true;
@@ -567,16 +564,15 @@
             // 
             // metroPanel18
             // 
-            this.metroPanel18.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel18.Controls.Add(this.txtTimKiemNguyenLieu);
             this.metroPanel18.Controls.Add(this.btnTimKiemNguyenLieu);
+            this.metroPanel18.Dock = System.Windows.Forms.DockStyle.Top;
             this.metroPanel18.HorizontalScrollbarBarColor = true;
             this.metroPanel18.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel18.HorizontalScrollbarSize = 10;
-            this.metroPanel18.Location = new System.Drawing.Point(4, 0);
+            this.metroPanel18.Location = new System.Drawing.Point(0, 0);
             this.metroPanel18.Name = "metroPanel18";
-            this.metroPanel18.Size = new System.Drawing.Size(334, 39);
+            this.metroPanel18.Size = new System.Drawing.Size(329, 39);
             this.metroPanel18.TabIndex = 4;
             this.metroPanel18.VerticalScrollbarBarColor = true;
             this.metroPanel18.VerticalScrollbarHighlightOnWheel = false;
@@ -590,7 +586,7 @@
             // 
             // 
             this.txtTimKiemNguyenLieu.CustomButton.Image = null;
-            this.txtTimKiemNguyenLieu.CustomButton.Location = new System.Drawing.Point(220, 1);
+            this.txtTimKiemNguyenLieu.CustomButton.Location = new System.Drawing.Point(215, 1);
             this.txtTimKiemNguyenLieu.CustomButton.Name = "";
             this.txtTimKiemNguyenLieu.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemNguyenLieu.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -610,7 +606,7 @@
             this.txtTimKiemNguyenLieu.SelectionLength = 0;
             this.txtTimKiemNguyenLieu.SelectionStart = 0;
             this.txtTimKiemNguyenLieu.ShortcutsEnabled = true;
-            this.txtTimKiemNguyenLieu.Size = new System.Drawing.Size(242, 23);
+            this.txtTimKiemNguyenLieu.Size = new System.Drawing.Size(237, 23);
             this.txtTimKiemNguyenLieu.TabIndex = 3;
             this.txtTimKiemNguyenLieu.Text = "Tìm kiếm tên nguyên liệu";
             this.txtTimKiemNguyenLieu.UseSelectable = true;
@@ -625,7 +621,7 @@
             this.btnTimKiemNguyenLieu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.btnTimKiemNguyenLieu.FontSize = MetroFramework.MetroButtonSize.Medium;
             this.btnTimKiemNguyenLieu.FontWeight = MetroFramework.MetroButtonWeight.Regular;
-            this.btnTimKiemNguyenLieu.Location = new System.Drawing.Point(261, 7);
+            this.btnTimKiemNguyenLieu.Location = new System.Drawing.Point(256, 7);
             this.btnTimKiemNguyenLieu.Name = "btnTimKiemNguyenLieu";
             this.btnTimKiemNguyenLieu.Size = new System.Drawing.Size(70, 23);
             this.btnTimKiemNguyenLieu.TabIndex = 2;
@@ -635,16 +631,14 @@
             // 
             // metroPanel19
             // 
-            this.metroPanel19.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.metroPanel19.Controls.Add(this.dgvNguyenLieu);
+            this.metroPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel19.HorizontalScrollbarBarColor = true;
             this.metroPanel19.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel19.HorizontalScrollbarSize = 10;
-            this.metroPanel19.Location = new System.Drawing.Point(4, 36);
+            this.metroPanel19.Location = new System.Drawing.Point(0, 39);
             this.metroPanel19.Name = "metroPanel19";
-            this.metroPanel19.Size = new System.Drawing.Size(334, 431);
+            this.metroPanel19.Size = new System.Drawing.Size(329, 430);
             this.metroPanel19.TabIndex = 0;
             this.metroPanel19.VerticalScrollbarBarColor = true;
             this.metroPanel19.VerticalScrollbarHighlightOnWheel = false;
@@ -687,7 +681,7 @@
             this.dgvNguyenLieu.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvNguyenLieu.RowTemplate.Height = 35;
             this.dgvNguyenLieu.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvNguyenLieu.Size = new System.Drawing.Size(318, 419);
+            this.dgvNguyenLieu.Size = new System.Drawing.Size(313, 418);
             this.dgvNguyenLieu.TabIndex = 2;
             this.dgvNguyenLieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguyenLieu_CellClick);
             // 
@@ -1180,6 +1174,23 @@
             this.metroLabel2.Text = "CHI TIẾT PHIẾU NHẬP";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // metroPanel3
+            // 
+            this.metroPanel3.Controls.Add(this.metroPanel19);
+            this.metroPanel3.Controls.Add(this.metroPanel4);
+            this.metroPanel3.Controls.Add(this.metroPanel18);
+            this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(329, 508);
+            this.metroPanel3.TabIndex = 28;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
             // FrmQuanLyKho
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1229,6 +1240,7 @@
             this.metroPanel8.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuNhap)).EndInit();
             this.metroPanel7.ResumeLayout(false);
+            this.metroPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -1295,5 +1307,6 @@
         private MetroFramework.Controls.MetroLink lnkDSPhieuNhap;
         private MetroFramework.Controls.MetroButton btnXoaPhieuNhap;
         private MetroFramework.Controls.MetroButton btnKhoiPhucPhieuNhap;
+        private MetroFramework.Controls.MetroPanel metroPanel3;
     }
 }

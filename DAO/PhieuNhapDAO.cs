@@ -182,5 +182,19 @@ namespace DAO
 
             return result is DBNull ? 0 : Convert.ToDouble(result);
         }
+
+        public static double LayDoanhSoPhieuNhapTheoNam(int nam)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT SUM(tong_tien) FROM PhieuNhap WHERE trang_thai=1 AND YEAR(ngay_lap)=@nam";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@nam", SqlDbType.Int, 0).Value =nam;
+
+            connection.Open();
+            var result = command.ExecuteScalar();
+            connection.Close();
+
+            return result is DBNull ? 0 : Convert.ToDouble(result);
+        }
     }
 }

@@ -141,7 +141,7 @@ namespace QuanLyQuanCF_TS
                 LamMoiLoaiTaiKhoan(false);
                 txtMaLoaiTaiKhoan.Text = dgvLoaiTaiKhoan.SelectedRows[0].Cells["colMaLoaiTaiKhoan"].Value.ToString();
                 txtTenLoaiTaiKhoan.Text = dgvLoaiTaiKhoan.SelectedRows[0].Cells["colTenLoaiTaiKhoan"].Value.ToString();
-                List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoan(Convert.ToInt32(txtMaLoaiTaiKhoan.Text));
+                List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoanTheoMaLoaiTaiKhoan(Convert.ToInt32(txtMaLoaiTaiKhoan.Text));
                 foreach (ChucNang_LoaiTaiKhoanDTO chucNang_LoaiTaiKhoan in lsChucNang_LoaiTaiKhoan)
                 {
                     switch (chucNang_LoaiTaiKhoan.MaChucNang)

@@ -89,6 +89,11 @@ namespace QuanLyQuanCF_TS
             KiemTraDangNhap();
         }
 
+        private void cmbTaiKhoan_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            txtMatKhau.Text = String.Empty;
+        }
+
         private void txtMatKhau_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar == (char)Keys.Enter)
