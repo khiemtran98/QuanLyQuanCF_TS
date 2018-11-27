@@ -57,10 +57,9 @@ namespace QuanLyQuanCF_TS
                 dgvHoaDon.Rows.Add(r);
             }
             dgvHoaDon.ClearSelection();
-            lblSoHoaDon.Text = "Số hoá đơn: " + (HoaDonBUS.LayMaHoaDonMoiNhat() + 1);
-            lblSoLuongMon.Text = "Tổng món: " + soLuongMon + "";
+            lblSoHoaDon.Text = "Mã hoá đơn: " + (HoaDonBUS.LayMaHoaDonMoiNhat() + 1);
+            lblSoLuongMon.Text = "Số lượng món: " + soLuongMon + "";
             lblTongTien.Text = "Tổng tiền: " + tongTien.ToString("#,##0đ");
-            lblTongPhaiTra.Text = "Tổng phải trả: " + tongTien.ToString("#,##0đ");
         }
 
         private void txtTienMat_KeyPress(object sender, KeyPressEventArgs e)
@@ -144,7 +143,13 @@ namespace QuanLyQuanCF_TS
 
             if (HoaDonBUS.LuuHoaDon(hoaDon, lsCTHD, lsCTHD_Topping))
             {
-                MessageBox.Show("Tạo hoá đơn thành công", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn in hoá đơn?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
+                    frm.HienThiThongTinHoaDonMoiNhat();
+                    FrmMain.Instance.TopMost = false;
+                    frm.Show();
+                }
                 ((FrmBanHang)this.FindForm()).QuayLaiManHinhChonMon(true);
             }
             else

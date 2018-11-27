@@ -107,7 +107,6 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
             }
-
             frm.Show();
         }
     }

@@ -69,6 +69,7 @@ namespace QuanLyQuanCF_TS
             NL_LoadDanhSachNguyenLieu();
             LSPN_LoadDanhSachPhieuNhap();
 
+            LamMoiNguyenLieu();
             //tbcQuanLyKho.SelectedTab = tbpNguyenLieu;
         }
 

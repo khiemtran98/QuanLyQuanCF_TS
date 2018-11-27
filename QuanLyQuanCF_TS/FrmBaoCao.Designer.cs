@@ -29,8 +29,6 @@
         private void InitializeComponent()
         {
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
-            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
-            this.btnBaoCao = new MetroFramework.Controls.MetroButton();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.dtpPhieuNhapTheoThang = new MetroFramework.Controls.MetroDateTime();
             this.dtpDoanhThu = new MetroFramework.Controls.MetroDateTime();
@@ -51,11 +49,13 @@
             this.radTheoLoaiMon = new MetroFramework.Controls.MetroRadioButton();
             this.radTatCaMon = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
+            this.metroPanel5 = new MetroFramework.Controls.MetroPanel();
+            this.btnBaoCao = new MetroFramework.Controls.MetroButton();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel2.SuspendLayout();
-            this.metroPanel5.SuspendLayout();
             this.metroPanel4.SuspendLayout();
+            this.metroPanel5.SuspendLayout();
             this.metroPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -75,38 +75,6 @@
             this.metroPanel2.VerticalScrollbarBarColor = true;
             this.metroPanel2.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel2.VerticalScrollbarSize = 10;
-            // 
-            // metroPanel5
-            // 
-            this.metroPanel5.Controls.Add(this.btnBaoCao);
-            this.metroPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.metroPanel5.HorizontalScrollbarBarColor = true;
-            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel5.HorizontalScrollbarSize = 10;
-            this.metroPanel5.Location = new System.Drawing.Point(0, 486);
-            this.metroPanel5.Name = "metroPanel5";
-            this.metroPanel5.Size = new System.Drawing.Size(810, 64);
-            this.metroPanel5.TabIndex = 27;
-            this.metroPanel5.VerticalScrollbarBarColor = true;
-            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel5.VerticalScrollbarSize = 10;
-            // 
-            // btnBaoCao
-            // 
-            this.btnBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.btnBaoCao.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnBaoCao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnBaoCao.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnBaoCao.ForeColor = System.Drawing.Color.White;
-            this.btnBaoCao.Location = new System.Drawing.Point(322, 12);
-            this.btnBaoCao.Name = "btnBaoCao";
-            this.btnBaoCao.Size = new System.Drawing.Size(179, 40);
-            this.btnBaoCao.TabIndex = 3;
-            this.btnBaoCao.Text = "Xem báo cáo";
-            this.btnBaoCao.UseCustomBackColor = true;
-            this.btnBaoCao.UseCustomForeColor = true;
-            this.btnBaoCao.UseSelectable = true;
-            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
             // 
             // metroPanel4
             // 
@@ -148,7 +116,7 @@
             // 
             this.dtpPhieuNhapTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.dtpPhieuNhapTheoThang.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPhieuNhapTheoThang.Location = new System.Drawing.Point(674, 180);
+            this.dtpPhieuNhapTheoThang.Location = new System.Drawing.Point(686, 205);
             this.dtpPhieuNhapTheoThang.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpPhieuNhapTheoThang.Name = "dtpPhieuNhapTheoThang";
             this.dtpPhieuNhapTheoThang.Size = new System.Drawing.Size(121, 29);
@@ -362,6 +330,38 @@
             this.metroLabel2.TabIndex = 2;
             this.metroLabel2.Text = "Danh sách món";
             // 
+            // metroPanel5
+            // 
+            this.metroPanel5.Controls.Add(this.btnBaoCao);
+            this.metroPanel5.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.metroPanel5.HorizontalScrollbarBarColor = true;
+            this.metroPanel5.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.HorizontalScrollbarSize = 10;
+            this.metroPanel5.Location = new System.Drawing.Point(0, 486);
+            this.metroPanel5.Name = "metroPanel5";
+            this.metroPanel5.Size = new System.Drawing.Size(810, 64);
+            this.metroPanel5.TabIndex = 27;
+            this.metroPanel5.VerticalScrollbarBarColor = true;
+            this.metroPanel5.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel5.VerticalScrollbarSize = 10;
+            // 
+            // btnBaoCao
+            // 
+            this.btnBaoCao.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.btnBaoCao.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnBaoCao.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnBaoCao.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnBaoCao.ForeColor = System.Drawing.Color.White;
+            this.btnBaoCao.Location = new System.Drawing.Point(322, 12);
+            this.btnBaoCao.Name = "btnBaoCao";
+            this.btnBaoCao.Size = new System.Drawing.Size(179, 40);
+            this.btnBaoCao.TabIndex = 3;
+            this.btnBaoCao.Text = "Xem báo cáo";
+            this.btnBaoCao.UseCustomBackColor = true;
+            this.btnBaoCao.UseCustomForeColor = true;
+            this.btnBaoCao.UseSelectable = true;
+            this.btnBaoCao.Click += new System.EventHandler(this.btnBaoCao_Click);
+            // 
             // metroPanel3
             // 
             this.metroPanel3.Controls.Add(this.metroLabel1);
@@ -409,9 +409,9 @@
             this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FrmBaoCao_FormClosed);
             this.Load += new System.EventHandler(this.frmBaoCao_Load);
             this.metroPanel2.ResumeLayout(false);
-            this.metroPanel5.ResumeLayout(false);
             this.metroPanel4.ResumeLayout(false);
             this.metroPanel4.PerformLayout();
+            this.metroPanel5.ResumeLayout(false);
             this.metroPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 

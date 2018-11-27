@@ -6,16 +6,16 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.33666cm</Width>
+              <Width>6.65088cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.33666cm</Width>
+              <Width>6.65088cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.33666cm</Width>
+              <Width>6.65088cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.5cm</Width>
+              <Width>2.81422cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -319,21 +319,20 @@
         </TablixRowHierarchy>
         <DataSetName>DSNGUYENLIEU</DataSetName>
         <Top>0.49953cm</Top>
-        <Left>0.9923cm</Left>
         <Height>1.2cm</Height>
-        <Width>21.50998cm</Width>
+        <Width>22.76686cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
           </Border>
-          <TextAlign>Left</TextAlign>
+          <TextAlign>Center</TextAlign>
         </Style>
       </Tablix>
     </ReportItems>
     <Height>0.88541in</Height>
     <Style />
   </Body>
-  <Width>8.85916in</Width>
+  <Width>8.96333in</Width>
   <Page>
     <PageHeader>
       <Height>1.64042cm</Height>
@@ -362,9 +361,8 @@
           </Paragraphs>
           <rd:DefaultName>Textbox14</rd:DefaultName>
           <Top>0.37042cm</Top>
-          <Left>7.32896cm</Left>
           <Height>0.94396cm</Height>
-          <Width>8.88937cm</Width>
+          <Width>22.76686cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -398,14 +396,15 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>0.14111cm</Top>
-          <Left>9.49537cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>22.76686cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

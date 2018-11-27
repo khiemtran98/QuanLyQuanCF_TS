@@ -19,5 +19,15 @@ namespace BUS
         {
             return rptHoaDon_TaiKhoanDAO.DoiMaNhanVienThanhTenNhanVien(timeLine);
         }
+
+        public static List<rptHoaDon_TaiKhoanDTO> LayHoaDonMaMoiNhat()
+        {
+            return rptHoaDon_TaiKhoanDAO.LayHoaDonMaMoiNhat();
+        }
+
+        public static int LayMaMoiNhat()
+        {
+            return rptHoaDon_TaiKhoanDAO.LayMaHoaDonMoiNhat();
+        }
     }
 }

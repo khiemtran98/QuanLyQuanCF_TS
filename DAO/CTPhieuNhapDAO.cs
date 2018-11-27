@@ -17,7 +17,7 @@ namespace DAO
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maPhieuNhap", System.Data.SqlDbType.Int, 0).Value = ctpn.MaPhieuNhap;
             command.Parameters.Add("@maNguyenLieu", System.Data.SqlDbType.Int, 0).Value = ctpn.MaNguyenLieu;
-            command.Parameters.Add("@soLuong", System.Data.SqlDbType.Int, 0).Value = ctpn.SoLuong;
+            command.Parameters.Add("@soLuong", System.Data.SqlDbType.Float, 0).Value = ctpn.SoLuong;
             command.Parameters.Add("@donViTinh", System.Data.SqlDbType.NVarChar, 255).Value = ctpn.DonViTinh;
             command.Parameters.Add("@donGia", System.Data.SqlDbType.Float, 0).Value = ctpn.DonGia;
             command.Parameters.Add("@ghiChu", System.Data.SqlDbType.NVarChar, 255).Value = ctpn.GhiChu;
@@ -56,7 +56,7 @@ namespace DAO
                     CTPhieuNhapDTO ctpn = new CTPhieuNhapDTO();
                     ctpn.MaPhieuNhap = reader.GetInt32(0);
                     ctpn.MaNguyenLieu = reader.GetInt32(1);
-                    ctpn.SoLuong = reader.GetInt32(2);
+                    ctpn.SoLuong = reader.GetDouble(2);
                     ctpn.DonGia = reader.GetDouble(3);
                     ctpn.DonViTinh = reader.GetString(4);
                     ctpn.GhiChu = reader.GetString(5);

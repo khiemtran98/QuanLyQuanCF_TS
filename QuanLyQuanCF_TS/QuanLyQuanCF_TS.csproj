@@ -246,10 +246,12 @@
       <DesignTime>True</DesignTime>
     </Compile>
     <EmbeddedResource Include="Reports\rptHoaDonTheoThang.rdlc" />
+    <EmbeddedResource Include="Reports\rptHoaDonVuaLapMoiNhat.rdlc" />
     <EmbeddedResource Include="Reports\rptMonTheoLoai.rdlc" />
     <EmbeddedResource Include="Reports\rptMonTheoNhom.rdlc" />
     <EmbeddedResource Include="Reports\rptPhieuNhapTheoThang.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportHoaDonTheoThang.rdlc" />
+    <EmbeddedResource Include="Reports\rptSubReportHoaDonVuaLapMoiNhat.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportMon.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportPhieuNhapTheoThang.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportTatCaHoaDon.rdlc" />

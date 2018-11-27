@@ -23,6 +23,7 @@ namespace QuanLyQuanCF_TS
             cmbNguyenLieu.Style = FrmMain.style;
             txtSoLuong.Style = FrmMain.style;
             txtDonGia.Style = FrmMain.style;
+            txtGhiChu.Style = FrmMain.style;
             btnThem.Style = FrmMain.style;
             btnXoa.Style = FrmMain.style;
             btnSua.Style = FrmMain.style;
@@ -84,9 +85,30 @@ namespace QuanLyQuanCF_TS
             cmbNhaCungCap.ValueMember = "MaNhaCungCap";
         }
 
+        private void txtSoLuong_TextChanged(object sender, EventArgs e)
+        {
+            string dika = txtSoLuong.Text;
+            int countDot = 0;
+            for (int i = 0; i < dika.Length; i++)
+            {
+                if (dika[i] == ',')
+                {
+                    countDot++;
+                    if (countDot > 1)
+                    {
+                        dika = dika.Remove(i, 1);
+                        i--;
+                        countDot--;
+                    }
+                }
+            }
+            txtSoLuong.Text = dika;
+            txtSoLuong.Select(dika.Length, 0);
+        }
+
         private void txtSoLuong_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && e.KeyChar != ',')
             {
                 e.Handled = true;
             }
@@ -140,7 +162,7 @@ namespace QuanLyQuanCF_TS
             foreach (DataGridViewRow row in dgvCTPhieuNhap.Rows)
             {
                 string donGia = row.Cells["colDonGia"].Value.ToString();
-                tongTien += Convert.ToInt32(row.Cells["colSoLuong"].Value) * Convert.ToDouble(donGia.Remove(donGia.Length - 1));
+                tongTien += Convert.ToDouble(row.Cells["colSoLuong"].Value) * Convert.ToDouble(donGia.Remove(donGia.Length - 1));
             }
             return tongTien;
         }
@@ -164,6 +186,7 @@ namespace QuanLyQuanCF_TS
             row.Cells.Add(new DataGridViewTextBoxCell { Value = txtSoLuong.Text });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = Convert.ToDouble(txtDonGia.Text).ToString("#,###đ") });
             row.Cells.Add(new DataGridViewTextBoxCell { Value = lblDonViTinh.Text });
+            row.Cells.Add(new DataGridViewTextBoxCell { Value = txtGhiChu.Text });
             dgvCTPhieuNhap.Rows.Add(row);
         }
 
@@ -182,6 +205,7 @@ namespace QuanLyQuanCF_TS
                 row.Cells["colDonGia"].Value = "0đ";
             }
             row.Cells["colDonViTinh"].Value = lblDonViTinh.Text;
+            row.Cells["colGhiChu"].Value = txtGhiChu.Text;
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -209,7 +233,7 @@ namespace QuanLyQuanCF_TS
             ((DataGridViewComboBoxCell)dgvCTPhieuNhap.Rows[e.RowIndex].Cells["colMaNguyenLieu"]).DisplayMember = "TenNguyenLieu";
             ((DataGridViewComboBoxCell)dgvCTPhieuNhap.Rows[e.RowIndex].Cells["colMaNguyenLieu"]).ValueMember = "MaNguyenLieu";
 
-            lblTongTien.Text = TinhTongTien().ToString("#,##0") + "đ";
+            lblTongTien.Text = TinhTongTien().ToString("#,##0đ");
             btnNhapHang.Enabled = true;
         }
 
@@ -217,7 +241,7 @@ namespace QuanLyQuanCF_TS
         {
             if (dgvCTPhieuNhap.Rows.Count > 0)
             {
-                lblTongTien.Text = TinhTongTien().ToString("#,##0") + "đ";
+                lblTongTien.Text = TinhTongTien().ToString("#,##0đ");
             }
             else
             {
@@ -266,7 +290,7 @@ namespace QuanLyQuanCF_TS
                 CTPhieuNhapDTO ctPhieuNhap = new CTPhieuNhapDTO();
                 ctPhieuNhap.MaPhieuNhap = Convert.ToInt32(lblMaPhieu.Text);
                 ctPhieuNhap.MaNguyenLieu = Convert.ToInt32(row.Cells["colMaNguyenLieu"].Value);
-                ctPhieuNhap.SoLuong = Convert.ToInt32(row.Cells["colSoLuong"].Value);
+                ctPhieuNhap.SoLuong = Convert.ToDouble(row.Cells["colSoLuong"].Value);
                 ctPhieuNhap.DonViTinh = row.Cells["colDonViTinh"].Value.ToString();
                 ctPhieuNhap.DonGia = Convert.ToDouble(donGia.Remove(donGia.Length - 1));
                 if (row.Cells["colGhiChu"].Value != null)

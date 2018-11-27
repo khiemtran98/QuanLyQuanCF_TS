@@ -147,6 +147,25 @@ namespace QuanLyQuanCF_TS
             e.DataSources.Add(new ReportDataSource("DSMON", lsMon));
         }
 
+        public void HienThiThongTinHoaDonMoiNhat()
+        {
+            List<rptHoaDon_TaiKhoanDTO> lsHoaDon_TK = rptHoaDon_TaiKhoanBUS.LayHoaDonMaMoiNhat();
+            rpvBaoCao.LocalReport.ReportEmbeddedResource = path + "rptHoaDonVuaLapMoiNhat.rdlc";
+            rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing5);
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("HOADONMOINHAT", lsHoaDon_TK));
+            rpvBaoCao.RefreshReport();
+        }
+
+        private void LocalReport_SubreportProcessing5(object sender, SubreportProcessingEventArgs e)
+        {
+            //Lấy mã hóa đơn truyền từ report cha
+            int maHD = int.Parse(e.Parameters["paMaHoaDon"].Values[0]);
+            //Lấy dữ liệu cho report con
+            List<rptMon_CTHDDTO> lsMon_CTHD = rptMon_CTHDBUS.DoiMaMonThanhTenMon(maHD);
+            //Đỗ dữ liệu cho report con
+            e.DataSources.Add(new ReportDataSource("CHITIETHOADON", lsMon_CTHD));
+        }
+
         private void FrmHienThiBaoCao_FormClosed(object sender, FormClosedEventArgs e)
         {
             FrmMain.Instance.TopMost = FrmMain.topMost;

@@ -172,14 +172,15 @@
                   <Style />
                 </TextRun>
               </TextRuns>
-              <Style />
+              <Style>
+                <TextAlign>Center</TextAlign>
+              </Style>
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>0.20229cm</Top>
-          <Left>6.84953cm</Left>
           <Height>0.6cm</Height>
-          <Width>2.5cm</Width>
+          <Width>14.11615cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

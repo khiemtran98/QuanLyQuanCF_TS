@@ -92,7 +92,7 @@ create table NguyenLieu
 (
 	ma_nguyen_lieu int identity,
 	ten_nguyen_lieu nvarchar(max) not null,
-	so_luong int not null,
+	so_luong float not null,
 	don_vi_tinh nvarchar(max) not null,
 	trang_thai bit not null,
 	constraint PK_NguyenLieu primary key (ma_nguyen_lieu)
@@ -151,7 +151,7 @@ create table CTPhieuNhap
 (
 	ma_phieu_nhap int,
 	ma_nguyen_lieu int not null,
-	so_luong int not null,
+	so_luong float not null,
 	don_vi_tinh nvarchar(max) not null,
 	don_gia float not null,
 	ghi_chu nvarchar(max),

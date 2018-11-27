@@ -10,14 +10,14 @@ namespace DTO
     {
         private int maPhieuNhap;
         private int maNguyenLieu;
-        private int soLuong;
+        private double soLuong;
         private string donViTinh;
         private double donGia;
         private string ghiChu;
 
         public int MaPhieuNhap { get => maPhieuNhap; set => maPhieuNhap = value; }
         public int MaNguyenLieu { get => maNguyenLieu; set => maNguyenLieu = value; }
-        public int SoLuong { get => soLuong; set => soLuong = value; }
+        public double SoLuong { get => soLuong; set => soLuong = value; }
         public string DonViTinh { get => donViTinh; set => donViTinh = value; }
         public double DonGia { get => donGia; set => donGia = value; }
         public string GhiChu { get => ghiChu; set => ghiChu = value; }

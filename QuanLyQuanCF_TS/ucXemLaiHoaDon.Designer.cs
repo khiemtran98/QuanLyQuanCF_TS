@@ -45,7 +45,6 @@
             this.lblNgayLap = new MetroFramework.Controls.MetroLabel();
             this.lblSoLuongMon = new MetroFramework.Controls.MetroLabel();
             this.lblTongTien = new MetroFramework.Controls.MetroLabel();
-            this.lblTongPhaiTra = new MetroFramework.Controls.MetroLabel();
             this.lblTienThanhToan = new MetroFramework.Controls.MetroLabel();
             this.lblTienThua = new MetroFramework.Controls.MetroLabel();
             this.txtTienMat = new MetroFramework.Controls.MetroTextBox();
@@ -176,7 +175,7 @@
             this.lblSoLuongMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblSoLuongMon.AutoSize = true;
             this.lblSoLuongMon.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblSoLuongMon.Location = new System.Drawing.Point(13, 168);
+            this.lblSoLuongMon.Location = new System.Drawing.Point(13, 225);
             this.lblSoLuongMon.Name = "lblSoLuongMon";
             this.lblSoLuongMon.Size = new System.Drawing.Size(129, 25);
             this.lblSoLuongMon.TabIndex = 9;
@@ -187,23 +186,12 @@
             this.lblTongTien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.lblTongTien.AutoSize = true;
             this.lblTongTien.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblTongTien.Location = new System.Drawing.Point(13, 202);
+            this.lblTongTien.FontWeight = MetroFramework.MetroLabelWeight.Regular;
+            this.lblTongTien.Location = new System.Drawing.Point(13, 259);
             this.lblTongTien.Name = "lblTongTien";
-            this.lblTongTien.Size = new System.Drawing.Size(93, 25);
-            this.lblTongTien.TabIndex = 10;
+            this.lblTongTien.Size = new System.Drawing.Size(96, 25);
+            this.lblTongTien.TabIndex = 11;
             this.lblTongTien.Text = "Tổng tiền: ";
-            // 
-            // lblTongPhaiTra
-            // 
-            this.lblTongPhaiTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.lblTongPhaiTra.AutoSize = true;
-            this.lblTongPhaiTra.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.lblTongPhaiTra.FontWeight = MetroFramework.MetroLabelWeight.Regular;
-            this.lblTongPhaiTra.Location = new System.Drawing.Point(13, 259);
-            this.lblTongPhaiTra.Name = "lblTongPhaiTra";
-            this.lblTongPhaiTra.Size = new System.Drawing.Size(127, 25);
-            this.lblTongPhaiTra.TabIndex = 11;
-            this.lblTongPhaiTra.Text = "Tổng phải trả: ";
             // 
             // lblTienThanhToan
             // 
@@ -337,9 +325,8 @@
             this.panel2.Controls.Add(this.lblNgayLap);
             this.panel2.Controls.Add(this.lblSoLuongMon);
             this.panel2.Controls.Add(this.txtTienThua);
-            this.panel2.Controls.Add(this.lblTongTien);
             this.panel2.Controls.Add(this.txtTienMat);
-            this.panel2.Controls.Add(this.lblTongPhaiTra);
+            this.panel2.Controls.Add(this.lblTongTien);
             this.panel2.Controls.Add(this.lblTienThua);
             this.panel2.Controls.Add(this.lblTienThanhToan);
             this.panel2.Location = new System.Drawing.Point(248, 45);
@@ -368,9 +355,9 @@
             this.lblSoHoaDon.FontWeight = MetroFramework.MetroLabelWeight.Bold;
             this.lblSoHoaDon.Location = new System.Drawing.Point(13, 100);
             this.lblSoHoaDon.Name = "lblSoHoaDon";
-            this.lblSoHoaDon.Size = new System.Drawing.Size(118, 25);
+            this.lblSoHoaDon.Size = new System.Drawing.Size(124, 25);
             this.lblSoHoaDon.TabIndex = 19;
-            this.lblSoHoaDon.Text = "Số hoá đơn: ";
+            this.lblSoHoaDon.Text = "Mã hoá đơn: ";
             // 
             // lblHoaDon
             // 
@@ -431,7 +418,6 @@
         private MetroFramework.Controls.MetroLabel lblNgayLap;
         private MetroFramework.Controls.MetroLabel lblSoLuongMon;
         private MetroFramework.Controls.MetroLabel lblTongTien;
-        private MetroFramework.Controls.MetroLabel lblTongPhaiTra;
         private MetroFramework.Controls.MetroLabel lblTienThanhToan;
         private MetroFramework.Controls.MetroLabel lblTienThua;
         private MetroFramework.Controls.MetroTextBox txtTienMat;
