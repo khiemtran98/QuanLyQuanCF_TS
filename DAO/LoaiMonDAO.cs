@@ -166,7 +166,7 @@ namespace DAO
             string query = "UPDATE LoaiMon SET trang_thai=1 WHERE ma_loai_mon=@maLoaiMon";
             SqlCommand command = new SqlCommand(query, connection);
 
-            command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.NVarChar, 255).Value = maLoaiMon;
+            command.Parameters.Add("@maLoaiMon", System.Data.SqlDbType.Int, 0).Value = maLoaiMon;
 
             connection.Open();
 

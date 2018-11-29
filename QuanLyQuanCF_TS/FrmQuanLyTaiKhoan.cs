@@ -303,6 +303,12 @@ namespace QuanLyQuanCF_TS
             loaiTaiKhoan.TenLoaiTaiKhoan = txtTenLoaiTaiKhoan.Text;
             loaiTaiKhoan.TrangThai = true;
 
+            if (txtMaLoaiTaiKhoan.Text == "1")
+            {
+                MessageBox.Show("Đây là loại tài khoản mặc định và không thể sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
+
             if (LoaiTaiKhoanBUS.SuaLoaiTaiKhoan(loaiTaiKhoan, LayDanhSachCheckBoxChucNang(false)))
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);

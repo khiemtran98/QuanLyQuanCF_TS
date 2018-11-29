@@ -49,7 +49,11 @@ namespace BUS
 
         public static bool KhoiPhucLoaiTopping(int maLoaiTopping)
         {
-            return LoaiToppingDAO.KhoiPhucLoaiTopping(maLoaiTopping);
+            if (LoaiToppingDAO.KhoiPhucLoaiTopping(maLoaiTopping))
+            {
+                return ToppingDAO.KhoiPhucToppingTheoLoai(maLoaiTopping);
+            }
+            return false;
         }
     }
 }

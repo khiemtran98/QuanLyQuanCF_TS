@@ -228,9 +228,9 @@ namespace QuanLyQuanCF_TS
             List<CTLoaiMon_LoaiToppingDTO> lsLoaiMon_LoaiTopping = new List<CTLoaiMon_LoaiToppingDTO>();
             foreach (Control ctrl in gpbLoaiTopping.Controls)
             {
-                if (ctrl.GetType() == typeof(MaterialCheckBox))
+                if (ctrl.GetType() == typeof(MetroCheckBox))
                 {
-                    if (((MaterialCheckBox)ctrl).Checked)
+                    if (((MetroCheckBox)ctrl).Checked)
                     {
                         CTLoaiMon_LoaiToppingDTO loaiMon_LoaiTopping = new CTLoaiMon_LoaiToppingDTO();
                         LoaiToppingDTO loaiTopping = (LoaiToppingDTO)ctrl.Tag;
@@ -396,9 +396,9 @@ namespace QuanLyQuanCF_TS
             chkDoUong.Checked = false;
             foreach (Control ctrl in gpbLoaiTopping.Controls)
             {
-                if (ctrl.GetType() == typeof(MaterialCheckBox))
+                if (ctrl.GetType() == typeof(MetroCheckBox))
                 {
-                    ((MaterialCheckBox)ctrl).Checked = false;
+                    ((MetroCheckBox)ctrl).Checked = false;
                 }
             }
             btnThemLoaiMon.Enabled = state;
@@ -421,13 +421,13 @@ namespace QuanLyQuanCF_TS
 
                 foreach (Control ctrl in gpbLoaiTopping.Controls)
                 {
-                    if (ctrl.GetType() == typeof(MaterialCheckBox))
+                    if (ctrl.GetType() == typeof(MetroCheckBox))
                     {
                         foreach (LoaiToppingDTO loaiTopping in lsLoaiTopping)
                         {
                             if (ctrl.Name == loaiTopping.MaLoaiTopping.ToString())
                             {
-                                ((MaterialCheckBox)ctrl).Checked = true;
+                                ((MetroCheckBox)ctrl).Checked = true;
                             }
                         }
 

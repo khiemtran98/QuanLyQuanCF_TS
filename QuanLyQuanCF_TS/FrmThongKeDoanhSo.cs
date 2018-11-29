@@ -218,7 +218,7 @@ namespace QuanLyQuanCF_TS
                 panelChiPhi.Controls.Add(lblThongBao);
                 lblThongBao.BringToFront();
             }
-            chartChiPhi.LegendLocation = LegendLocation.Bottom;
+            chartChiPhi.LegendLocation = LegendLocation.Right;
             lblCP_MoTa.Text += DateTime.Now.Year + "";
             lblCP_TongChiPhi.Text += PhieuNhapBUS.LayDoanhSoPhieuNhapTheoNam(DateTime.Now.Year).ToString("#,##0đ");
         }
@@ -261,7 +261,7 @@ namespace QuanLyQuanCF_TS
                 panelDoanhThu.Controls.Add(lblThongBao);
                 lblThongBao.BringToFront();
             }
-            chartDoanhThu.LegendLocation = LegendLocation.Bottom;
+            chartDoanhThu.LegendLocation = LegendLocation.Right;
             lblDT_MoTa.Text += DateTime.Now.Year + "";
             lblDT_TongDoanhThu.Text += HoaDonBUS.LayDoanhSoHoaDonTheoNam(DateTime.Now.Year).ToString("#,##0đ");
         }
@@ -281,10 +281,10 @@ namespace QuanLyQuanCF_TS
             {
                 PieSeries pieSeries = new PieSeries();
                 pieSeries.Title = trendingMon.TenMon;
-                pieSeries.Values = new ChartValues<double> { trendingMon.SoLuong };
+                pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
                 pieSeries.DataLabels = true;
                 pieSeries.LabelPoint = labelPoint;
-                pieSeries.PushOut = 15;
+                pieSeries.PushOut = 5;
                 chartTrending.Series.Add(pieSeries);
             }
             if (chartTrending.Series.Count == 0)
@@ -300,16 +300,17 @@ namespace QuanLyQuanCF_TS
             }
             else
             {
-                int max = Convert.ToInt32(chartTrending.Series[0].Values[0]);
-                string tenMonTrending = chartTrending.Series[0].Title;
+                int index = 0;
+                int max = Convert.ToInt32(chartTrending.Series[index].Values[0]);
                 for (int i = 1; i < chartTrending.Series.Count; i++)
                 {
                     if (Convert.ToInt32(chartTrending.Series[i].Values[0]) >= max)
                     {
-                        tenMonTrending = chartTrending.Series[i].Title;
+                        index = i;
+                        max = Convert.ToInt32(chartTrending.Series[i].Values[0]);
                     }
                 }
-                lblT_MonBanChayNhat.Text += tenMonTrending;
+                lblT_MonBanChayNhat.Text += chartTrending.Series[index].Title; ;
             }
             chartTrending.LegendLocation = LegendLocation.Right;
             lblT_MoTa.Text += DateTime.Now.Year + "";

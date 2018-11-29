@@ -57,7 +57,11 @@ namespace BUS
 
         public static bool KhoiPhucLoaiMon(int maLoaiMon)
         {
-            return LoaiMonDAO.KhoiPhucLoaiMon(maLoaiMon);
+            if (LoaiMonDAO.KhoiPhucLoaiMon(maLoaiMon))
+            {
+                return MonDAO.KhoiPhucMonTheoLoai(maLoaiMon);
+            }
+            return false;
         }
     }
 }

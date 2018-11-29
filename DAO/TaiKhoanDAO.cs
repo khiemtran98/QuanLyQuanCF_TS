@@ -256,5 +256,21 @@ namespace DAO
             }
             return false;
         }
+
+        public static bool KhoiPhucTaiKhoanTheoLoai(int maLoaiTaiKhoan)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE TaiKhoan SET trang_thai=1 WHERE loai_tai_khoan=@maLoaiTaiKhoan";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maLoaiTaiKhoan", System.Data.SqlDbType.Int, 0).Value = maLoaiTaiKhoan;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            return true;
+        }
     }
 }

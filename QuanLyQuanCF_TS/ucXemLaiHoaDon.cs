@@ -146,7 +146,7 @@ namespace QuanLyQuanCF_TS
                 if (DialogResult.Yes == MessageBox.Show("Bạn có muốn in hoá đơn?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
                 {
                     FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
-                    frm.HienThiThongTinHoaDonMoiNhat();
+                    frm.HienThiHoaDonMoiNhat();
                     FrmMain.Instance.TopMost = false;
                     frm.Show();
                 }

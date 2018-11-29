@@ -9,12 +9,12 @@ namespace DTO
     public class rptPhieuNhap_CTPhieuNhapDTO
     {
         string tenNguyenLieu;
-        int soLuong;
+        double soLuong;
         string donViTinh;
         double donGia;
 
         public string TenNguyenLieu { get => tenNguyenLieu; set => tenNguyenLieu = value; }
-        public int SoLuong { get => soLuong; set => soLuong = value; }
+        public double SoLuong { get => soLuong; set => soLuong = value; }
         public string DonViTinh { get => donViTinh; set => donViTinh = value; }
         public double DonGia { get => donGia; set => donGia = value; }
     }

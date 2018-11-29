@@ -11,7 +11,7 @@
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="CHITIETHOADON">
+    <DataSet Name="DSCHITIETHD">
       <Query>
         <DataSourceName>DTO</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
@@ -24,6 +24,10 @@
         <Field Name="GhiChu">
           <DataField>GhiChu</DataField>
           <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MaCTHD">
+          <DataField>MaCTHD</DataField>
+          <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
         <Field Name="SoLuong">
           <DataField>SoLuong</DataField>
@@ -49,7 +53,7 @@
             <TablixBody>
               <TablixColumns>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>5.83375cm</Width>
                 </TablixColumn>
                 <TablixColumn>
                   <Width>2.5cm</Width>
@@ -58,7 +62,7 @@
                   <Width>2.5cm</Width>
                 </TablixColumn>
                 <TablixColumn>
-                  <Width>2.5cm</Width>
+                  <Width>4.35208cm</Width>
                 </TablixColumn>
               </TablixColumns>
               <TablixRows>
@@ -76,6 +80,7 @@
                                 <TextRun>
                                   <Value>Tên món</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -111,6 +116,7 @@
                                 <TextRun>
                                   <Value>Số lượng</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -146,6 +152,7 @@
                                 <TextRun>
                                   <Value>Đơn giá</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -181,6 +188,7 @@
                                 <TextRun>
                                   <Value>Ghi chú</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -220,11 +228,13 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!TenMon.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -252,11 +262,13 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!SoLuong.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -284,11 +296,14 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!DonGia.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <Format>#,##0 đ</Format>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -316,7 +331,9 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!GhiChu.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -336,6 +353,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -357,12 +375,15 @@
                 </TablixMember>
                 <TablixMember>
                   <Group Name="Details" />
+                  <TablixMembers>
+                    <TablixMember />
+                  </TablixMembers>
                 </TablixMember>
               </TablixMembers>
             </TablixRowHierarchy>
-            <DataSetName>CHITIETHOADON</DataSetName>
+            <DataSetName>DSCHITIETHD</DataSetName>
             <Height>1.2cm</Height>
-            <Width>10cm</Width>
+            <Width>15.18583cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>
@@ -373,7 +394,7 @@
         <Height>0.47244in</Height>
         <Style />
       </Body>
-      <Width>3.93701in</Width>
+      <Width>5.97867in</Width>
       <Page>
         <PageHeight>29.7cm</PageHeight>
         <PageWidth>21cm</PageWidth>

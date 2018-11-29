@@ -197,5 +197,21 @@ namespace DAO
             }
             return false;
         }
+
+        public static bool KhoiPhucToppingTheoLoai(int maLoaiTopping)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE Topping SET trang_thai=1 WHERE loai_topping=@maLoaiTopping";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            return true;
+        }
     }
 }

@@ -27,6 +27,7 @@ namespace QuanLyQuanCF_TS
             radGomNhomMon.Style = FrmMain.style;
 
             dtpHoaDonTheoThang.Style = FrmMain.style;
+            radHoaDonMoiNhat.Style = FrmMain.style;
             radTatCaHoaDon.Style = FrmMain.style;
             radHoaDonTheoThang.Style = FrmMain.style;
 
@@ -106,6 +107,10 @@ namespace QuanLyQuanCF_TS
             else if (radPhieuNhapTheoThang.Checked)
             {
                 frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
+            }
+            else if(radHoaDonMoiNhat.Checked)
+            {
+                frm.HienThiHoaDonMoiNhat();
             }
             frm.Show();
         }

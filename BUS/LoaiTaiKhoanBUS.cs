@@ -38,10 +38,10 @@ namespace BUS
         {
             if (TaiKhoanBUS.XoaTaiKhoanTheoLoai(maLoaiTaiKhoan))
             {
-                if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
-                {
+                //if (ChucNang_LoaiTaiKhoanBUS.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
+                //{
                     return LoaiTaiKhoanDAO.XoaLoaiTaiKhoan(maLoaiTaiKhoan);
-                }
+                //}
             }
             return false;
         }
@@ -57,7 +57,11 @@ namespace BUS
 
         public static bool KhoiPhucLoaiTaiKhoan(int maLoaiTaiKhoan)
         {
-            return LoaiTaiKhoanDAO.KhoiPhucLoaiTaiKhoan(maLoaiTaiKhoan);
+            if (LoaiTaiKhoanDAO.KhoiPhucLoaiTaiKhoan(maLoaiTaiKhoan))
+            {
+                return TaiKhoanDAO.KhoiPhucTaiKhoanTheoLoai(maLoaiTaiKhoan);
+            }
+            return false;
         }
     }
 }

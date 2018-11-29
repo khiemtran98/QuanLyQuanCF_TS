@@ -239,7 +239,7 @@
             this.radHienThiTheoNgay.TabIndex = 8;
             this.radHienThiTheoNgay.Text = "Hiển thị theo ngày";
             this.radHienThiTheoNgay.UseSelectable = true;
-            this.radHienThiTheoNgay.CursorChanged += new System.EventHandler(this.radHienThiTheoNgay_CheckedChanged);
+            this.radHienThiTheoNgay.CheckedChanged += new System.EventHandler(this.radHienThiTheoNgay_CheckedChanged);
             // 
             // radHienThiTatCa
             // 
@@ -259,7 +259,6 @@
             // dtpNgayNhap
             // 
             this.dtpNgayNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dtpNgayNhap.Enabled = false;
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayNhap.Location = new System.Drawing.Point(331, 59);
             this.dtpNgayNhap.MinimumSize = new System.Drawing.Size(0, 29);

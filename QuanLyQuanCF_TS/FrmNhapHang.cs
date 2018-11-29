@@ -198,7 +198,7 @@ namespace QuanLyQuanCF_TS
             row.Cells["colSoLuong"].Value = txtSoLuong.Text;
             if (txtDonGia.Text != "")
             {
-                row.Cells["colDonGia"].Value = Convert.ToDouble(txtDonGia.Text) + "đ";
+                row.Cells["colDonGia"].Value = Convert.ToDouble(txtDonGia.Text).ToString("#,###đ");
             }
             else
             {
@@ -206,6 +206,8 @@ namespace QuanLyQuanCF_TS
             }
             row.Cells["colDonViTinh"].Value = lblDonViTinh.Text;
             row.Cells["colGhiChu"].Value = txtGhiChu.Text;
+
+            lblTongTien.Text = TinhTongTien().ToString("#,##0đ");
         }
 
         private void btnXoa_Click(object sender, EventArgs e)
@@ -260,6 +262,7 @@ namespace QuanLyQuanCF_TS
                 cmbNguyenLieu.SelectedValue = dgvCTPhieuNhap.SelectedRows[0].Cells["colMaNguyenLieu"].Value;
                 txtSoLuong.Text = dgvCTPhieuNhap.SelectedRows[0].Cells["colSoLuong"].Value.ToString();
                 txtDonGia.Text = donGia.Remove(donGia.Length - 1);
+                txtGhiChu.Text = dgvCTPhieuNhap.SelectedRows[0].Cells["colGhiChu"].Value.ToString();
             }
         }
 

@@ -29,7 +29,7 @@ namespace DAO
                 {
                     rptPhieuNhap_CTPhieuNhapDTO phieuNhap_CTPhieuNhapDTO = new rptPhieuNhap_CTPhieuNhapDTO();
                     phieuNhap_CTPhieuNhapDTO.TenNguyenLieu = reader.GetString(0);
-                    phieuNhap_CTPhieuNhapDTO.SoLuong = reader.GetInt32(1);
+                    phieuNhap_CTPhieuNhapDTO.SoLuong = reader.GetDouble(1);
                     phieuNhap_CTPhieuNhapDTO.DonViTinh = reader.GetString(2);
                     phieuNhap_CTPhieuNhapDTO.DonGia = reader.GetDouble(3);
                     result.Add(phieuNhap_CTPhieuNhapDTO);

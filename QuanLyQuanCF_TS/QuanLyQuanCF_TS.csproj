@@ -277,6 +277,7 @@
     <None Include="Properties\DataSources\DTO.NguyenLieuDTO.datasource" />
     <None Include="Properties\DataSources\DTO.NhaCungCapDTO.datasource" />
     <None Include="Properties\DataSources\DTO.PhieuNhapDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.rptCTHoaDon_ToppingDTO.datasource" />
     <None Include="Properties\DataSources\DTO.rptHoaDon_TaiKhoanDTO.datasource" />
     <None Include="Properties\DataSources\DTO.rptMon_CTHDDTO.datasource" />
     <None Include="Properties\DataSources\DTO.rptMon_LoaiMonDTO.datasource" />
@@ -284,6 +285,7 @@
     <None Include="Properties\DataSources\DTO.rptPhieuNhap_CTPhieuNhapDTO.datasource" />
     <None Include="Properties\DataSources\DTO.TaiKhoanDTO.datasource" />
     <None Include="Properties\DataSources\DTO.ToppingDTO.datasource" />
+    <None Include="Properties\DataSources\DTO.TrendingMonDTO.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

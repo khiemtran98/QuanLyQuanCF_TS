@@ -211,6 +211,7 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
+                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                     <TablixCell>
@@ -227,7 +228,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Left</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -261,7 +262,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -303,7 +304,7 @@
             <DataSetName>DSMON</DataSetName>
             <Top>0.28787cm</Top>
             <Height>1.2cm</Height>
-            <Width>14.8825cm</Width>
+            <Width>14.88249cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

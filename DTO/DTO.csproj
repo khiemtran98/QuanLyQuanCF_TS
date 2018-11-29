@@ -54,6 +54,7 @@
     <Compile Include="MonDTO.cs" />
     <Compile Include="NguyenLieuDTO.cs" />
     <Compile Include="NhaCungCapDTO.cs" />
+    <Compile Include="rptCTHoaDon_ToppingDTO.cs" />
     <Compile Include="rptHoaDon_TaiKhoanDTO.cs" />
     <Compile Include="rptMon_CTHDDTO.cs" />
     <Compile Include="rptMon_LoaiMonDTO.cs" />
