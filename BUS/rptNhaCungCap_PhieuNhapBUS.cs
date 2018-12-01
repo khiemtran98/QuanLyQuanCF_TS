@@ -15,9 +15,14 @@ namespace BUS
             return rptNhaCungCap_PhieuNhapDAO.DoiMaNhaCungCapThanhTenNhaCungCap();
         }
 
-        public static List<rptNhaCungCap_PhieuNhapDTO> DoiMaNhaCungCapThanhTenNhaCungCap(DateTime timeLine)
+        public static List<rptNhaCungCap_PhieuNhapDTO> DoiMaNhaCungCapThanhTenNhaCungCap(DateTime timeStart, DateTime timeEnd)
         {
-            return rptNhaCungCap_PhieuNhapDAO.DoiMaNhaCungCapThanhTenNhaCungCap(timeLine);
+            return rptNhaCungCap_PhieuNhapDAO.DoiMaNhaCungCapThanhTenNhaCungCap(timeStart, timeEnd);
+        }
+
+        public static List<rptNhaCungCap_PhieuNhapDTO> DoiMaNhaCungCapThanhTenNhaCungCapMaPhieuNhapMoiNhat()
+        {
+            return rptNhaCungCap_PhieuNhapDAO.DoiMaNhaCungCapThanhTenNhaCungCapMaPhieuNhapMoiNhat();
         }
     }
 }

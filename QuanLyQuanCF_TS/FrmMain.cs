@@ -21,6 +21,13 @@ namespace QuanLyQuanCF_TS
         {
             InitializeComponent();
             _Instance = this;
+
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, picHinh.Width - 3, picHinh.Height - 3);
+            Region rg = new Region(gp);
+            picHinh.Region = rg;
+
+            picHinh.BackColor = Color.WhiteSmoke;
         }
 
         private static FrmMain _Instance;

@@ -178,6 +178,13 @@ namespace QuanLyQuanCF_TS
                             break;
                     }
                 }
+
+                if (txtMaLoaiTaiKhoan.Text == "1")
+                {
+                    gpbChucNang.Enabled = false;
+                    btnSuaLoaiTaiKhoan.Enabled = false;
+                    btnXoaLoaiTaiKhoan.Enabled = false;
+                }
             }
         }
 
@@ -188,6 +195,7 @@ namespace QuanLyQuanCF_TS
             btnXoaLoaiTaiKhoan.Enabled = !state;
             btnSuaLoaiTaiKhoan.Enabled = !state;
             btnKhoiPhucLoaiTaiKhoan.Enabled = !state;
+            gpbChucNang.Enabled = true;
             foreach (Control ctrl in gpbChucNang.Controls)
             {
                 if (ctrl.GetType() == typeof(MetroCheckBox))

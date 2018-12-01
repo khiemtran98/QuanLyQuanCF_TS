@@ -10,10 +10,10 @@ namespace DAO
 {
     public static class TrendingMonDAO
     {
-        public static List<TrendingMonDTO> LayDanhSachMonDaBan()
+        public static List<TrendingMonDTO> LayDanhSachTop10MonDaBan()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ten_mon, SUM(so_luong) FROM CTHoaDon INNER JOIN Mon ON mon=ma_mon GROUP BY ten_mon";
+            string query = "SELECT TOP 10 ten_mon, SUM(so_luong) tong_so_luong FROM CTHoaDon INNER JOIN Mon ON mon=ma_mon GROUP BY ten_mon ORDER BY tong_so_luong DESC";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();

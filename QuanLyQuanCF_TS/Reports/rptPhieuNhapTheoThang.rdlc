@@ -6,15 +6,15 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>5.14859cm</Width>
+              <Width>6.33922cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>5.14859cm</Width>
+              <Width>4.59296cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.68126cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -25,8 +25,9 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Nhà cung cấp</Value>
+                              <Value>Chi tiết phiếu nhập</Value>
                               <Style>
+                                <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -43,6 +44,7 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BackgroundColor>Silver</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -53,15 +55,16 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox11">
+                    <Textbox Name="Textbox1">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tổng tiền</Value>
+                              <Value />
                               <Style>
+                                <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
                               </Style>
@@ -72,12 +75,16 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox11</rd:DefaultName>
+                      <rd:DefaultName>Textbox1</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
+                        <BackgroundColor>White</BackgroundColor>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -89,7 +96,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.68126cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -100,12 +107,27 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
+                              <Value>Nhà cung cấp</Value>
+                              <Style>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>:</Value>
+                              <Style>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
                               <Value>=Fields!TenNhaCungCap.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
@@ -132,8 +154,11 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TongTien.Value</Value>
+                              <Value />
                               <Style>
+                                <FontFamily>Sogue UI</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
                                 <Format>#,##0 đ</Format>
                               </Style>
                             </TextRun>
@@ -149,6 +174,12 @@
                           <Color>LightGrey</Color>
                           <Style>Solid</Style>
                         </Border>
+                        <TopBorder>
+                          <Style>None</Style>
+                        </TopBorder>
+                        <BottomBorder>
+                          <Style>None</Style>
+                        </BottomBorder>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -160,7 +191,7 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.68126cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
@@ -188,14 +219,39 @@
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value />
+                              <Value>Tổng tiền</Value>
                               <Style>
-                                <FontSize>15pt</FontSize>
+                                <FontFamily>Segoe UI</FontFamily>
+                                <FontSize>12pt</FontSize>
                                 <FontWeight>Bold</FontWeight>
+                                <Format>#,##0 đ</Format>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>:</Value>
+                              <Style>
+                                <FontFamily>Sogue UI</FontFamily>
+                                <FontSize>12pt</FontSize>
+                                <FontWeight>Bold</FontWeight>
+                                <Format>#,##0 đ</Format>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value xml:space="preserve"> </Value>
+                              <Style>
+                                <Format>#,##0 đ</Format>
+                              </Style>
+                            </TextRun>
+                            <TextRun>
+                              <Value>=Fields!TongTien.Value</Value>
+                              <Style>
+                                <Format>#,##0 đ</Format>
                               </Style>
                             </TextRun>
                           </TextRuns>
-                          <Style />
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
                         </Paragraph>
                       </Paragraphs>
                       <rd:DefaultName>Textbox45</rd:DefaultName>
@@ -204,6 +260,22 @@
                         <Border>
                           <Style>None</Style>
                         </Border>
+                        <BottomBorder>
+                          <Color>Silver</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </BottomBorder>
+                        <LeftBorder>
+                          <Color>Silver</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </LeftBorder>
+                        <RightBorder>
+                          <Color>Silver</Color>
+                          <Style>Solid</Style>
+                          <Width>1pt</Width>
+                        </RightBorder>
+                        <VerticalAlign>Top</VerticalAlign>
                         <PaddingLeft>2pt</PaddingLeft>
                         <PaddingRight>2pt</PaddingRight>
                         <PaddingTop>2pt</PaddingTop>
@@ -226,7 +298,7 @@
           <TablixMembers>
             <TablixMember>
               <TablixHeader>
-                <Size>3.87167cm</Size>
+                <Size>3.28959cm</Size>
                 <CellContents>
                   <Textbox Name="Textbox10">
                     <CanGrow>true</CanGrow>
@@ -237,6 +309,7 @@
                           <TextRun>
                             <Value>Mã phiếu nhập</Value>
                             <Style>
+                              <FontFamily>Segoe UI</FontFamily>
                               <FontSize>12pt</FontSize>
                               <FontWeight>Bold</FontWeight>
                             </Style>
@@ -253,6 +326,7 @@
                         <Color>LightGrey</Color>
                         <Style>Solid</Style>
                       </Border>
+                      <BackgroundColor>Silver</BackgroundColor>
                       <VerticalAlign>Middle</VerticalAlign>
                       <PaddingLeft>2pt</PaddingLeft>
                       <PaddingRight>2pt</PaddingRight>
@@ -265,7 +339,7 @@
               <TablixMembers>
                 <TablixMember>
                   <TablixHeader>
-                    <Size>3.96802cm</Size>
+                    <Size>2.9626cm</Size>
                     <CellContents>
                       <Textbox Name="Textbox2">
                         <CanGrow>true</CanGrow>
@@ -276,6 +350,7 @@
                               <TextRun>
                                 <Value>Ngày lập</Value>
                                 <Style>
+                                  <FontFamily>Segoe UI</FontFamily>
                                   <FontSize>12pt</FontSize>
                                   <FontWeight>Bold</FontWeight>
                                 </Style>
@@ -292,6 +367,7 @@
                             <Color>LightGrey</Color>
                             <Style>Solid</Style>
                           </Border>
+                          <BackgroundColor>Silver</BackgroundColor>
                           <VerticalAlign>Middle</VerticalAlign>
                           <PaddingLeft>2pt</PaddingLeft>
                           <PaddingRight>2pt</PaddingRight>
@@ -320,7 +396,7 @@
                 </SortExpression>
               </SortExpressions>
               <TablixHeader>
-                <Size>3.87167cm</Size>
+                <Size>3.28959cm</Size>
                 <CellContents>
                   <Textbox Name="MaPhieuNhap">
                     <CanGrow>true</CanGrow>
@@ -368,7 +444,7 @@
                   <TablixMembers>
                     <TablixMember>
                       <TablixHeader>
-                        <Size>3.96802cm</Size>
+                        <Size>2.9626cm</Size>
                         <CellContents>
                           <Textbox Name="NgayLap">
                             <CanGrow>true</CanGrow>
@@ -419,8 +495,8 @@
         </TablixRowHierarchy>
         <DataSetName>DSPHIEUNHAP</DataSetName>
         <Top>0.34078cm</Top>
-        <Height>1.8cm</Height>
-        <Width>18.13687cm</Width>
+        <Height>2.04378cm</Height>
+        <Width>17.18437cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -431,10 +507,10 @@
     <Height>0.98047in</Height>
     <Style />
   </Body>
-  <Width>7.1405in</Width>
+  <Width>6.7655in</Width>
   <Page>
     <PageHeader>
-      <Height>2.54cm</Height>
+      <Height>1.29646cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -445,7 +521,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>DANH SÁCH PHIẾU NHẬP THEO NGÀY THÁNG CHỌN</Value>
+                  <Value>DANH SÁCH PHIẾU NHẬP THEO MỐC THỜI GIAN</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>18pt</FontSize>
@@ -461,51 +537,12 @@
           <rd:DefaultName>Textbox14</rd:DefaultName>
           <Top>0.30399cm</Top>
           <Height>0.94396cm</Height>
-          <Width>18.13687cm</Width>
+          <Width>17.18437cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
-            <PaddingLeft>2pt</PaddingLeft>
-            <PaddingRight>2pt</PaddingRight>
-            <PaddingTop>2pt</PaddingTop>
-            <PaddingBottom>2pt</PaddingBottom>
-          </Style>
-        </Textbox>
-        <Textbox Name="Textbox45">
-          <CanGrow>true</CanGrow>
-          <KeepTogether>true</KeepTogether>
-          <Paragraphs>
-            <Paragraph>
-              <TextRuns>
-                <TextRun>
-                  <Value>Ngày lập:   </Value>
-                  <Style>
-                    <FontSize>15pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-                <TextRun>
-                  <Value>=Fields!NgayLap.Value</Value>
-                  <Style>
-                    <FontSize>15pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
-              </TextRuns>
-              <Style />
-            </Paragraph>
-          </Paragraphs>
-          <rd:DefaultName>Textbox45</rd:DefaultName>
-          <Top>1.42434cm</Top>
-          <Left>3.82811cm</Left>
-          <Height>0.81167cm</Height>
-          <Width>9.88566cm</Width>
-          <ZIndex>1</ZIndex>
-          <Style>
-            <Border>
-              <Style>None</Style>
-            </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -543,7 +580,7 @@
           <rd:DefaultName>PageNumber</rd:DefaultName>
           <Top>0.17639cm</Top>
           <Height>0.6cm</Height>
-          <Width>18.13687cm</Width>
+          <Width>17.18437cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

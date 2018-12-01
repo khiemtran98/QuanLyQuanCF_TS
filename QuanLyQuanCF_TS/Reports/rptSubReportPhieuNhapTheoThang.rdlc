@@ -63,7 +63,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.6926cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -76,6 +76,7 @@
                                 <TextRun>
                                   <Value>Tên nguyên liệu</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -92,6 +93,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -111,6 +113,7 @@
                                 <TextRun>
                                   <Value>Số lượng</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -127,6 +130,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -146,6 +150,7 @@
                                 <TextRun>
                                   <Value>Đơn vị tính</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -162,6 +167,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -181,6 +187,7 @@
                                 <TextRun>
                                   <Value>Đơn giá</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
                                     <FontSize>12pt</FontSize>
                                     <FontWeight>Bold</FontWeight>
                                   </Style>
@@ -197,6 +204,7 @@
                               <Color>LightGrey</Color>
                               <Style>Solid</Style>
                             </Border>
+                            <BackgroundColor>LightGrey</BackgroundColor>
                             <PaddingLeft>2pt</PaddingLeft>
                             <PaddingRight>2pt</PaddingRight>
                             <PaddingTop>2pt</PaddingTop>
@@ -208,7 +216,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.6926cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -338,7 +346,6 @@
                             <PaddingBottom>2pt</PaddingBottom>
                           </Style>
                         </Textbox>
-                        <rd:Selected>true</rd:Selected>
                       </CellContents>
                     </TablixCell>
                   </TablixCells>
@@ -364,7 +371,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DSCHITIETPHIEUNHAP</DataSetName>
-            <Height>1.2cm</Height>
+            <Height>1.38521cm</Height>
             <Width>12.16958cm</Width>
             <Style>
               <Border>
@@ -373,7 +380,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.47244in</Height>
+        <Height>0.54536in</Height>
         <Style />
       </Body>
       <Width>4.80159in</Width>

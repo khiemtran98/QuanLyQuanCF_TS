@@ -88,14 +88,15 @@ namespace QuanLyQuanCF_TS
             rpvBaoCao.RefreshReport();
         }
 
-        public void HienThiTatCacHoaDonTheoThang(DateTime ngaylap)
+        public void HienThiTatCacHoaDonTheoThang(DateTime timeStart,DateTime timeEnd)
         {
-            List<rptHoaDon_TaiKhoanDTO> lsHoaDon = rptHoaDon_TaiKhoanBUS.DoiMaNhanVienThanhTenNhanVien(ngaylap);
+            List<rptHoaDon_TaiKhoanDTO> lsHoaDon = rptHoaDon_TaiKhoanBUS.DoiMaNhanVienThanhTenNhanVien(timeStart,timeEnd);
             rpvBaoCao.LocalReport.ReportEmbeddedResource = path + "rptHoaDonTheoThang.rdlc";
             rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing2);
             rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSHOADON", lsHoaDon));
             rpvBaoCao.RefreshReport();
         }
+ 
 
         private void LocalReport_SubreportProcessing2(object sender, SubreportProcessingEventArgs e)
         {
@@ -115,10 +116,28 @@ namespace QuanLyQuanCF_TS
             rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP_NCC", lsPhieuNhap_NCC));
             rpvBaoCao.RefreshReport();
         }
-
-        public void HienThiTatCacPhieuNhapTheoThang(DateTime ngaylap)
+        public void HienThiPhieuNhapMoiNhat()
         {
-            List<rptNhaCungCap_PhieuNhapDTO> lsPhieuNhap_NCC = rptNhaCungCap_PhieuNhapBUS.DoiMaNhaCungCapThanhTenNhaCungCap(ngaylap);
+            List<rptNhaCungCap_PhieuNhapDTO> lsPhieuNhap_NCC = rptNhaCungCap_PhieuNhapBUS.DoiMaNhaCungCapThanhTenNhaCungCapMaPhieuNhapMoiNhat();
+            rpvBaoCao.LocalReport.ReportEmbeddedResource = path + "rptPhieuNhapMoiNhat.rdlc";
+            rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing4);
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("PHIEUNHAPMOINHAT", lsPhieuNhap_NCC));
+            rpvBaoCao.RefreshReport();
+        }
+
+        private void LocalReport_SubreportProcessing4(object sender, SubreportProcessingEventArgs e)
+        {
+            //Lấy mã phiếu nhập truyền từ report cha
+            int maPhieuNhap = int.Parse(e.Parameters["paMaPhieuNhap"].Values[0]);
+            //Lấy dữ liệu cho report con
+            List<rptPhieuNhap_CTPhieuNhapDTO> lsCTPN = rptPhieuNhap_CTPhieuNhapBUS.DoiMaNguyenLieuThanhTenNguyenLieu(maPhieuNhap);
+            //Đỗ dữ liệu cho report con
+            e.DataSources.Add(new ReportDataSource("CHITIETPHIEUNHAP", lsCTPN));
+        }
+
+        public void HienThiTatCacPhieuNhapTheoMoc(DateTime timeStart,DateTime timeEnd)
+        {
+            List<rptNhaCungCap_PhieuNhapDTO> lsPhieuNhap_NCC = rptNhaCungCap_PhieuNhapBUS.DoiMaNhaCungCapThanhTenNhaCungCap(timeStart,timeEnd);
             rpvBaoCao.LocalReport.ReportEmbeddedResource = path + "rptPhieuNhapTheoThang.rdlc";
             rpvBaoCao.LocalReport.SubreportProcessing += new SubreportProcessingEventHandler(LocalReport_SubreportProcessing3);
             rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSPHIEUNHAP", lsPhieuNhap_NCC));
@@ -133,6 +152,22 @@ namespace QuanLyQuanCF_TS
             List<rptPhieuNhap_CTPhieuNhapDTO> lsCTPN = rptPhieuNhap_CTPhieuNhapBUS.DoiMaNguyenLieuThanhTenNguyenLieu(maPhieuNhap);
             //Đỗ dữ liệu cho report con
             e.DataSources.Add(new ReportDataSource("DSCHITIETPHIEUNHAP", lsCTPN));
+        }
+
+        public void DoanhThuTheoNgay(DateTime timeLine)
+        {
+            List<rptHoaDon_TaiKhoanDTO> lsHoaDon = rptHoaDon_TaiKhoanBUS.DoiMaNhanVienThanhTenNhanVien(timeLine);
+            rpvBaoCao.LocalReport.ReportEmbeddedResource = path + "rptDoanhThuTheoNgay.rdlc";
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSHOADONTHEONGAY", lsHoaDon));
+            rpvBaoCao.RefreshReport();
+        }
+
+        public void DoanhThuTheoMoc(DateTime timeStart, DateTime timeEnd)
+        {
+            List<rptHoaDon_TaiKhoanDTO> lsHoaDon = rptHoaDon_TaiKhoanBUS.DoiMaNhanVienThanhTenNhanVien(timeStart, timeEnd);
+            rpvBaoCao.LocalReport.ReportEmbeddedResource = path + "rptDoanhThuTheoMoc.rdlc";
+            rpvBaoCao.LocalReport.DataSources.Add(new ReportDataSource("DSHOADONDOANHTHUTHEOMOC", lsHoaDon));
+            rpvBaoCao.RefreshReport();
         }
 
         private void FrmHienThiBaoCao_FormClosed(object sender, FormClosedEventArgs e)

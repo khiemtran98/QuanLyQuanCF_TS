@@ -30,12 +30,16 @@
         {
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
+            this.dtpDoanhThuTheoNgay = new MetroFramework.Controls.MetroDateTime();
+            this.radPhieuNhapNew = new MetroFramework.Controls.MetroRadioButton();
+            this.dtpPhieuNhapEnd = new MetroFramework.Controls.MetroDateTime();
+            this.dtpTimeEnd = new MetroFramework.Controls.MetroDateTime();
             this.radHoaDonMoiNhat = new MetroFramework.Controls.MetroRadioButton();
-            this.dtpPhieuNhapTheoThang = new MetroFramework.Controls.MetroDateTime();
-            this.dtpDoanhThu = new MetroFramework.Controls.MetroDateTime();
-            this.dtpHoaDonTheoThang = new MetroFramework.Controls.MetroDateTime();
-            this.radDoanhThuTheoThang = new MetroFramework.Controls.MetroRadioButton();
-            this.radDoanhThuTheoTuan = new MetroFramework.Controls.MetroRadioButton();
+            this.dtpPhieuNhapStart = new MetroFramework.Controls.MetroDateTime();
+            this.dtpDoanhThuStart = new MetroFramework.Controls.MetroDateTime();
+            this.dtpTimeStart = new MetroFramework.Controls.MetroDateTime();
+            this.radDoanhThuTheoMoc = new MetroFramework.Controls.MetroRadioButton();
+            this.radDoanhThuTheoNgay = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.radTatCaNguyenLieu = new MetroFramework.Controls.MetroRadioButton();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
@@ -54,6 +58,7 @@
             this.btnBaoCao = new MetroFramework.Controls.MetroButton();
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroLabel1 = new MetroFramework.Controls.MetroLabel();
+            this.dtpDoanhThuEnd = new MetroFramework.Controls.MetroDateTime();
             this.metroPanel2.SuspendLayout();
             this.metroPanel4.SuspendLayout();
             this.metroPanel5.SuspendLayout();
@@ -80,12 +85,17 @@
             // metroPanel4
             // 
             this.metroPanel4.AutoScroll = true;
+            this.metroPanel4.Controls.Add(this.dtpDoanhThuEnd);
+            this.metroPanel4.Controls.Add(this.dtpDoanhThuTheoNgay);
+            this.metroPanel4.Controls.Add(this.radPhieuNhapNew);
+            this.metroPanel4.Controls.Add(this.dtpPhieuNhapEnd);
+            this.metroPanel4.Controls.Add(this.dtpTimeEnd);
             this.metroPanel4.Controls.Add(this.radHoaDonMoiNhat);
-            this.metroPanel4.Controls.Add(this.dtpPhieuNhapTheoThang);
-            this.metroPanel4.Controls.Add(this.dtpDoanhThu);
-            this.metroPanel4.Controls.Add(this.dtpHoaDonTheoThang);
-            this.metroPanel4.Controls.Add(this.radDoanhThuTheoThang);
-            this.metroPanel4.Controls.Add(this.radDoanhThuTheoTuan);
+            this.metroPanel4.Controls.Add(this.dtpPhieuNhapStart);
+            this.metroPanel4.Controls.Add(this.dtpDoanhThuStart);
+            this.metroPanel4.Controls.Add(this.dtpTimeStart);
+            this.metroPanel4.Controls.Add(this.radDoanhThuTheoMoc);
+            this.metroPanel4.Controls.Add(this.radDoanhThuTheoNgay);
             this.metroPanel4.Controls.Add(this.metroLabel6);
             this.metroPanel4.Controls.Add(this.radTatCaNguyenLieu);
             this.metroPanel4.Controls.Add(this.metroLabel5);
@@ -114,78 +124,120 @@
             this.metroPanel4.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel4.VerticalScrollbarSize = 10;
             // 
+            // dtpDoanhThuTheoNgay
+            // 
+            this.dtpDoanhThuTheoNgay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpDoanhThuTheoNgay.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDoanhThuTheoNgay.Location = new System.Drawing.Point(270, 322);
+            this.dtpDoanhThuTheoNgay.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpDoanhThuTheoNgay.Name = "dtpDoanhThuTheoNgay";
+            this.dtpDoanhThuTheoNgay.Size = new System.Drawing.Size(121, 29);
+            this.dtpDoanhThuTheoNgay.TabIndex = 31;
+            // 
+            // radPhieuNhapNew
+            // 
+            this.radPhieuNhapNew.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.radPhieuNhapNew.AutoSize = true;
+            this.radPhieuNhapNew.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.radPhieuNhapNew.Location = new System.Drawing.Point(582, 176);
+            this.radPhieuNhapNew.Name = "radPhieuNhapNew";
+            this.radPhieuNhapNew.Size = new System.Drawing.Size(99, 25);
+            this.radPhieuNhapNew.TabIndex = 30;
+            this.radPhieuNhapNew.Text = "Mới nhất";
+            this.radPhieuNhapNew.UseSelectable = true;
+            // 
+            // dtpPhieuNhapEnd
+            // 
+            this.dtpPhieuNhapEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpPhieuNhapEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPhieuNhapEnd.Location = new System.Drawing.Point(686, 269);
+            this.dtpPhieuNhapEnd.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpPhieuNhapEnd.Name = "dtpPhieuNhapEnd";
+            this.dtpPhieuNhapEnd.Size = new System.Drawing.Size(121, 29);
+            this.dtpPhieuNhapEnd.TabIndex = 29;
+            // 
+            // dtpTimeEnd
+            // 
+            this.dtpTimeEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpTimeEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTimeEnd.Location = new System.Drawing.Point(270, 271);
+            this.dtpTimeEnd.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpTimeEnd.Name = "dtpTimeEnd";
+            this.dtpTimeEnd.Size = new System.Drawing.Size(121, 29);
+            this.dtpTimeEnd.TabIndex = 28;
+            // 
             // radHoaDonMoiNhat
             // 
             this.radHoaDonMoiNhat.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radHoaDonMoiNhat.AutoSize = true;
             this.radHoaDonMoiNhat.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radHoaDonMoiNhat.Location = new System.Drawing.Point(165, 180);
+            this.radHoaDonMoiNhat.Location = new System.Drawing.Point(154, 176);
             this.radHoaDonMoiNhat.Name = "radHoaDonMoiNhat";
             this.radHoaDonMoiNhat.Size = new System.Drawing.Size(99, 25);
             this.radHoaDonMoiNhat.TabIndex = 27;
             this.radHoaDonMoiNhat.Text = "Mới nhất";
             this.radHoaDonMoiNhat.UseSelectable = true;
             // 
-            // dtpPhieuNhapTheoThang
+            // dtpPhieuNhapStart
             // 
-            this.dtpPhieuNhapTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dtpPhieuNhapTheoThang.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpPhieuNhapTheoThang.Location = new System.Drawing.Point(686, 236);
-            this.dtpPhieuNhapTheoThang.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpPhieuNhapTheoThang.Name = "dtpPhieuNhapTheoThang";
-            this.dtpPhieuNhapTheoThang.Size = new System.Drawing.Size(121, 29);
-            this.dtpPhieuNhapTheoThang.TabIndex = 26;
+            this.dtpPhieuNhapStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpPhieuNhapStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpPhieuNhapStart.Location = new System.Drawing.Point(686, 236);
+            this.dtpPhieuNhapStart.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpPhieuNhapStart.Name = "dtpPhieuNhapStart";
+            this.dtpPhieuNhapStart.Size = new System.Drawing.Size(121, 29);
+            this.dtpPhieuNhapStart.TabIndex = 26;
             // 
-            // dtpDoanhThu
+            // dtpDoanhThuStart
             // 
-            this.dtpDoanhThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dtpDoanhThu.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpDoanhThu.Location = new System.Drawing.Point(281, 344);
-            this.dtpDoanhThu.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpDoanhThu.Name = "dtpDoanhThu";
-            this.dtpDoanhThu.Size = new System.Drawing.Size(121, 29);
-            this.dtpDoanhThu.TabIndex = 25;
+            this.dtpDoanhThuStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpDoanhThuStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDoanhThuStart.Location = new System.Drawing.Point(270, 355);
+            this.dtpDoanhThuStart.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpDoanhThuStart.Name = "dtpDoanhThuStart";
+            this.dtpDoanhThuStart.Size = new System.Drawing.Size(121, 29);
+            this.dtpDoanhThuStart.TabIndex = 25;
             // 
-            // dtpHoaDonTheoThang
+            // dtpTimeStart
             // 
-            this.dtpHoaDonTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.dtpHoaDonTheoThang.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpHoaDonTheoThang.Location = new System.Drawing.Point(281, 240);
-            this.dtpHoaDonTheoThang.MinimumSize = new System.Drawing.Size(0, 29);
-            this.dtpHoaDonTheoThang.Name = "dtpHoaDonTheoThang";
-            this.dtpHoaDonTheoThang.Size = new System.Drawing.Size(121, 29);
-            this.dtpHoaDonTheoThang.TabIndex = 24;
+            this.dtpTimeStart.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpTimeStart.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpTimeStart.Location = new System.Drawing.Point(270, 236);
+            this.dtpTimeStart.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpTimeStart.Name = "dtpTimeStart";
+            this.dtpTimeStart.Size = new System.Drawing.Size(121, 29);
+            this.dtpTimeStart.TabIndex = 24;
             // 
-            // radDoanhThuTheoThang
+            // radDoanhThuTheoMoc
             // 
-            this.radDoanhThuTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.radDoanhThuTheoThang.AutoSize = true;
-            this.radDoanhThuTheoThang.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radDoanhThuTheoThang.Location = new System.Drawing.Point(165, 344);
-            this.radDoanhThuTheoThang.Name = "radDoanhThuTheoThang";
-            this.radDoanhThuTheoThang.Size = new System.Drawing.Size(110, 25);
-            this.radDoanhThuTheoThang.TabIndex = 22;
-            this.radDoanhThuTheoThang.Text = "Chọn mốc";
-            this.radDoanhThuTheoThang.UseSelectable = true;
+            this.radDoanhThuTheoMoc.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.radDoanhThuTheoMoc.AutoSize = true;
+            this.radDoanhThuTheoMoc.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.radDoanhThuTheoMoc.Location = new System.Drawing.Point(154, 355);
+            this.radDoanhThuTheoMoc.Name = "radDoanhThuTheoMoc";
+            this.radDoanhThuTheoMoc.Size = new System.Drawing.Size(110, 25);
+            this.radDoanhThuTheoMoc.TabIndex = 22;
+            this.radDoanhThuTheoMoc.Text = "Chọn mốc";
+            this.radDoanhThuTheoMoc.UseSelectable = true;
             // 
-            // radDoanhThuTheoTuan
+            // radDoanhThuTheoNgay
             // 
-            this.radDoanhThuTheoTuan.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
-            this.radDoanhThuTheoTuan.AutoSize = true;
-            this.radDoanhThuTheoTuan.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radDoanhThuTheoTuan.Location = new System.Drawing.Point(165, 315);
-            this.radDoanhThuTheoTuan.Name = "radDoanhThuTheoTuan";
-            this.radDoanhThuTheoTuan.Size = new System.Drawing.Size(107, 25);
-            this.radDoanhThuTheoTuan.TabIndex = 21;
-            this.radDoanhThuTheoTuan.Text = "Theo tuần";
-            this.radDoanhThuTheoTuan.UseSelectable = true;
+            this.radDoanhThuTheoNgay.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.radDoanhThuTheoNgay.AutoSize = true;
+            this.radDoanhThuTheoNgay.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
+            this.radDoanhThuTheoNgay.Location = new System.Drawing.Point(154, 326);
+            this.radDoanhThuTheoNgay.Name = "radDoanhThuTheoNgay";
+            this.radDoanhThuTheoNgay.Size = new System.Drawing.Size(111, 25);
+            this.radDoanhThuTheoNgay.TabIndex = 21;
+            this.radDoanhThuTheoNgay.Text = "Theo ngày";
+            this.radDoanhThuTheoNgay.UseSelectable = true;
             // 
             // metroLabel6
             // 
             this.metroLabel6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.metroLabel6.AutoSize = true;
             this.metroLabel6.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel6.Location = new System.Drawing.Point(52, 315);
+            this.metroLabel6.Location = new System.Drawing.Point(41, 326);
             this.metroLabel6.Name = "metroLabel6";
             this.metroLabel6.Size = new System.Drawing.Size(93, 25);
             this.metroLabel6.TabIndex = 20;
@@ -219,7 +271,7 @@
             this.radPhieuNhapTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radPhieuNhapTheoThang.AutoSize = true;
             this.radPhieuNhapTheoThang.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radPhieuNhapTheoThang.Location = new System.Drawing.Point(582, 242);
+            this.radPhieuNhapTheoThang.Location = new System.Drawing.Point(582, 238);
             this.radPhieuNhapTheoThang.Name = "radPhieuNhapTheoThang";
             this.radPhieuNhapTheoThang.Size = new System.Drawing.Size(107, 25);
             this.radPhieuNhapTheoThang.TabIndex = 16;
@@ -231,7 +283,7 @@
             this.radTatCaPhieuNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radTatCaPhieuNhap.AutoSize = true;
             this.radTatCaPhieuNhap.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radTatCaPhieuNhap.Location = new System.Drawing.Point(582, 211);
+            this.radTatCaPhieuNhap.Location = new System.Drawing.Point(582, 207);
             this.radTatCaPhieuNhap.Name = "radTatCaPhieuNhap";
             this.radTatCaPhieuNhap.Size = new System.Drawing.Size(74, 25);
             this.radTatCaPhieuNhap.TabIndex = 15;
@@ -243,7 +295,7 @@
             this.metroLabel4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.metroLabel4.AutoSize = true;
             this.metroLabel4.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel4.Location = new System.Drawing.Point(472, 211);
+            this.metroLabel4.Location = new System.Drawing.Point(477, 207);
             this.metroLabel4.Name = "metroLabel4";
             this.metroLabel4.Size = new System.Drawing.Size(99, 25);
             this.metroLabel4.TabIndex = 14;
@@ -254,7 +306,7 @@
             this.radHoaDonTheoThang.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radHoaDonTheoThang.AutoSize = true;
             this.radHoaDonTheoThang.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radHoaDonTheoThang.Location = new System.Drawing.Point(165, 240);
+            this.radHoaDonTheoThang.Location = new System.Drawing.Point(154, 236);
             this.radHoaDonTheoThang.Name = "radHoaDonTheoThang";
             this.radHoaDonTheoThang.Size = new System.Drawing.Size(110, 25);
             this.radHoaDonTheoThang.TabIndex = 12;
@@ -266,7 +318,7 @@
             this.radTatCaHoaDon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radTatCaHoaDon.AutoSize = true;
             this.radTatCaHoaDon.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radTatCaHoaDon.Location = new System.Drawing.Point(165, 211);
+            this.radTatCaHoaDon.Location = new System.Drawing.Point(154, 207);
             this.radTatCaHoaDon.Name = "radTatCaHoaDon";
             this.radTatCaHoaDon.Size = new System.Drawing.Size(74, 25);
             this.radTatCaHoaDon.TabIndex = 9;
@@ -278,7 +330,7 @@
             this.metroLabel3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.metroLabel3.AutoSize = true;
             this.metroLabel3.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel3.Location = new System.Drawing.Point(67, 211);
+            this.metroLabel3.Location = new System.Drawing.Point(56, 207);
             this.metroLabel3.Name = "metroLabel3";
             this.metroLabel3.Size = new System.Drawing.Size(78, 25);
             this.metroLabel3.TabIndex = 8;
@@ -289,7 +341,7 @@
             this.cmbLoaiMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.cmbLoaiMon.FormattingEnabled = true;
             this.cmbLoaiMon.ItemHeight = 23;
-            this.cmbLoaiMon.Location = new System.Drawing.Point(281, 63);
+            this.cmbLoaiMon.Location = new System.Drawing.Point(270, 59);
             this.cmbLoaiMon.Name = "cmbLoaiMon";
             this.cmbLoaiMon.Size = new System.Drawing.Size(162, 29);
             this.cmbLoaiMon.TabIndex = 7;
@@ -300,7 +352,7 @@
             this.radGomNhomMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radGomNhomMon.AutoSize = true;
             this.radGomNhomMon.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radGomNhomMon.Location = new System.Drawing.Point(165, 94);
+            this.radGomNhomMon.Location = new System.Drawing.Point(154, 90);
             this.radGomNhomMon.Name = "radGomNhomMon";
             this.radGomNhomMon.Size = new System.Drawing.Size(152, 25);
             this.radGomNhomMon.TabIndex = 6;
@@ -312,7 +364,7 @@
             this.radTheoLoaiMon.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radTheoLoaiMon.AutoSize = true;
             this.radTheoLoaiMon.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radTheoLoaiMon.Location = new System.Drawing.Point(165, 63);
+            this.radTheoLoaiMon.Location = new System.Drawing.Point(154, 59);
             this.radTheoLoaiMon.Name = "radTheoLoaiMon";
             this.radTheoLoaiMon.Size = new System.Drawing.Size(100, 25);
             this.radTheoLoaiMon.TabIndex = 5;
@@ -325,7 +377,7 @@
             this.radTatCaMon.AutoSize = true;
             this.radTatCaMon.Checked = true;
             this.radTatCaMon.FontSize = MetroFramework.MetroCheckBoxSize.Tall;
-            this.radTatCaMon.Location = new System.Drawing.Point(165, 32);
+            this.radTatCaMon.Location = new System.Drawing.Point(154, 28);
             this.radTatCaMon.Name = "radTatCaMon";
             this.radTatCaMon.Size = new System.Drawing.Size(74, 25);
             this.radTatCaMon.TabIndex = 4;
@@ -338,7 +390,7 @@
             this.metroLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.metroLabel2.AutoSize = true;
             this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.Location = new System.Drawing.Point(13, 63);
+            this.metroLabel2.Location = new System.Drawing.Point(2, 59);
             this.metroLabel2.Name = "metroLabel2";
             this.metroLabel2.Size = new System.Drawing.Size(132, 25);
             this.metroLabel2.TabIndex = 2;
@@ -404,6 +456,16 @@
             this.metroLabel1.Text = "Chọn loại báo cáo";
             this.metroLabel1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // dtpDoanhThuEnd
+            // 
+            this.dtpDoanhThuEnd.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
+            this.dtpDoanhThuEnd.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpDoanhThuEnd.Location = new System.Drawing.Point(397, 355);
+            this.dtpDoanhThuEnd.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpDoanhThuEnd.Name = "dtpDoanhThuEnd";
+            this.dtpDoanhThuEnd.Size = new System.Drawing.Size(121, 29);
+            this.dtpDoanhThuEnd.TabIndex = 32;
+            // 
             // FrmBaoCao
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -435,11 +497,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel2;
         private MetroFramework.Controls.MetroPanel metroPanel5;
         private MetroFramework.Controls.MetroPanel metroPanel4;
-        private MetroFramework.Controls.MetroDateTime dtpDoanhThu;
-        private MetroFramework.Controls.MetroDateTime dtpHoaDonTheoThang;
-        private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoThang;
-        private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoTuan;
-        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroDateTime dtpTimeStart;
         private MetroFramework.Controls.MetroRadioButton radTatCaNguyenLieu;
         private MetroFramework.Controls.MetroLabel metroLabel5;
         private MetroFramework.Controls.MetroRadioButton radPhieuNhapTheoThang;
@@ -456,7 +514,16 @@
         private MetroFramework.Controls.MetroPanel metroPanel3;
         private MetroFramework.Controls.MetroLabel metroLabel1;
         private MetroFramework.Controls.MetroButton btnBaoCao;
-        private MetroFramework.Controls.MetroDateTime dtpPhieuNhapTheoThang;
+        private MetroFramework.Controls.MetroDateTime dtpPhieuNhapStart;
         private MetroFramework.Controls.MetroRadioButton radHoaDonMoiNhat;
+        private MetroFramework.Controls.MetroDateTime dtpDoanhThuStart;
+        private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoMoc;
+        private MetroFramework.Controls.MetroRadioButton radDoanhThuTheoNgay;
+        private MetroFramework.Controls.MetroLabel metroLabel6;
+        private MetroFramework.Controls.MetroDateTime dtpTimeEnd;
+        private MetroFramework.Controls.MetroDateTime dtpPhieuNhapEnd;
+        private MetroFramework.Controls.MetroRadioButton radPhieuNhapNew;
+        private MetroFramework.Controls.MetroDateTime dtpDoanhThuTheoNgay;
+        private MetroFramework.Controls.MetroDateTime dtpDoanhThuEnd;
     }
 }

@@ -10,9 +10,9 @@ namespace BUS
 {
     public static class TrendingMonBUS
     {
-        public static List<TrendingMonDTO> LayDanhSachMonDaBan()
+        public static List<TrendingMonDTO> LayDanhSachTop10MonDaBan()
         {
-            return TrendingMonDAO.LayDanhSachMonDaBan();
+            return TrendingMonDAO.LayDanhSachTop10MonDaBan();
         }
     }
 }

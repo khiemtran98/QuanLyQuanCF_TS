@@ -86,5 +86,10 @@ namespace BUS
         {
             return PhieuNhapDAO.LayDoanhSoPhieuNhapTheoNam(nam);
         }
+
+        public static List<ChiPhiDTO> LayChiPhiPhieuNhap()
+        {
+            return PhieuNhapDAO.LayChiPhiPhieuNhap();
+        }
     }
 }

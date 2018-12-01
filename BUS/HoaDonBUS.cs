@@ -41,9 +41,9 @@ namespace BUS
             return true;
         }
 
-        public static List<HoaDonDTO> LayDanhSachHoaDon()
+        public static List<DoanhThuDTO> LayDoanhThuHoaDon()
         {
-            return HoaDonDAO.LayDanhSachHoaDon();
+            return HoaDonDAO.LayDoanhThuHoaDon();
         }
 
         public static double LayDoanhSoHoaDonTheoThang(int thang)

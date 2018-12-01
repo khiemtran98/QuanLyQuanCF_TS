@@ -15,9 +15,9 @@ namespace BUS
             return rptHoaDon_TaiKhoanDAO.DoiMaNhanVienThanhTenNhanVien();
         }
 
-        public static List<rptHoaDon_TaiKhoanDTO> DoiMaNhanVienThanhTenNhanVien(DateTime timeLine)
+        public static List<rptHoaDon_TaiKhoanDTO> DoiMaNhanVienThanhTenNhanVien(DateTime timeStart, DateTime timeEnd)
         {
-            return rptHoaDon_TaiKhoanDAO.DoiMaNhanVienThanhTenNhanVien(timeLine);
+            return rptHoaDon_TaiKhoanDAO.DoiMaNhanVienThanhTenNhanVien(timeStart, timeEnd);
         }
 
         public static List<rptHoaDon_TaiKhoanDTO> LayHoaDonMaMoiNhat()
@@ -28,6 +28,11 @@ namespace BUS
         public static int LayMaMoiNhat()
         {
             return rptHoaDon_TaiKhoanDAO.LayMaHoaDonMoiNhat();
+        }
+
+        public static List<rptHoaDon_TaiKhoanDTO> DoiMaNhanVienThanhTenNhanVien(DateTime timeLine)
+        {
+            return rptHoaDon_TaiKhoanDAO.DoiMaNhanVienThanhTenNhanVien(timeLine);
         }
     }
 }

@@ -65,6 +65,8 @@
             this.panelLoiNhuan = new MetroFramework.Controls.MetroPanel();
             this.chartTrending = new LiveCharts.WinForms.PieChart();
             this.metroPanel14 = new MetroFramework.Controls.MetroPanel();
+            this.radTrendingTop10 = new MetroFramework.Controls.MetroRadioButton();
+            this.radTrendingTop5 = new MetroFramework.Controls.MetroRadioButton();
             this.lblT_MonBanChayNhat = new MetroFramework.Controls.MetroLabel();
             this.metroPanel15 = new MetroFramework.Controls.MetroPanel();
             this.lblT_MoTa = new MetroFramework.Controls.MetroLabel();
@@ -109,7 +111,6 @@
             this.tbcThongKeDoanhThu.TabIndex = 23;
             this.tbcThongKeDoanhThu.TextAlign = System.Drawing.ContentAlignment.TopLeft;
             this.tbcThongKeDoanhThu.UseSelectable = true;
-            this.tbcThongKeDoanhThu.Selecting += new System.Windows.Forms.TabControlCancelEventHandler(this.tbcThongKeDoanhThu_Selecting);
             // 
             // tbpTongQuat
             // 
@@ -575,6 +576,8 @@
             // 
             // metroPanel14
             // 
+            this.metroPanel14.Controls.Add(this.radTrendingTop10);
+            this.metroPanel14.Controls.Add(this.radTrendingTop5);
             this.metroPanel14.Controls.Add(this.lblT_MonBanChayNhat);
             this.metroPanel14.Dock = System.Windows.Forms.DockStyle.Top;
             this.metroPanel14.HorizontalScrollbarBarColor = true;
@@ -587,6 +590,28 @@
             this.metroPanel14.VerticalScrollbarBarColor = true;
             this.metroPanel14.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel14.VerticalScrollbarSize = 10;
+            // 
+            // radTrendingTop10
+            // 
+            this.radTrendingTop10.AutoSize = true;
+            this.radTrendingTop10.Location = new System.Drawing.Point(70, 5);
+            this.radTrendingTop10.Name = "radTrendingTop10";
+            this.radTrendingTop10.Size = new System.Drawing.Size(58, 15);
+            this.radTrendingTop10.TabIndex = 6;
+            this.radTrendingTop10.Text = "Top 10";
+            this.radTrendingTop10.UseSelectable = true;
+            this.radTrendingTop10.CheckedChanged += new System.EventHandler(this.radTop10_CheckedChanged);
+            // 
+            // radTrendingTop5
+            // 
+            this.radTrendingTop5.AutoSize = true;
+            this.radTrendingTop5.Location = new System.Drawing.Point(3, 5);
+            this.radTrendingTop5.Name = "radTrendingTop5";
+            this.radTrendingTop5.Size = new System.Drawing.Size(52, 15);
+            this.radTrendingTop5.TabIndex = 5;
+            this.radTrendingTop5.Text = "Top 5";
+            this.radTrendingTop5.UseSelectable = true;
+            this.radTrendingTop5.CheckedChanged += new System.EventHandler(this.radTop5_CheckedChanged);
             // 
             // lblT_MonBanChayNhat
             // 
@@ -666,6 +691,7 @@
             this.metroPanel11.ResumeLayout(false);
             this.panelLoiNhuan.ResumeLayout(false);
             this.metroPanel14.ResumeLayout(false);
+            this.metroPanel14.PerformLayout();
             this.metroPanel15.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -713,5 +739,7 @@
         private MetroFramework.Controls.MetroPanel metroPanel15;
         private MetroFramework.Controls.MetroLabel lblT_MoTa;
         private LiveCharts.WinForms.PieChart chartTrending;
+        private MetroFramework.Controls.MetroRadioButton radTrendingTop10;
+        private MetroFramework.Controls.MetroRadioButton radTrendingTop5;
     }
 }

@@ -108,6 +108,32 @@ namespace DAO
             return result is DBNull ? 0 : Convert.ToDouble(result);
         }
 
+        public static List<DoanhThuDTO> LayDoanhThuHoaDon()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT SUM(tong_tien) doanh_thu, MONTH(ngay_lap), YEAR(ngay_lap) FROM HoaDon WHERE trang_thai=1 AND YEAR(ngay_lap)=YEAR(GETDATE()) GROUP BY MONTH(ngay_lap), YEAR(ngay_lap) ORDER BY doanh_thu DESC";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<DoanhThuDTO> result = new List<DoanhThuDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    DoanhThuDTO dt = new DoanhThuDTO();
+                    dt.Thang = reader.GetInt32(1);
+                    dt.DoanhThu = reader.GetDouble(0);
+                    result.Add(dt);
+                }
+            }
+
+            connection.Close();
+
+            return result;
+        }
+
         // Lấy danh sách theo khoảng thời gian
         public static List<HoaDonDTO> GetListBillByTime(DateTime dateFrom, DateTime dateEnd)
         {

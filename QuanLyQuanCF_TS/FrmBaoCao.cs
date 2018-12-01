@@ -26,18 +26,18 @@ namespace QuanLyQuanCF_TS
             radTheoLoaiMon.Style = FrmMain.style;
             radGomNhomMon.Style = FrmMain.style;
 
-            dtpHoaDonTheoThang.Style = FrmMain.style;
+            dtpTimeStart.Style = FrmMain.style;
             radHoaDonMoiNhat.Style = FrmMain.style;
             radTatCaHoaDon.Style = FrmMain.style;
             radHoaDonTheoThang.Style = FrmMain.style;
 
-            dtpDoanhThu.Style = FrmMain.style;
-            radDoanhThuTheoTuan.Style = FrmMain.style;
-            radDoanhThuTheoThang.Style = FrmMain.style;
+            dtpDoanhThuStart.Style = FrmMain.style;
+            radDoanhThuTheoNgay.Style = FrmMain.style;
+            radDoanhThuTheoMoc.Style = FrmMain.style;
 
             radTatCaNguyenLieu.Style = FrmMain.style;
 
-            dtpPhieuNhapTheoThang.Style = FrmMain.style;
+            dtpPhieuNhapStart.Style = FrmMain.style;
             radTatCaPhieuNhap.Style = FrmMain.style;
             radPhieuNhapTheoThang.Style = FrmMain.style;
 
@@ -94,7 +94,7 @@ namespace QuanLyQuanCF_TS
             }
             else if (radHoaDonTheoThang.Checked)
             {
-                frm.HienThiTatCacHoaDonTheoThang((DateTime)dtpHoaDonTheoThang.Value);
+                frm.HienThiTatCacHoaDonTheoThang((DateTime)dtpTimeStart.Value,(DateTime)dtpTimeEnd.Value);
             }
             else if (radTatCaNguyenLieu.Checked)
             {
@@ -106,11 +106,23 @@ namespace QuanLyQuanCF_TS
             }
             else if (radPhieuNhapTheoThang.Checked)
             {
-                frm.HienThiTatCacPhieuNhapTheoThang((DateTime)dtpPhieuNhapTheoThang.Value);
+                frm.HienThiTatCacPhieuNhapTheoMoc((DateTime)dtpPhieuNhapStart.Value,(DateTime)dtpPhieuNhapEnd.Value);
             }
             else if(radHoaDonMoiNhat.Checked)
             {
                 frm.HienThiHoaDonMoiNhat();
+            }
+            else if (radPhieuNhapNew.Checked)
+            {
+                frm.HienThiPhieuNhapMoiNhat();
+            }
+            else if (radDoanhThuTheoNgay.Checked)
+            {
+                frm.DoanhThuTheoNgay((DateTime)dtpDoanhThuTheoNgay.Value);
+            }
+            else if (radDoanhThuTheoMoc.Checked)
+            {
+                frm.DoanhThuTheoMoc((DateTime)dtpDoanhThuStart.Value, (DateTime)dtpDoanhThuEnd.Value);
             }
             frm.Show();
         }

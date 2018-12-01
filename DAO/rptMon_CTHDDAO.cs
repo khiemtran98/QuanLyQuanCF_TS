@@ -64,7 +64,7 @@ namespace DAO
                     {
                         rptMon_CTHDDTO mon_CTHDDTO = new rptMon_CTHDDTO();
                         mon_CTHDDTO.MaCTHD = reader.GetInt32(0);
-                        mon_CTHDDTO.TenMon = reader.GetString(1);
+                        mon_CTHDDTO.TenMon = " - " + reader.GetString(1);
                         mon_CTHDDTO.SoLuong = reader.GetInt32(2);
                         mon_CTHDDTO.DonGia = reader.GetDouble(3);
                         mon_CTHDDTO.GhiChu = reader.GetString(4);

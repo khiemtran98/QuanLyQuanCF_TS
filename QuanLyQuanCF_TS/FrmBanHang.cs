@@ -243,6 +243,7 @@ namespace QuanLyQuanCF_TS
 
                     DataGridViewRow rowMon = new DataGridViewRow();
                     rowMon.DefaultCellStyle.BackColor = Color.AliceBlue;
+                    rowMon.DefaultCellStyle.Font = new Font("Arial", 11.25F, FontStyle.Bold);
                     rowMon.Height = 50;
                     rowMon.Tag = mon;
                     rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = mon.TenMon });
@@ -265,25 +266,74 @@ namespace QuanLyQuanCF_TS
                         return;
                     }
 
+                    //// Duyệt qua toàn bộ danh sách hoá đơn
+                    //foreach (DataGridViewRow rowHD in dgvHoaDon.Rows)
+                    //{
+                    //    if (rowHD.Tag.GetType() == typeof(MonDTO))
+                    //    {
+                    //        // Tăng số lương món trong hoá đơn nếu hoá đơn đã có món đó
+                    //        if (((MonDTO)rowHD.Tag).MaMon == mon.MaMon)
+                    //        {
+                    //            int soLuong = Convert.ToInt32(rowHD.Cells["colSoLuong"].Value);
+                    //            rowHD.Cells["colSoLuong"].Value = soLuong + 1;
+                    //            TinhThanhTien();
+                    //            return;
+                    //        }
+                    //    }
+                    //}
+
+                    //// Thêm món vào hoá đơn nếu hoá đơn chưa có món đó
+                    //dgvHoaDon.Rows.Add(rowMon);
+                    //lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");\
+
+                    bool added = false;
+
                     // Duyệt qua toàn bộ danh sách hoá đơn
-                    foreach (DataGridViewRow rowHD in dgvHoaDon.Rows)
+                    for (int i = 0; i < dgvHoaDon.Rows.Count; i++)
                     {
+                        DataGridViewRow rowHD = dgvHoaDon.Rows[i];
                         if (rowHD.Tag.GetType() == typeof(MonDTO))
                         {
-                            // Tăng số lương món trong hoá đơn nếu hoá đơn đã có món đó
+                            // Kiểm tra dòng i có trùng món đang thêm không
                             if (((MonDTO)rowHD.Tag).MaMon == mon.MaMon)
                             {
-                                int soLuong = Convert.ToInt32(rowHD.Cells["colSoLuong"].Value);
-                                rowHD.Cells["colSoLuong"].Value = soLuong + 1;
-                                TinhThanhTien();
-                                return;
+                                // Kiểm tra dòng tiếp theo có hay không
+                                if (i + 1 == dgvHoaDon.Rows.Count)
+                                {
+                                    int soLuong = Convert.ToInt32(rowHD.Cells["colSoLuong"].Value);
+                                    rowHD.Cells["colSoLuong"].Value = soLuong + 1;
+                                    TinhThanhTien();
+                                    dgvHoaDon.CurrentCell = rowHD.Cells[0];
+                                    return;
+                                }
+                                else
+                                {
+                                    // Nếu dòng i có topping thì kiểm tra tiếp
+                                    if (dgvHoaDon.Rows[i + 1].Tag.GetType() == typeof(ToppingDTO))
+                                    {
+                                        continue;
+                                    }
+                                    // Nếu dòng i không có topping thì tăng số lượng
+                                    else
+                                    {
+                                        int soLuong = Convert.ToInt32(rowHD.Cells["colSoLuong"].Value);
+                                        rowHD.Cells["colSoLuong"].Value = soLuong + 1;
+                                        TinhThanhTien();
+                                        dgvHoaDon.CurrentCell = rowHD.Cells[0];
+                                        added = true;
+                                    }
+                                }
                             }
                         }
                     }
 
-                    // Thêm món vào hoá đơn nếu hoá đơn chưa có món đó
-                    dgvHoaDon.Rows.Add(rowMon);
-                    lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                    // Thêm món vào hoá đơn nếu không có thao tác nào trong câu lệnh trên
+                    if (!added)
+                    {
+                        dgvHoaDon.Rows.Add(rowMon);
+                        dgvHoaDon.CurrentCell = rowMon.Cells[0];
+                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                    }
                 }
             }
         }
@@ -301,7 +351,7 @@ namespace QuanLyQuanCF_TS
                     rowTopping.DefaultCellStyle.BackColor = Color.Beige;
                     rowTopping.Height = 25;
                     rowTopping.Tag = topping;
-                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.TenTopping });
+                    rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = "  ⟿ " + topping.TenTopping });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = 1 });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = topping.GiaTien.ToString("#,##0đ") });
                     rowTopping.Cells.Add(new DataGridViewTextBoxCell { Value = string.Empty });
@@ -309,33 +359,79 @@ namespace QuanLyQuanCF_TS
                     // Lấy thứ tự topping cuối cùng của món đang chọn trong hoá đon
                     int toppingRangeIndex = LayThuTuToppingCuoiCungCuaMon();
 
+                    //// Duyệt qua toàn bộ các topping của món đang chọn
+                    //for (int i = dgvHoaDon.SelectedRows[0].Index + 1; i <= toppingRangeIndex; i++)
+                    //{
+                    //    if (dgvHoaDon.Rows[i].Tag.GetType() == typeof(ToppingDTO))
+                    //    {
+                    //        // Tăng số lượng topping
+                    //        if (((ToppingDTO)dgvHoaDon.Rows[i].Tag).MaTopping == topping.MaTopping)
+                    //        {
+                    //            // Chỉ tăng khi tổng số topping ít hơn số lượng món
+                    //            if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
+                    //            {
+                    //                int soLuong = Convert.ToInt32(dgvHoaDon.Rows[i].Cells["colSoLuong"].Value);
+                    //                dgvHoaDon.Rows[i].Cells["colSoLuong"].Value = soLuong + 1;
+                    //                TinhThanhTien();
+                    //                return;
+                    //            }
+                    //        }
+                    //    }
+                    //}
+
+                    //// Thêm topping vào món nếu chưa có
+                    //// Chỉ thêm khi tổng số topping ít hơn số lượng món
+                    //if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
+                    //{
+                    //    dgvHoaDon.Rows.Insert(dgvHoaDon.SelectedRows[0].Index + 1, rowTopping);
+                    //    TinhThanhTien();
+                    //    lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                    //}
+
                     // Duyệt qua toàn bộ các topping của món đang chọn
                     for (int i = dgvHoaDon.SelectedRows[0].Index + 1; i <= toppingRangeIndex; i++)
                     {
                         if (dgvHoaDon.Rows[i].Tag.GetType() == typeof(ToppingDTO))
                         {
-                            // Tăng số lượng topping
+                            // Tăng số lượng topping nếu đã có
                             if (((ToppingDTO)dgvHoaDon.Rows[i].Tag).MaTopping == topping.MaTopping)
                             {
-                                // Chỉ tăng khi tổng số topping ít hơn số lượng món
-                                if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
-                                {
-                                    int soLuong = Convert.ToInt32(dgvHoaDon.Rows[i].Cells["colSoLuong"].Value);
-                                    dgvHoaDon.Rows[i].Cells["colSoLuong"].Value = soLuong + 1;
-                                    TinhThanhTien();
-                                    return;
-                                }
+                                int soLuong = Convert.ToInt32(dgvHoaDon.Rows[i].Cells["colSoLuong"].Value);
+                                dgvHoaDon.Rows[i].Cells["colSoLuong"].Value = soLuong + 1;
+                                TinhThanhTien();
+                                return;
                             }
                         }
                     }
 
-                    // Thêm topping vào món nếu chưa có
-                    // Chỉ thêm khi tổng số topping ít hơn số lượng món
-                    if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) > TongSoLuongToppingCuaMonDangChon(toppingRangeIndex))
+                    // Thêm topping vào món nếu số lượng món = 1
+                    if (Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value) == 1)
                     {
                         dgvHoaDon.Rows.Insert(dgvHoaDon.SelectedRows[0].Index + 1, rowTopping);
                         TinhThanhTien();
                         lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+                    }
+                    else
+                    {
+                        // Giảm số lượng dòng hiện tại
+                        int soLuong = Convert.ToInt32(dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value);
+                        dgvHoaDon.SelectedRows[0].Cells["colSoLuong"].Value = soLuong - 1;
+
+                        // Tạo dòng mới sau đó
+                        DataGridViewRow newRow = (DataGridViewRow)dgvHoaDon.SelectedRows[0].Clone();
+                        newRow.Cells[0].Value = dgvHoaDon.SelectedRows[0].Cells["colTenMon"].Value;
+                        newRow.Cells[1].Value = 1;
+                        newRow.Cells[2].Value = dgvHoaDon.SelectedRows[0].Cells["colDonGia"].Value;
+                        newRow.Cells[3].Value = dgvHoaDon.SelectedRows[0].Cells["colGhiChu"].Value;
+                        dgvHoaDon.Rows.Insert(dgvHoaDon.SelectedRows[0].Index + 1, newRow);
+
+                        // Thêm topping sau dòng mới
+                        dgvHoaDon.Rows.Insert(dgvHoaDon.SelectedRows[0].Index + 2, rowTopping);
+                        TinhThanhTien();
+                        lblThanhTien.Text = TinhThanhTien().ToString("#,##0đ");
+
+                        // Chuyển đến dòng mới
+                        dgvHoaDon.CurrentCell = newRow.Cells[0];
                     }
                 }
             }

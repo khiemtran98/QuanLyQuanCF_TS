@@ -196,5 +196,31 @@ namespace DAO
 
             return result is DBNull ? 0 : Convert.ToDouble(result);
         }
+
+        public static List<ChiPhiDTO> LayChiPhiPhieuNhap()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT SUM(tong_tien) chi_phi, MONTH(ngay_lap), YEAR(ngay_lap) FROM PhieuNhap WHERE trang_thai=1 AND YEAR(ngay_lap)=YEAR(GETDATE()) GROUP BY MONTH(ngay_lap), YEAR(ngay_lap) ORDER BY chi_phi DESC";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<ChiPhiDTO> result = new List<ChiPhiDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    ChiPhiDTO cp = new ChiPhiDTO();
+                    cp.Thang = reader.GetInt32(1);
+                    cp.ChiPhi = reader.GetDouble(0);
+                    result.Add(cp);
+                }
+            }
+
+            connection.Close();
+
+            return result;
+        }
     }
 }

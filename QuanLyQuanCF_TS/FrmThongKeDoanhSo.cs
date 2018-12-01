@@ -59,13 +59,6 @@ namespace QuanLyQuanCF_TS
             Trending();
         }
 
-        private void tbcThongKeDoanhThu_Selecting(object sender, TabControlCancelEventArgs e)
-        {
-            TabPage current = (sender as TabControl).SelectedTab;
-            
-            
-        }
-
         // Bắt đầu khu vực Tổng quát
 
         private void TongQuat()
@@ -190,24 +183,41 @@ namespace QuanLyQuanCF_TS
         {
             Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0:#,##0đ} ({1:P})", chartPoint.Y, chartPoint.Participation);
             chartChiPhi.Series = new SeriesCollection { };
-            for (int i = 1; i <= 12; i++)
+            //for (int i = 1; i <= 12; i++)
+            //{
+            //    double value = PhieuNhapBUS.LayDoanhSoPhieuNhapTheoThang(i);
+            //    if (value != 0)
+            //    {
+            //        PieSeries pieSeries = new PieSeries();
+            //        pieSeries.Title = "Tháng " + i;
+            //        pieSeries.Values = new ChartValues<double> { value };
+            //        pieSeries.DataLabels = true;
+            //        pieSeries.LabelPoint = labelPoint;
+            //        pieSeries.PushOut = 5;
+            //        if (i == DateTime.Now.Month)
+            //        {
+            //            pieSeries.PushOut = 15;
+            //        }
+            //        chartChiPhi.Series.Add(pieSeries);
+            //    }
+            //}
+
+            List<ChiPhiDTO> lsChiPhi = PhieuNhapBUS.LayChiPhiPhieuNhap();
+            for (int i = 0; i < lsChiPhi.Count; i++)
             {
-                double value = PhieuNhapBUS.LayDoanhSoPhieuNhapTheoThang(i);
-                if (value != 0)
+                PieSeries pieSeries = new PieSeries();
+                pieSeries.Title = "Tháng " + lsChiPhi[i].Thang;
+                pieSeries.Values = new ChartValues<double> { lsChiPhi[i].ChiPhi };
+                pieSeries.DataLabels = true;
+                pieSeries.LabelPoint = labelPoint;
+                pieSeries.PushOut = 5;
+                if (i == DateTime.Now.Month)
                 {
-                    PieSeries pieSeries = new PieSeries();
-                    pieSeries.Title = "Tháng " + i;
-                    pieSeries.Values = new ChartValues<double> { value };
-                    pieSeries.DataLabels = true;
-                    pieSeries.LabelPoint = labelPoint;
-                    pieSeries.PushOut = 5;
-                    if (i == DateTime.Now.Month)
-                    {
-                        pieSeries.PushOut = 15;
-                    }
-                    chartChiPhi.Series.Add(pieSeries);
+                    pieSeries.PushOut = 15;
                 }
+                chartChiPhi.Series.Add(pieSeries);
             }
+
             if (chartChiPhi.Series.Count == 0)
             {
                 MetroLabel lblThongBao = new MetroLabel();
@@ -233,24 +243,41 @@ namespace QuanLyQuanCF_TS
         {
             Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0:#,##0đ} ({1:P})", chartPoint.Y, chartPoint.Participation);
             chartDoanhThu.Series = new SeriesCollection { };
-            for (int i = 1; i <= 12; i++)
+            //for (int i = 1; i <= 12; i++)
+            //{
+            //    double value = HoaDonBUS.LayDoanhSoHoaDonTheoThang(i);
+            //    if (value != 0)
+            //    {
+            //        PieSeries pieSeries = new PieSeries();
+            //        pieSeries.Title = "Tháng " + i;
+            //        pieSeries.Values = new ChartValues<double> { value };
+            //        pieSeries.DataLabels = true;
+            //        pieSeries.LabelPoint = labelPoint;
+            //        pieSeries.PushOut = 5;
+            //        if (i == DateTime.Now.Month)
+            //        {
+            //            pieSeries.PushOut = 15;
+            //        }
+            //        chartDoanhThu.Series.Add(pieSeries);
+            //    }
+            //}
+
+            List<DoanhThuDTO> lsDoanhThu = HoaDonBUS.LayDoanhThuHoaDon();
+            for (int i = 0; i < lsDoanhThu.Count; i++)
             {
-                double value = HoaDonBUS.LayDoanhSoHoaDonTheoThang(i);
-                if (value != 0)
+                PieSeries pieSeries = new PieSeries();
+                pieSeries.Title = "Tháng " + lsDoanhThu[i].Thang;
+                pieSeries.Values = new ChartValues<double> { lsDoanhThu[i].DoanhThu };
+                pieSeries.DataLabels = true;
+                pieSeries.LabelPoint = labelPoint;
+                pieSeries.PushOut = 5;
+                if (i == DateTime.Now.Month)
                 {
-                    PieSeries pieSeries = new PieSeries();
-                    pieSeries.Title = "Tháng " + i;
-                    pieSeries.Values = new ChartValues<double> { value };
-                    pieSeries.DataLabels = true;
-                    pieSeries.LabelPoint = labelPoint;
-                    pieSeries.PushOut = 5;
-                    if (i == DateTime.Now.Month)
-                    {
-                        pieSeries.PushOut = 15;
-                    }
-                    chartDoanhThu.Series.Add(pieSeries);
+                    pieSeries.PushOut = 15;
                 }
+                chartDoanhThu.Series.Add(pieSeries);
             }
+            
             if (chartDoanhThu.Series.Count == 0)
             {
                 MetroLabel lblThongBao = new MetroLabel();
@@ -274,46 +301,149 @@ namespace QuanLyQuanCF_TS
 
         private void Trending()
         {
-            Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0:#,##0} ({1:P})", chartPoint.Y, chartPoint.Participation);
-            chartTrending.Series = new SeriesCollection { };
-            List<TrendingMonDTO> lsTrendingMon = TrendingMonBUS.LayDanhSachMonDaBan();
-            foreach (TrendingMonDTO trendingMon in lsTrendingMon)
-            {
-                PieSeries pieSeries = new PieSeries();
-                pieSeries.Title = trendingMon.TenMon;
-                pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
-                pieSeries.DataLabels = true;
-                pieSeries.LabelPoint = labelPoint;
-                pieSeries.PushOut = 5;
-                chartTrending.Series.Add(pieSeries);
-            }
-            if (chartTrending.Series.Count == 0)
-            {
-                MetroLabel lblThongBao = new MetroLabel();
-                lblThongBao.Text = "Không có dữ liệu thống kê";
-                lblThongBao.FontSize = MetroFramework.MetroLabelSize.Tall;
-                lblThongBao.TextAlign = ContentAlignment.MiddleCenter;
-                lblThongBao.Dock = DockStyle.Fill;
-                panelLoiNhuan.Controls.Add(lblThongBao);
-                lblThongBao.BringToFront();
-                lblT_MonBanChayNhat.Text += "không có";
-            }
-            else
-            {
-                int index = 0;
-                int max = Convert.ToInt32(chartTrending.Series[index].Values[0]);
-                for (int i = 1; i < chartTrending.Series.Count; i++)
-                {
-                    if (Convert.ToInt32(chartTrending.Series[i].Values[0]) >= max)
-                    {
-                        index = i;
-                        max = Convert.ToInt32(chartTrending.Series[i].Values[0]);
-                    }
-                }
-                lblT_MonBanChayNhat.Text += chartTrending.Series[index].Title; ;
-            }
+            //Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0:#,##0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+            //chartTrending.Series = new SeriesCollection { };
+            //List<TrendingMonDTO> lsTrendingMon = TrendingMonBUS.LayDanhSachMonDaBan();
+
+            //foreach (TrendingMonDTO trendingMon in lsTrendingMon)
+            //{
+            //    PieSeries pieSeries = new PieSeries();
+            //    pieSeries.Title = trendingMon.TenMon;
+            //    pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
+            //    pieSeries.DataLabels = true;
+            //    pieSeries.LabelPoint = labelPoint;
+            //    pieSeries.PushOut = 5;
+            //    chartTrending.Series.Add(pieSeries);
+            //}
+            //if (chartTrending.Series.Count == 0)
+            //{
+            //    MetroLabel lblThongBao = new MetroLabel();
+            //    lblThongBao.Text = "Không có dữ liệu thống kê";
+            //    lblThongBao.FontSize = MetroFramework.MetroLabelSize.Tall;
+            //    lblThongBao.TextAlign = ContentAlignment.MiddleCenter;
+            //    lblThongBao.Dock = DockStyle.Fill;
+            //    panelLoiNhuan.Controls.Add(lblThongBao);
+            //    lblThongBao.BringToFront();
+            //    lblT_MonBanChayNhat.Text += "không có";
+            //}
+            //else
+            //{
+            //    int index = 0;
+            //    int max = Convert.ToInt32(chartTrending.Series[index].Values[0]);
+            //    for (int i = 1; i < chartTrending.Series.Count; i++)
+            //    {
+            //        if (Convert.ToInt32(chartTrending.Series[i].Values[0]) >= max)
+            //        {
+            //            index = i;
+            //            max = Convert.ToInt32(chartTrending.Series[i].Values[0]);
+            //        }
+            //    }
+            //    lblT_MonBanChayNhat.Text += chartTrending.Series[index].Title; ;
+            //}
             chartTrending.LegendLocation = LegendLocation.Right;
             lblT_MoTa.Text += DateTime.Now.Year + "";
+
+            radTrendingTop5.Checked = true;
+        }
+
+        private void radTop5_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radTrendingTop5.Checked)
+            {
+                chartTrending.Series.Clear();
+
+                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0:#,##0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+                chartTrending.Series = new SeriesCollection { };
+
+                List<TrendingMonDTO> lsTrendingMon = TrendingMonBUS.LayDanhSachTop10MonDaBan();
+                
+                int index;
+                if (lsTrendingMon.Count < 5)
+                {
+                    index = lsTrendingMon.Count;
+                }
+                else
+                {
+                    index = 5;
+                }
+
+                for (int i = 0; i < 5; i++)
+                {
+                    TrendingMonDTO trendingMon = lsTrendingMon[i];
+                    PieSeries pieSeries = new PieSeries();
+                    pieSeries.Title = trendingMon.TenMon;
+                    pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
+                    pieSeries.DataLabels = true;
+                    pieSeries.LabelPoint = labelPoint;
+                    pieSeries.PushOut = 5;
+                    chartTrending.Series.Add(pieSeries);
+                }
+                if (chartTrending.Series.Count == 0)
+                {
+                    MetroLabel lblThongBao = new MetroLabel();
+                    lblThongBao.Text = "Không có dữ liệu thống kê";
+                    lblThongBao.FontSize = MetroFramework.MetroLabelSize.Tall;
+                    lblThongBao.TextAlign = ContentAlignment.MiddleCenter;
+                    lblThongBao.Dock = DockStyle.Fill;
+                    panelLoiNhuan.Controls.Add(lblThongBao);
+                    lblThongBao.BringToFront();
+                    lblT_MonBanChayNhat.Text = "Món bán chạy nhất: không có";
+                }
+                else
+                {
+                    lblT_MonBanChayNhat.Text = "Món bán chạy nhất: " + chartTrending.Series[0].Title;
+                }
+            }
+        }
+
+        private void radTop10_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radTrendingTop10.Checked)
+            {
+                chartTrending.Series.Clear();
+
+                Func<ChartPoint, string> labelPoint = chartPoint => string.Format("{0:#,##0} ({1:P})", chartPoint.Y, chartPoint.Participation);
+                chartTrending.Series = new SeriesCollection { };
+
+                List<TrendingMonDTO> lsTrendingMon = TrendingMonBUS.LayDanhSachTop10MonDaBan();
+
+                int index;
+                if (lsTrendingMon.Count < 10)
+                {
+                    index = lsTrendingMon.Count;
+                }
+                else
+                {
+                    index = 10;
+                }
+
+                for (int i = 0; i < index; i++)
+                {
+                    TrendingMonDTO trendingMon = lsTrendingMon[i];
+                    PieSeries pieSeries = new PieSeries();
+                    pieSeries.Title = trendingMon.TenMon;
+                    pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
+                    pieSeries.DataLabels = true;
+                    pieSeries.LabelPoint = labelPoint;
+                    pieSeries.PushOut = 5;
+                    chartTrending.Series.Add(pieSeries);
+                }
+                if (chartTrending.Series.Count == 0)
+                {
+                    MetroLabel lblThongBao = new MetroLabel();
+                    lblThongBao.Text = "Không có dữ liệu thống kê";
+                    lblThongBao.FontSize = MetroFramework.MetroLabelSize.Tall;
+                    lblThongBao.TextAlign = ContentAlignment.MiddleCenter;
+                    lblThongBao.Dock = DockStyle.Fill;
+                    panelLoiNhuan.Controls.Add(lblThongBao);
+                    lblThongBao.BringToFront();
+                    lblT_MonBanChayNhat.Text = "Món bán chạy nhất: không có";
+                }
+                else
+                {
+                    lblT_MonBanChayNhat.Text = "Món bán chạy nhất: " + chartTrending.Series[0].Title;
+                }
+            }
         }
 
         // Kết thúc Khu vực Trending

@@ -6,32 +6,32 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>6.65088cm</Width>
+              <Width>2.8175cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.65088cm</Width>
+              <Width>2.5cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>6.65088cm</Width>
+              <Width>3.18792cm</Width>
             </TablixColumn>
             <TablixColumn>
-              <Width>2.81422cm</Width>
+              <Width>4.03458cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.73229cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox3">
+                    <Textbox Name="Textbox2">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Mã nguyên liệu</Value>
+                              <Value>Mã hóa đơn</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -44,7 +44,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox3</rd:DefaultName>
+                      <rd:DefaultName>Textbox2</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -61,14 +61,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox5">
+                    <Textbox Name="Textbox4">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Tên nguyên liệu</Value>
+                              <Value>Ngày lập</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -81,7 +81,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox5</rd:DefaultName>
+                      <rd:DefaultName>Textbox4</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -98,14 +98,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox7">
+                    <Textbox Name="Textbox6">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Số lượng</Value>
+                              <Value>Nhân viên lập</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -118,7 +118,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox7</rd:DefaultName>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -135,14 +135,14 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="Textbox9">
+                    <Textbox Name="Textbox8">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>Đơn vị tính</Value>
+                              <Value>Tổng tiền hóa đơn</Value>
                               <Style>
                                 <FontFamily>Segoe UI</FontFamily>
                                 <FontSize>12pt</FontSize>
@@ -155,7 +155,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <rd:DefaultName>Textbox8</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -173,18 +173,18 @@
               </TablixCells>
             </TablixRow>
             <TablixRow>
-              <Height>0.6cm</Height>
+              <Height>0.73229cm</Height>
               <TablixCells>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="MaNguyenLieu">
+                    <Textbox Name="MaHoaDon">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!MaNguyenLieu.Value</Value>
+                              <Value>=Fields!MaHoaDon.Value</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
@@ -193,7 +193,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>MaNguyenLieu</rd:DefaultName>
+                      <rd:DefaultName>MaHoaDon</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -209,23 +209,23 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="TenNguyenLieu">
+                    <Textbox Name="NgayLap">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!TenNguyenLieu.Value</Value>
+                              <Value>=CDate(Fields!NgayLap.Value).ToString("dd/MM/yyyy")</Value>
                               <Style />
                             </TextRun>
                           </TextRuns>
                           <Style>
-                            <TextAlign>Left</TextAlign>
+                            <TextAlign>Center</TextAlign>
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>TenNguyenLieu</rd:DefaultName>
+                      <rd:DefaultName>NgayLap</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -241,15 +241,49 @@
                 </TablixCell>
                 <TablixCell>
                   <CellContents>
-                    <Textbox Name="SoLuong">
+                    <Textbox Name="TenNhanVien">
                       <CanGrow>true</CanGrow>
                       <KeepTogether>true</KeepTogether>
                       <Paragraphs>
                         <Paragraph>
                           <TextRuns>
                             <TextRun>
-                              <Value>=Fields!SoLuong.Value</Value>
+                              <Value>=Fields!TenNhanVien.Value</Value>
                               <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style>
+                            <TextAlign>Center</TextAlign>
+                          </Style>
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>TenNhanVien</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>LightGrey</Color>
+                          <Style>Solid</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="TongTien">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!TongTien.Value</Value>
+                              <Style>
+                                <Format>#,##0 đ</Format>
+                              </Style>
                             </TextRun>
                           </TextRuns>
                           <Style>
@@ -257,39 +291,7 @@
                           </Style>
                         </Paragraph>
                       </Paragraphs>
-                      <rd:DefaultName>SoLuong</rd:DefaultName>
-                      <Style>
-                        <Border>
-                          <Color>LightGrey</Color>
-                          <Style>Solid</Style>
-                        </Border>
-                        <PaddingLeft>2pt</PaddingLeft>
-                        <PaddingRight>2pt</PaddingRight>
-                        <PaddingTop>2pt</PaddingTop>
-                        <PaddingBottom>2pt</PaddingBottom>
-                      </Style>
-                    </Textbox>
-                  </CellContents>
-                </TablixCell>
-                <TablixCell>
-                  <CellContents>
-                    <Textbox Name="DonViTinh">
-                      <CanGrow>true</CanGrow>
-                      <KeepTogether>true</KeepTogether>
-                      <Paragraphs>
-                        <Paragraph>
-                          <TextRuns>
-                            <TextRun>
-                              <Value>=Fields!DonViTinh.Value</Value>
-                              <Style />
-                            </TextRun>
-                          </TextRuns>
-                          <Style>
-                            <TextAlign>Left</TextAlign>
-                          </Style>
-                        </Paragraph>
-                      </Paragraphs>
-                      <rd:DefaultName>DonViTinh</rd:DefaultName>
+                      <rd:DefaultName>TongTien</rd:DefaultName>
                       <Style>
                         <Border>
                           <Color>LightGrey</Color>
@@ -325,10 +327,11 @@
             </TablixMember>
           </TablixMembers>
         </TablixRowHierarchy>
-        <DataSetName>DSNGUYENLIEU</DataSetName>
-        <Top>0.49953cm</Top>
-        <Height>1.2cm</Height>
-        <Width>22.76686cm</Width>
+        <DataSetName>DSHOADONDOANHTHUTHEOMOC</DataSetName>
+        <Top>0.3937cm</Top>
+        <Left>2.32516cm</Left>
+        <Height>1.46458cm</Height>
+        <Width>12.54cm</Width>
         <Style>
           <Border>
             <Style>None</Style>
@@ -336,28 +339,103 @@
           <TextAlign>Center</TextAlign>
         </Style>
       </Tablix>
+      <Textbox Name="TongTien1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Tổng doanh thu</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>13pt</FontSize>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>: </Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>13pt</FontSize>
+                </Style>
+              </TextRun>
+              <TextRun>
+                <Value>=Sum(Fields!TongTien.Value, "DSHOADONDOANHTHUTHEOMOC")</Value>
+                <Style>
+                  <FontFamily>Segoe UI</FontFamily>
+                  <FontSize>13pt</FontSize>
+                  <Format>#,##0 đ</Format>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style>
+              <TextAlign>Center</TextAlign>
+            </Style>
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>TongTien1</rd:DefaultName>
+        <Top>2.2134cm</Top>
+        <Left>10.00188cm</Left>
+        <Height>0.78521cm</Height>
+        <Width>6.50812cm</Width>
+        <ZIndex>1</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Line Name="Line2">
+        <Top>2.07229cm</Top>
+        <Left>0cm</Left>
+        <Height>0cm</Height>
+        <Width>16.51cm</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
+      <Line Name="Line3">
+        <Top>0.14111cm</Top>
+        <Left>0cm</Left>
+        <Height>0cm</Height>
+        <Width>16.51cm</Width>
+        <ZIndex>3</ZIndex>
+        <Style>
+          <Border>
+            <Style>Solid</Style>
+          </Border>
+        </Style>
+      </Line>
     </ReportItems>
-    <Height>0.88541in</Height>
+    <Height>1.25in</Height>
     <Style />
   </Body>
-  <Width>8.96333in</Width>
+  <Width>6.5in</Width>
   <Page>
     <PageHeader>
-      <Height>1.64042cm</Height>
+      <Height>1.77271cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
-        <Textbox Name="Textbox14">
+        <Textbox Name="Textbox11">
           <CanGrow>true</CanGrow>
           <KeepTogether>true</KeepTogether>
           <Paragraphs>
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>DANH SÁCH NGUYÊN LIỆU</Value>
+                  <Value>DOANH THU THEO MỐC</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>18pt</FontSize>
+                    <FontSize>20pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -367,14 +445,16 @@
               </Style>
             </Paragraph>
           </Paragraphs>
-          <rd:DefaultName>Textbox14</rd:DefaultName>
-          <Top>0.37042cm</Top>
-          <Height>0.94396cm</Height>
-          <Width>22.76686cm</Width>
+          <rd:DefaultName>Textbox11</rd:DefaultName>
+          <Top>0.42761cm</Top>
+          <Left>0cm</Left>
+          <Height>1.04979cm</Height>
+          <Width>16.51cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
             </Border>
+            <VerticalAlign>Middle</VerticalAlign>
             <PaddingLeft>2pt</PaddingLeft>
             <PaddingRight>2pt</PaddingRight>
             <PaddingTop>2pt</PaddingTop>
@@ -389,7 +469,7 @@
       </Style>
     </PageHeader>
     <PageFooter>
-      <Height>1.45521cm</Height>
+      <Height>1.50812cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -400,7 +480,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>="Trang "&amp;Globals!PageNumber</Value>
+                  <Value>="Trang " &amp;Globals!PageNumber</Value>
                   <Style />
                 </TextRun>
               </TextRuns>
@@ -410,9 +490,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.14111cm</Top>
+          <Top>0.45406cm</Top>
+          <Left>0cm</Left>
           <Height>0.6cm</Height>
-          <Width>22.76686cm</Width>
+          <Width>16.51cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -446,44 +527,48 @@
         <DataProvider>System.Data.DataSet</DataProvider>
         <ConnectString>/* Local Connection */</ConnectString>
       </ConnectionProperties>
-      <rd:DataSourceID>e5702a5e-5f1c-4150-9361-974fe5be2669</rd:DataSourceID>
+      <rd:DataSourceID>d085ef8c-a938-412c-9c4c-e5708195f9d8</rd:DataSourceID>
     </DataSource>
   </DataSources>
   <DataSets>
-    <DataSet Name="DSNGUYENLIEU">
+    <DataSet Name="DSHOADONDOANHTHUTHEOMOC">
       <Query>
         <DataSourceName>DTO</DataSourceName>
         <CommandText>/* Local Query */</CommandText>
       </Query>
       <Fields>
-        <Field Name="DonViTinh">
-          <DataField>DonViTinh</DataField>
-          <rd:TypeName>System.String</rd:TypeName>
-        </Field>
-        <Field Name="MaNguyenLieu">
-          <DataField>MaNguyenLieu</DataField>
+        <Field Name="MaHoaDon">
+          <DataField>MaHoaDon</DataField>
           <rd:TypeName>System.Int32</rd:TypeName>
         </Field>
-        <Field Name="SoLuong">
-          <DataField>SoLuong</DataField>
-          <rd:TypeName>System.Int32</rd:TypeName>
+        <Field Name="NgayLap">
+          <DataField>NgayLap</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
         </Field>
-        <Field Name="TenNguyenLieu">
-          <DataField>TenNguyenLieu</DataField>
+        <Field Name="TenNhanVien">
+          <DataField>TenNhanVien</DataField>
           <rd:TypeName>System.String</rd:TypeName>
         </Field>
-        <Field Name="TrangThai">
-          <DataField>TrangThai</DataField>
-          <rd:TypeName>System.Boolean</rd:TypeName>
+        <Field Name="TienMat">
+          <DataField>TienMat</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TienThua">
+          <DataField>TienThua</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
+        </Field>
+        <Field Name="TongTien">
+          <DataField>TongTien</DataField>
+          <rd:TypeName>System.Double</rd:TypeName>
         </Field>
       </Fields>
       <rd:DataSetInfo>
         <rd:DataSetName>DTO</rd:DataSetName>
-        <rd:TableName>NguyenLieuDTO</rd:TableName>
-        <rd:ObjectDataSourceType>DTO.NguyenLieuDTO, DTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
+        <rd:TableName>rptHoaDon_TaiKhoanDTO</rd:TableName>
+        <rd:ObjectDataSourceType>DTO.rptHoaDon_TaiKhoanDTO, DTO, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null</rd:ObjectDataSourceType>
       </rd:DataSetInfo>
     </DataSet>
   </DataSets>
   <rd:ReportUnitType>Cm</rd:ReportUnitType>
-  <rd:ReportID>c932c32e-e1c7-447d-a040-b285d2a2cc91</rd:ReportID>
+  <rd:ReportID>6a5014e6-b66b-4a2d-bab4-ebc8abbad6ba</rd:ReportID>
 </Report>
