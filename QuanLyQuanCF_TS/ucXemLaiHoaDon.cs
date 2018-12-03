@@ -47,6 +47,122 @@ namespace QuanLyQuanCF_TS
         {
             dgvHoaDon.Rows.Clear();
             DataGridViewRowCollection collection = ((FrmBanHang)this.ParentForm).LayThongTinHoaDon();
+
+            bool valid = true;
+            bool isLastRow = false;
+            for (int i = 0; i < collection.Count; i++)
+            {
+                DataGridViewRow row1 = collection[i];
+                if (row1.Tag.GetType() == typeof(MonDTO))
+                {
+                    for (int j = i + 1; j < collection.Count; j++)
+                    {
+                        valid = true;
+                        DataGridViewRow row2 = collection[j];
+                        if (row2.Tag.GetType() == typeof(MonDTO))
+                        {
+                            isLastRow = true;
+                            for (int z = j + 1; z < collection.Count; z++)
+                            {
+                                isLastRow = false;
+                                valid = true;
+                                DataGridViewRow row3 = collection[z];
+                                if (row3.Tag.GetType() == typeof(ToppingDTO))
+                                {
+                                    valid = false;
+                                    j++;
+                                    break;
+                                }
+                                else
+                                {
+                                    valid = true;
+                                    break;
+                                }
+                            }
+                            if (((MonDTO)row1.Tag).MaMon == ((MonDTO)row2.Tag).MaMon && valid)
+                            {
+                                int soLuong1 = Convert.ToInt32(row1.Cells["colSoLuong"].Value);
+                                int soLuong2 = Convert.ToInt32(row2.Cells["colSoLuong"].Value);
+                                row1.Cells["colSoLuong"].Value = soLuong1 + soLuong2; ;
+                                collection.Remove(row2);
+                                j--;
+                            }
+                        }
+                        else
+                        {
+                            break;
+                        }
+                    }
+                }
+            }
+
+            //DataGridViewRow rTemp = null;
+            //for (int i = 0; i < collection.Count; i++)
+            //{
+            //    if (i + 1 < collection.Count)
+            //    {
+            //        if (collection[i+1].Tag.GetType() == typeof(ToppingDTO))
+            //        {
+            //            continue;
+            //        }
+            //        else
+            //        {
+            //            DataGridViewRow row1 = collection[i];
+            //            if (row1.Tag.GetType() == typeof(MonDTO))
+            //            {
+            //                for (int j = i + 1; j < collection.Count; j++)
+            //                {
+            //                    DataGridViewRow row2 = collection[j];
+            //                    if (row2.Tag.GetType() == typeof(MonDTO))
+            //                    {
+            //                        if (j + 1 < collection.Count)
+            //                        {
+            //                            if (collection[j + 1].Tag.GetType() == typeof(MonDTO))
+            //                            {
+            //                                if (((MonDTO)row1.Tag).MaMon == ((MonDTO)row2.Tag).MaMon)
+            //                                {
+            //                                    int soLuong1 = Convert.ToInt32(row1.Cells["colSoLuong"].Value);
+            //                                    int soLuong2 = Convert.ToInt32(row2.Cells["colSoLuong"].Value);
+            //                                    row1.Cells["colSoLuong"].Value = soLuong1 + soLuong2; ;
+            //                                    rTemp = row1;
+            //                                    collection.Remove(row2);
+            //                                }
+            //                            }
+            //                        }
+            //                        else
+            //                        {
+            //                            if (((MonDTO)row1.Tag).MaMon == ((MonDTO)row2.Tag).MaMon)
+            //                            {
+            //                                int soLuong1 = Convert.ToInt32(row1.Cells["colSoLuong"].Value);
+            //                                int soLuong2 = Convert.ToInt32(row2.Cells["colSoLuong"].Value);
+            //                                row1.Cells["colSoLuong"].Value = soLuong1 + soLuong2; ;
+            //                                collection.Remove(row2);
+            //                            }
+            //                        }
+            //                    }
+            //                    else
+            //                    {
+            //                        continue;
+            //                    }
+            //                }
+            //            }
+            //        }
+            //    }
+            //    else
+            //    {
+            //        if (rTemp != null)
+            //        {
+            //            if (((MonDTO)collection[i].Tag).MaMon == ((MonDTO)rTemp.Tag).MaMon)
+            //            {
+            //                int soLuong1 = Convert.ToInt32(collection[i].Cells["colSoLuong"].Value);
+            //                int soLuong2 = Convert.ToInt32(rTemp.Cells["colSoLuong"].Value);
+            //                rTemp.Cells["colSoLuong"].Value = soLuong1 + soLuong2; ;
+            //                collection.Remove(collection[i]);
+            //            }
+            //        }
+            //    }
+            //}
+
             foreach (DataGridViewRow row in collection)
             {
                 DataGridViewRow r = (DataGridViewRow)row.Clone();

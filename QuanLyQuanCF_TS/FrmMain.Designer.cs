@@ -531,7 +531,7 @@
             this.mQuanLyMon.Size = new System.Drawing.Size(298, 147);
             this.mQuanLyMon.Style = MetroFramework.MetroColorStyle.Silver;
             this.mQuanLyMon.TabIndex = 9;
-            this.mQuanLyMon.Text = "Quản lý món";
+            this.mQuanLyMon.Text = "Quản lý dữ liệu món";
             this.mQuanLyMon.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mQuanLyMon.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.coffee_to_go;
             this.mQuanLyMon.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -539,7 +539,7 @@
             this.mQuanLyMon.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.mQuanLyMon.UseSelectable = true;
             this.mQuanLyMon.UseTileImage = true;
-            this.mQuanLyMon.Click += new System.EventHandler(this.mQuanLyMon_Click);
+            this.mQuanLyMon.Click += new System.EventHandler(this.mQuanLyDuLieuMon_Click);
             // 
             // metroPanel5
             // 
@@ -569,7 +569,7 @@
             this.mtQuanLyTaiKhoan.Size = new System.Drawing.Size(298, 147);
             this.mtQuanLyTaiKhoan.Style = MetroFramework.MetroColorStyle.Silver;
             this.mtQuanLyTaiKhoan.TabIndex = 8;
-            this.mtQuanLyTaiKhoan.Text = "Quản lý tài khoản";
+            this.mtQuanLyTaiKhoan.Text = "Quản lý dữ liệu tài khoản";
             this.mtQuanLyTaiKhoan.TextAlign = System.Drawing.ContentAlignment.BottomCenter;
             this.mtQuanLyTaiKhoan.TileImage = global::QuanLyQuanCF_TS.Properties.Resources.user_account;
             this.mtQuanLyTaiKhoan.TileImageAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -577,7 +577,7 @@
             this.mtQuanLyTaiKhoan.TileTextFontWeight = MetroFramework.MetroTileTextWeight.Regular;
             this.mtQuanLyTaiKhoan.UseSelectable = true;
             this.mtQuanLyTaiKhoan.UseTileImage = true;
-            this.mtQuanLyTaiKhoan.Click += new System.EventHandler(this.mtQuanLyTaiKhoan_Click);
+            this.mtQuanLyTaiKhoan.Click += new System.EventHandler(this.mtQuanLyDuLieuTaiKhoan_Click);
             // 
             // metroPanel4
             // 

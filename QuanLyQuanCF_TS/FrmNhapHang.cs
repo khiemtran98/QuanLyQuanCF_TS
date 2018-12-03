@@ -310,7 +310,13 @@ namespace QuanLyQuanCF_TS
 
             if (PhieuNhapBUS.LuuPhieuNhap(phieuNhap, lsCTPhieuNhap))
             {
-                MessageBox.Show("Lưu phiếu nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                if (DialogResult.Yes == MessageBox.Show("Bạn có muốn in phiếu nhập?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+                {
+                    FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
+                    frm.HienThiPhieuNhapMoiNhat();
+                    FrmMain.Instance.TopMost = false;
+                    frm.Show();
+                }
                 LamMoi();
                 dgvCTPhieuNhap.Rows.Clear();
             }

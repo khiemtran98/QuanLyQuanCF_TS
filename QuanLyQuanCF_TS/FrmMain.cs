@@ -26,7 +26,6 @@ namespace QuanLyQuanCF_TS
             gp.AddEllipse(0, 0, picHinh.Width - 3, picHinh.Height - 3);
             Region rg = new Region(gp);
             picHinh.Region = rg;
-
             picHinh.BackColor = Color.WhiteSmoke;
         }
 
@@ -196,28 +195,28 @@ namespace QuanLyQuanCF_TS
             MoFormDangNhap();
         }
 
-        private void mtQuanLyTaiKhoan_Click(object sender, EventArgs e)
+        private void mtQuanLyDuLieuTaiKhoan_Click(object sender, EventArgs e)
         {
-            lblTieuDe.Text = "Quản lý tài khoản";
+            lblTieuDe.Text = "Quản lý dữ liệu tài khoản";
             Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
-            FrmQuanLyTaiKhoan m_FrmQuanLyTaiKhoan = FrmQuanLyTaiKhoan.Instance;
-            f = m_FrmQuanLyTaiKhoan;
-            m_FrmQuanLyTaiKhoan.MdiParent = this;
-            m_FrmQuanLyTaiKhoan.Dock = DockStyle.Fill;
-            m_FrmQuanLyTaiKhoan.Show();
+            FrmQuanLyDuLieuTaiKhoan m_FrmQuanLyDuLieuTaiKhoan = FrmQuanLyDuLieuTaiKhoan.Instance;
+            f = m_FrmQuanLyDuLieuTaiKhoan;
+            m_FrmQuanLyDuLieuTaiKhoan.MdiParent = this;
+            m_FrmQuanLyDuLieuTaiKhoan.Dock = DockStyle.Fill;
+            m_FrmQuanLyDuLieuTaiKhoan.Show();
         }
 
-        private void mQuanLyMon_Click(object sender, EventArgs e)
+        private void mQuanLyDuLieuMon_Click(object sender, EventArgs e)
         {
-            lblTieuDe.Text = "Quản lý món";
+            lblTieuDe.Text = "Quản lý dữ liệu món";
             Cursor.Current = Cursors.WaitCursor;
             XuLyChuyenForm();
-            FrmQuanLyMon m_FrmQuanLyMon = FrmQuanLyMon.Instance;
-            f = m_FrmQuanLyMon;
-            m_FrmQuanLyMon.MdiParent = this;
-            m_FrmQuanLyMon.Dock = DockStyle.Fill;
-            m_FrmQuanLyMon.Show();
+            FrmQuanLyDuLieuMon m_FrmQuanLyDuLieuMon = FrmQuanLyDuLieuMon.Instance;
+            f = m_FrmQuanLyDuLieuMon;
+            m_FrmQuanLyDuLieuMon.MdiParent = this;
+            m_FrmQuanLyDuLieuMon.Dock = DockStyle.Fill;
+            m_FrmQuanLyDuLieuMon.Show();
 
             Label lbl = new Label();
             lbl.Dock = DockStyle.Left;

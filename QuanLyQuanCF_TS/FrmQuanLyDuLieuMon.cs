@@ -15,9 +15,9 @@ using BUS;
 
 namespace QuanLyQuanCF_TS
 {
-    public partial class FrmQuanLyMon : MetroFramework.Forms.MetroForm
+    public partial class FrmQuanLyDuLieuMon : MetroFramework.Forms.MetroForm
     {
-        public FrmQuanLyMon()
+        public FrmQuanLyDuLieuMon()
         {
             InitializeComponent();
 
@@ -75,15 +75,15 @@ namespace QuanLyQuanCF_TS
             #endregion
         }
 
-        private static FrmQuanLyMon _Instance = null;
+        private static FrmQuanLyDuLieuMon _Instance = null;
 
-        public static FrmQuanLyMon Instance
+        public static FrmQuanLyDuLieuMon Instance
         {
             get
             {
                 if (_Instance == null)
                 {
-                    _Instance = new FrmQuanLyMon();
+                    _Instance = new FrmQuanLyDuLieuMon();
                 }
                 return _Instance;
             }
@@ -330,16 +330,19 @@ namespace QuanLyQuanCF_TS
 
         private void btnKhoiPhucLoaiMon_Click(object sender, EventArgs e)
         {
-            if (LoaiMonBUS.KhoiPhucLoaiMon(Convert.ToInt32(txtMaLoaiMon.Text)))
+            if (DialogResult.Yes == MessageBox.Show("Khôi phục loại món sẽ đồng thời Khôi phục tất cả món thuộc loại món này. Điều này có thể khôi phục lại các món bạn không mong muốn.\n\nBạn có chắc chắn muốn khôi phục loại món này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
             {
-                MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                QLLM_LoadDanhSachLoaiMonDaXoa();
-                LamMoiLoaiMon();
-                dgvLoaiMon.ClearSelection();
-            }
-            else
-            {
-                MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (LoaiMonBUS.KhoiPhucLoaiMon(Convert.ToInt32(txtMaLoaiMon.Text)))
+                {
+                    MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    QLLM_LoadDanhSachLoaiMonDaXoa();
+                    LamMoiLoaiMon();
+                    dgvLoaiMon.ClearSelection();
+                }
+                else
+                {
+                    MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -537,25 +540,28 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private void btnKhoiPhucLoaiTopping_Click(object sender, EventArgs e)
+        {
+            if (DialogResult.Yes == MessageBox.Show("Khôi phục loại topping sẽ đồng thời Khôi phục tất cả topping thuộc loại topping này. Điều này có thể khôi phục lại các topping bạn không mong muốn.\n\nBạn có chắc chắn muốn khôi phục loại topping này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
+            {
+                if (LoaiToppingBUS.KhoiPhucLoaiTopping(Convert.ToInt32(txtMaLoaiTopping.Text)))
+                {
+                    MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    QLLT_LoadDachSachLoaiToppingDaXoa();
+                    LamMoiLoaiTopping();
+                    dgvLoaiTopping.ClearSelection();
+                }
+                else
+                {
+                    MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
+
         private void btnLamMoiLoaiTopping_Click(object sender, EventArgs e)
         {
             LamMoiLoaiTopping();
             dgvLoaiTopping.ClearSelection();
-        }
-
-        private void btnKhoiPhucLoaiTopping_Click(object sender, EventArgs e)
-        {
-            if (LoaiToppingBUS.KhoiPhucLoaiTopping(Convert.ToInt32(txtMaLoaiTopping.Text)))
-            {
-                MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                QLLT_LoadDachSachLoaiToppingDaXoa();
-                LamMoiLoaiTopping();
-                dgvLoaiTopping.ClearSelection();
-            }
-            else
-            {
-                MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
         }
 
         private void btnTimKiemLoaiTopping_Click(object sender, EventArgs e)
@@ -610,7 +616,7 @@ namespace QuanLyQuanCF_TS
 
         private void dgvLoaiTopping_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (dgvLoaiMon.SelectedRows.Count > 0)
+            if (dgvLoaiTopping.SelectedRows.Count > 0)
             {
                 LamMoiLoaiTopping(false);
 

@@ -16,9 +16,9 @@ using MetroFramework;
 
 namespace QuanLyQuanCF_TS
 {
-    public partial class FrmQuanLyTaiKhoan : MetroFramework.Forms.MetroForm
+    public partial class FrmQuanLyDuLieuTaiKhoan : MetroFramework.Forms.MetroForm
     {
-        public FrmQuanLyTaiKhoan()
+        public FrmQuanLyDuLieuTaiKhoan()
         {
             InitializeComponent();
 
@@ -58,17 +58,23 @@ namespace QuanLyQuanCF_TS
             btnSuaTaiKhoan.Style = FrmMain.style;
             btnKhoiPhucTaiKhoan.Style = FrmMain.style;
             #endregion
+
+            System.Drawing.Drawing2D.GraphicsPath gp = new System.Drawing.Drawing2D.GraphicsPath();
+            gp.AddEllipse(0, 0, picHinh.Width - 3, picHinh.Height - 3);
+            Region rg = new Region(gp);
+            picHinh.Region = rg;
+            picHinh.BackColor = Color.WhiteSmoke;
         }
 
-        private static FrmQuanLyTaiKhoan _Instance = null;
+        private static FrmQuanLyDuLieuTaiKhoan _Instance = null;
 
-        public static FrmQuanLyTaiKhoan Instance
+        public static FrmQuanLyDuLieuTaiKhoan Instance
         {
             get
             {
                 if (_Instance == null)
                 {
-                    _Instance = new FrmQuanLyTaiKhoan();
+                    _Instance = new FrmQuanLyDuLieuTaiKhoan();
                 }
                 return _Instance;
             }
@@ -185,6 +191,13 @@ namespace QuanLyQuanCF_TS
                     btnSuaLoaiTaiKhoan.Enabled = false;
                     btnXoaLoaiTaiKhoan.Enabled = false;
                 }
+                else
+                {
+                    if (lnkDSLoaiTaiKhoan.AccessibleName == "DSLoaiTaiKhoan")
+                    {
+                        gpbChucNang.Enabled = true;
+                    }
+                }
             }
         }
 
@@ -195,7 +208,6 @@ namespace QuanLyQuanCF_TS
             btnXoaLoaiTaiKhoan.Enabled = !state;
             btnSuaLoaiTaiKhoan.Enabled = !state;
             btnKhoiPhucLoaiTaiKhoan.Enabled = !state;
-            gpbChucNang.Enabled = true;
             foreach (Control ctrl in gpbChucNang.Controls)
             {
                 if (ctrl.GetType() == typeof(MetroCheckBox))
@@ -278,11 +290,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnXoaLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (txtMaLoaiTaiKhoan.Text == "1")
-            {
-                MessageBox.Show("Đây là loại tài khoản mặc định và không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
-            }
+            //if (txtMaLoaiTaiKhoan.Text == "1")
+            //{
+            //    MessageBox.Show("Đây là loại tài khoản mặc định và không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //    return;
+            //}
             if (DialogResult.Yes == MessageBox.Show("Xoá loại tài khoản sẽ đồng thời xoá tất cả tài khoản thuộc loại tài khoản này.\n\nBạn có chắc chắn muốn xoá loại tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Warning))
             {
                 if (TaiKhoanBUS.LayThongTinTaiKhoan(TaiKhoanBUS.LayTaiKhoanDangNhap()).LoaiTaiKhoan == int.Parse(txtMaLoaiTaiKhoan.Text))
@@ -311,12 +323,11 @@ namespace QuanLyQuanCF_TS
             loaiTaiKhoan.TenLoaiTaiKhoan = txtTenLoaiTaiKhoan.Text;
             loaiTaiKhoan.TrangThai = true;
 
-            if (txtMaLoaiTaiKhoan.Text == "1")
-            {
-                MessageBox.Show("Đây là loại tài khoản mặc định và không thể sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
-            }
-
+            //if (txtMaLoaiTaiKhoan.Text == "1")
+            //{
+            //    MessageBox.Show("Đây là loại tài khoản mặc định và không thể sửa!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //    return;
+            //}
             if (LoaiTaiKhoanBUS.SuaLoaiTaiKhoan(loaiTaiKhoan, LayDanhSachCheckBoxChucNang(false)))
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -340,16 +351,19 @@ namespace QuanLyQuanCF_TS
 
         private void btnKhoiPhucLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (LoaiTaiKhoanBUS.KhoiPhucLoaiTaiKhoan(Convert.ToInt32(txtMaLoaiTaiKhoan.Text)))
+            if (DialogResult.Yes == MessageBox.Show("Khôi phục loại tài khoản sẽ đồng thời Khôi phục tất cả tài khoản thuộc loại tài khoản này. Điều này có thể khôi phục lại các tài khoản bạn không mong muốn.\n\nBạn có chắc chắn muốn khôi phục loại tài khoản này không?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Information))
             {
-                MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa();
-                LamMoiLoaiTaiKhoan();
-                dgvLoaiTaiKhoan.ClearSelection();
-            }
-            else
-            {
-                MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                if (LoaiTaiKhoanBUS.KhoiPhucLoaiTaiKhoan(Convert.ToInt32(txtMaLoaiTaiKhoan.Text)))
+                {
+                    MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    QLLTK_LoadDanhSachLoaiTaiKhoanDaXoa();
+                    LamMoiLoaiTaiKhoan();
+                    dgvLoaiTaiKhoan.ClearSelection();
+                }
+                else
+                {
+                    MessageBox.Show("Khôi phục thất bại!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
             }
         }
 
@@ -461,6 +475,12 @@ namespace QuanLyQuanCF_TS
                 dtpNgayBatDau.Value = Convert.ToDateTime(dgvTaiKhoan.SelectedRows[0].Cells["colNgayBatDau"].Value);
                 cmbLoaiTaiKhoan.SelectedValue = Convert.ToInt32(dgvTaiKhoan.SelectedRows[0].Cells["colLoaiTaiKhoan"].Value);
                 picHinh.Image = (Bitmap)dgvTaiKhoan.SelectedRows[0].Cells["colHinh"].FormattedValue;
+
+                if (txtMaTaiKhoan.Text == "1")
+                {
+                    cmbLoaiTaiKhoan.Enabled = false;
+                    btnXoaTaiKhoan.Enabled = false;
+                }
             }
         }
 
@@ -535,11 +555,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnXoaTaiKhoan_Click(object sender, EventArgs e)
         {
-            if (int.Parse(txtMaTaiKhoan.Text) == 1)
-            {
-                MessageBox.Show("Đây là tài khoản mặc định và không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
-                return;
-            }
+            //if (int.Parse(txtMaTaiKhoan.Text) == 1)
+            //{
+            //    MessageBox.Show("Đây là tài khoản mặc định và không thể xoá!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+            //    return;
+            //}
             if (int.Parse(txtMaTaiKhoan.Text) == TaiKhoanBUS.LayTaiKhoanDangNhap())
             {
                 MessageBox.Show("Tài khoản này đang được dùng để đăng nhập!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
@@ -630,6 +650,7 @@ namespace QuanLyQuanCF_TS
             txtMaTaiKhoan.Text = txtHoTen.Text = txtMatKhau.Text = string.Empty;
             dtpNgayBatDau.Value = DateTime.Now;
             //cmbLoaiTaiKhoan.SelectedIndex = 0;
+            cmbLoaiTaiKhoan.Enabled = true;
             picHinh.Image = Properties.Resources.default_account;
             btnThemTaiKhoan.Enabled = state;
             btnXoaTaiKhoan.Enabled = !state;

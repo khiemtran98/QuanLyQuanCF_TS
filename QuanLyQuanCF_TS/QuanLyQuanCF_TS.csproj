@@ -153,17 +153,17 @@
     <Compile Include="FrmQuanLyKho.Designer.cs">
       <DependentUpon>FrmQuanLyKho.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLyMon.cs">
+    <Compile Include="FrmQuanLyDuLieuMon.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLyMon.Designer.cs">
-      <DependentUpon>FrmQuanLyMon.cs</DependentUpon>
+    <Compile Include="FrmQuanLyDuLieuMon.Designer.cs">
+      <DependentUpon>FrmQuanLyDuLieuMon.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmQuanLyTaiKhoan.cs">
+    <Compile Include="FrmQuanLyDuLieuTaiKhoan.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmQuanLyTaiKhoan.Designer.cs">
-      <DependentUpon>FrmQuanLyTaiKhoan.cs</DependentUpon>
+    <Compile Include="FrmQuanLyDuLieuTaiKhoan.Designer.cs">
+      <DependentUpon>FrmQuanLyDuLieuTaiKhoan.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmThongKeDoanhSo.cs">
       <SubType>Form</SubType>
@@ -225,11 +225,11 @@
     <EmbeddedResource Include="FrmQuanLyKho.resx">
       <DependentUpon>FrmQuanLyKho.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLyMon.resx">
-      <DependentUpon>FrmQuanLyMon.cs</DependentUpon>
+    <EmbeddedResource Include="FrmQuanLyDuLieuMon.resx">
+      <DependentUpon>FrmQuanLyDuLieuMon.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmQuanLyTaiKhoan.resx">
-      <DependentUpon>FrmQuanLyTaiKhoan.cs</DependentUpon>
+    <EmbeddedResource Include="FrmQuanLyDuLieuTaiKhoan.resx">
+      <DependentUpon>FrmQuanLyDuLieuTaiKhoan.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmThongKeDoanhSo.resx">
       <DependentUpon>FrmThongKeDoanhSo.cs</DependentUpon>

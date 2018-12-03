@@ -1,6 +1,6 @@
 ﻿namespace QuanLyQuanCF_TS
 {
-    partial class FrmQuanLyTaiKhoan
+    partial class FrmQuanLyDuLieuTaiKhoan
     {
         /// <summary>
         /// Required designer variable.
@@ -32,7 +32,7 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuanLyTaiKhoan));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuanLyDuLieuTaiKhoan));
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.tbcQuanLyTaiKhoan = new MetroFramework.Controls.MetroTabControl();
             this.tbpLoaiTaiKhoan = new System.Windows.Forms.TabPage();
@@ -597,8 +597,6 @@
             // 
             // gpbChucNang
             // 
-            this.gpbChucNang.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
             this.gpbChucNang.AutoSize = true;
             this.gpbChucNang.BackColor = System.Drawing.Color.White;
             this.gpbChucNang.Controls.Add(this.chkCaiDat);
@@ -614,7 +612,7 @@
             this.gpbChucNang.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gpbChucNang.Location = new System.Drawing.Point(165, 129);
             this.gpbChucNang.Name = "gpbChucNang";
-            this.gpbChucNang.Size = new System.Drawing.Size(444, 165);
+            this.gpbChucNang.Size = new System.Drawing.Size(317, 165);
             this.gpbChucNang.TabIndex = 23;
             this.gpbChucNang.TabStop = false;
             // 
@@ -1372,7 +1370,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNgayBatDau.Enabled = false;
             this.dtpNgayBatDau.Location = new System.Drawing.Point(130, 162);
-            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
             this.dtpNgayBatDau.Size = new System.Drawing.Size(352, 30);
             this.dtpNgayBatDau.TabIndex = 12;
@@ -1416,7 +1414,7 @@
             this.openFileDialog1.Filter = resources.GetString("openFileDialog1.Filter");
             this.openFileDialog1.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog1_FileOk);
             // 
-            // FrmQuanLyTaiKhoan
+            // FrmQuanLyDuLieuTaiKhoan
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -1427,7 +1425,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Movable = false;
-            this.Name = "FrmQuanLyTaiKhoan";
+            this.Name = "FrmQuanLyDuLieuTaiKhoan";
             this.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
             this.Resizable = false;
             this.Tag = " ";

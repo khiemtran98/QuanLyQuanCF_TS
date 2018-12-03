@@ -210,10 +210,13 @@ namespace QuanLyQuanCF_TS
                 pieSeries.Values = new ChartValues<double> { lsChiPhi[i].ChiPhi };
                 pieSeries.DataLabels = true;
                 pieSeries.LabelPoint = labelPoint;
-                pieSeries.PushOut = 5;
                 if (i == DateTime.Now.Month)
                 {
                     pieSeries.PushOut = 15;
+                }
+                else
+                {
+                    pieSeries.PushOut = 5;
                 }
                 chartChiPhi.Series.Add(pieSeries);
             }
@@ -270,10 +273,13 @@ namespace QuanLyQuanCF_TS
                 pieSeries.Values = new ChartValues<double> { lsDoanhThu[i].DoanhThu };
                 pieSeries.DataLabels = true;
                 pieSeries.LabelPoint = labelPoint;
-                pieSeries.PushOut = 5;
                 if (i == DateTime.Now.Month)
                 {
                     pieSeries.PushOut = 15;
+                }
+                else
+                {
+                    pieSeries.PushOut = 5;
                 }
                 chartDoanhThu.Series.Add(pieSeries);
             }

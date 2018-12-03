@@ -321,6 +321,7 @@ namespace QuanLyQuanCF_TS
                                         TinhThanhTien();
                                         dgvHoaDon.CurrentCell = rowHD.Cells[0];
                                         added = true;
+                                        break;
                                     }
                                 }
                             }
