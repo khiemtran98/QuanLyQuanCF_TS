@@ -49,7 +49,6 @@ namespace QuanLyQuanCF_TS
             DataGridViewRowCollection collection = ((FrmBanHang)this.ParentForm).LayThongTinHoaDon();
 
             bool valid = true;
-            bool isLastRow = false;
             for (int i = 0; i < collection.Count; i++)
             {
                 DataGridViewRow row1 = collection[i];
@@ -61,10 +60,8 @@ namespace QuanLyQuanCF_TS
                         DataGridViewRow row2 = collection[j];
                         if (row2.Tag.GetType() == typeof(MonDTO))
                         {
-                            isLastRow = true;
                             for (int z = j + 1; z < collection.Count; z++)
                             {
-                                isLastRow = false;
                                 valid = true;
                                 DataGridViewRow row3 = collection[z];
                                 if (row3.Tag.GetType() == typeof(ToppingDTO))

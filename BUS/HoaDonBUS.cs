@@ -63,15 +63,30 @@ namespace BUS
         }
 
         // Lấy toàn bộ danh sách hóa đơn
-        public static List<HoaDonDTO> GetEntireListBill()
-        {
-            return HoaDonDAO.LayDanhSachHoaDon();
-        }
+        //public static List<HoaDonDTO> GetEntireListBill()
+        //{
+        //    return HoaDonDAO.LayDanhSachHoaDon();
+        //}
 
         // Lấy danh sách hóa đơn theo mốc thời gian 
         public static List<HoaDonDTO> GetListBillTimeline(DateTime dateTimeline)
         {
             return HoaDonDAO.GetListBillTimeline(dateTimeline);
+        }
+        
+        public static List<HoaDonDTO> LayLichSuHoaDon(int maNhanVien, bool trangThai = true)
+        {
+            return HoaDonDAO.LayLichSuHoaDon(maNhanVien, trangThai);
+        }
+
+        public static bool XoaHoaDon(int maHoaDon)
+        {
+            return HoaDonDAO.XoaHoaDon(maHoaDon);
+        }
+
+        public static bool KhoiPhucHoaDon(int maHoaDon)
+        {
+            return HoaDonDAO.KhoiPhucHoaDon(maHoaDon);
         }
     }
 }

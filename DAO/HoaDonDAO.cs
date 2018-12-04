@@ -49,35 +49,75 @@ namespace DAO
             return false;
         }
 
-        public static List<HoaDonDTO> LayDanhSachHoaDon()
+        public static bool XoaHoaDon(int maHoaDon)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon";
+            string query = "UPDATE HoaDon SET trang_thai=0 WHERE ma_hoa_don=@maHoaDon";
             SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maHoaDon", System.Data.SqlDbType.Int, 0).Value = maHoaDon;
 
             connection.Open();
-            SqlDataReader reader = command.ExecuteReader();
 
-            List<HoaDonDTO> result = new List<HoaDonDTO>();
-            if (reader.HasRows)
-            {
-                while (reader.Read())
-                {
-                    HoaDonDTO hd = new HoaDonDTO();
-                    hd.MaHoaDon = reader.GetInt32(0);
-                    hd.NhanVienLap = reader.GetInt32(1);
-                    hd.NgayLap = reader.GetDateTime(2);
-                    hd.TongTien = reader.GetDouble(3);
-                    hd.TienMat = reader.GetDouble(4);
-                    hd.TienThua = reader.GetDouble(5);
-                    hd.TrangThai = reader.GetBoolean(6);
-                    result.Add(hd);
-                }
-            }
+            int reader = command.ExecuteNonQuery();
 
             connection.Close();
-            return result;
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
         }
+
+        public static bool KhoiPhucHoaDon(int maHoaDon)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "UPDATE HoaDon SET trang_thai=1 WHERE ma_hoa_don=@maHoaDon";
+            SqlCommand command = new SqlCommand(query, connection);
+            command.Parameters.Add("@maHoaDon", System.Data.SqlDbType.Int, 0).Value = maHoaDon;
+
+            connection.Open();
+
+            int reader = command.ExecuteNonQuery();
+
+            connection.Close();
+
+            if (reader == 1)
+            {
+                return true;
+            }
+            return false;
+        }
+
+        //public static List<HoaDonDTO> LayDanhSachHoaDon()
+        //{
+        //    SqlConnection connection = DataProvider.GetConnection();
+        //    string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon";
+        //    SqlCommand command = new SqlCommand(query, connection);
+
+        //    connection.Open();
+        //    SqlDataReader reader = command.ExecuteReader();
+
+        //    List<HoaDonDTO> result = new List<HoaDonDTO>();
+        //    if (reader.HasRows)
+        //    {
+        //        while (reader.Read())
+        //        {
+        //            HoaDonDTO hd = new HoaDonDTO();
+        //            hd.MaHoaDon = reader.GetInt32(0);
+        //            hd.NhanVienLap = reader.GetInt32(1);
+        //            hd.NgayLap = reader.GetDateTime(2);
+        //            hd.TongTien = reader.GetDouble(3);
+        //            hd.TienMat = reader.GetDouble(4);
+        //            hd.TienThua = reader.GetDouble(5);
+        //            hd.TrangThai = reader.GetBoolean(6);
+        //            result.Add(hd);
+        //        }
+        //    }
+
+        //    connection.Close();
+        //    return result;
+        //}
 
         public static double LayDoanhSoHoaDonTheoThang(int thang)
         {
@@ -138,12 +178,10 @@ namespace DAO
         public static List<HoaDonDTO> GetListBillByTime(DateTime dateFrom, DateTime dateEnd)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon WHERE (DATEPART(YYYY, ngay_lap) >= YEAR(@dateFrom) AND DATEPART(YYYY, ngay_lap) <= YEAR(@dateEnd)) AND (DATEPART(MM, ngay_lap) >= MONTH(@dateFrom) AND DATEPART(MM, ngay_lap) <= MONTH(@dateEnd)) AND (DATEPART(DD, ngay_lap) >= DAY(@dateFrom) AND DATEPART(DD, ngay_lap) <= DAY(@dateEnd)) ";
-            SqlCommand command = new SqlCommand();
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon WHERE ngay_lap BETWEEN @dateFrom AND @dateEnd";
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@dateFrom", System.Data.SqlDbType.DateTime, 0).Value = dateFrom;
             command.Parameters.Add("@dateEnd", System.Data.SqlDbType.DateTime, 0).Value = dateEnd;
-            command.CommandText = query;
-            command.Connection = connection;
 
             connection.Open();
             SqlDataReader reader = command.ExecuteReader();
@@ -175,8 +213,50 @@ namespace DAO
             SqlConnection connection = DataProvider.GetConnection();
             string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon WHERE DATEPART(YYYY, ngay_lap) = YEAR(@timeLine) AND DATEPART(MM, ngay_lap) = MONTH(@timeLine) AND DATEPART(DD, ngay_lap) = DAY(@timeLine)";
 
-            SqlCommand command = new SqlCommand();
+            SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@timeLine", System.Data.SqlDbType.DateTime, 0).Value = timeLine;
+
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+
+            List<HoaDonDTO> result = new List<HoaDonDTO>();
+            if (reader.HasRows)
+            {
+                while (reader.Read())
+                {
+                    HoaDonDTO hd = new HoaDonDTO();
+                    hd.MaHoaDon = reader.GetInt32(0);
+                    hd.NhanVienLap = reader.GetInt32(1);
+                    hd.NgayLap = reader.GetDateTime(2);
+                    hd.TongTien = reader.GetDouble(3);
+                    hd.TienMat = reader.GetDouble(4);
+                    hd.TienThua = reader.GetDouble(5);
+                    hd.TrangThai = reader.GetBoolean(6);
+                    result.Add(hd);
+                }
+            }
+
+            connection.Close();
+            return result;
+        }
+
+        public static List<HoaDonDTO> LayLichSuHoaDon(int maNhanVien, bool trangThai)
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT ma_hoa_don, nhan_vien_lap, ngay_lap, tong_tien, tien_mat, tien_thua, trang_thai FROM HoaDon WHERE nhan_vien_lap=@nhanVienLap AND DAY(ngay_lap)=DAY(@ngayLap) AND MONTH(ngay_lap)=MONTH(@ngayLap) AND YEAR(ngay_lap)=YEAR(@ngayLap)";
+            SqlCommand command = new SqlCommand();
+            command.Parameters.Add("@nhanVienLap", System.Data.SqlDbType.Int, 0).Value = maNhanVien;
+            command.Parameters.Add("@ngayLap", System.Data.SqlDbType.DateTime, 0).Value = DateTime.Now;
+
+            if (trangThai)
+            {
+                query += " AND trang_thai=1";
+            }
+            else
+            {
+                query += " AND trang_thai=0";
+            }
+
             command.CommandText = query;
             command.Connection = connection;
 

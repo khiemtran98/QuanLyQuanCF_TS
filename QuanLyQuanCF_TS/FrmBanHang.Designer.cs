@@ -337,7 +337,7 @@
             this.dgvHoaDon.RowsDefaultCellStyle = dataGridViewCellStyle7;
             this.dgvHoaDon.RowTemplate.Height = 50;
             this.dgvHoaDon.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvHoaDon.Size = new System.Drawing.Size(533, 190);
+            this.dgvHoaDon.Size = new System.Drawing.Size(533, 183);
             this.dgvHoaDon.TabIndex = 4;
             this.dgvHoaDon.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellClick);
             this.dgvHoaDon.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvHoaDon_CellValueChanged);

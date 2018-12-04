@@ -365,6 +365,23 @@ namespace QuanLyQuanCF_TS
             m_frmBanHang.MdiParent = this;
             m_frmBanHang.Dock = DockStyle.Fill;
             m_frmBanHang.Show();
+
+            Label lbl = new Label();
+            lbl.Dock = DockStyle.Left;
+            lbl.Text = "Điều hướng nhanh";
+            lbl.ForeColor = Color.CadetBlue;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
+            panelBaoCao.Controls.Add(lbl);
+            lbl.BringToFront();
+
+            MaterialFlatButton btnLichSuHoaDon = new MaterialFlatButton();
+            btnLichSuHoaDon.Dock = DockStyle.Left;
+            btnLichSuHoaDon.Text = "Lịch sử hoá đơn";
+            btnLichSuHoaDon.Name = "LichSuHoaDon";
+            btnLichSuHoaDon.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnLichSuHoaDon);
+            btnLichSuHoaDon.BringToFront();
         }
 
         private void mBaoCao_Click(object sender, EventArgs e)
@@ -394,6 +411,17 @@ namespace QuanLyQuanCF_TS
         private void btn_Click(object sender, EventArgs e)
         {
             string btnName = ((MaterialFlatButton)sender).Name;
+
+            if (btnName == "LichSuHoaDon")
+            {
+                FrmLichSuHoaDon frmLichSuHoaDon = FrmLichSuHoaDon.Instance;
+                frmLichSuHoaDon.MinimizeBox = false;
+
+                FrmMain.Instance.TopMost = false;
+                frmLichSuHoaDon.ShowDialog();
+                return;
+            }
+
             FrmHienThiBaoCao frm = new FrmHienThiBaoCao();
             if (btnName == "TatCaMon")
             {

@@ -13,7 +13,7 @@ namespace DAO
         public static List<TrendingMonDTO> LayDanhSachTop10MonDaBan()
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT TOP 10 ten_mon, SUM(so_luong) tong_so_luong FROM CTHoaDon INNER JOIN Mon ON mon=ma_mon GROUP BY ten_mon ORDER BY tong_so_luong DESC";
+            string query = "SELECT TOP 10 ten_mon, SUM(so_luong) tong_so_luong FROM CTHoaDon INNER JOIN Mon ON mon=ma_mon INNER JOIN HoaDon ON HoaDon.ma_hoa_don=CTHoaDon.hoa_don WHERE HoaDon.trang_thai=1 GROUP BY ten_mon ORDER BY tong_so_luong DESC";
             SqlCommand command = new SqlCommand(query, connection);
 
             connection.Open();

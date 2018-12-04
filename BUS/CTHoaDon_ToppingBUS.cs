@@ -10,9 +10,9 @@ namespace BUS
 {
     public static class CTHoaDon_ToppingBUS
     {
-        public static List<CTHoaDon_ToppingDTO> LayDanhSachCTHD_Topping(int maCTHD)
-        {
-            return CTHoaDon_ToppingDAO.LayDanhSachCTHD_Topping(maCTHD);
-        }
+        //public static List<CTHoaDon_ToppingDTO> LayDanhSachCTHD_Topping(int maCTHD)
+        //{
+        //    return CTHoaDon_ToppingDAO.LayDanhSachCTHD_Topping(maCTHD);
+        //}
     }
 }

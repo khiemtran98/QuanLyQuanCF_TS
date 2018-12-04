@@ -451,6 +451,7 @@ namespace QuanLyQuanCF_TS
                     LSPN_LoadDanhSachPhieuNhap();
                     dgvCTPhieuNhap.DataSource = null;
                     dgvPhieuNhap.ClearSelection();
+                    btnXoaPhieuNhap.Enabled = false;
                 }
                 else
                 {
@@ -476,6 +477,7 @@ namespace QuanLyQuanCF_TS
                 LSPN_LoadDanhSachPhieuNhapDaXoa();
                 dgvCTPhieuNhap.DataSource = null;
                 dgvPhieuNhap.ClearSelection();
+                btnKhoiPhucPhieuNhap.Enabled = false;
             }
             else
             {
@@ -483,8 +485,20 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        // Kết thúc Khu vực chức năng Xem lịch sử phiếu nhập
+        private void dgvPhieuNhap_DataSourceChanged(object sender, EventArgs e)
+        {
+            if (dgvPhieuNhap.Rows.Count > 0)
+            {
+                btnXoaPhieuNhap.Enabled = true;
+                btnKhoiPhucPhieuNhap.Enabled = true;
+            }
+            else
+            {
+                btnXoaPhieuNhap.Enabled = false;
+                btnKhoiPhucPhieuNhap.Enabled = false;
+            }
+        }
 
-        // ----------------------------------------------
+        // Kết thúc Khu vực chức năng Xem lịch sử phiếu nhập
     }
 }

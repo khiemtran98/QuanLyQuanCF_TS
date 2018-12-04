@@ -15,14 +15,9 @@ namespace BUS
             return CTHoaDonDAO.LayMaCTHoaDonMoiNhat();
         }
 
-        public static List<CTHoaDonDTO> LayDanhSachCTHD(int maHoaDon)
-        {
-            return CTHoaDonDAO.LayDanhSachCTHD(maHoaDon);
-        }
-
-        public static List<CTHoaDonDTO> LayDanhSachCTHD_Report(int maHD)
-        {
-            return CTHoaDonDAO.LayDanhSachCTHD_Report(maHD);
-        }
+        //public static List<CTHoaDonDTO> LayDanhSachCTHD(int maHoaDon)
+        //{
+        //    return CTHoaDonDAO.LayDanhSachCTHD(maHoaDon);
+        //}
     }
 }

@@ -129,6 +129,12 @@
     <Compile Include="FrmHienThiBaoCao.Designer.cs">
       <DependentUpon>FrmHienThiBaoCao.cs</DependentUpon>
     </Compile>
+    <Compile Include="FrmLichSuHoaDon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FrmLichSuHoaDon.Designer.cs">
+      <DependentUpon>FrmLichSuHoaDon.cs</DependentUpon>
+    </Compile>
     <Compile Include="FrmMain.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +218,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHienThiBaoCao.resx">
       <DependentUpon>FrmHienThiBaoCao.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="FrmLichSuHoaDon.resx">
+      <DependentUpon>FrmLichSuHoaDon.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
