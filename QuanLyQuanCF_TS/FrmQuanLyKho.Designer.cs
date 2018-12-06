@@ -30,6 +30,9 @@
         {
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
@@ -39,9 +42,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.metroPanel1 = new MetroFramework.Controls.MetroPanel();
             this.tbcQuanLyKho = new MetroFramework.Controls.MetroTabControl();
             this.tbpNguyenLieu = new MetroFramework.Controls.MetroTabPage();
@@ -49,6 +49,10 @@
             this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel19 = new MetroFramework.Controls.MetroPanel();
             this.dgvNguyenLieu = new System.Windows.Forms.DataGridView();
+            this.colMaNguyenLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenNguyenLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colDonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.lnkDSNguyenLieu = new MetroFramework.Controls.MetroLink();
             this.metroPanel18 = new MetroFramework.Controls.MetroPanel();
@@ -93,17 +97,13 @@
             this.metroPanel10 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
             this.dgvCTPhieuNhap = new System.Windows.Forms.DataGridView();
-            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.colCTPN_MaNguyenLieu = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.colCTPN_SoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCTPN_DonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCTPN_DonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colCTPN_GhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colMaNguyenLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenNguyenLieu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colDonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.metroPanel1.SuspendLayout();
             this.tbcQuanLyKho.SuspendLayout();
             this.tbpNguyenLieu.SuspendLayout();
@@ -283,6 +283,43 @@
             this.dgvNguyenLieu.TabIndex = 2;
             this.dgvNguyenLieu.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvNguyenLieu_CellClick);
             // 
+            // colMaNguyenLieu
+            // 
+            this.colMaNguyenLieu.DataPropertyName = "MaNguyenLieu";
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaNguyenLieu.DefaultCellStyle = dataGridViewCellStyle2;
+            this.colMaNguyenLieu.HeaderText = "Mã nguyên liệu";
+            this.colMaNguyenLieu.Name = "colMaNguyenLieu";
+            this.colMaNguyenLieu.ReadOnly = true;
+            this.colMaNguyenLieu.Width = 140;
+            // 
+            // colTenNguyenLieu
+            // 
+            this.colTenNguyenLieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTenNguyenLieu.DataPropertyName = "TenNguyenLieu";
+            this.colTenNguyenLieu.HeaderText = "Tên nguyên liệu";
+            this.colTenNguyenLieu.Name = "colTenNguyenLieu";
+            this.colTenNguyenLieu.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.DataPropertyName = "SoLuong";
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle3.Format = "#,###.0";
+            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle3;
+            this.colSoLuong.HeaderText = "Số lượng tồn kho";
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            // 
+            // colDonViTinh
+            // 
+            this.colDonViTinh.DataPropertyName = "DonViTinh";
+            dataGridViewCellStyle4.Format = "#,##0đ";
+            this.colDonViTinh.DefaultCellStyle = dataGridViewCellStyle4;
+            this.colDonViTinh.HeaderText = "Đơn vị tính";
+            this.colDonViTinh.Name = "colDonViTinh";
+            this.colDonViTinh.ReadOnly = true;
+            // 
             // metroPanel4
             // 
             this.metroPanel4.Controls.Add(this.lnkDSNguyenLieu);
@@ -383,10 +420,11 @@
             this.metroPanel15.Controls.Add(this.panelChucNangDSNguyenLieuDaXoa);
             this.metroPanel15.Controls.Add(this.panelChucNangDSNguyenLieu);
             this.metroPanel15.Controls.Add(this.metroPanel17);
+            this.metroPanel15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel15.HorizontalScrollbarBarColor = true;
             this.metroPanel15.HorizontalScrollbarHighlightOnWheel = false;
             this.metroPanel15.HorizontalScrollbarSize = 10;
-            this.metroPanel15.Location = new System.Drawing.Point(3, 7);
+            this.metroPanel15.Location = new System.Drawing.Point(0, 0);
             this.metroPanel15.Name = "metroPanel15";
             this.metroPanel15.Size = new System.Drawing.Size(500, 508);
             this.metroPanel15.TabIndex = 0;
@@ -973,7 +1011,7 @@
             this.dtpNgayNhap.Enabled = false;
             this.dtpNgayNhap.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpNgayNhap.Location = new System.Drawing.Point(331, 59);
-            this.dtpNgayNhap.MinimumSize = new System.Drawing.Size(0, 29);
+            this.dtpNgayNhap.MinimumSize = new System.Drawing.Size(4, 29);
             this.dtpNgayNhap.Name = "dtpNgayNhap";
             this.dtpNgayNhap.Size = new System.Drawing.Size(139, 30);
             this.dtpNgayNhap.TabIndex = 3;
@@ -1079,34 +1117,6 @@
             this.dgvCTPhieuNhap.TabIndex = 3;
             this.dgvCTPhieuNhap.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvCTPhieuNhap_RowsAdded);
             // 
-            // metroPanel7
-            // 
-            this.metroPanel7.Controls.Add(this.metroLabel2);
-            this.metroPanel7.Dock = System.Windows.Forms.DockStyle.Top;
-            this.metroPanel7.HorizontalScrollbarBarColor = true;
-            this.metroPanel7.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel7.HorizontalScrollbarSize = 10;
-            this.metroPanel7.Location = new System.Drawing.Point(0, 0);
-            this.metroPanel7.Name = "metroPanel7";
-            this.metroPanel7.Size = new System.Drawing.Size(321, 107);
-            this.metroPanel7.TabIndex = 3;
-            this.metroPanel7.VerticalScrollbarBarColor = true;
-            this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel7.VerticalScrollbarSize = 10;
-            // 
-            // metroLabel2
-            // 
-            this.metroLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.metroLabel2.Location = new System.Drawing.Point(4, 18);
-            this.metroLabel2.Name = "metroLabel2";
-            this.metroLabel2.Size = new System.Drawing.Size(314, 34);
-            this.metroLabel2.TabIndex = 2;
-            this.metroLabel2.Text = "CHI TIẾT PHIẾU NHẬP";
-            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // colCTPN_MaNguyenLieu
             // 
             this.colCTPN_MaNguyenLieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
@@ -1156,42 +1166,33 @@
             this.colCTPN_GhiChu.Name = "colCTPN_GhiChu";
             this.colCTPN_GhiChu.ReadOnly = true;
             // 
-            // colMaNguyenLieu
+            // metroPanel7
             // 
-            this.colMaNguyenLieu.DataPropertyName = "MaNguyenLieu";
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaNguyenLieu.DefaultCellStyle = dataGridViewCellStyle2;
-            this.colMaNguyenLieu.HeaderText = "Mã nguyên liệu";
-            this.colMaNguyenLieu.Name = "colMaNguyenLieu";
-            this.colMaNguyenLieu.ReadOnly = true;
-            this.colMaNguyenLieu.Width = 140;
+            this.metroPanel7.Controls.Add(this.metroLabel2);
+            this.metroPanel7.Dock = System.Windows.Forms.DockStyle.Top;
+            this.metroPanel7.HorizontalScrollbarBarColor = true;
+            this.metroPanel7.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel7.HorizontalScrollbarSize = 10;
+            this.metroPanel7.Location = new System.Drawing.Point(0, 0);
+            this.metroPanel7.Name = "metroPanel7";
+            this.metroPanel7.Size = new System.Drawing.Size(321, 107);
+            this.metroPanel7.TabIndex = 3;
+            this.metroPanel7.VerticalScrollbarBarColor = true;
+            this.metroPanel7.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel7.VerticalScrollbarSize = 10;
             // 
-            // colTenNguyenLieu
+            // metroLabel2
             // 
-            this.colTenNguyenLieu.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTenNguyenLieu.DataPropertyName = "TenNguyenLieu";
-            this.colTenNguyenLieu.HeaderText = "Tên nguyên liệu";
-            this.colTenNguyenLieu.Name = "colTenNguyenLieu";
-            this.colTenNguyenLieu.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.DataPropertyName = "SoLuong";
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle3.Format = "#,###.0";
-            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle3;
-            this.colSoLuong.HeaderText = "Số lượng tồn kho";
-            this.colSoLuong.Name = "colSoLuong";
-            this.colSoLuong.ReadOnly = true;
-            // 
-            // colDonViTinh
-            // 
-            this.colDonViTinh.DataPropertyName = "DonViTinh";
-            dataGridViewCellStyle4.Format = "#,##0đ";
-            this.colDonViTinh.DefaultCellStyle = dataGridViewCellStyle4;
-            this.colDonViTinh.HeaderText = "Đơn vị tính";
-            this.colDonViTinh.Name = "colDonViTinh";
-            this.colDonViTinh.ReadOnly = true;
+            this.metroLabel2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroLabel2.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.metroLabel2.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.metroLabel2.Location = new System.Drawing.Point(4, 18);
+            this.metroLabel2.Name = "metroLabel2";
+            this.metroLabel2.Size = new System.Drawing.Size(314, 34);
+            this.metroLabel2.TabIndex = 2;
+            this.metroLabel2.Text = "CHI TIẾT PHIẾU NHẬP";
+            this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // FrmQuanLyKho
             // 
