@@ -363,27 +363,31 @@ namespace QuanLyQuanCF_TS
 
                 List<TrendingMonDTO> lsTrendingMon = TrendingMonBUS.LayDanhSachTop10MonDaBan();
                 
-                int index;
-                if (lsTrendingMon.Count < 5)
+                if (lsTrendingMon.Count > 0)
                 {
-                    index = lsTrendingMon.Count;
-                }
-                else
-                {
-                    index = 5;
-                }
+                    int index;
+                    if (lsTrendingMon.Count < 5)
+                    {
+                        index = lsTrendingMon.Count;
+                    }
+                    else
+                    {
+                        index = 5;
+                    }
 
-                for (int i = 0; i < 5; i++)
-                {
-                    TrendingMonDTO trendingMon = lsTrendingMon[i];
-                    PieSeries pieSeries = new PieSeries();
-                    pieSeries.Title = trendingMon.TenMon;
-                    pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
-                    pieSeries.DataLabels = true;
-                    pieSeries.LabelPoint = labelPoint;
-                    pieSeries.PushOut = 5;
-                    chartTrending.Series.Add(pieSeries);
+                    for (int i = 0; i < 5; i++)
+                    {
+                        TrendingMonDTO trendingMon = lsTrendingMon[i];
+                        PieSeries pieSeries = new PieSeries();
+                        pieSeries.Title = trendingMon.TenMon;
+                        pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
+                        pieSeries.DataLabels = true;
+                        pieSeries.LabelPoint = labelPoint;
+                        pieSeries.PushOut = 5;
+                        chartTrending.Series.Add(pieSeries);
+                    }
                 }
+                
                 if (chartTrending.Series.Count == 0)
                 {
                     MetroLabel lblThongBao = new MetroLabel();
@@ -412,28 +416,32 @@ namespace QuanLyQuanCF_TS
                 chartTrending.Series = new SeriesCollection { };
 
                 List<TrendingMonDTO> lsTrendingMon = TrendingMonBUS.LayDanhSachTop10MonDaBan();
+                
+                if (lsTrendingMon.Count > 0)
+                {
+                    int index;
+                    if (lsTrendingMon.Count < 10)
+                    {
+                        index = lsTrendingMon.Count;
+                    }
+                    else
+                    {
+                        index = 10;
+                    }
 
-                int index;
-                if (lsTrendingMon.Count < 10)
-                {
-                    index = lsTrendingMon.Count;
+                    for (int i = 0; i < index; i++)
+                    {
+                        TrendingMonDTO trendingMon = lsTrendingMon[i];
+                        PieSeries pieSeries = new PieSeries();
+                        pieSeries.Title = trendingMon.TenMon;
+                        pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
+                        pieSeries.DataLabels = true;
+                        pieSeries.LabelPoint = labelPoint;
+                        pieSeries.PushOut = 5;
+                        chartTrending.Series.Add(pieSeries);
+                    }
                 }
-                else
-                {
-                    index = 10;
-                }
-
-                for (int i = 0; i < index; i++)
-                {
-                    TrendingMonDTO trendingMon = lsTrendingMon[i];
-                    PieSeries pieSeries = new PieSeries();
-                    pieSeries.Title = trendingMon.TenMon;
-                    pieSeries.Values = new ChartValues<int> { trendingMon.SoLuong };
-                    pieSeries.DataLabels = true;
-                    pieSeries.LabelPoint = labelPoint;
-                    pieSeries.PushOut = 5;
-                    chartTrending.Series.Add(pieSeries);
-                }
+                
                 if (chartTrending.Series.Count == 0)
                 {
                     MetroLabel lblThongBao = new MetroLabel();
