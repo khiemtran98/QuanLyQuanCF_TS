@@ -92,6 +92,14 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienThiTatCacHoaDon();
             }
+            else if (radHoaDonLapTrongNgay.Checked)
+            {
+                frm.HienThiTatHoaDonLapTrongNgay();
+            }
+            else if(radHoaDonChonNgay.Checked)
+            {
+                frm.HienThiHoaDonTheoNgay((DateTime)dtpHoaDonChonNgay.Value);
+            }
             else if (radHoaDonTheoThang.Checked)
             {
                 frm.HienThiTatCacHoaDonTheoThang((DateTime)dtpTimeStart.Value,(DateTime)dtpTimeEnd.Value);
@@ -104,9 +112,17 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienTatCaPhieuNhap();
             }
+            else if (radPhieuNhapTrongNgay.Checked)
+            {
+                frm.TatCaPhieuNhapLapTrongNgay();
+            }
             else if (radPhieuNhapTheoThang.Checked)
             {
                 frm.HienThiTatCacPhieuNhapTheoMoc((DateTime)dtpPhieuNhapStart.Value,(DateTime)dtpPhieuNhapEnd.Value);
+            }
+            else if(radPhieuNhapChonNgay.Checked)
+            {
+                frm.HienThiPhieuNhapTheoNgay((DateTime)dtpPhieuNhapChonNgay.Value);
             }
             else if(radHoaDonMoiNhat.Checked)
             {

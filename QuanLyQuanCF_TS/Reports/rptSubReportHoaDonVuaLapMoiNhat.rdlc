@@ -64,7 +64,7 @@
               </TablixColumns>
               <TablixRows>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.6926cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -174,7 +174,7 @@
                   </TablixCells>
                 </TablixRow>
                 <TablixRow>
-                  <Height>0.6cm</Height>
+                  <Height>0.6926cm</Height>
                   <TablixCells>
                     <TablixCell>
                       <CellContents>
@@ -188,6 +188,7 @@
                                   <Value>=Fields!TenMon.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -221,6 +222,7 @@
                                   <Value>=Fields!SoLuong.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                   </Style>
                                 </TextRun>
                               </TextRuns>
@@ -254,6 +256,7 @@
                                   <Value>=Fields!DonGia.Value</Value>
                                   <Style>
                                     <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                     <Format>#,##0 đ</Format>
                                   </Style>
                                 </TextRun>
@@ -301,7 +304,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DSCHITIETHD</DataSetName>
-            <Height>1.2cm</Height>
+            <Height>1.38521cm</Height>
             <Width>10.83375cm</Width>
             <Style>
               <Border>
@@ -310,7 +313,7 @@
             </Style>
           </Tablix>
         </ReportItems>
-        <Height>0.47244in</Height>
+        <Height>0.54536in</Height>
         <Style />
       </Body>
       <Width>4.26526in</Width>

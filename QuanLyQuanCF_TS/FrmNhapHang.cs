@@ -64,6 +64,15 @@ namespace QuanLyQuanCF_TS
             dtpNgayLap.Value = DateTime.Now;
 
             LamMoi();
+
+            if (cmbNguyenLieu.Items.Count > 0)
+            {
+                btnThem.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+            }
         }
 
         private void LoadDanhSachNguyenLieu(List<NguyenLieuDTO> lsNguyenLieu)
@@ -140,8 +149,9 @@ namespace QuanLyQuanCF_TS
         {
             if (grvBangChonNhanh.SelectedRows.Count > 0)
             {
-                btnThem.Enabled = true;
-                btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = false;
+                //btnThem.Enabled = true;
+                //btnXoa.Enabled = btnSua.Enabled = btnLamMoi.Enabled = false;
+                LamMoi();
                 cmbNguyenLieu.SelectedValue = Convert.ToInt32(grvBangChonNhanh.SelectedRows[0].Cells["colQuickView_MaNguyenLieu"].Value);
                 lblDonViTinh.Text = grvBangChonNhanh.SelectedRows[0].Cells["colQuickView_DonViTinh"].Value.ToString();
             }
@@ -304,7 +314,7 @@ namespace QuanLyQuanCF_TS
                 {
                     ctPhieuNhap.GhiChu = string.Empty;
                 }
-                
+
                 lsCTPhieuNhap.Add(ctPhieuNhap);
             }
 
@@ -333,7 +343,7 @@ namespace QuanLyQuanCF_TS
             frmQuanLyKho.Movable = true;
             frmQuanLyKho.ControlBox = true;
             frmQuanLyKho.MaximizeBox = true;
-            frmQuanLyKho.Size = new Size(800, 450);
+            frmQuanLyKho.Size = new Size(1250, 650);
             frmQuanLyKho.FormClosed += FrmQuanLyKho_FormClosed;
 
             ((FrmMain)this.ParentForm).TopMost = false;
@@ -362,6 +372,15 @@ namespace QuanLyQuanCF_TS
             List<NguyenLieuDTO> lsNguyenLieu = NguyenLieuBUS.LayDanhSachNguyenLieu();
             LoadBangChonNhanh(lsNguyenLieu);
             LoadDanhSachNguyenLieu(lsNguyenLieu);
+
+            if (cmbNguyenLieu.Items.Count > 0)
+            {
+                btnThem.Enabled = true;
+            }
+            else
+            {
+                btnThem.Enabled = false;
+            }
         }
     }
 }

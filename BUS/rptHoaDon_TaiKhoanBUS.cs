@@ -34,5 +34,10 @@ namespace BUS
         {
             return rptHoaDon_TaiKhoanDAO.DoiMaNhanVienThanhTenNhanVien(timeLine);
         }
+
+        public static List<rptHoaDon_TaiKhoanDTO> DanhSachHoaDonLapTrongNgay()
+        {
+            return rptHoaDon_TaiKhoanDAO.DanhSachHoaDonVuaMoiLapTrongNgay();
+        }
     }
 }

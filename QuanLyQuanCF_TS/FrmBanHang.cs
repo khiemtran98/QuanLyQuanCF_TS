@@ -211,7 +211,7 @@ namespace QuanLyQuanCF_TS
                 ToppingDTO topping = dsTopping[i];
                 ListViewItem lvi = new ListViewItem(topping.TenTopping);
                 lvi.SubItems.Add(topping.GiaTien.ToString("#,##0đ"));
-                lsv.LargeImageList.Images.Add(Image.FromFile("img\\products\\" + topping.Hinh));
+                lsv.LargeImageList.Images.Add(Image.FromFile("img\\toppings\\" + topping.Hinh));
                 lvi.Group = lsv.Groups[topping.LoaiTopping + ""];
                 lvi.ImageIndex = i;
                 lvi.Tag = topping;
@@ -628,7 +628,7 @@ namespace QuanLyQuanCF_TS
                 // Tìm kiếm topping
                 else
                 {
-                    List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachTopping(loaiDangChon);
+                    List<ToppingDTO> dsTopping = ToppingBUS.LayDanhSachTopping(loaiDangChon, txtTimKiem.Text);
                     LayDanhSachTopping(lsv, dsTopping);
                 }
             }

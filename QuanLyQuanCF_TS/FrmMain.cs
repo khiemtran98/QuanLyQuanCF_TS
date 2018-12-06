@@ -180,7 +180,8 @@ namespace QuanLyQuanCF_TS
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (DialogResult.No == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            //if (DialogResult.No == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
+            if (DialogResult.No == MetroMessageBox.Show(this, "Bạn có muốn thoát chương trình?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question, 120))
             {
                 e.Cancel = true;
             }
@@ -353,6 +354,31 @@ namespace QuanLyQuanCF_TS
             m_frmNhapHang.MdiParent = this;
             m_frmNhapHang.Dock = DockStyle.Fill;
             m_frmNhapHang.Show();
+
+            Label lbl = new Label();
+            lbl.Dock = DockStyle.Left;
+            lbl.Text = "Lập báo cáo nhanh";
+            lbl.ForeColor = Color.CadetBlue;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
+            lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
+            panelBaoCao.Controls.Add(lbl);
+            lbl.BringToFront();
+
+            MaterialFlatButton btnPhieuNhapMoiNhat = new MaterialFlatButton();
+            btnPhieuNhapMoiNhat.Dock = DockStyle.Left;
+            btnPhieuNhapMoiNhat.Text = "Phiếu nhập mới nhất";
+            btnPhieuNhapMoiNhat.Name = "PhieuNhapMoiNhat";
+            btnPhieuNhapMoiNhat.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnPhieuNhapMoiNhat);
+            btnPhieuNhapMoiNhat.BringToFront();
+
+            MaterialFlatButton btnPhieuNhapTrongNgay = new MaterialFlatButton();
+            btnPhieuNhapTrongNgay.Dock = DockStyle.Left;
+            btnPhieuNhapTrongNgay.Text = "Phiếu nhập trong ngày";
+            btnPhieuNhapTrongNgay.Name = "PhieuNhapTrongNgay";
+            btnPhieuNhapTrongNgay.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnPhieuNhapTrongNgay);
+            btnPhieuNhapTrongNgay.BringToFront();
         }
 
         private void mBanHang_Click(object sender, EventArgs e)
@@ -368,7 +394,7 @@ namespace QuanLyQuanCF_TS
 
             Label lbl = new Label();
             lbl.Dock = DockStyle.Left;
-            lbl.Text = "Điều hướng nhanh";
+            lbl.Text = "Tùy chọn";
             lbl.ForeColor = Color.CadetBlue;
             lbl.TextAlign = ContentAlignment.MiddleLeft;
             lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);
@@ -382,6 +408,22 @@ namespace QuanLyQuanCF_TS
             btnLichSuHoaDon.Click += btn_Click;
             panelBaoCao.Controls.Add(btnLichSuHoaDon);
             btnLichSuHoaDon.BringToFront();
+
+            MaterialFlatButton btnHoaDonMoiNhat = new MaterialFlatButton();
+            btnHoaDonMoiNhat.Dock = DockStyle.Left;
+            btnHoaDonMoiNhat.Text = "Hóa đơn mới nhất";
+            btnHoaDonMoiNhat.Name = "HoaDonMoiNhat";
+            btnHoaDonMoiNhat.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnHoaDonMoiNhat);
+            btnHoaDonMoiNhat.BringToFront();
+
+            MaterialFlatButton btnHoaDonTrongNgay = new MaterialFlatButton();
+            btnHoaDonTrongNgay.Dock = DockStyle.Left;
+            btnHoaDonTrongNgay.Text = "Hóa đơn trong ngày";
+            btnHoaDonTrongNgay.Name = "HoaDonTrongNgay";
+            btnHoaDonTrongNgay.Click += btn_Click;
+            panelBaoCao.Controls.Add(btnHoaDonTrongNgay);
+            btnHoaDonTrongNgay.BringToFront();
         }
 
         private void mBaoCao_Click(object sender, EventArgs e)
@@ -443,7 +485,22 @@ namespace QuanLyQuanCF_TS
             {
                 frm.HienTatCaNguyenLieu();
             }
-
+            else if(btnName == "HoaDonMoiNhat")
+            {
+                frm.HienThiHoaDonMoiNhat();
+            }
+            else if (btnName == "HoaDonTrongNgay")
+            {
+                frm.HienThiTatHoaDonLapTrongNgay();
+            }
+            else if (btnName == "PhieuNhapMoiNhat")
+            {
+                frm.HienThiPhieuNhapMoiNhat();
+            }
+            else if (btnName == "PhieuNhapTrongNgay")
+            {
+                frm.TatCaPhieuNhapLapTrongNgay();
+            }
             this.TopMost = false;
             frm.Show();
         }

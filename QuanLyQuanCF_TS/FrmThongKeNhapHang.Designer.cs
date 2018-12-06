@@ -245,13 +245,11 @@
             // 
             this.radHienThiTatCa.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)));
             this.radHienThiTatCa.AutoSize = true;
-            this.radHienThiTatCa.Checked = true;
             this.radHienThiTatCa.FontSize = MetroFramework.MetroCheckBoxSize.Medium;
             this.radHienThiTatCa.Location = new System.Drawing.Point(51, 64);
             this.radHienThiTatCa.Name = "radHienThiTatCa";
             this.radHienThiTatCa.Size = new System.Drawing.Size(111, 19);
             this.radHienThiTatCa.TabIndex = 7;
-            this.radHienThiTatCa.TabStop = true;
             this.radHienThiTatCa.Text = "Hiển thị tất cả";
             this.radHienThiTatCa.UseSelectable = true;
             this.radHienThiTatCa.CheckedChanged += new System.EventHandler(this.radHienThiTatCa_CheckedChanged);
@@ -366,6 +364,7 @@
             // colCTPN_SoLuong
             // 
             this.colCTPN_SoLuong.DataPropertyName = "SoLuong";
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
             dataGridViewCellStyle6.Format = "#,###";
             this.colCTPN_SoLuong.DefaultCellStyle = dataGridViewCellStyle6;
             this.colCTPN_SoLuong.HeaderText = "Số lượng";
@@ -481,12 +480,12 @@
         private MetroFramework.Controls.MetroPanel metroPanel6;
         private MetroFramework.Controls.MetroPanel metroPanel8;
         private System.Windows.Forms.DataGridView dgvCTPhieuNhap;
+        private MetroFramework.Controls.MetroPanel metroPanel7;
+        private MetroFramework.Controls.MetroLabel metroLabel2;
         private System.Windows.Forms.DataGridViewComboBoxColumn colCTPN_MaNguyenLieu;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCTPN_SoLuong;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCTPN_DonGia;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCTPN_DonViTinh;
         private System.Windows.Forms.DataGridViewTextBoxColumn colCTPN_GhiChu;
-        private MetroFramework.Controls.MetroPanel metroPanel7;
-        private MetroFramework.Controls.MetroLabel metroLabel2;
     }
 }

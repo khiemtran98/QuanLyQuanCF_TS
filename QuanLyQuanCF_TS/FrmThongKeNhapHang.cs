@@ -49,8 +49,8 @@ namespace QuanLyQuanCF_TS
         {
             dgvPhieuNhap.AutoGenerateColumns = false;
             dgvCTPhieuNhap.AutoGenerateColumns = false;
-            
-            LSPN_LoadDanhSachPhieuNhap();
+
+            radHienThiTatCa.Checked = true;
         }
 
         private void LSPN_LoadDanhSachPhieuNhap()
@@ -119,8 +119,8 @@ namespace QuanLyQuanCF_TS
 
         private void dtpNgayNhap_ValueChanged(object sender, EventArgs e)
         {
-            LSPN_LoadDanhSachPhieuNhapTheoNgay();
             dgvCTPhieuNhap.DataSource = null;
+            LSPN_LoadDanhSachPhieuNhapTheoNgay();
         }
 
         private void dgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)

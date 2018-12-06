@@ -269,6 +269,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemLoaiMon_Click(object sender, EventArgs e)
         {
+            if (txtTenLoaiMon.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             LoaiMonDTO loaiMon = new LoaiMonDTO();
             loaiMon.TenLoaiMon = txtTenLoaiMon.Text;
             loaiMon.LaDoUong = chkDoUong.Checked;
@@ -483,6 +488,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemLoaiTopping_Click(object sender, EventArgs e)
         {
+            if (txtTenLoaiTopping.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             LoaiToppingDTO loaiTopping = new LoaiToppingDTO();
             loaiTopping.TenLoaiTopping = txtTenLoaiTopping.Text;
             loaiTopping.TrangThai = true;
@@ -730,6 +740,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemMon_Click(object sender, EventArgs e)
         {
+            if (txtTenMon.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             MonDTO mon = new MonDTO();
             mon.TenMon = txtTenMon.Text;
             mon.LoaiMon = Convert.ToInt32(cmbLoaiMon.SelectedValue);
@@ -922,7 +937,7 @@ namespace QuanLyQuanCF_TS
         {
             if (dgvTopping.Columns[e.ColumnIndex].Name == "colHinhTopping")
             {
-                e.Value = new Bitmap("img\\products\\" + e.Value.ToString());
+                e.Value = new Bitmap("img\\toppings\\" + e.Value.ToString());
             }
         }
 
@@ -971,6 +986,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemTopping_Click(object sender, EventArgs e)
         {
+            if (txtTenTopping.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             ToppingDTO topping = new ToppingDTO();
             topping.TenTopping = txtTenTopping.Text;
             topping.LoaiTopping = Convert.ToInt32(cmbLoaiTopping.SelectedValue);
@@ -987,7 +1007,7 @@ namespace QuanLyQuanCF_TS
                 string tenFile = DateTime.Now.ToFileTime() + "_" + (ToppingBUS.LayMaToppingMoiNhat() + 1).ToString();
                 string extension = Path.GetExtension(openFileDialog2.SafeFileName);
                 topping.Hinh = tenFile + extension;
-                File.Copy(openFileDialog2.FileName, "img\\products\\" + tenFile + extension, true);
+                File.Copy(openFileDialog2.FileName, "img\\toppings\\" + tenFile + extension, true);
             }
             topping.TrangThai = true;
 
@@ -1042,7 +1062,7 @@ namespace QuanLyQuanCF_TS
                 string tenFile = DateTime.Now.ToFileTime() + "_" + topping.MaTopping;
                 string extension = Path.GetExtension(openFileDialog2.SafeFileName);
                 topping.Hinh = tenFile + extension;
-                File.Copy(openFileDialog2.FileName, "img\\products\\" + tenFile + extension);
+                File.Copy(openFileDialog2.FileName, "img\\toppings\\" + tenFile + extension);
             }
             else
             {

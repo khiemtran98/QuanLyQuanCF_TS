@@ -256,11 +256,14 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\rptDoanhThuTheoMoc.rdlc" />
     <EmbeddedResource Include="Reports\rptDoanhThuTheoNgay.rdlc" />
+    <EmbeddedResource Include="Reports\rptHoaDonTheoNgay.rdlc" />
     <EmbeddedResource Include="Reports\rptHoaDonTheoThang.rdlc" />
     <EmbeddedResource Include="Reports\rptHoaDonVuaLapMoiNhat.rdlc" />
     <EmbeddedResource Include="Reports\rptMonTheoLoai.rdlc" />
     <EmbeddedResource Include="Reports\rptMonTheoNhom.rdlc" />
+    <EmbeddedResource Include="Reports\rptPhieuNhapLapTrongNgay.rdlc" />
     <EmbeddedResource Include="Reports\rptPhieuNhapMoiNhat.rdlc" />
+    <EmbeddedResource Include="Reports\rptPhieuNhapTheoNgay.rdlc" />
     <EmbeddedResource Include="Reports\rptPhieuNhapTheoThang.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportHoaDonTheoThang.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportHoaDonVuaLapMoiNhat.rdlc" />
@@ -270,6 +273,7 @@
     <EmbeddedResource Include="Reports\rptSubReportTatCaHoaDon.rdlc" />
     <EmbeddedResource Include="Reports\rptSubReportTatCaPhieuNhap.rdlc" />
     <EmbeddedResource Include="Reports\rptTatCaHoaDon.rdlc" />
+    <EmbeddedResource Include="Reports\rptTatCaHoaDonLapTrongNgay.rdlc" />
     <EmbeddedResource Include="Reports\rptTatCaMon.rdlc" />
     <EmbeddedResource Include="Reports\rptTatCaNguyenLieu.rdlc" />
     <EmbeddedResource Include="Reports\rptTatCaPhieuNhap.rdlc" />

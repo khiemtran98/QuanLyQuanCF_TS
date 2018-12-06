@@ -26,13 +26,13 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
         <Top>0.59972cm</Top>
-        <Left>7.71384cm</Left>
+        <Left>0.7241cm</Left>
         <Height>0.6cm</Height>
         <Width>6.46875cm</Width>
         <Style>
@@ -71,15 +71,15 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>5.60861cm</Top>
-        <Left>11.68258cm</Left>
+        <Top>4.77959cm</Top>
+        <Left>0.03937cm</Left>
         <Height>0.78521cm</Height>
-        <Width>6.46875cm</Width>
+        <Width>11.39154cm</Width>
         <ZIndex>1</ZIndex>
         <Style>
           <Border>
@@ -117,15 +117,15 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>6.49965cm</Top>
-        <Left>11.68258cm</Left>
+        <Top>5.74119cm</Top>
+        <Left>0.03937cm</Left>
         <Height>0.72319cm</Height>
-        <Width>6.46875cm</Width>
+        <Width>11.39154cm</Width>
         <ZIndex>2</ZIndex>
         <Style>
           <Border>
@@ -163,15 +163,15 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Right</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>4.75284cm</Top>
-        <Left>11.68258cm</Left>
+        <Top>6.57021cm</Top>
+        <Left>0.03937cm</Left>
         <Height>0.67938cm</Height>
-        <Width>6.46875cm</Width>
+        <Width>11.39154cm</Width>
         <ZIndex>3</ZIndex>
         <Style>
           <Border>
@@ -207,9 +207,9 @@
         </Paragraphs>
         <rd:DefaultName>Textbox31</rd:DefaultName>
         <Top>7.78727cm</Top>
-        <Left>8.93974cm</Left>
+        <Left>0.03937cm</Left>
         <Height>0.98008cm</Height>
-        <Width>6.60104cm</Width>
+        <Width>12.00008cm</Width>
         <ZIndex>4</ZIndex>
         <Style>
           <Border>
@@ -225,7 +225,7 @@
       <Line Name="Line1">
         <Top>7.71672cm</Top>
         <Height>0cm</Height>
-        <Width>24.00745cm</Width>
+        <Width>12.03945cm</Width>
         <ZIndex>5</ZIndex>
         <Style>
           <Border>
@@ -235,8 +235,9 @@
       </Line>
       <Line Name="Line2">
         <Top>0.10583cm</Top>
+        <Left>0.03937cm</Left>
         <Height>0cm</Height>
-        <Width>24.00745cm</Width>
+        <Width>12.03945cm</Width>
         <ZIndex>6</ZIndex>
         <Style>
           <Border>
@@ -248,7 +249,7 @@
         <TablixBody>
           <TablixColumns>
             <TablixColumn>
-              <Width>3.76999cm</Width>
+              <Width>10.70681cm</Width>
             </TablixColumn>
           </TablixColumns>
           <TablixRows>
@@ -290,9 +291,9 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <Top>3.15624cm</Top>
-        <Left>6.67377cm</Left>
+        <Left>0.7241cm</Left>
         <Height>0.67938cm</Height>
-        <Width>3.76999cm</Width>
+        <Width>10.70681cm</Width>
         <ZIndex>7</ZIndex>
         <Style>
           <Border>
@@ -401,8 +402,8 @@
           </TablixMembers>
         </TablixRowHierarchy>
         <DataSetName>HOADONMOINHAT</DataSetName>
-        <Top>2.37985cm</Top>
-        <Left>9.20904cm</Left>
+        <Top>2.1525cm</Top>
+        <Left>0.7241cm</Left>
         <Height>0.6cm</Height>
         <Width>4.52375cm</Width>
         <ZIndex>8</ZIndex>
@@ -416,7 +417,7 @@
         <Top>4.22367cm</Top>
         <Left>0.03937cm</Left>
         <Height>0cm</Height>
-        <Width>23.96808cm</Width>
+        <Width>12.03945cm</Width>
         <ZIndex>9</ZIndex>
         <Style>
           <Border>
@@ -446,13 +447,13 @@
               </TextRun>
             </TextRuns>
             <Style>
-              <TextAlign>Center</TextAlign>
+              <TextAlign>Left</TextAlign>
             </Style>
           </Paragraph>
         </Paragraphs>
         <rd:DefaultName>Textbox1</rd:DefaultName>
-        <Top>1.45548cm</Top>
-        <Left>8.09308cm</Left>
+        <Top>1.37611cm</Top>
+        <Left>0.7241cm</Left>
         <Height>0.62646cm</Height>
         <Width>6.55694cm</Width>
         <ZIndex>10</ZIndex>
@@ -471,10 +472,10 @@
     <Height>3.47949in</Height>
     <Style />
   </Body>
-  <Width>9.45175in</Width>
+  <Width>4.75544in</Width>
   <Page>
     <PageHeader>
-      <Height>3.6569cm</Height>
+      <Height>3.76273cm</Height>
       <PrintOnFirstPage>true</PrintOnFirstPage>
       <PrintOnLastPage>true</PrintOnLastPage>
       <ReportItems>
@@ -484,13 +485,6 @@
           <Paragraphs>
             <Paragraph>
               <TextRuns>
-                <TextRun>
-                  <Value xml:space="preserve">          </Value>
-                  <Style>
-                    <FontSize>15pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                  </Style>
-                </TextRun>
                 <TextRun>
                   <Value>Công ty TNHH 3TV</Value>
                   <Style>
@@ -507,7 +501,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>         HKH</Value>
+                  <Value>HKH</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>15pt</FontSize>
@@ -522,7 +516,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value>              Cao đẳng kỹ thuật Cao Thắng</Value>
+                  <Value>Cao đẳng kỹ thuật Cao Thắng</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>15pt</FontSize>
@@ -538,7 +532,7 @@
           <rd:DefaultName>Textbox4</rd:DefaultName>
           <Top>0.05292cm</Top>
           <Height>2.2637cm</Height>
-          <Width>23.00521cm</Width>
+          <Width>12.03945cm</Width>
           <Style>
             <Border>
               <Style>None</Style>
@@ -556,7 +550,7 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value xml:space="preserve">            </Value>
+                  <Value xml:space="preserve"> </Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
                     <FontSize>15pt</FontSize>
@@ -564,19 +558,10 @@
                   </Style>
                 </TextRun>
                 <TextRun>
-                  <Value xml:space="preserve">   </Value>
-                  <Style>
-                    <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>25pt</FontSize>
-                    <FontWeight>Bold</FontWeight>
-                    <Color>Red</Color>
-                  </Style>
-                </TextRun>
-                <TextRun>
                   <Value>HÓA ĐƠN THANH TOÁN</Value>
                   <Style>
                     <FontFamily>Segoe UI</FontFamily>
-                    <FontSize>25pt</FontSize>
+                    <FontSize>20pt</FontSize>
                     <FontWeight>Bold</FontWeight>
                   </Style>
                 </TextRun>
@@ -587,10 +572,10 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>Textbox6</rd:DefaultName>
-          <Top>2.33426cm</Top>
+          <Top>2.5812cm</Top>
           <Left>0.03937cm</Left>
-          <Height>1.32264cm</Height>
-          <Width>22.96584cm</Width>
+          <Height>1.00514cm</Height>
+          <Width>12.00008cm</Width>
           <ZIndex>1</ZIndex>
           <Style>
             <Border>
@@ -621,10 +606,6 @@
             <Paragraph>
               <TextRuns>
                 <TextRun>
-                  <Value xml:space="preserve">                 </Value>
-                  <Style />
-                </TextRun>
-                <TextRun>
                   <Value>="Trang "&amp;Globals!PageNumber</Value>
                   <Style />
                 </TextRun>
@@ -635,9 +616,9 @@
             </Paragraph>
           </Paragraphs>
           <rd:DefaultName>PageNumber</rd:DefaultName>
-          <Top>0.19318cm</Top>
+          <Top>0.24667cm</Top>
           <Height>0.6cm</Height>
-          <Width>23.00521cm</Width>
+          <Width>12.07882cm</Width>
           <Style>
             <Border>
               <Style>None</Style>

@@ -74,6 +74,8 @@
             this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDonViTinh = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
+            this.btnNhapHang = new MetroFramework.Controls.MetroButton();
             this.metroPanel23 = new MetroFramework.Controls.MetroPanel();
             this.dtpNgayLap = new MetroFramework.Controls.MetroDateTime();
             this.lblMaPhieu = new MetroFramework.Controls.MetroLabel();
@@ -85,8 +87,6 @@
             this.metroLabel7 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel6 = new MetroFramework.Controls.MetroLabel();
             this.metroLabel5 = new MetroFramework.Controls.MetroLabel();
-            this.metroPanel3 = new MetroFramework.Controls.MetroPanel();
-            this.btnNhapHang = new MetroFramework.Controls.MetroButton();
             this.metroPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
@@ -103,8 +103,8 @@
             this.metroPanel1.SuspendLayout();
             this.metroPanel24.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuNhap)).BeginInit();
-            this.metroPanel23.SuspendLayout();
             this.metroPanel3.SuspendLayout();
+            this.metroPanel23.SuspendLayout();
             this.SuspendLayout();
             // 
             // metroPanel2
@@ -754,6 +754,41 @@
             this.colGhiChu.Name = "colGhiChu";
             this.colGhiChu.ReadOnly = true;
             // 
+            // metroPanel3
+            // 
+            this.metroPanel3.Controls.Add(this.btnNhapHang);
+            this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.metroPanel3.HorizontalScrollbarBarColor = true;
+            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.HorizontalScrollbarSize = 10;
+            this.metroPanel3.Location = new System.Drawing.Point(0, 506);
+            this.metroPanel3.Name = "metroPanel3";
+            this.metroPanel3.Size = new System.Drawing.Size(343, 56);
+            this.metroPanel3.TabIndex = 21;
+            this.metroPanel3.VerticalScrollbarBarColor = true;
+            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
+            this.metroPanel3.VerticalScrollbarSize = 10;
+            // 
+            // btnNhapHang
+            // 
+            this.btnNhapHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnNhapHang.BackColor = System.Drawing.Color.SteelBlue;
+            this.btnNhapHang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.btnNhapHang.Enabled = false;
+            this.btnNhapHang.FontSize = MetroFramework.MetroButtonSize.Tall;
+            this.btnNhapHang.ForeColor = System.Drawing.Color.White;
+            this.btnNhapHang.Location = new System.Drawing.Point(13, 0);
+            this.btnNhapHang.Name = "btnNhapHang";
+            this.btnNhapHang.Size = new System.Drawing.Size(327, 56);
+            this.btnNhapHang.TabIndex = 2;
+            this.btnNhapHang.Text = "Nhập hàng";
+            this.btnNhapHang.UseCustomBackColor = true;
+            this.btnNhapHang.UseCustomForeColor = true;
+            this.btnNhapHang.UseSelectable = true;
+            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
+            // 
             // metroPanel23
             // 
             this.metroPanel23.Controls.Add(this.dtpNgayLap);
@@ -885,41 +920,6 @@
             this.metroLabel5.Text = "PHIẾU NHẬP";
             this.metroLabel5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // metroPanel3
-            // 
-            this.metroPanel3.Controls.Add(this.btnNhapHang);
-            this.metroPanel3.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.metroPanel3.HorizontalScrollbarBarColor = true;
-            this.metroPanel3.HorizontalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.HorizontalScrollbarSize = 10;
-            this.metroPanel3.Location = new System.Drawing.Point(0, 506);
-            this.metroPanel3.Name = "metroPanel3";
-            this.metroPanel3.Size = new System.Drawing.Size(343, 56);
-            this.metroPanel3.TabIndex = 21;
-            this.metroPanel3.VerticalScrollbarBarColor = true;
-            this.metroPanel3.VerticalScrollbarHighlightOnWheel = false;
-            this.metroPanel3.VerticalScrollbarSize = 10;
-            // 
-            // btnNhapHang
-            // 
-            this.btnNhapHang.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnNhapHang.BackColor = System.Drawing.Color.SteelBlue;
-            this.btnNhapHang.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.btnNhapHang.Enabled = false;
-            this.btnNhapHang.FontSize = MetroFramework.MetroButtonSize.Tall;
-            this.btnNhapHang.ForeColor = System.Drawing.Color.White;
-            this.btnNhapHang.Location = new System.Drawing.Point(13, 0);
-            this.btnNhapHang.Name = "btnNhapHang";
-            this.btnNhapHang.Size = new System.Drawing.Size(327, 56);
-            this.btnNhapHang.TabIndex = 2;
-            this.btnNhapHang.Text = "Nhập hàng";
-            this.btnNhapHang.UseCustomBackColor = true;
-            this.btnNhapHang.UseCustomForeColor = true;
-            this.btnNhapHang.UseSelectable = true;
-            this.btnNhapHang.Click += new System.EventHandler(this.btnNhapHang_Click);
-            // 
             // FrmNhapHang
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -958,9 +958,9 @@
             this.metroPanel1.ResumeLayout(false);
             this.metroPanel24.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvCTPhieuNhap)).EndInit();
+            this.metroPanel3.ResumeLayout(false);
             this.metroPanel23.ResumeLayout(false);
             this.metroPanel23.PerformLayout();
-            this.metroPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

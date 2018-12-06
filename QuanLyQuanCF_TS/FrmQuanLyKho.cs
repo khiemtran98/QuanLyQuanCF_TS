@@ -114,7 +114,7 @@ namespace QuanLyQuanCF_TS
 
         private void dgvNguyenLieu_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvNguyenLieu.SelectedRows.Count > 0)
+            if (dgvNguyenLieu.SelectedRows.Count > 0)
             {
                 LamMoiNguyenLieu(false);
                 txtMaNguyenLieu.Text = dgvNguyenLieu.SelectedRows[0].Cells["colMaNguyenLieu"].Value.ToString();
@@ -159,6 +159,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemNguyenLieu_Click(object sender, EventArgs e)
         {
+            if (txtTenNguyenLieu.Text == "" || txtDonViTinh.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             NguyenLieuDTO nguyenLieu = new NguyenLieuDTO();
             nguyenLieu.TenNguyenLieu = txtTenNguyenLieu.Text;
             if (txtSoLuong.Text != "")
@@ -386,7 +391,7 @@ namespace QuanLyQuanCF_TS
 
         private void dgvPhieuNhap_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(dgvPhieuNhap.SelectedRows.Count > 0)
+            if (dgvPhieuNhap.SelectedRows.Count > 0)
             {
                 LoadCTPhieuNhap(Convert.ToInt32(dgvPhieuNhap.SelectedRows[0].Cells["colPN_MaPhieuNhap"].Value));
             }

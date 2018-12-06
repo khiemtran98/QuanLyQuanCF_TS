@@ -22,12 +22,12 @@ namespace BUS
             return true;
         }
 
-        internal static bool XoaChucNang_LoaiTaiKhoan(int maLoaiTaiKhoan)
-        {
-            return ChucNang_LoaiTaiKhoanDAO.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan);
-        }
+        //public static bool XoaChucNang_LoaiTaiKhoan(int maLoaiTaiKhoan)
+        //{
+        //    return ChucNang_LoaiTaiKhoanDAO.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan);
+        //}
 
-        internal static bool SuaChucNang_LoaiTaiKhoan(int maLoaiTaiKhoan, List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan)
+        public static bool SuaChucNang_LoaiTaiKhoan(int maLoaiTaiKhoan, List<ChucNang_LoaiTaiKhoanDTO> lsChucNang_LoaiTaiKhoan)
         {
             if (ChucNang_LoaiTaiKhoanDAO.XoaChucNang_LoaiTaiKhoan(maLoaiTaiKhoan))
             {

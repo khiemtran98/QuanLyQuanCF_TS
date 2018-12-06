@@ -271,6 +271,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemLoaiTaiKhoan_Click(object sender, EventArgs e)
         {
+            if (txtTenLoaiTaiKhoan.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             LoaiTaiKhoanDTO loaiTaiKhoan = new LoaiTaiKhoanDTO();
             loaiTaiKhoan.TenLoaiTaiKhoan = txtTenLoaiTaiKhoan.Text;
             loaiTaiKhoan.TrangThai = true;
@@ -525,6 +530,11 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemTaiKhoan_Click(object sender, EventArgs e)
         {
+            if (txtHoTen.Text == "")
+            {
+                MessageBox.Show("Vui lòng nhập đủ thông tin!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Stop);
+                return;
+            }
             TaiKhoanDTO taiKhoan = new TaiKhoanDTO();
             taiKhoan.HoTen = txtHoTen.Text;
             taiKhoan.MatKhau = MaHoaMatKhau(txtMatKhau.Text);

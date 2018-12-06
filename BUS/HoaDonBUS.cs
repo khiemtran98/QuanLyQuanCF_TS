@@ -73,7 +73,7 @@ namespace BUS
         {
             return HoaDonDAO.GetListBillTimeline(dateTimeline);
         }
-        
+
         public static List<HoaDonDTO> LayLichSuHoaDon(int maNhanVien, bool trangThai = true)
         {
             return HoaDonDAO.LayLichSuHoaDon(maNhanVien, trangThai);

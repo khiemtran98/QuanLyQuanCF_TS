@@ -58,12 +58,12 @@
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
             this.dgvCTHoaDon = new System.Windows.Forms.DataGridView();
+            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
+            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             this.colTenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colSoLuong = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colDonGia = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colGhiChu = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.metroPanel7 = new MetroFramework.Controls.MetroPanel();
-            this.metroLabel2 = new MetroFramework.Controls.MetroLabel();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -396,44 +396,6 @@
             this.dgvCTHoaDon.Size = new System.Drawing.Size(450, 533);
             this.dgvCTHoaDon.TabIndex = 3;
             // 
-            // colTenMon
-            // 
-            this.colTenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTenMon.DataPropertyName = "TenMon";
-            this.colTenMon.HeaderText = "Món";
-            this.colTenMon.Name = "colTenMon";
-            this.colTenMon.ReadOnly = true;
-            // 
-            // colSoLuong
-            // 
-            this.colSoLuong.DataPropertyName = "SoLuong";
-            dataGridViewCellStyle8.Format = "#,###";
-            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle8;
-            this.colSoLuong.HeaderText = "Số lượng";
-            this.colSoLuong.Name = "colSoLuong";
-            this.colSoLuong.ReadOnly = true;
-            this.colSoLuong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colSoLuong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // colDonGia
-            // 
-            this.colDonGia.DataPropertyName = "DonGia";
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle9.Format = "#,###đ";
-            this.colDonGia.DefaultCellStyle = dataGridViewCellStyle9;
-            this.colDonGia.HeaderText = "Đơn giá";
-            this.colDonGia.Name = "colDonGia";
-            this.colDonGia.ReadOnly = true;
-            // 
-            // colGhiChu
-            // 
-            this.colGhiChu.DataPropertyName = "GhiChu";
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.colGhiChu.DefaultCellStyle = dataGridViewCellStyle10;
-            this.colGhiChu.HeaderText = "Ghi chú";
-            this.colGhiChu.Name = "colGhiChu";
-            this.colGhiChu.ReadOnly = true;
-            // 
             // metroPanel7
             // 
             this.metroPanel7.Controls.Add(this.metroLabel2);
@@ -461,6 +423,45 @@
             this.metroLabel2.TabIndex = 2;
             this.metroLabel2.Text = "CHI TIẾT HOÁ ĐƠN";
             this.metroLabel2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // colTenMon
+            // 
+            this.colTenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTenMon.DataPropertyName = "TenMon";
+            this.colTenMon.HeaderText = "Món";
+            this.colTenMon.Name = "colTenMon";
+            this.colTenMon.ReadOnly = true;
+            // 
+            // colSoLuong
+            // 
+            this.colSoLuong.DataPropertyName = "SoLuong";
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle8.Format = "#,###";
+            this.colSoLuong.DefaultCellStyle = dataGridViewCellStyle8;
+            this.colSoLuong.HeaderText = "Số lượng";
+            this.colSoLuong.Name = "colSoLuong";
+            this.colSoLuong.ReadOnly = true;
+            this.colSoLuong.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colSoLuong.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            // 
+            // colDonGia
+            // 
+            this.colDonGia.DataPropertyName = "DonGia";
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle9.Format = "#,###đ";
+            this.colDonGia.DefaultCellStyle = dataGridViewCellStyle9;
+            this.colDonGia.HeaderText = "Đơn giá";
+            this.colDonGia.Name = "colDonGia";
+            this.colDonGia.ReadOnly = true;
+            // 
+            // colGhiChu
+            // 
+            this.colGhiChu.DataPropertyName = "GhiChu";
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.colGhiChu.DefaultCellStyle = dataGridViewCellStyle10;
+            this.colGhiChu.HeaderText = "Ghi chú";
+            this.colGhiChu.Name = "colGhiChu";
+            this.colGhiChu.ReadOnly = true;
             // 
             // FrmLichSuHoaDon
             // 
@@ -507,15 +508,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn colTongTien;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTienMat;
         private System.Windows.Forms.DataGridViewTextBoxColumn colTienThua;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colTenMon;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
-        private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
         private MetroFramework.Controls.MetroPanel metroPanel9;
         private MetroFramework.Controls.MetroButton btnKhoiPhucHoaDon;
         private MetroFramework.Controls.MetroButton btnXoaHoaDon;
         private MetroFramework.Controls.MetroLink lnkDSHoaDon;
         private MetroFramework.Controls.MetroLabel lblNgayLap;
         private MetroFramework.Controls.MetroLabel lblNhanVienLap;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colTenMon;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colSoLuong;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colDonGia;
+        private System.Windows.Forms.DataGridViewTextBoxColumn colGhiChu;
     }
 }

@@ -221,7 +221,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!TenNguyenLieu.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -252,7 +255,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!SoLuong.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -283,7 +289,10 @@
                               <TextRuns>
                                 <TextRun>
                                   <Value>=Fields!DonViTinh.Value</Value>
-                                  <Style />
+                                  <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
+                                  </Style>
                                 </TextRun>
                               </TextRuns>
                               <Style>
@@ -315,6 +324,8 @@
                                 <TextRun>
                                   <Value>=Fields!DonGia.Value</Value>
                                   <Style>
+                                    <FontFamily>Segoe UI</FontFamily>
+                                    <FontSize>12pt</FontSize>
                                     <Format>#,##0 đ</Format>
                                   </Style>
                                 </TextRun>
@@ -360,8 +371,8 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>CHITIETPHIEUNHAP</DataSetName>
-            <Height>1.62333cm</Height>
-            <Width>11.50812cm</Width>
+            <Height>1.62334cm</Height>
+            <Width>11.50813cm</Width>
             <Style>
               <Border>
                 <Style>None</Style>

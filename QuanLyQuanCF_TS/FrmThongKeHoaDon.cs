@@ -140,6 +140,10 @@ namespace QuanLyQuanCF_TS
             {
                 LoadCTHD(Convert.ToInt32(dgvHoaDon.Rows[0].Cells["colMaHoaDon"].Value));
             }
+            else
+            {
+                dgvCTHD.DataSource = null;
+            }
         }
     }
 }

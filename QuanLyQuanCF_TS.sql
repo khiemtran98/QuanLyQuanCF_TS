@@ -170,26 +170,34 @@ create table CTLoaiMon_LoaiTopping
 )
 
 INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Administrator', 1)
-INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Manager', 1)
-INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Cashier', 1)
-INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Accountant', 1)
+--INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Manager', 1)
+--INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Cashier', 1)
+--INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Accountant', 1)
 
 INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'admin', '202cb962ac59075b964b07152d234b70', '1/1/2018', 1, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'manager', '202cb962ac59075b964b07152d234b70', '1/1/2018', 2, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', 'd41d8cd98f00b204e9800998ecf8427e', '1/1/2018', 3, 'default-account.png' ,1)
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', 'd41d8cd98f00b204e9800998ecf8427e', '1/1/2018', 4, 'default-account.png' ,1)
+--INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'manager', '202cb962ac59075b964b07152d234b70', '1/1/2018', 2, 'default-account.png' ,1)
+--INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', 'd41d8cd98f00b204e9800998ecf8427e', '1/1/2018', 3, 'default-account.png' ,1)
+--INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', 'd41d8cd98f00b204e9800998ecf8427e', '1/1/2018', 4, 'default-account.png' ,1)
 
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Trà sữa', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Cà phê', 1, 1)
 INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Freeze', 1, 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Bánh mì', 0, 1)
-INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Xiên que', 0, 1)
+INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Bánh', 0, 1)
+--INSERT [dbo].[LoaiMon] ([ten_loai_mon], [la_do_uong], [trang_thai]) VALUES (N'Xiên que', 0, 1)
 
 INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Đường', 100, 'kg', 1)
 INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Sữa', 100, N'hộp', 1)
 INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Cà phê xay', 100, N'hộp', 1)
 INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Kem', 100, N'hộp', 1)
 INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Trà xanh', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Socola', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Trứng', 100, N'quả', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Phô mai', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Gelatin', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Chanh', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Phô mai', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Chanh dây', 100, N'hộp', 1)
+INSERT [dbo].[NguyenLieu] (ten_nguyen_lieu, [so_luong], [don_vi_tinh], [trang_thai]) VALUES (N'Cacao', 100, N'hộp', 1)
 
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa trân châu', 1, N'1.jpg', 37000, 1)
 INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VALUES (N'Trà sữa hokkaido', 1, N'2.jpg', 32000, 1)
@@ -264,24 +272,32 @@ INSERT [dbo].[Mon] ([ten_mon], [loai_mon], [hinh], [gia_tien], [trang_thai]) VAL
 INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Kem', 1)
 INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Trân châu', 1)
 INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Thạch', 1)
+INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Pudding', 1)
+INSERT [dbo].[LoaiTopping] ([ten_loai_topping], [trang_thai]) VALUES (N'Bánh ngọt', 1)
 
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Kem Macchiato', 1, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu đen', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu trắng', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu xanh', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu sợi', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tươi socola', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tươi matcha', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu phô mai tươi', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tím', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu mật ong', 2, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Thạch pudding', 3, 5000, 'default-product.png', 1)
-INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Thạch viên phô mai', 3, 5000, 'default-product.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Pudding trứng', 4, 5000, '1.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu trắng', 2, 5000, '2.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu đen', 2, 5000, '3.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Hạt socola', 2, 5000, '4.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Oreo', 5, 5000, '5.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Double kem cheese', 1, 5000, '6.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Kem Macchiato', 1, 5000, '7.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu xanh', 2, 5000, '8.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu sợi', 2, 5000, '9.png', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tươi socola', 2, 5000, '10.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tươi matcha', 2, 5000, '11.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu phô mai tươi', 2, 5000, '12.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu tím', 2, 5000, '13.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Trân châu mật ong', 2, 5000, '14.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Thạch pudding', 3, 5000, '15.jpg', 1)
+INSERT [dbo].[Topping] ([ten_topping], [loai_topping], [gia_tien], [hinh], [trang_thai]) VALUES (N'Thạch viên phô mai', 3, 5000, '16.jpg', 1)
 
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (1, 2)
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (1, 3)
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (2, 1)
 INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (3, 1)
+INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (3, 4)
+INSERT [dbo].[CTLoaiMon_LoaiTopping] ([ma_loai_mon], [ma_loai_topping]) VALUES (3, 5)
 
 INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Quản lý tài khoản')
 INSERT [dbo].[ChucNang] ([ten_chuc_nang]) VALUES ('Quản lý món')
@@ -304,184 +320,184 @@ INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUE
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 1)
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (9, 1)
 INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 1)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (1, 2)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (2, 2)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (3, 2)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (9, 2)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 2)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (4, 4)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (5, 4)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 4)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 4)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 3)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 3)
-INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 3)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (1, 2)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (2, 2)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (3, 2)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (9, 2)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 2)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (4, 4)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (5, 4)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (6, 4)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 4)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (7, 3)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (8, 3)
+--INSERT [dbo].[ChucNang_LoaiTaiKhoan] ([ma_chuc_nang], [ma_loai_tai_khoan]) VALUES (10, 3)
 
 INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 1', 1)
 INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 2', 1)
 INSERT [dbo].[NhaCungCap] ([ten_nha_cung_cap], [trang_thai]) VALUES ('NCC 3', 1)
 
-GO
-CREATE TRIGGER TRIG_LoaiTaiKhoan_delete
-ON dbo.LoaiTaiKhoan
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_loai_tai_khoan) FROM LoaiTaiKhoan) IS NULL
-		DBCC CHECKIDENT (LoaiTaiKhoan, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_loai_tai_khoan)
-			FROM LoaiTaiKhoan;
-			DBCC CHECKIDENT (LoaiTaiKhoan, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_LoaiTaiKhoan_delete
+--ON dbo.LoaiTaiKhoan
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_loai_tai_khoan) FROM LoaiTaiKhoan) IS NULL
+--		DBCC CHECKIDENT (LoaiTaiKhoan, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_loai_tai_khoan)
+--			FROM LoaiTaiKhoan;
+--			DBCC CHECKIDENT (LoaiTaiKhoan, RESEED, @maxID);
+--		END
 		
-GO
-CREATE TRIGGER TRIG_TaiKhoan_delete
-ON dbo.TaiKhoan
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_tai_khoan) FROM TaiKhoan) IS NULL
-		DBCC CHECKIDENT (TaiKhoan, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_tai_khoan)
-			FROM TaiKhoan;
-			DBCC CHECKIDENT (TaiKhoan, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_TaiKhoan_delete
+--ON dbo.TaiKhoan
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_tai_khoan) FROM TaiKhoan) IS NULL
+--		DBCC CHECKIDENT (TaiKhoan, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_tai_khoan)
+--			FROM TaiKhoan;
+--			DBCC CHECKIDENT (TaiKhoan, RESEED, @maxID);
+--		END
 		
-GO
-CREATE TRIGGER TRIG_LoaiMon_delete
-ON dbo.LoaiMon
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_loai_mon) FROM LoaiMon) IS NULL
-		DBCC CHECKIDENT (LoaiMon, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_loai_mon)
-			FROM LoaiMon;
-			DBCC CHECKIDENT (LoaiMon, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_LoaiMon_delete
+--ON dbo.LoaiMon
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_loai_mon) FROM LoaiMon) IS NULL
+--		DBCC CHECKIDENT (LoaiMon, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_loai_mon)
+--			FROM LoaiMon;
+--			DBCC CHECKIDENT (LoaiMon, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_Mon_delete
-ON dbo.Mon
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_mon) FROM Mon) IS NULL
-		DBCC CHECKIDENT (Mon, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_mon)
-			FROM Mon;
-			DBCC CHECKIDENT (Mon, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_Mon_delete
+--ON dbo.Mon
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_mon) FROM Mon) IS NULL
+--		DBCC CHECKIDENT (Mon, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_mon)
+--			FROM Mon;
+--			DBCC CHECKIDENT (Mon, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_LoaiTopping_delete
-ON dbo.LoaiTopping
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_loai_topping) FROM LoaiTopping) IS NULL
-		DBCC CHECKIDENT (LoaiTopping, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_loai_topping)
-			FROM LoaiTopping;
-			DBCC CHECKIDENT (LoaiTopping, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_LoaiTopping_delete
+--ON dbo.LoaiTopping
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_loai_topping) FROM LoaiTopping) IS NULL
+--		DBCC CHECKIDENT (LoaiTopping, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_loai_topping)
+--			FROM LoaiTopping;
+--			DBCC CHECKIDENT (LoaiTopping, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_Topping_delete
-ON dbo.Topping
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_topping) FROM Topping) IS NULL
-		DBCC CHECKIDENT (Topping, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_topping)
-			FROM Topping;
-			DBCC CHECKIDENT (Topping, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_Topping_delete
+--ON dbo.Topping
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_topping) FROM Topping) IS NULL
+--		DBCC CHECKIDENT (Topping, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_topping)
+--			FROM Topping;
+--			DBCC CHECKIDENT (Topping, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_NhaCungCap_delete
-ON dbo.NhaCungCap
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_nha_cung_cap) FROM NhaCungCap) IS NULL
-		DBCC CHECKIDENT (NhaCungCap, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_nha_cung_cap)
-			FROM NhaCungCap;
-			DBCC CHECKIDENT (NhaCungCap, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_NhaCungCap_delete
+--ON dbo.NhaCungCap
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_nha_cung_cap) FROM NhaCungCap) IS NULL
+--		DBCC CHECKIDENT (NhaCungCap, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_nha_cung_cap)
+--			FROM NhaCungCap;
+--			DBCC CHECKIDENT (NhaCungCap, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_NguyenLieu_delete
-ON dbo.NguyenLieu
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_nguyen_lieu) FROM NguyenLieu) IS NULL
-		DBCC CHECKIDENT (NguyenLieu, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_nguyen_lieu)
-			FROM NguyenLieu;
-			DBCC CHECKIDENT (NguyenLieu, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_NguyenLieu_delete
+--ON dbo.NguyenLieu
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_nguyen_lieu) FROM NguyenLieu) IS NULL
+--		DBCC CHECKIDENT (NguyenLieu, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_nguyen_lieu)
+--			FROM NguyenLieu;
+--			DBCC CHECKIDENT (NguyenLieu, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_HoaDon_delete
-ON dbo.HoaDon
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_hoa_don) FROM HoaDon) IS NULL
-		DBCC CHECKIDENT (HoaDon, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID =  MAX(ma_hoa_don)
-			FROM HoaDon;
-			DBCC CHECKIDENT (HoaDon, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_HoaDon_delete
+--ON dbo.HoaDon
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_hoa_don) FROM HoaDon) IS NULL
+--		DBCC CHECKIDENT (HoaDon, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID =  MAX(ma_hoa_don)
+--			FROM HoaDon;
+--			DBCC CHECKIDENT (HoaDon, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_PhieuNhap_delete
-ON dbo.PhieuNhap
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_phieu_nhap) FROM PhieuNhap) IS NULL
-		DBCC CHECKIDENT (PhieuNhap, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID = MAX(ma_phieu_nhap)
-			FROM PhieuNhap;
-			DBCC CHECKIDENT (PhieuNhap, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_PhieuNhap_delete
+--ON dbo.PhieuNhap
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_phieu_nhap) FROM PhieuNhap) IS NULL
+--		DBCC CHECKIDENT (PhieuNhap, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID = MAX(ma_phieu_nhap)
+--			FROM PhieuNhap;
+--			DBCC CHECKIDENT (PhieuNhap, RESEED, @maxID);
+--		END
 
-GO
-CREATE TRIGGER TRIG_CTHoaDon_delete
-ON dbo.CTHoaDon
-AFTER DELETE
-AS
-	IF (SELECT MAX(ma_cthd) FROM CTHoaDon) IS NULL
-		DBCC CHECKIDENT (CTHoaDon, RESEED, 0);
-	ELSE
-		BEGIN
-			DECLARE @maxID int;
-			SELECT @maxID =  MAX(ma_cthd)
-			FROM CTHoaDon;
-			DBCC CHECKIDENT (CTHoaDon, RESEED, @maxID);
-		END
+--GO
+--CREATE TRIGGER TRIG_CTHoaDon_delete
+--ON dbo.CTHoaDon
+--AFTER DELETE
+--AS
+--	IF (SELECT MAX(ma_cthd) FROM CTHoaDon) IS NULL
+--		DBCC CHECKIDENT (CTHoaDon, RESEED, 0);
+--	ELSE
+--		BEGIN
+--			DECLARE @maxID int;
+--			SELECT @maxID =  MAX(ma_cthd)
+--			FROM CTHoaDon;
+--			DBCC CHECKIDENT (CTHoaDon, RESEED, @maxID);
+--		END
