@@ -252,7 +252,7 @@ namespace QuanLyQuanCF_TS
 
                     if (MonBUS.KiemTraMonLaNuocUong(mon.LoaiMon))
                     {
-                        rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = "Đá: 100%\nĐường: 100%" });
+                        rowMon.Cells.Add(new DataGridViewTextBoxCell { Value = "Đá: 50%\nĐường: 50%" });
                     }
 
                     // Thêm món vào hoá đơn nếu hoá đơn chưa có món nào
