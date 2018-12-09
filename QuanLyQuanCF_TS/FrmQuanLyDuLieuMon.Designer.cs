@@ -36,13 +36,13 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmQuanLyDuLieuMon));
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
             this.tbcQuanLyMon_Topping = new MetroFramework.Controls.MetroTabControl();
             this.tbpLoaiMon = new MetroFramework.Controls.MetroTabPage();
             this.splitContainer1 = new System.Windows.Forms.SplitContainer();
@@ -105,9 +105,15 @@
             this.metroPanel11 = new MetroFramework.Controls.MetroPanel();
             this.metroPanel19 = new MetroFramework.Controls.MetroPanel();
             this.dgvMon = new System.Windows.Forms.DataGridView();
+            this.colMaMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colTenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colLoaiMon = new System.Windows.Forms.DataGridViewComboBoxColumn();
+            this.colGiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
             this.metroPanel25 = new MetroFramework.Controls.MetroPanel();
             this.lnkDSMon = new MetroFramework.Controls.MetroLink();
             this.metroPanel18 = new MetroFramework.Controls.MetroPanel();
+            this.cmbTimKiemTheoLoaiMon = new MetroFramework.Controls.MetroComboBox();
             this.txtTimKiemMon = new MetroFramework.Controls.MetroTextBox();
             this.btnTimKiemMon = new MetroFramework.Controls.MetroButton();
             this.metroPanel15 = new MetroFramework.Controls.MetroPanel();
@@ -142,6 +148,7 @@
             this.colGiaTienTopping = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.colHinhTopping = new System.Windows.Forms.DataGridViewImageColumn();
             this.metroPanel23 = new MetroFramework.Controls.MetroPanel();
+            this.cmbTimKiemTheoLoaiTopping = new MetroFramework.Controls.MetroComboBox();
             this.txtTimKiemTopping = new MetroFramework.Controls.MetroTextBox();
             this.btnTimKiemTopping = new MetroFramework.Controls.MetroButton();
             this.metroPanel20 = new MetroFramework.Controls.MetroPanel();
@@ -167,11 +174,6 @@
             this.metroPanel8 = new MetroFramework.Controls.MetroPanel();
             this.openFileDialog1 = new System.Windows.Forms.OpenFileDialog();
             this.openFileDialog2 = new System.Windows.Forms.OpenFileDialog();
-            this.colMaMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colTenMon = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colLoaiMon = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.colGiaTien = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.colHinh = new System.Windows.Forms.DataGridViewImageColumn();
             this.tbcQuanLyMon_Topping.SuspendLayout();
             this.tbpLoaiMon.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
@@ -1376,6 +1378,54 @@
             this.dgvMon.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvMon_CellFormatting);
             this.dgvMon.RowsAdded += new System.Windows.Forms.DataGridViewRowsAddedEventHandler(this.dgvMon_RowsAdded);
             // 
+            // colMaMon
+            // 
+            this.colMaMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
+            this.colMaMon.DataPropertyName = "MaMon";
+            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.colMaMon.DefaultCellStyle = dataGridViewCellStyle22;
+            this.colMaMon.HeaderText = "Mã món";
+            this.colMaMon.Name = "colMaMon";
+            this.colMaMon.ReadOnly = true;
+            this.colMaMon.Width = 91;
+            // 
+            // colTenMon
+            // 
+            this.colTenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.colTenMon.DataPropertyName = "TenMon";
+            this.colTenMon.HeaderText = "Tên món";
+            this.colTenMon.Name = "colTenMon";
+            this.colTenMon.ReadOnly = true;
+            // 
+            // colLoaiMon
+            // 
+            this.colLoaiMon.DataPropertyName = "LoaiMon";
+            this.colLoaiMon.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
+            this.colLoaiMon.HeaderText = "Loại món";
+            this.colLoaiMon.Name = "colLoaiMon";
+            this.colLoaiMon.ReadOnly = true;
+            // 
+            // colGiaTien
+            // 
+            this.colGiaTien.DataPropertyName = "GiaTien";
+            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
+            dataGridViewCellStyle23.Format = "#,##0đ";
+            this.colGiaTien.DefaultCellStyle = dataGridViewCellStyle23;
+            this.colGiaTien.HeaderText = "Giá";
+            this.colGiaTien.Name = "colGiaTien";
+            this.colGiaTien.ReadOnly = true;
+            // 
+            // colHinh
+            // 
+            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.colHinh.DataPropertyName = "Hinh";
+            this.colHinh.HeaderText = "Hình";
+            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
+            this.colHinh.Name = "colHinh";
+            this.colHinh.ReadOnly = true;
+            this.colHinh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.colHinh.Width = 52;
+            // 
             // metroPanel25
             // 
             this.metroPanel25.Controls.Add(this.lnkDSMon);
@@ -1406,6 +1456,7 @@
             // 
             // metroPanel18
             // 
+            this.metroPanel18.Controls.Add(this.cmbTimKiemTheoLoaiMon);
             this.metroPanel18.Controls.Add(this.txtTimKiemMon);
             this.metroPanel18.Controls.Add(this.btnTimKiemMon);
             this.metroPanel18.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1420,6 +1471,19 @@
             this.metroPanel18.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel18.VerticalScrollbarSize = 10;
             // 
+            // cmbTimKiemTheoLoaiMon
+            // 
+            this.cmbTimKiemTheoLoaiMon.DisplayMember = "TenLoaiMon";
+            this.cmbTimKiemTheoLoaiMon.FormattingEnabled = true;
+            this.cmbTimKiemTheoLoaiMon.ItemHeight = 23;
+            this.cmbTimKiemTheoLoaiMon.Location = new System.Drawing.Point(13, 4);
+            this.cmbTimKiemTheoLoaiMon.Name = "cmbTimKiemTheoLoaiMon";
+            this.cmbTimKiemTheoLoaiMon.Size = new System.Drawing.Size(167, 29);
+            this.cmbTimKiemTheoLoaiMon.TabIndex = 27;
+            this.cmbTimKiemTheoLoaiMon.UseSelectable = true;
+            this.cmbTimKiemTheoLoaiMon.ValueMember = "MaLoaiMon";
+            this.cmbTimKiemTheoLoaiMon.SelectedIndexChanged += new System.EventHandler(this.cmbTimKiemTheoLoaiMon_SelectedIndexChanged);
+            // 
             // txtTimKiemMon
             // 
             this.txtTimKiemMon.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1428,7 +1492,7 @@
             // 
             // 
             this.txtTimKiemMon.CustomButton.Image = null;
-            this.txtTimKiemMon.CustomButton.Location = new System.Drawing.Point(215, 1);
+            this.txtTimKiemMon.CustomButton.Location = new System.Drawing.Point(42, 1);
             this.txtTimKiemMon.CustomButton.Name = "";
             this.txtTimKiemMon.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemMon.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1439,7 +1503,7 @@
             this.txtTimKiemMon.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtTimKiemMon.Lines = new string[] {
         "Tìm kiếm tên món"};
-            this.txtTimKiemMon.Location = new System.Drawing.Point(13, 7);
+            this.txtTimKiemMon.Location = new System.Drawing.Point(186, 7);
             this.txtTimKiemMon.MaxLength = 32767;
             this.txtTimKiemMon.Name = "txtTimKiemMon";
             this.txtTimKiemMon.PasswordChar = '\0';
@@ -1448,7 +1512,7 @@
             this.txtTimKiemMon.SelectionLength = 0;
             this.txtTimKiemMon.SelectionStart = 0;
             this.txtTimKiemMon.ShortcutsEnabled = true;
-            this.txtTimKiemMon.Size = new System.Drawing.Size(237, 23);
+            this.txtTimKiemMon.Size = new System.Drawing.Size(64, 23);
             this.txtTimKiemMon.TabIndex = 3;
             this.txtTimKiemMon.Text = "Tìm kiếm tên món";
             this.txtTimKiemMon.UseSelectable = true;
@@ -1846,8 +1910,8 @@
             // 
             // metroPanel16
             // 
-            this.metroPanel16.Controls.Add(this.metroPanel26);
             this.metroPanel16.Controls.Add(this.metroPanel24);
+            this.metroPanel16.Controls.Add(this.metroPanel26);
             this.metroPanel16.Controls.Add(this.metroPanel23);
             this.metroPanel16.Dock = System.Windows.Forms.DockStyle.Fill;
             this.metroPanel16.HorizontalScrollbarBarColor = true;
@@ -1898,7 +1962,7 @@
             this.metroPanel24.HorizontalScrollbarSize = 10;
             this.metroPanel24.Location = new System.Drawing.Point(0, 39);
             this.metroPanel24.Name = "metroPanel24";
-            this.metroPanel24.Size = new System.Drawing.Size(329, 469);
+            this.metroPanel24.Size = new System.Drawing.Size(329, 430);
             this.metroPanel24.TabIndex = 0;
             this.metroPanel24.VerticalScrollbarBarColor = true;
             this.metroPanel24.VerticalScrollbarHighlightOnWheel = false;
@@ -1942,7 +2006,7 @@
             this.dgvTopping.RowTemplate.DefaultCellStyle.Font = new System.Drawing.Font("Segoe UI", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.dgvTopping.RowTemplate.Height = 35;
             this.dgvTopping.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgvTopping.Size = new System.Drawing.Size(313, 457);
+            this.dgvTopping.Size = new System.Drawing.Size(313, 418);
             this.dgvTopping.TabIndex = 2;
             this.dgvTopping.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTopping_CellClick);
             this.dgvTopping.CellFormatting += new System.Windows.Forms.DataGridViewCellFormattingEventHandler(this.dgvTopping_CellFormatting);
@@ -1995,6 +2059,7 @@
             // 
             // metroPanel23
             // 
+            this.metroPanel23.Controls.Add(this.cmbTimKiemTheoLoaiTopping);
             this.metroPanel23.Controls.Add(this.txtTimKiemTopping);
             this.metroPanel23.Controls.Add(this.btnTimKiemTopping);
             this.metroPanel23.Dock = System.Windows.Forms.DockStyle.Top;
@@ -2009,6 +2074,19 @@
             this.metroPanel23.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel23.VerticalScrollbarSize = 10;
             // 
+            // cmbTimKiemTheoLoaiTopping
+            // 
+            this.cmbTimKiemTheoLoaiTopping.DisplayMember = "TenLoaiTopping";
+            this.cmbTimKiemTheoLoaiTopping.FormattingEnabled = true;
+            this.cmbTimKiemTheoLoaiTopping.ItemHeight = 23;
+            this.cmbTimKiemTheoLoaiTopping.Location = new System.Drawing.Point(13, 4);
+            this.cmbTimKiemTheoLoaiTopping.Name = "cmbTimKiemTheoLoaiTopping";
+            this.cmbTimKiemTheoLoaiTopping.Size = new System.Drawing.Size(167, 29);
+            this.cmbTimKiemTheoLoaiTopping.TabIndex = 28;
+            this.cmbTimKiemTheoLoaiTopping.UseSelectable = true;
+            this.cmbTimKiemTheoLoaiTopping.ValueMember = "MaLoaiTopping";
+            this.cmbTimKiemTheoLoaiTopping.SelectedIndexChanged += new System.EventHandler(this.cmbTimKiemTheoLoaiTopping_SelectedIndexChanged);
+            // 
             // txtTimKiemTopping
             // 
             this.txtTimKiemTopping.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -2017,7 +2095,7 @@
             // 
             // 
             this.txtTimKiemTopping.CustomButton.Image = null;
-            this.txtTimKiemTopping.CustomButton.Location = new System.Drawing.Point(215, 1);
+            this.txtTimKiemTopping.CustomButton.Location = new System.Drawing.Point(42, 1);
             this.txtTimKiemTopping.CustomButton.Name = "";
             this.txtTimKiemTopping.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemTopping.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -2028,7 +2106,7 @@
             this.txtTimKiemTopping.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtTimKiemTopping.Lines = new string[] {
         "Tìm kiếm tên topping"};
-            this.txtTimKiemTopping.Location = new System.Drawing.Point(13, 7);
+            this.txtTimKiemTopping.Location = new System.Drawing.Point(186, 7);
             this.txtTimKiemTopping.MaxLength = 32767;
             this.txtTimKiemTopping.Name = "txtTimKiemTopping";
             this.txtTimKiemTopping.PasswordChar = '\0';
@@ -2037,7 +2115,7 @@
             this.txtTimKiemTopping.SelectionLength = 0;
             this.txtTimKiemTopping.SelectionStart = 0;
             this.txtTimKiemTopping.ShortcutsEnabled = true;
-            this.txtTimKiemTopping.Size = new System.Drawing.Size(237, 23);
+            this.txtTimKiemTopping.Size = new System.Drawing.Size(64, 23);
             this.txtTimKiemTopping.TabIndex = 3;
             this.txtTimKiemTopping.Text = "Tìm kiếm tên topping";
             this.txtTimKiemTopping.UseSelectable = true;
@@ -2430,54 +2508,6 @@
             this.openFileDialog2.Filter = resources.GetString("openFileDialog2.Filter");
             this.openFileDialog2.FileOk += new System.ComponentModel.CancelEventHandler(this.openFileDialog2_FileOk);
             // 
-            // colMaMon
-            // 
-            this.colMaMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
-            this.colMaMon.DataPropertyName = "MaMon";
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.colMaMon.DefaultCellStyle = dataGridViewCellStyle22;
-            this.colMaMon.HeaderText = "Mã món";
-            this.colMaMon.Name = "colMaMon";
-            this.colMaMon.ReadOnly = true;
-            this.colMaMon.Width = 91;
-            // 
-            // colTenMon
-            // 
-            this.colTenMon.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.colTenMon.DataPropertyName = "TenMon";
-            this.colTenMon.HeaderText = "Tên món";
-            this.colTenMon.Name = "colTenMon";
-            this.colTenMon.ReadOnly = true;
-            // 
-            // colLoaiMon
-            // 
-            this.colLoaiMon.DataPropertyName = "LoaiMon";
-            this.colLoaiMon.DisplayStyle = System.Windows.Forms.DataGridViewComboBoxDisplayStyle.Nothing;
-            this.colLoaiMon.HeaderText = "Loại món";
-            this.colLoaiMon.Name = "colLoaiMon";
-            this.colLoaiMon.ReadOnly = true;
-            // 
-            // colGiaTien
-            // 
-            this.colGiaTien.DataPropertyName = "GiaTien";
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleRight;
-            dataGridViewCellStyle23.Format = "#,##0đ";
-            this.colGiaTien.DefaultCellStyle = dataGridViewCellStyle23;
-            this.colGiaTien.HeaderText = "Giá";
-            this.colGiaTien.Name = "colGiaTien";
-            this.colGiaTien.ReadOnly = true;
-            // 
-            // colHinh
-            // 
-            this.colHinh.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.colHinh.DataPropertyName = "Hinh";
-            this.colHinh.HeaderText = "Hình";
-            this.colHinh.ImageLayout = System.Windows.Forms.DataGridViewImageCellLayout.Zoom;
-            this.colHinh.Name = "colHinh";
-            this.colHinh.ReadOnly = true;
-            this.colHinh.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.colHinh.Width = 52;
-            // 
             // FrmQuanLyDuLieuMon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2701,5 +2731,7 @@
         private System.Windows.Forms.DataGridViewComboBoxColumn colLoaiMon;
         private System.Windows.Forms.DataGridViewTextBoxColumn colGiaTien;
         private System.Windows.Forms.DataGridViewImageColumn colHinh;
+        private MetroFramework.Controls.MetroComboBox cmbTimKiemTheoLoaiMon;
+        private MetroFramework.Controls.MetroComboBox cmbTimKiemTheoLoaiTopping;
     }
 }

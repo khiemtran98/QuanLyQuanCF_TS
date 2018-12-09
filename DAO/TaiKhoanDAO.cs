@@ -34,7 +34,7 @@ namespace DAO
             return result is DBNull ? 0 : Convert.ToInt32(result);
         }
 
-        public static List<TaiKhoanDTO> LayDanhSachTaiKhoan(string timKiem, bool trangThai)
+        public static List<TaiKhoanDTO> LayDanhSachTaiKhoan(string timKiem, int maLoaiTaiKhoan, bool trangThai)
         {
             SqlConnection connection = DataProvider.GetConnection();
             string query = "SELECT ma_tai_khoan, ho_ten, ngay_bat_dau, loai_tai_khoan, hinh, TaiKhoan.trang_thai FROM TaiKhoan, LoaiTaiKhoan WHERE TaiKhoan.loai_tai_khoan=LoaiTaiKhoan.ma_loai_tai_khoan";
@@ -43,6 +43,11 @@ namespace DAO
             {
                 query += " AND ho_ten LIKE N'%'+@timKiem+'%'";
                 command.Parameters.Add("@timKiem", System.Data.SqlDbType.NVarChar, 255).Value = timKiem;
+            }
+            if (maLoaiTaiKhoan != 0)
+            {
+                query += " AND loai_tai_khoan=@loaiTaiKhoan";
+                command.Parameters.Add("@loaiTaiKhoan", System.Data.SqlDbType.Int, 0).Value = maLoaiTaiKhoan;
             }
             if (trangThai)
             {
@@ -110,7 +115,7 @@ namespace DAO
         public static TaiKhoanDTO LayThongTinTaiKhoan(int maTaiKhoan)
         {
             SqlConnection connection = DataProvider.GetConnection();
-            string query = "SELECT ho_ten, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai FROM TaiKhoan WHERE ma_tai_khoan=@maTaiKhoan";
+            string query = "SELECT ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai FROM TaiKhoan WHERE ma_tai_khoan=@maTaiKhoan";
             SqlCommand command = new SqlCommand(query, connection);
             command.Parameters.Add("@maTaiKhoan", SqlDbType.Int, 0).Value = maTaiKhoan;
 
@@ -123,13 +128,14 @@ namespace DAO
                 while (reader.Read())
                 {
                     result.HoTen = reader.GetString(0);
-                    result.NgayBatDau = reader.GetDateTime(1);
-                    result.LoaiTaiKhoan = reader.GetInt32(2);
-                    if (!reader.IsDBNull(3))
+                    result.MatKhau = reader.GetString(1);
+                    result.NgayBatDau = reader.GetDateTime(2);
+                    result.LoaiTaiKhoan = reader.GetInt32(3);
+                    if (!reader.IsDBNull(4))
                     {
-                        result.Hinh = reader.GetString(3);
+                        result.Hinh = reader.GetString(4);
                     }
-                    result.TrangThai = reader.GetBoolean(4);
+                    result.TrangThai = reader.GetBoolean(5);
                 }
             }
 

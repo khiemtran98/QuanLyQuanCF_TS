@@ -47,6 +47,7 @@ namespace QuanLyQuanCF_TS
             btnLamMoiLoaiTopping.Style = FrmMain.style;
             btnKhoiPhucLoaiTopping.Style = FrmMain.style;
 
+            cmbTimKiemTheoLoaiMon.Style = FrmMain.style;
             txtTimKiemMon.Style = FrmMain.style;
             btnTimKiemMon.Style = FrmMain.style;
             lnkDSMon.Style = FrmMain.style;
@@ -60,6 +61,7 @@ namespace QuanLyQuanCF_TS
             btnLamMoiMon.Style = FrmMain.style;
             btnKhoiPhucMon.Style = FrmMain.style;
 
+            cmbTimKiemTheoLoaiTopping.Style = FrmMain.style;
             txtTimKiemTopping.Style = FrmMain.style;
             btnTimKiemTopping.Style = FrmMain.style;
             lnkDSTopping.Style = FrmMain.style;
@@ -170,7 +172,7 @@ namespace QuanLyQuanCF_TS
                 }
                 else
                 {
-                    QLTP_LoadDanhSachToppingDaXoa(txtTimKiemTopping.Text);
+                    QLTP_LoadDanhSachToppingDaXoa();
                 }
                 return;
             }
@@ -400,7 +402,8 @@ namespace QuanLyQuanCF_TS
 
         private void LamMoiLoaiMon(bool state = true)
         {
-            txtMaLoaiMon.Text = txtTenLoaiMon.Text = string.Empty;
+            txtMaLoaiMon.Text = LoaiMonBUS.LayMaLoaiMonMoiNhat() + 1 + "";
+            txtTenLoaiMon.Text = string.Empty;
             chkDoUong.Checked = false;
             foreach (Control ctrl in gpbLoaiTopping.Controls)
             {
@@ -617,7 +620,8 @@ namespace QuanLyQuanCF_TS
 
         private void LamMoiLoaiTopping(bool state = true)
         {
-            txtMaLoaiTopping.Text = txtTenLoaiTopping.Text = "";
+            txtMaLoaiTopping.Text = LoaiToppingBUS.LayMaLoaiToppingMoiNhat() + 1 + "";
+            txtTenLoaiTopping.Text = string.Empty;
             btnThemLoaiTopping.Enabled = state;
             btnXoaLoaiTopping.Enabled = !state;
             btnSuaLoaiTopping.Enabled = !state;
@@ -641,9 +645,9 @@ namespace QuanLyQuanCF_TS
 
         // Bắt đầu Khu vực chức năng Quản lý món
 
-        private void QLM_LoadDanhSachMon(string timKiem = "")
+        private void QLM_LoadDanhSachMon(string timKiem = "", int maLoaiMon = 0)
         {
-            List<MonDTO> lsMon = MonBUS.LayDanhSachMon(0, timKiem);
+            List<MonDTO> lsMon = MonBUS.LayDanhSachMon(maLoaiMon, timKiem);
             dgvMon.DataSource = lsMon;
         }
 
@@ -655,12 +659,28 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private string GetTimKiemMon()
+        {
+            if (txtTimKiemMon.Text == "Tìm kiếm tên món")
+            {
+                return "";
+            }
+            return txtTimKiemMon.Text;
+        }
+
         private void QLM_LoadLoaiMon(string timKiem = "")
         {
             List<LoaiMonDTO> lsLoaiMon = LoaiMonBUS.LayDanhSachLoaiMon();
             cmbLoaiMon.DataSource = lsLoaiMon;
             cmbLoaiMon.DisplayMember = "TenLoaiMon";
             cmbLoaiMon.ValueMember = "MaLoaiMon";
+
+            List<LoaiMonDTO> lsLM = LoaiMonBUS.LayDanhSachLoaiMon();
+            LoaiMonDTO lm = new LoaiMonDTO();
+            lm.MaLoaiMon = 0;
+            lm.TenLoaiMon = "Tất cả";
+            lsLM.Insert(0, lm);
+            cmbTimKiemTheoLoaiMon.DataSource = lsLM;
         }
 
         private void txtGiaTienMon_KeyPress(object sender, KeyPressEventArgs e)
@@ -671,9 +691,9 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void QLM_LoadDanhSachMonDaXoa(string timKiem = "")
+        private void QLM_LoadDanhSachMonDaXoa(string timKiem = "", int maLoaiMon = 0)
         {
-            dgvMon.DataSource = MonBUS.LayDanhSachMon(0, timKiem, false);
+            dgvMon.DataSource = MonBUS.LayDanhSachMon(maLoaiMon, timKiem, false);
         }
 
         private void lnkDSMon_Click(object sender, EventArgs e)
@@ -681,7 +701,7 @@ namespace QuanLyQuanCF_TS
             if (lnkDSMon.AccessibleName == "DSMon")
             {
                 lnkDSMon.Text = "Hiện danh sách món đang có";
-                QLM_LoadDanhSachMonDaXoa();
+                QLM_LoadDanhSachMonDaXoa(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
                 lnkDSMon.AccessibleName = "DSMonDaXoa";
                 panelChucNangDSMon.Visible = false;
                 panelChucNangDSMonDaXoa.Visible = true;
@@ -691,7 +711,7 @@ namespace QuanLyQuanCF_TS
             else
             {
                 lnkDSMon.Text = "Hiện danh sách món đã xoá";
-                QLM_LoadDanhSachMon();
+                QLM_LoadDanhSachMon(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
                 lnkDSMon.AccessibleName = "DSMon";
                 panelChucNangDSMon.Visible = true;
                 panelChucNangDSMonDaXoa.Visible = false;
@@ -722,7 +742,8 @@ namespace QuanLyQuanCF_TS
 
         private void LamMoiMon(bool state = true)
         {
-            txtMaMon.Text = txtTenMon.Text = txtGiaTienMon.Text = string.Empty;
+            txtMaMon.Text = MonBUS.LayMaMonMoiNhat() + 1 + "";
+            txtTenMon.Text = txtGiaTienMon.Text = string.Empty;
             cmbLoaiMon.SelectedIndex = 0;
             picHinhMon.Image = Properties.Resources.default_product;
             btnThemMon.Enabled = state;
@@ -769,7 +790,7 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiMon();
-                QLM_LoadDanhSachMon();
+                QLM_LoadDanhSachMon(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
                 dgvMon.ClearSelection();
             }
             else
@@ -787,7 +808,8 @@ namespace QuanLyQuanCF_TS
                 {
                     MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LamMoiMon();
-                    QLM_LoadDanhSachMon();
+
+                    QLM_LoadDanhSachMon(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
                     dgvMon.ClearSelection();
                 }
                 else
@@ -831,7 +853,7 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiMon();
-                QLM_LoadDanhSachMon();
+                QLM_LoadDanhSachMon(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
                 dgvMon.ClearSelection();
             }
             else
@@ -846,7 +868,7 @@ namespace QuanLyQuanCF_TS
             if (MonBUS.KhoiPhucMon(Convert.ToInt32(txtMaMon.Text)))
             {
                 MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                QLM_LoadDanhSachMonDaXoa();
+                QLM_LoadDanhSachMonDaXoa(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
                 LamMoiMon();
                 dgvMon.ClearSelection();
             }
@@ -877,11 +899,11 @@ namespace QuanLyQuanCF_TS
         {
             if (lnkDSMon.AccessibleName == "DSMon")
             {
-                QLM_LoadDanhSachMon(txtTimKiemMon.Text);
+                QLM_LoadDanhSachMon(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
             }
             else
             {
-                QLM_LoadDanhSachMonDaXoa(txtTimKiemMon.Text);
+                QLM_LoadDanhSachMonDaXoa(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
             }
         }
 
@@ -906,15 +928,27 @@ namespace QuanLyQuanCF_TS
             TimKiemMon();
         }
 
+        private void cmbTimKiemTheoLoaiMon_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lnkDSMon.AccessibleName == "DSMon")
+            {
+                QLM_LoadDanhSachMon(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
+            }
+            else
+            {
+                QLM_LoadDanhSachMonDaXoa(GetTimKiemMon(), Convert.ToInt32(cmbTimKiemTheoLoaiMon.SelectedValue));
+            }
+        }
+
         // Kết thúc Khu vực chức năng Quản lý món
 
         // ----------------------------------------------
 
         // Bắt đầu Khu vực chức năng Quản lý topping
 
-        private void QLTP_LoadDanhSachTopping(string timKiem = "")
+        private void QLTP_LoadDanhSachTopping(string timKiem = "", int maLoaiTopping = 0)
         {
-            List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachTopping(0, timKiem);
+            List<ToppingDTO> lsTopping = ToppingBUS.LayDanhSachTopping(maLoaiTopping, timKiem);
             dgvTopping.DataSource = lsTopping;
         }
 
@@ -924,6 +958,22 @@ namespace QuanLyQuanCF_TS
             cmbLoaiTopping.DataSource = lsLoaiTopping;
             cmbLoaiTopping.DisplayMember = "TenLoaiTopping";
             cmbLoaiTopping.ValueMember = "MaLoaiTopping";
+
+            List<LoaiToppingDTO> lsLT = LoaiToppingBUS.LayDanhSachLoaiTopping();
+            LoaiToppingDTO ltp = new LoaiToppingDTO();
+            ltp.MaLoaiTopping = 0;
+            ltp.TenLoaiTopping = "Tất cả";
+            lsLT.Insert(0, ltp);
+            cmbTimKiemTheoLoaiTopping.DataSource = lsLT;
+        }
+
+        private string GetTimKiemTopping()
+        {
+            if (txtTimKiemTopping.Text == "Tìm kiếm tên topping")
+            {
+                return "";
+            }
+            return txtTimKiemTopping.Text;
         }
 
         private void dgvTopping_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
@@ -956,7 +1006,8 @@ namespace QuanLyQuanCF_TS
 
         private void LamMoiTopping(bool state = true)
         {
-            txtMaTopping.Text = txtTenTopping.Text = txtGiaTienTopping.Text = string.Empty;
+            txtMaTopping.Text = ToppingBUS.LayMaToppingMoiNhat() + 1 + "";
+            txtTenTopping.Text = txtGiaTienTopping.Text = string.Empty;
             cmbLoaiTopping.SelectedIndex = 0;
             picHinhTopping.Image = Properties.Resources.default_product;
             btnThemTopping.Enabled = state;
@@ -1015,7 +1066,7 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiTopping();
-                QLTP_LoadDanhSachTopping();
+                QLTP_LoadDanhSachTopping(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
                 dgvTopping.ClearSelection();
             }
             else
@@ -1033,7 +1084,7 @@ namespace QuanLyQuanCF_TS
                 {
                     MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LamMoiTopping();
-                    QLTP_LoadDanhSachTopping();
+                    QLTP_LoadDanhSachTopping(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
                     dgvTopping.ClearSelection();
                 }
                 else
@@ -1077,7 +1128,7 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiTopping();
-                QLTP_LoadDanhSachTopping();
+                QLTP_LoadDanhSachTopping(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
                 dgvTopping.ClearSelection();
             }
             else
@@ -1092,7 +1143,7 @@ namespace QuanLyQuanCF_TS
             if (ToppingBUS.KhoiPhucTopping(Convert.ToInt32(txtMaTopping.Text)))
             {
                 MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                QLTP_LoadDanhSachToppingDaXoa();
+                QLTP_LoadDanhSachToppingDaXoa(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
                 LamMoiTopping();
                 dgvTopping.ClearSelection();
             }
@@ -1102,9 +1153,9 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private void QLTP_LoadDanhSachToppingDaXoa(string timKiem = "")
+        private void QLTP_LoadDanhSachToppingDaXoa(string timKiem = "", int maLoaiTopping = 0)
         {
-            dgvTopping.DataSource = ToppingBUS.LayDanhSachTopping(0, timKiem, false);
+            dgvTopping.DataSource = ToppingBUS.LayDanhSachTopping(maLoaiTopping, timKiem, false);
         }
 
         private void lnkDSTopping_Click(object sender, EventArgs e)
@@ -1112,7 +1163,7 @@ namespace QuanLyQuanCF_TS
             if (lnkDSTopping.AccessibleName == "DSTopping")
             {
                 lnkDSTopping.Text = "Hiện danh sách topping đang có";
-                QLTP_LoadDanhSachToppingDaXoa();
+                QLTP_LoadDanhSachToppingDaXoa(GetTimKiemTopping());
                 lnkDSTopping.AccessibleName = "DSToppingDaXoa";
                 panelChucNangDSTopping.Visible = false;
                 panelChucNangDSToppingDaXoa.Visible = true;
@@ -1122,7 +1173,7 @@ namespace QuanLyQuanCF_TS
             else
             {
                 lnkDSTopping.Text = "Hiện danh sách topping đã xoá";
-                QLTP_LoadDanhSachTopping();
+                QLTP_LoadDanhSachTopping(GetTimKiemTopping());
                 lnkDSTopping.AccessibleName = "DSTopping";
                 panelChucNangDSTopping.Visible = true;
                 panelChucNangDSToppingDaXoa.Visible = false;
@@ -1169,11 +1220,23 @@ namespace QuanLyQuanCF_TS
         {
             if (lnkDSTopping.AccessibleName == "DSTopping")
             {
-                QLTP_LoadDanhSachTopping(txtTimKiemTopping.Text);
+                QLTP_LoadDanhSachTopping(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
             }
             else
             {
-                QLTP_LoadDanhSachToppingDaXoa(txtTimKiemTopping.Text);
+                QLTP_LoadDanhSachToppingDaXoa(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
+            }
+        }
+
+        private void cmbTimKiemTheoLoaiTopping_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (lnkDSTopping.AccessibleName == "DSTopping")
+            {
+                QLTP_LoadDanhSachTopping(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
+            }
+            else
+            {
+                QLTP_LoadDanhSachToppingDaXoa(GetTimKiemTopping(), Convert.ToInt32(cmbTimKiemTheoLoaiTopping.SelectedValue));
             }
         }
 

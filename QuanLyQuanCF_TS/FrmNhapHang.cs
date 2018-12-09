@@ -338,16 +338,30 @@ namespace QuanLyQuanCF_TS
 
         private void btnThemNguyenLieu_Click(object sender, EventArgs e)
         {
-            FrmQuanLyKho frmQuanLyKho = FrmQuanLyKho.Instance;
-            frmQuanLyKho.Resizable = true;
-            frmQuanLyKho.Movable = true;
-            frmQuanLyKho.ControlBox = true;
-            frmQuanLyKho.MaximizeBox = true;
-            frmQuanLyKho.Size = new Size(1250, 650);
-            frmQuanLyKho.FormClosed += FrmQuanLyKho_FormClosed;
+            bool allowAccess = false;
+            List<ChucNang_LoaiTaiKhoanDTO> lsChucNang = ChucNang_LoaiTaiKhoanBUS.LayDanhSachChucNang_LoaiTaiKhoanTheoMaTaiKhoan(TaiKhoanBUS.LayTaiKhoanDangNhap());
+            foreach(ChucNang_LoaiTaiKhoanDTO chucNang in lsChucNang)
+            {
+                if (chucNang.MaChucNang == 3)
+                {
+                    FrmQuanLyKho frmQuanLyKho = FrmQuanLyKho.Instance;
+                    frmQuanLyKho.Resizable = true;
+                    frmQuanLyKho.Movable = true;
+                    frmQuanLyKho.ControlBox = true;
+                    frmQuanLyKho.MaximizeBox = true;
+                    frmQuanLyKho.Size = new Size(1250, 650);
+                    frmQuanLyKho.FormClosed += FrmQuanLyKho_FormClosed;
 
-            ((FrmMain)this.ParentForm).TopMost = false;
-            frmQuanLyKho.ShowDialog();
+                    ((FrmMain)this.ParentForm).TopMost = false;
+                    frmQuanLyKho.ShowDialog();
+
+                    return;
+                }
+            }
+            if (!allowAccess)
+            {
+                MessageBox.Show("Bạn không có quyền truy cập mục này", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
         }
 
         private void btnThemNhaCungCap_Click(object sender, EventArgs e)

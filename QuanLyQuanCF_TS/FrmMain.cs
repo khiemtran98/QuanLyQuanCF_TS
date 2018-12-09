@@ -394,7 +394,7 @@ namespace QuanLyQuanCF_TS
 
             Label lbl = new Label();
             lbl.Dock = DockStyle.Left;
-            lbl.Text = "Tùy chọn";
+            lbl.Text = "Tùy chọn nhanh";
             lbl.ForeColor = Color.CadetBlue;
             lbl.TextAlign = ContentAlignment.MiddleLeft;
             lbl.Font = new Font("SegoeUI", 11, FontStyle.Bold);

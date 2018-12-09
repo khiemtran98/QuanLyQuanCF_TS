@@ -70,7 +70,7 @@
             this.lblPhienBan.Name = "lblPhienBan";
             this.lblPhienBan.Size = new System.Drawing.Size(42, 19);
             this.lblPhienBan.TabIndex = 10;
-            this.lblPhienBan.Text = "v2.8.9";
+            this.lblPhienBan.Text = "v2.9.0";
             // 
             // lblThongTin1
             // 

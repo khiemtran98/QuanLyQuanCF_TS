@@ -9,6 +9,11 @@ namespace BUS
 {
     public static class NguyenLieuBUS
     {
+        public static int LayMaNguyenLieuMoiNhat()
+        {
+            return NguyenLieuDAO.LayMaNguyenLieuMoiNhat();
+        }
+
         public static List<NguyenLieuDTO> LayDanhSachNguyenLieu(string timKiem = "", bool trangThai = true)
         {
             return NguyenLieuDAO.LayDanhSachNguyenLieu(timKiem, trangThai);

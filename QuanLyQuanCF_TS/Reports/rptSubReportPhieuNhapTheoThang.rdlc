@@ -330,7 +330,7 @@
                                 </TextRun>
                               </TextRuns>
                               <Style>
-                                <TextAlign>Center</TextAlign>
+                                <TextAlign>Right</TextAlign>
                               </Style>
                             </Paragraph>
                           </Paragraphs>
@@ -371,7 +371,7 @@
               </TablixMembers>
             </TablixRowHierarchy>
             <DataSetName>DSCHITIETPHIEUNHAP</DataSetName>
-            <Height>1.38521cm</Height>
+            <Height>1.3852cm</Height>
             <Width>12.16958cm</Width>
             <Style>
               <Border>

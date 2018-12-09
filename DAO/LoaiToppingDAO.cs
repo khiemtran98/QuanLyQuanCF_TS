@@ -10,6 +10,19 @@ namespace DAO
 {
     public class LoaiToppingDAO
     {
+        public static int LayMaLoaiToppingMoiNhat()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT MAX(ma_loai_topping) FROM LoaiTopping";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            int result = Convert.ToInt32(command.ExecuteScalar());
+
+            connection.Close();
+            return result;
+        }
+
         public static List<LoaiToppingDTO> LayDanhSachLoaiTopping(string timKiem, bool trangThai)
         {
             SqlConnection connection = DataProvider.GetConnection();

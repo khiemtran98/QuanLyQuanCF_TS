@@ -1,6 +1,6 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.8.9 Last-Pre-Final
+> ## Update 2.9.0: Final
 
 ### # HƯỚNG DẪN CÀI ĐẶT
 
@@ -69,6 +69,8 @@
   - Tuỳ chỉnh màu sắc, chế độ.
 
 ---
+
+> #### Update 2.8.9: Last-Pre-Final
 
 > #### Update 2.8.8: Pre-Final-9
 

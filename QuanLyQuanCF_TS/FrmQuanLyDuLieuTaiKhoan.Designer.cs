@@ -87,6 +87,7 @@
             this.metroPanel4 = new MetroFramework.Controls.MetroPanel();
             this.lnkDSTaiKhoan = new MetroFramework.Controls.MetroLink();
             this.metroPanel6 = new MetroFramework.Controls.MetroPanel();
+            this.cmbTimKiemTheoLoaiTaiKhoan = new MetroFramework.Controls.MetroComboBox();
             this.txtTimKiemTaiKhoan = new MetroFramework.Controls.MetroTextBox();
             this.btnTimKiemTaiKhoan = new MetroFramework.Controls.MetroButton();
             this.metroPanel2 = new MetroFramework.Controls.MetroPanel();
@@ -986,10 +987,11 @@
             this.lnkDSTaiKhoan.TabIndex = 2;
             this.lnkDSTaiKhoan.Text = "Hiện danh sách tài khoản đã xoá";
             this.lnkDSTaiKhoan.UseSelectable = true;
-            this.lnkDSTaiKhoan.Click += new System.EventHandler(this.lnkTaiKhoan_Click);
+            this.lnkDSTaiKhoan.Click += new System.EventHandler(this.lnkDSTaiKhoan_Click);
             // 
             // metroPanel6
             // 
+            this.metroPanel6.Controls.Add(this.cmbTimKiemTheoLoaiTaiKhoan);
             this.metroPanel6.Controls.Add(this.txtTimKiemTaiKhoan);
             this.metroPanel6.Controls.Add(this.btnTimKiemTaiKhoan);
             this.metroPanel6.Dock = System.Windows.Forms.DockStyle.Top;
@@ -1004,6 +1006,19 @@
             this.metroPanel6.VerticalScrollbarHighlightOnWheel = false;
             this.metroPanel6.VerticalScrollbarSize = 10;
             // 
+            // cmbTimKiemTheoLoaiTaiKhoan
+            // 
+            this.cmbTimKiemTheoLoaiTaiKhoan.DisplayMember = "TenLoaiTaiKhoan";
+            this.cmbTimKiemTheoLoaiTaiKhoan.FormattingEnabled = true;
+            this.cmbTimKiemTheoLoaiTaiKhoan.ItemHeight = 23;
+            this.cmbTimKiemTheoLoaiTaiKhoan.Location = new System.Drawing.Point(14, 4);
+            this.cmbTimKiemTheoLoaiTaiKhoan.Name = "cmbTimKiemTheoLoaiTaiKhoan";
+            this.cmbTimKiemTheoLoaiTaiKhoan.Size = new System.Drawing.Size(167, 29);
+            this.cmbTimKiemTheoLoaiTaiKhoan.TabIndex = 22;
+            this.cmbTimKiemTheoLoaiTaiKhoan.UseSelectable = true;
+            this.cmbTimKiemTheoLoaiTaiKhoan.ValueMember = "MaLoaiTaiKhoan";
+            this.cmbTimKiemTheoLoaiTaiKhoan.SelectedIndexChanged += new System.EventHandler(this.cmbTimKiemTheoLoaiTaiKhoan_SelectedIndexChanged);
+            // 
             // txtTimKiemTaiKhoan
             // 
             this.txtTimKiemTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -1012,7 +1027,7 @@
             // 
             // 
             this.txtTimKiemTaiKhoan.CustomButton.Image = null;
-            this.txtTimKiemTaiKhoan.CustomButton.Location = new System.Drawing.Point(203, 1);
+            this.txtTimKiemTaiKhoan.CustomButton.Location = new System.Drawing.Point(30, 1);
             this.txtTimKiemTaiKhoan.CustomButton.Name = "";
             this.txtTimKiemTaiKhoan.CustomButton.Size = new System.Drawing.Size(21, 21);
             this.txtTimKiemTaiKhoan.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
@@ -1023,7 +1038,7 @@
             this.txtTimKiemTaiKhoan.FontSize = MetroFramework.MetroTextBoxSize.Medium;
             this.txtTimKiemTaiKhoan.Lines = new string[] {
         "Tìm kiếm tên tài khoản"};
-            this.txtTimKiemTaiKhoan.Location = new System.Drawing.Point(14, 7);
+            this.txtTimKiemTaiKhoan.Location = new System.Drawing.Point(187, 7);
             this.txtTimKiemTaiKhoan.MaxLength = 32767;
             this.txtTimKiemTaiKhoan.Name = "txtTimKiemTaiKhoan";
             this.txtTimKiemTaiKhoan.PasswordChar = '\0';
@@ -1032,7 +1047,7 @@
             this.txtTimKiemTaiKhoan.SelectionLength = 0;
             this.txtTimKiemTaiKhoan.SelectionStart = 0;
             this.txtTimKiemTaiKhoan.ShortcutsEnabled = true;
-            this.txtTimKiemTaiKhoan.Size = new System.Drawing.Size(225, 23);
+            this.txtTimKiemTaiKhoan.Size = new System.Drawing.Size(52, 23);
             this.txtTimKiemTaiKhoan.TabIndex = 3;
             this.txtTimKiemTaiKhoan.Text = "Tìm kiếm tên tài khoản";
             this.txtTimKiemTaiKhoan.UseSelectable = true;
@@ -1370,7 +1385,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dtpNgayBatDau.Enabled = false;
             this.dtpNgayBatDau.Location = new System.Drawing.Point(130, 162);
-            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(4, 29);
+            this.dtpNgayBatDau.MinimumSize = new System.Drawing.Size(0, 29);
             this.dtpNgayBatDau.Name = "dtpNgayBatDau";
             this.dtpNgayBatDau.Size = new System.Drawing.Size(352, 30);
             this.dtpNgayBatDau.TabIndex = 12;
@@ -1556,5 +1571,6 @@
         private MetroFramework.Controls.MetroLink lnkDSTaiKhoan;
         private MetroFramework.Controls.MetroPanel metroPanel3;
         private MetroFramework.Controls.MetroPanel metroPanel14;
+        private MetroFramework.Controls.MetroComboBox cmbTimKiemTheoLoaiTaiKhoan;
     }
 }

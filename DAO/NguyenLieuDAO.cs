@@ -10,6 +10,19 @@ namespace DAO
 {
     public static class NguyenLieuDAO
     {
+        public static int LayMaNguyenLieuMoiNhat()
+        {
+            SqlConnection connection = DataProvider.GetConnection();
+            string query = "SELECT MAX(ma_nguyen_lieu) FROM NguyenLieu";
+            SqlCommand command = new SqlCommand(query, connection);
+
+            connection.Open();
+            var result = command.ExecuteScalar();
+            connection.Close();
+
+            return result is DBNull ? 0 : Convert.ToInt32(result);
+        }
+
         public static List<NguyenLieuDTO> LayDanhSachNguyenLieu(string timKiem, bool trangThai)
         {
             SqlConnection connection = DataProvider.GetConnection();

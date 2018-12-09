@@ -389,7 +389,7 @@
             this.lblCP_MoTa.Name = "lblCP_MoTa";
             this.lblCP_MoTa.Size = new System.Drawing.Size(752, 40);
             this.lblCP_MoTa.TabIndex = 2;
-            this.lblCP_MoTa.Text = "Dữ liệu thống kê doanh thu trong năm ";
+            this.lblCP_MoTa.Text = "Dữ liệu thống kê chi phí trong năm ";
             this.lblCP_MoTa.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // metroPanel8

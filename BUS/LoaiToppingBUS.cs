@@ -10,6 +10,11 @@ namespace BUS
 {
     public static class LoaiToppingBUS
     {
+        public static int LayMaLoaiToppingMoiNhat()
+        {
+            return LoaiToppingDAO.LayMaLoaiToppingMoiNhat();
+        }
+
         public static List<LoaiToppingDTO> LayDanhSachLoaiTopping(string timKiem = "", bool trangThai = true)
         {
             return LoaiToppingDAO.LayDanhSachLoaiTopping(timKiem, trangThai);

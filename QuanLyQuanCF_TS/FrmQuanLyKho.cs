@@ -129,7 +129,7 @@ namespace QuanLyQuanCF_TS
             if (lnkDSNguyenLieu.AccessibleName == "DSNguyenLieu")
             {
                 lnkDSNguyenLieu.Text = "Hiện danh sách nguyên liệu đang có";
-                NL_LoadDanhSachNguyenLieuDaXoa();
+                NL_LoadDanhSachNguyenLieuDaXoa(GetTimKiemNguyenLieu());
                 lnkDSNguyenLieu.AccessibleName = "DSNguyenLieuDaXoa";
                 panelChucNangDSNguyenLieu.Visible = false;
                 panelChucNangDSNguyenLieuDaXoa.Visible = true;
@@ -139,7 +139,7 @@ namespace QuanLyQuanCF_TS
             else
             {
                 lnkDSNguyenLieu.Text = "Hiện danh sách nguyên liệu đã xoá";
-                NL_LoadDanhSachNguyenLieu();
+                NL_LoadDanhSachNguyenLieu(GetTimKiemNguyenLieu());
                 lnkDSNguyenLieu.AccessibleName = "DSNguyenLieu";
                 panelChucNangDSNguyenLieu.Visible = true;
                 panelChucNangDSNguyenLieuDaXoa.Visible = false;
@@ -150,7 +150,8 @@ namespace QuanLyQuanCF_TS
 
         private void LamMoiNguyenLieu(bool state = true)
         {
-            txtMaNguyenLieu.Text = txtTenNguyenLieu.Text = txtSoLuong.Text = txtDonViTinh.Text = string.Empty;
+            txtMaNguyenLieu.Text = NguyenLieuBUS.LayMaNguyenLieuMoiNhat() + 1 + "";
+            txtTenNguyenLieu.Text = txtSoLuong.Text = txtDonViTinh.Text = string.Empty;
             btnThemNguyenLieu.Enabled = state;
             btnXoaNguyenLieu.Enabled = !state;
             btnSuaNguyenLieu.Enabled = !state;
@@ -181,7 +182,7 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Thêm thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiNguyenLieu();
-                NL_LoadDanhSachNguyenLieu();
+                NL_LoadDanhSachNguyenLieu(GetTimKiemNguyenLieu());
                 dgvNguyenLieu.ClearSelection();
             }
             else
@@ -199,7 +200,7 @@ namespace QuanLyQuanCF_TS
                 {
                     MessageBox.Show("Xoá thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     LamMoiNguyenLieu();
-                    NL_LoadDanhSachNguyenLieu();
+                    NL_LoadDanhSachNguyenLieu(GetTimKiemNguyenLieu());
                     dgvNguyenLieu.ClearSelection();
                 }
                 else
@@ -228,7 +229,7 @@ namespace QuanLyQuanCF_TS
             {
                 MessageBox.Show("Sửa thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 LamMoiNguyenLieu();
-                NL_LoadDanhSachNguyenLieu();
+                NL_LoadDanhSachNguyenLieu(GetTimKiemNguyenLieu());
                 dgvNguyenLieu.ClearSelection();
             }
             else
@@ -248,7 +249,7 @@ namespace QuanLyQuanCF_TS
             if (NguyenLieuBUS.KhoiPhucNguyenLieu(Convert.ToInt32(txtMaNguyenLieu.Text)))
             {
                 MessageBox.Show("Khôi phục thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                NL_LoadDanhSachNguyenLieuDaXoa();
+                NL_LoadDanhSachNguyenLieuDaXoa(GetTimKiemNguyenLieu());
                 LamMoiNguyenLieu();
                 dgvNguyenLieu.ClearSelection();
             }
@@ -274,15 +275,24 @@ namespace QuanLyQuanCF_TS
             }
         }
 
+        private string GetTimKiemNguyenLieu()
+        {
+            if (txtTimKiemNguyenLieu.Text == "Tìm kiếm tên nguyên liệu")
+            {
+                return "";
+            }
+            return txtTimKiemNguyenLieu.Text;
+        }
+
         private void TimKiemNguyenLieu()
         {
             if (lnkDSNguyenLieu.AccessibleName == "DSNguyenLieu")
             {
-                NL_LoadDanhSachNguyenLieu(txtTimKiemNguyenLieu.Text);
+                NL_LoadDanhSachNguyenLieu(GetTimKiemNguyenLieu());
             }
             else
             {
-                NL_LoadDanhSachNguyenLieuDaXoa(txtTimKiemNguyenLieu.Text);
+                NL_LoadDanhSachNguyenLieuDaXoa(GetTimKiemNguyenLieu());
             }
         }
 

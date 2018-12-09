@@ -14,11 +14,11 @@ namespace DAO
         {
             SqlConnection connection = DataProvider.GetConnection();
 
-            string query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien, hinh, trang_thai FROM Topping WHERE 1=1";
+            string query = "SELECT ma_topping, ten_topping, loai_topping, gia_tien, hinh, Topping.trang_thai FROM Topping, LoaiTopping WHERE LoaiTopping.ma_loai_topping=Topping.loai_topping";
             SqlCommand command = new SqlCommand();
             if (maLoaiTopping != 0)
             {
-                query += " AND loai_topping=@MaLoaiTopping";
+                query += " AND Topping.loai_topping=@MaLoaiTopping";
                 command.Parameters.Add("@MaLoaiTopping", System.Data.SqlDbType.Int, 0).Value = maLoaiTopping;
             }
             if (timKiem != "")
@@ -28,11 +28,11 @@ namespace DAO
             }
             if (trangThai)
             {
-                query += " AND trang_thai=1";
+                query += " AND Topping.trang_thai=1 AND LoaiTopping.trang_thai=1";
             }
             else
             {
-                query += " AND trang_thai=0";
+                query += " AND Topping.trang_thai=0 AND LoaiTopping.trang_thai=1";
             }
             command.CommandText = query;
             command.Connection = connection;

@@ -41,24 +41,24 @@ namespace QuanLyQuanCF_TS
             }
         }
 
-        private string MaHoaMatKhau(string matKhau)
-        {
-            MD5 mh = MD5.Create();
-            byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhau);
-            byte[] hash = mh.ComputeHash(inputBytes);
-            StringBuilder sb = new StringBuilder();
+        //private string MaHoaMatKhau(string matKhau)
+        //{
+        //    MD5 mh = MD5.Create();
+        //    byte[] inputBytes = System.Text.Encoding.ASCII.GetBytes(matKhau);
+        //    byte[] hash = mh.ComputeHash(inputBytes);
+        //    StringBuilder sb = new StringBuilder();
 
-            for (int i = 0; i < hash.Length; i++)
-            {
-                sb.Append(hash[i].ToString("x2"));
-            }
+        //    for (int i = 0; i < hash.Length; i++)
+        //    {
+        //        sb.Append(hash[i].ToString("x2"));
+        //    }
 
-            return sb.ToString();
-        }
+        //    return sb.ToString();
+        //}
 
         private void KiemTraDangNhap()
         {
-            if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, MaHoaMatKhau(txtMatKhau.Text)))
+            if (TaiKhoanBUS.KiemTraDangNhap((int)cmbTaiKhoan.SelectedValue, /*MaHoaMatKhau*/(txtMatKhau.Text)))
             {
                 ((FrmMain)this.ParentForm).XuLyDangNhapThanhCong((int)cmbTaiKhoan.SelectedValue);
                 this.Close();
