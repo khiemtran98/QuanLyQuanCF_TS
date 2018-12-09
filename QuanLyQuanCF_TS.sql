@@ -174,7 +174,7 @@ INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Admin
 --INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Cashier', 1)
 --INSERT [dbo].[LoaiTaiKhoan] ([ten_loai_tai_khoan], [trang_thai]) VALUES (N'Accountant', 1)
 
-INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'admin', '202cb962ac59075b964b07152d234b70', '1/1/2018', 1, 'default-account.png' ,1)
+INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'admin', '123', '1/1/2018', 1, 'default-account.png' ,1)
 --INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'manager', '202cb962ac59075b964b07152d234b70', '1/1/2018', 2, 'default-account.png' ,1)
 --INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc1', 'd41d8cd98f00b204e9800998ecf8427e', '1/1/2018', 3, 'default-account.png' ,1)
 --INSERT [dbo].[TaiKhoan] (ho_ten, mat_khau, ngay_bat_dau, loai_tai_khoan, hinh, trang_thai) VALUES (N'acc2', 'd41d8cd98f00b204e9800998ecf8427e', '1/1/2018', 4, 'default-account.png' ,1)
