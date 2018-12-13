@@ -1,6 +1,6 @@
 # Đồ án môn học Lập trình Windows nâng cao
 
-> ## Update 2.9.0: Final
+> ## Update 2.9.1: Thay đổi giao diện đăng nhập
 
 ### # HƯỚNG DẪN CÀI ĐẶT
 
@@ -69,6 +69,8 @@
   - Tuỳ chỉnh màu sắc, chế độ.
 
 ---
+
+> #### Update 2.9.0: Final
 
 > #### Update 2.8.9: Last-Pre-Final
 

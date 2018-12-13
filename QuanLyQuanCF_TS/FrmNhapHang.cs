@@ -179,7 +179,7 @@ namespace QuanLyQuanCF_TS
 
         private void btnThem_Click(object sender, EventArgs e)
         {
-            if (txtSoLuong.Text == "")
+            if (txtSoLuong.Text == "" || Convert.ToInt32(txtSoLuong.Text) == 0)
             {
                 MessageBox.Show("Bạn chưa nhập số lượng!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;

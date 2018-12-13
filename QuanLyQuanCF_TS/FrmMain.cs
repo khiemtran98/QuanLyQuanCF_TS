@@ -55,7 +55,7 @@ namespace QuanLyQuanCF_TS
 
             panelTaiKhoan.Visible = false;
             this.WindowState = FormWindowState.Normal;
-            this.Size = new Size(800, 458);
+            this.Size = new Size(853, 650);
 
             FrmDangNhap m_frmDangNhap = FrmDangNhap.Instance;
             m_frmDangNhap.MdiParent = this;
@@ -181,7 +181,7 @@ namespace QuanLyQuanCF_TS
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
             //if (DialogResult.No == MessageBox.Show("Bạn có muốn thoát chương trình?", "Thông báo", MessageBoxButtons.YesNo, MessageBoxIcon.Question))
-            if (DialogResult.No == MetroMessageBox.Show(this, "Bạn có muốn thoát chương trình?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Question, 120))
+            if (DialogResult.No == MetroMessageBox.Show(this, "Bạn có muốn thoát chương trình?", "Thoát chương trình", MessageBoxButtons.YesNo, MessageBoxIcon.Information, 120))
             {
                 e.Cancel = true;
             }

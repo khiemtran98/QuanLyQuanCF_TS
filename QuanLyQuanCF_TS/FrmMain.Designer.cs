@@ -343,7 +343,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mThongKeDoanhSo.Location = new System.Drawing.Point(6, 6);
             this.mThongKeDoanhSo.Name = "mThongKeDoanhSo";
-            this.mThongKeDoanhSo.Size = new System.Drawing.Size(611, 158);
+            this.mThongKeDoanhSo.Size = new System.Drawing.Size(608, 158);
             this.mThongKeDoanhSo.Style = MetroFramework.MetroColorStyle.Green;
             this.mThongKeDoanhSo.TabIndex = 11;
             this.mThongKeDoanhSo.Text = "Thống kê doanh số";
@@ -452,7 +452,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.mThongKeNhapHang.Location = new System.Drawing.Point(6, 17);
             this.mThongKeNhapHang.Name = "mThongKeNhapHang";
-            this.mThongKeNhapHang.Size = new System.Drawing.Size(301, 147);
+            this.mThongKeNhapHang.Size = new System.Drawing.Size(298, 147);
             this.mThongKeNhapHang.Style = MetroFramework.MetroColorStyle.Green;
             this.mThongKeNhapHang.TabIndex = 13;
             this.mThongKeNhapHang.Text = "Thống kê nhập hàng";
